@@ -19,4 +19,5 @@ class Blog < ActiveRecord::Base
     class_name: "User",
     foreign_key: :owner_id,
     inverse_of: :blog
+  has_many :posts, inverse_of: :blog, dependent: :destroy
 end

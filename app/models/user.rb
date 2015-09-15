@@ -24,11 +24,17 @@ class User < ActiveRecord::Base
     foreign_key: :owner_id,
     inverse_of: :owner,
     dependent: :destroy
+  has_many :posts,
+    class_name: "Post",
+    foreign_key: :author_id,
+    inverse_of: :author,
+    dependent: :destroy
 
   attr_reader :password
 
   after_initialize {
     self.activation_token = generate_activation_token
+    # self.avatar_url = 
   }
 
   def self.find_by_credential(email, password)

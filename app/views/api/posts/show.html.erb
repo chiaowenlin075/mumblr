@@ -1,0 +1,15 @@
+<article class="post-show">
+  <% if @post.post_type == "text" %>
+    <h4><%= @post.title %></h4>
+    <p><%= @post.body %></p>
+  <% elsif @post.post_type == "image" %>
+    <img src="<%= @post.image_url %>">
+    <p><%= @post.body %></p>
+  <% elsif @post.post_type == "quote" %>
+    <h4><i class="fa fa-quote-left"></i><%= @post.body %><i class="fa fa-quote-right"></i></h4>
+    <p>-- <%= @post.title %></p>
+  <% else %>
+    <a href="<%= @post.link_url %>"><%= @post.title %></a>
+    <p><%= @post.body %></p>
+  <% end %>
+</article>

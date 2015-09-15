@@ -17,11 +17,16 @@ column name | data type | details
 id          | integer   | not null, primary key
 author_id   | integer   | not null, foreign key (references users)
 blog_id     | integer   | not null, foreign key (references blogs)
-title       | string    | not null
+post_type   | string    | not null
+title       | string    |
 body        | string    |
 image_url   | string    |
 link_url    | string    |
-like_count  | integer   | not null, default: 0
+
+
+#### For image: has image_url/body(optional)
+#### For quote: has body(as quote body)/title(as who said the quote)
+#### For link: has link_url/title/body(optional)
 
 ## followings
 column name | data type | details
