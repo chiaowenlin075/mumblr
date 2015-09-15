@@ -6,7 +6,11 @@ window.Mumblr = {
   initialize: function(options) {
     this.CurrentUser = new Mumblr.Models.CurrentUser();
     this.CurrentUser.fetch();
-    this.$rootEl = $("#main");
+
+    var router = new Mumblr.Routers.Router({
+      $rootEl: $("#main")
+    });
+    Backbone.history.start();
   }
 };
 

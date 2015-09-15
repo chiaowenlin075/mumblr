@@ -4,7 +4,7 @@ Mumblr.Views.PostShow = Backbone.View.extend({
   tagName: "li",
 
   initialize: function(){
-    this.listenTo(this.model, "remove change", this.render);
+    this.listenTo(this.model, "remove change destroy", this.render);
   },
 
   render: function(){
@@ -12,8 +12,9 @@ Mumblr.Views.PostShow = Backbone.View.extend({
       post: this.model,
       user: this.model.author()
     });
+
     this.$el.html(content);
     return this;
   }
-  
+
 });

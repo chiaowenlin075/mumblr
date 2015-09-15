@@ -1,11 +1,9 @@
-Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
+Mumblr.Views.BlogMain = Backbone.CompositeView.extend({
 
-  template: JST['blogs/blog_show'],
+  template: JST['blogs/blog_main'],
 
   initialize: function(){
     this.listenTo(this.model, "sync", this.render);
-    // this.listenTo(this.model.posts(), "add", this.addPost);
-    // // this.model.posts().
   },
 
   render: function(){
