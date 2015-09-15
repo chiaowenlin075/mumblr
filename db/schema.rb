@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150915032100) do
     t.string   "title",          null: false
     t.integer  "owner_id",       null: false
     t.text     "description"
-    t.string   "avatar_url"
     t.string   "url"
     t.string   "background_url"
     t.datetime "created_at",     null: false
@@ -58,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150915032100) do
     t.string   "email",                            null: false
     t.string   "password_digest",                  null: false
     t.string   "username",                         null: false
+    t.string   "avatar_url"
     t.boolean  "activated",        default: false, null: false
     t.string   "activation_token",                 null: false
     t.datetime "created_at",                       null: false

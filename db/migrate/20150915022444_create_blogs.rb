@@ -4,7 +4,6 @@ class CreateBlogs < ActiveRecord::Migration
       t.string :title, null: false
       t.integer :owner_id, null: false
       t.text :description
-      t.string :avatar_url
       t.string :url
       t.string :background_url
       t.timestamps null: false

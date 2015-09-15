@@ -9,6 +9,7 @@ module Api
 
     def create
       @post = current_user.posts.new(post_params)
+      @post_type = params[:post_type]
 
       if @post.save
         render :show
@@ -19,12 +20,19 @@ module Api
     end
 
     def index
-
-      # all posts in the same blog
+      # all posts in the same blog (your posts)
+      @posts = current_user.posts #.includes(:likes, :comments, :tags)
     end
 
     def feed
       # all posts from you/subscirbed blogs
+      # @followed_blogs = current_user.followed_blogs
+
+      # @posts = feed(params[:limit], params[:time_stone])
+    end
+
+    def show
+      @post = Post.find(params[:id])
     end
 
     def update

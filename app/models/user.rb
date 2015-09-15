@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
   after_initialize {
     self.activation_token = generate_activation_token
-    # self.avatar_url = 
+    # self.avatar_url =
   }
 
   def self.find_by_credential(email, password)
@@ -55,5 +55,16 @@ class User < ActiveRecord::Base
       code = SecureRandom::urlsafe_base64(20)
       return code unless self.class.exists?(activation_token: code)
     end
+  end
+
+  def feed(limit, time_stone)
+    # SELECT owned_posts AS owned_posts, followed_posts AS followed_posts
+    # FROM posts AS owned_posts
+    # JOIN users ON owned_posts.author_id = users.id
+    # JOIN follows ON follows.follower_id = users.id
+    # JOIN blogs ON followed_blog_id = blogs.id
+    # JOIN posts AS followed_posts ON posts.blog_id = blogs.id
+    # WHERE users.id = current_user.id AND posts's created at > given time
+    # LIMIT limit_time
   end
 end

@@ -28,4 +28,5 @@ class Post < ActiveRecord::Base
   def link_title
 
   end
+
 end

@@ -1,5 +1,7 @@
+<img src="<%= current_user.avatar_url %>">
+<b><%= current_user.username %></b>
 <form action="<%= api_blog_posts_url %>" method="post">
-  <input type="hidden" name="post[blog_id]" value="<%= blog.id %>">
+  <input type="hidden" name="post[blog_id]" value="<%= params[:blog_id] %>">
   <input type="hidden" name="post[post_type]" value="<%= post_type %>">
 
   <% if post_type == "text" %>
