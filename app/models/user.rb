@@ -19,6 +19,11 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   has_many :sessions, inverse_of: :user, dependent: :destroy
+  has_one :blog,
+    class_name: "Blog",
+    foreign_key: :owner_id,
+    inverse_of: :owner,
+    dependent: :destroy
 
   attr_reader :password
 
