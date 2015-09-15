@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def current_user
     return unless current_session
-    @user ||= User.find(current_session.user_id)
+    @user ||= User.includes(:blog, :posts).find(current_session.user_id)
   end
 
   def current_session

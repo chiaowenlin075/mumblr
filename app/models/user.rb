@@ -67,4 +67,8 @@ class User < ActiveRecord::Base
     # WHERE users.id = current_user.id AND posts's created at > given time
     # LIMIT limit_time
   end
+
+  def recent_tags
+    # sql find recent tags limit (10)
+  end
 end

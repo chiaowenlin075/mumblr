@@ -6,6 +6,8 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "dashboard": "dashboard",
+    "posts": "posts",
+    "followers": "follower",
     "blog/:id": "blog"
   },
 
@@ -13,15 +15,16 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     // var newView = new Mumblr.Views.Dashboard({ collection: })
   },
 
-  blog: function(id){
-    var blog = new Mumblr.Models.Blog({ id: id });
-    blog.fetch({
-      success: function(model){
-        var contentView = new Mumblr.Views.BlogMain({ model: blog });
-        this._swapView(".main-content", contentView);
-      }.bind(this)
-    });
-    // debugger
+  posts: function(){
+    var contentView = new Mumblr.Views.CurrentUserBlog();
+    this._swapView(".main-content", contentView);
+
+    var blogInfo = new Mumblr.Views.BlogInfo();
+    this._swapView(".main-sidebar", blogInfo);
+  },
+
+  followers: function(){
+
   },
 
   userEdit: function(){

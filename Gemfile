@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 gem 'filepicker-rails'
-gem 'friendly_id' 
+gem 'friendly_id'
 gem 'figaro'
 gem 'font-awesome-rails'
 gem 'newrelic_rpm'
@@ -28,4 +28,8 @@ group :development, :test do
   gem 'spring'
   gem 'web-console', '~> 2.0'
   gem 'letter_opener'
+end
+
+group :production do
+  gem 'rails_12factor'
 end

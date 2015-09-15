@@ -1,6 +1,6 @@
 Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
   template: JST['posts/index'],
-  className: "posts",
+  className: "posts-index",
 
   initialize: function(){
     this.listenTo(this.collection, "add remove", this.addPost);

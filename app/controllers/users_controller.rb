@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   end
 
   def current_user_show
-    render :current_user
+    render :current_user_show
   end
 
   def update

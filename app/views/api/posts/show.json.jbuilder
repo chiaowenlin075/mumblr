@@ -1,1 +1,1 @@
-json.partial!("post", post: @post, need_author: true)
+json.partial!("post", post: @post)
