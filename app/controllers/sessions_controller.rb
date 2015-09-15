@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+  def new
+    @user = User.new
+  end
+
   def create
     @user = User.find_by_credential(*session_params)
 
@@ -7,13 +11,14 @@ class SessionsController < ApplicationController
       login_user!(@user)
       redirect_to root_url
     else
-      render json: @user.errors.full_messages, status: 422
+      flash[:notice] = "Invalid email and password combination!"
+      render :new
+      # render json: @user.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @session = Session.find(params[:id])
-    @session.destroy!
+    current_session.destroy!
     redirect_to root_url
   end
 

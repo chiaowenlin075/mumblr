@@ -1,0 +1,21 @@
+<h1>Mumblr</h1>
+<p>Mumbling with us now!</p>
+<form action="<%= user_url %>" method="post">
+
+  <label for="user_email">Email</label>
+  <input type="text"
+         name="user[email]"
+         id="user_email"
+         value="<%= @user.email %>">
+  <label for="user_password">Password</label>
+  <input type="password"
+         name="user[password]"
+         id="user_password">
+  <label for="user_username">Username</label>
+  <input type="text"
+         name="user[username]"
+         id="user_username"
+         value="<%= @user.username %>">
+
+  <button>Sign Up</button>
+</form>

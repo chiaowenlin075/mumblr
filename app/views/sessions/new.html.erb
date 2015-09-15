@@ -1,0 +1,15 @@
+<h1>Mumblr</h1>
+<p>Welcome back!</p>
+<form action="<%= session_url %>" method="post">
+
+  <label for="user_email">Email</label>
+  <input type="text"
+         name="user[email]"
+         id="user_email">
+  <label for="user_password">Password</label>
+  <input type="password"
+         name="user[password]"
+         id="user_password">
+
+  <button>Sign In</button>
+</form>

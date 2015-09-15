@@ -1,4 +1,10 @@
-class Api::UsersController < ApplicationController
+class UsersController < ApplicationController
+
+  def new
+    @user = User.new
+    render :new
+  end
+
   def create
     @user = User.new(user_params)
 
@@ -6,7 +12,9 @@ class Api::UsersController < ApplicationController
       login_user!(@user)
       redirect_to root_url
     else
-      render json: @user.errors.full_messages, status: 422
+      flash[:notice] = @user.errors.full_messages.join(", ")
+      render :new
+      # json: @user.errors.full_messages, status: 422
     end
   end
 
@@ -25,6 +33,6 @@ class Api::UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:email, :password)
+    params.require(:user).permit(:email, :password, :username)
   end
 end
