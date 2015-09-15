@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
     if @user.save
       login_user!(@user)
+      @blog = Blog.create!(owner_id: @user.id)
+
       redirect_to root_url
     else
       render :new
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
     if current_user.update(user_params)
       redirect_to root_url
     else
-      render json: current_user.errors.full_messages, status: 422
+      render :edit
     end
   end
 

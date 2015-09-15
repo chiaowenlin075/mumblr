@@ -14,25 +14,26 @@ module Api
       if @post.save
         render :show
       else
-        render :new
-        # render json: @post.errors.full_messages, status: 422
+        render json: @post.errors.full_messages, status: 422
       end
     end
 
-    def index
-      # all posts in the same blog (your posts)
-      @posts = current_user.posts #.includes(:likes, :comments, :tags)
-    end
+    # might not need Posts#index, Blogs#show will handle all the posts
+    # def index
+    #   # all posts in the same blog (your posts)
+    #   @posts = current_user.posts #.includes(:likes, :comments, :tags)
+    # end
 
-    def feed
+    # def feed
       # all posts from you/subscirbed blogs
       # @followed_blogs = current_user.followed_blogs
 
       # @posts = feed(params[:limit], params[:time_stone])
-    end
+    # end
 
     def show
-      @post = Post.find(params[:id])
+      @post = Post.find(params[:id]) #.includes(:likes, :comments, :tags)
+      render :show
     end
 
     def update
@@ -42,7 +43,7 @@ module Api
       if @post.update(post_params)
         render :show
       else
-        render text: "Something went wrong!"
+        render json: @post.errors.full_messages, status: 422
       end
     end
 
@@ -50,7 +51,7 @@ module Api
       @post = Post.find(params[:id])
       return unless @post.author_id == current_user.id
       @post.destroy!
-      redirect_to api_blog_url(@post.blog_id)
+      render json: {}
     end
 
     private
