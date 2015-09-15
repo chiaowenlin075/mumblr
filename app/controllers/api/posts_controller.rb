@@ -32,13 +32,13 @@ module Api
     # end
 
     def show
-      @post = Post.find(params[:id]) #.includes(:likes, :comments, :tags)
+      @post = Post.includes(:author).find(params[:id]) #.includes(:likes, :comments, :tags)
       render :show
     end
 
     def update
       @post = Post.find(params[:id])
-      return unless @post.author_id == current_user.id
+      return unless is_author?(@post)
 
       if @post.update(post_params)
         render :show
@@ -49,7 +49,7 @@ module Api
 
     def destroy
       @post = Post.find(params[:id])
-      return unless @post.author_id == current_user.id
+      return unless is_author?(@post)
       @post.destroy!
       render json: {}
     end
@@ -59,6 +59,10 @@ module Api
       params.require(:post).permit(
         :blog_id, :post_type, :title, :body, :image_url, :link_url
       )
+    end
+
+    def is_author?(post)
+      post.author_id == current_user.id
     end
   end
 end

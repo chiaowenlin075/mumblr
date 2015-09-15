@@ -14,13 +14,13 @@ module Api
     end
 
     def show
-      @blog = Blog.includes(:posts).find(params[:id]) #, :likes, :comments, :tags))
+      @blog = Blog.includes(:owner, :posts).find(params[:id]) #, :likes, :comments, :tags))
       render "show"
     end
 
     def update
       @blog = Blog.find(params[:id])
-      return unless @blog.owner_id == current_user.id
+      return unless is_owner?(@blog)
 
       if @blog.update(blog_params)
         render "show"
@@ -30,8 +30,8 @@ module Api
     end
 
     def destroy
-      @blog = Blog.find()
-      return unless @blog.owner_id == current_user.id
+      @blog = Blog.find(params[:id])
+      return unless is_owner?(@blog)
       @blog.destroy!
       redirect_to root_url
     end
@@ -39,6 +39,10 @@ module Api
     private
     def blog_params
       params.require(:blog).premit(:title, :description, :url, :background_url)
+    end
+
+    def is_owner?(blog)
+      blog.owner_id == current_user.id
     end
   end
 end

@@ -4,6 +4,8 @@ window.Mumblr = {
   Views: {},
   Routers: {},
   initialize: function(options) {
+    this.CurrentUser = new Mumblr.Models.CurrentUser();
+    this.CurrentUser.fetch();
     this.$rootEl = $("#main");
   }
 };
