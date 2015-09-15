@@ -6,7 +6,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username, null: false
       t.boolean :activated, null: false, default: false
       t.string  :activation_token, null: false
-      t.string :avatar_url
       t.timestamps null: false
     end
 

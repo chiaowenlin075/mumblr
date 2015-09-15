@@ -4,6 +4,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :author_id, null: false
       t.integer :blog_id, null: false
       t.string :post_type, null: false
+      t.integer :num_likes, default: 0, null: false
       t.string :title
       t.text :body
       t.string :image_url

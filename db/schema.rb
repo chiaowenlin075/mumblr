@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20150915032100) do
     t.string   "title",          null: false
     t.integer  "owner_id",       null: false
     t.text     "description"
+    t.string   "avatar_url"
     t.string   "url"
     t.string   "background_url"
     t.datetime "created_at",     null: false
@@ -29,15 +30,16 @@ ActiveRecord::Schema.define(version: 20150915032100) do
   add_index "blogs", ["owner_id"], name: "index_blogs_on_owner_id", unique: true, using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "author_id",  null: false
-    t.integer  "blog_id",    null: false
-    t.string   "post_type",  null: false
+    t.integer  "author_id",              null: false
+    t.integer  "blog_id",                null: false
+    t.string   "post_type",              null: false
+    t.integer  "num_likes",  default: 0, null: false
     t.string   "title"
     t.text     "body"
     t.string   "image_url"
     t.string   "link_url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "posts", ["author_id"], name: "index_posts_on_author_id", using: :btree
@@ -58,7 +60,6 @@ ActiveRecord::Schema.define(version: 20150915032100) do
     t.string   "username",                         null: false
     t.boolean  "activated",        default: false, null: false
     t.string   "activation_token",                 null: false
-    t.string   "avatar_url"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end

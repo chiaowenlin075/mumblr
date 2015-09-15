@@ -1,5 +1,6 @@
 module Api
   class PostsController < ApplicationController
+    before_action :require_login
 
     def new
       @post = Post.new
@@ -18,6 +19,7 @@ module Api
     end
 
     def index
+
       # all posts in the same blog
     end
 

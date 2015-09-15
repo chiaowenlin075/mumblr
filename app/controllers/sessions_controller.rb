@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :require_login, only: [:destroy]
 
   def new
     @user = User.new
@@ -13,7 +14,6 @@ class SessionsController < ApplicationController
     else
       flash[:notice] = "Invalid email and password combination!"
       render :new
-      # render json: @user.errors.full_messages, status: 422
     end
   end
 

@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :require_login, only: [:edit, :update, :destroy]
 
   def new
     @user = User.new
@@ -12,9 +13,7 @@ class UsersController < ApplicationController
       login_user!(@user)
       redirect_to root_url
     else
-      flash[:notice] = @user.errors.full_messages.join(", ")
       render :new
-      # json: @user.errors.full_messages, status: 422
     end
   end
 

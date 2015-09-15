@@ -1,5 +1,6 @@
 module Api
   class BlogsController < ApplicationController
+    before_action :require_login
     
     def create
       @blog = Blog.new(blog_params)
