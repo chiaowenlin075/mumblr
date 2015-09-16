@@ -1,22 +1,26 @@
-<h1>Mumblr</h1>
-<p>Mumbling with us now!</p>
-<%= show_errors(@user) %>
-<form action="<%= user_url %>" method="post">
+<section class="user-auth">
+  <section class="user-auth-content">
+    <h1 class="sign-in-logo">Mumblr</h1>
+    <p>Subscribe the blog you like and mumble the things you love!</p>
+    <%= show_errors(@user) %>
+    <form class="user-auth-form" action="<%= user_url %>" method="post">
 
-  <label for="user_email">Email</label>
-  <input type="text"
-         name="user[email]"
-         id="user_email"
-         value="<%= @user.email %>">
-  <label for="user_password">Password</label>
-  <input type="password"
-         name="user[password]"
-         id="user_password">
-  <label for="user_username">Username</label>
-  <input type="text"
-         name="user[username]"
-         id="user_username"
-         value="<%= @user.username %>">
+      <label for="user_email">Email</label>
+      <input type="text"
+             name="user[email]"
+             id="user_email"
+             value="<%= @user.email %>">
+      <label for="user_password">Password</label>
+      <input type="password"
+             name="user[password]"
+             id="user_password">
+      <label for="user_username">Username</label>
+      <input type="text"
+             name="user[username]"
+             id="user_username"
+             value="<%= @user.username %>">
 
-  <button>Sign Up</button>
-</form>
+      <button>Sign Up</button>
+    </form>
+  </section>
+</section>

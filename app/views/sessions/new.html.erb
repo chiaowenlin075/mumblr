@@ -1,16 +1,20 @@
-<h1>Mumblr</h1>
-<p>Welcome back!</p>
-<strong><%= flash[:notice] %></strong>
-<form action="<%= session_url %>" method="post">
+<section class="user-auth">
+  <section class="user-auth-content">
+    <h1 class="sign-in-logo">Mumblr</h1>
+    <form class="user-auth-form" action="<%= session_url %>" method="post">
 
-  <label for="user_email">Email</label>
-  <input type="text"
-         name="user[email]"
-         id="user_email">
-  <label for="user_password">Password</label>
-  <input type="password"
-         name="user[password]"
-         id="user_password">
-
-  <button>Sign In</button>
-</form>
+      <label for="user_email">Email</label>
+      <section class="input">
+      <input type="text"
+             name="user[email]"
+             id="user_email">
+      <label for="user_password">Password</label>
+      <input type="password"
+             name="user[password]"
+             id="user_password">
+      </section>
+      <strong class="error-msg"><%= flash[:notice] %></strong>
+      <button class="submit">Sign In</button>
+    </form>
+  </section>
+</section>

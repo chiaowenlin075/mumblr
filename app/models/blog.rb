@@ -23,5 +23,6 @@ class Blog < ActiveRecord::Base
 
   after_initialize {
     self.title ||= "Untitled"
+    self.background_url ||= "blog_default_back.jpg"
   }
 end
