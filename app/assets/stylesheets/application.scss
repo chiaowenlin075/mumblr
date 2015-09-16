@@ -208,7 +208,7 @@ h1 {
 .post-options {
   margin-bottom: 20px;
   padding: 17px 0;
-  width: 540px;
+  width: 336px;
   background: #fff;
   border-radius: 3px;
   position: relative;
@@ -218,20 +218,35 @@ h1 {
 .icon-text, .icon-image, .icon-quote, .icon-link {
   float: left;
   display: block;
-  cursor: pointer;
   font-size: 40px;
 }
 
+.icon-image {
+  color: #db7447;
+}
+
+.icon-quote {
+  color: #ffac0f;
+}
+
+.icon-link {
+  color: #74cc9d;
+}
+
 .post-options > li {
+  cursor: pointer;
+  width: 84px;
+  box-sizing: border-box;
   float: left;
+  padding: 0 20px;
 }
 
 .post-options > li:not(:last-child) {
-  padding: 0 20px;
   border-right: 1px solid #e5e5e5;
 }
 
 .post-type {
+  color: #aaa;
   display: block;
   float: left;
 }
