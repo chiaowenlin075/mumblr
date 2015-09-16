@@ -1,15 +1,19 @@
-<b><%= user.escape('username') %></b>
+<b class="post-author"><%= user.escape('username') %></b>
 
-<% if (post.escape('post_type') === "text"){ %>
-  <h1><%= post.escape('title') %></h1>
-  <p><%= post.escape('body') %></p>
-<% } else if (post.escape('post_type') === "image"){ %>
-  <img src="<%= post.escape('image_url') %>">
-  <p><%= post.escape('body') %></p>
-<% } else if (post.escape('post_type') === "quote"){ %>
-  <h1><i class="fa fa-quote-left"></i> <%= post.escape('body') %> <i class="fa fa-quote-right"></i></h1>
-  <p><span>&minus;<span><%= post.escape('title') %></p>
-<% } else if (post.escape('post_type') === "link") { %>
-  <a href="<%= post.escape('link_url') %>"><%= post.escape('title') %></a>
-  <p><%= post.escape('body') %></p>
-<% } %>
+<section class="post-container">
+  <% if (post.escape('post_type') === "text"){ %>
+    <h1><%= post.escape('title') %></h1>
+    <p><%= post.escape('body') %></p>
+  <% } else if (post.escape('post_type') === "image"){ %>
+    <img src="<%= post.escape('image_url') %>">
+    <p><%= post.escape('body') %></p>
+  <% } else if (post.escape('post_type') === "quote"){ %>
+    <h1><i class="fa fa-quote-left"></i> <%= post.escape('body') %> <i class="fa fa-quote-right"></i></h1>
+    <p><span>&minus;<span><%= post.escape('title') %></p>
+  <% } else if (post.escape('post_type') === "link") { %>
+    <a href="<%= post.escape('link_url') %>"><%= post.escape('title') %></a>
+    <p><%= post.escape('body') %></p>
+  <% } %>
+</section>
+<section class="post-footer group">
+</section>

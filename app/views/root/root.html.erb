@@ -2,13 +2,16 @@
 <head></head>
 
 <body>
-  <header>
+  <header class="header">
     <h1>Hi! <%= current_user.username %></h1>
     <%= button_to "Sign Out", session_url, method: :delete %>
   </header>
-  <section id="main">
-    <section class="main-content"></section>
-    <section class="main-sidebar"></section>
-  </section>
+  <div class="container">
+    <section id="main">
+      <section class="main-content"></section>
+      <section class="main-sidebar"></section>
+    </section>
+    <footer class="footer"></footer>
+  </div>
 </body>
 </html>

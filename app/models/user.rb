@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
 
   after_initialize {
     self.activation_token = generate_activation_token
-    # self.avatar_url =
+    self.avatar_url = "cat.jpg"
   }
 
   def self.find_by_credential(email, password)
