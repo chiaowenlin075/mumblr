@@ -1,5 +1,4 @@
 Mumblr.Views.CurrentUserBlog = Backbone.CompositeView.extend({
-
   template: JST['blogs/blog_main'],
   className: "posts-main",
 
@@ -10,10 +9,13 @@ Mumblr.Views.CurrentUserBlog = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template({ blog: this.model });
+    var content = this.template();
     this.$el.html(content);
+    var postOptionsBar = new Mumblr.Views.PostOptionsBar({ blog: this.model });
+    postOptionsBar.render();
     var postsIndexView = new Mumblr.Views.PostsIndex({ collection: this.model.posts() });
-    this.$el.append(postsIndexView.render().$el);
+    postsIndexView.render()
+    this.$el.append(postOptionsBar.$el, postsIndexView.$el);
 
     return this;
   }

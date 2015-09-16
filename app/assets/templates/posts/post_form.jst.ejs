@@ -1,0 +1,27 @@
+<img src="<%= current_user.escape('avatar_url') %>">
+<b><%= current_user.escape('username') %></b>
+<form class="post-form">
+
+  <% if post.escape('post_type') == "text" %>
+    <input type="text"
+           name="post[title]"
+           value="<%= post.escape('title') %>"
+           placeholder="Title">
+    <textarea name="post[body]"
+              placeholder="Your text here"><%= post.escape('body') %></textarea>
+  <% elsif post.escape('post_type') == "image" %>
+    <!-- filepicker here -->
+  <% elsif post.escape('post_type') == "link" %>
+    <input type="text"
+           name="post[link_url]"
+           value="<%= post.escape('link_url') %>">
+    <textarea name="post[body]"><%= post.escape('body') %></textarea>
+  <% elsif post.escape('post_type') == "quote" %>
+    <textarea name="post[body]"><%= post.escape('body') %></textarea>
+    <input type="text"
+           name="post[title]"
+           value="<%= post.escape('title') %>">
+  <% end %>
+  <button class="close">Close</button>
+  <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>
+</form>
