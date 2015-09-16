@@ -13,3 +13,58 @@
  *= require_tree .
  *= require_self
  */
+html, body, div, section, ul, li, img, b, span, strong, a,
+p, h1, h2, h3, h4, article, i, button, figure, figcaption {
+  border: 0;
+  padding: 0;
+  margin: 0;
+
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+
+  background: transparent
+}
+
+ul, li {
+  list-style: none;
+}
+
+img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+textarea {
+  display: block;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  text-align: center;
+}
+
+
+
+#main {
+  padding: 0 120px;
+}

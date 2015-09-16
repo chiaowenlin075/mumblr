@@ -3,7 +3,7 @@ Mumblr.Views.BlogInfo = Backbone.CompositeView.extend({
   template: JST['blogs/blog_info'],
 
   initialize: function(){
-    this.model = Mumblr.CurrentUser.blog();
+    this.model = new Mumblr.Models.CurrentUserBlog();
     this.listenTo(this.model, "sync", this.render);
     this.model.fetch();
   },

@@ -18,6 +18,10 @@ module Api
       render "show"
     end
 
+    def current_user_blog
+      render :current_user_blog
+    end
+
     def update
       @blog = Blog.find(params[:id])
       return unless is_owner?(@blog)

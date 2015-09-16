@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   namespace :api , defaults: { format: :json } do
     resources :blogs, only: [:create, :update, :destroy, :show] do
+      collection do
+        get :current_user_blog, defaults: { format: :json }
+      end
       resources :posts, only: [:new, :create, :show, :update, :destroy, :index]
     end
   end
