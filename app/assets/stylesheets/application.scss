@@ -64,6 +64,10 @@ input[type="submit"] {
   text-align: center;
 }
 
+textarea {
+  min-height: 80px;
+}
+
 // Layout
 
 body {
@@ -363,4 +367,33 @@ h1 {
 .quote-from:before {
   content: "\2014";
   margin-right: 6px;
+}
+
+// new post form modal
+
+.block-modal {
+  background: rgba(54,70,93,.95);
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.post-modal {
+  z-index: 21;
+  top: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(calc(-50% + 40px));
+}
+
+.post-form input,
+.post-form textarea {
+  padding: 0 20px 10px 20px;
+}
+
+input.title {
+  font-size: 36px;
 }

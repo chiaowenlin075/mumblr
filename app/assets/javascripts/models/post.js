@@ -4,7 +4,8 @@ Mumblr.Models.Post = Backbone.Model.extend({
   },
 
   urlRoot: function(){
-    return this.blog.url() + "/posts";
+    // in case this.blog is instance of CurrentUserBlog
+    return "/api/blogs/" + this.blog.escape('id') + "/posts";
   },
 
   author: function(){

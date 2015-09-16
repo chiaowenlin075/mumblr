@@ -1,6 +1,6 @@
 Mumblr.Views.PostOptionsBar = Backbone.CompositeView.extend({
   template: JST['posts/post_options_bar'],
-  className: "new-post",
+  className: "new-post-options",
   tagName: "section",
 
   initialize: function(options){
@@ -24,7 +24,7 @@ Mumblr.Views.PostOptionsBar = Backbone.CompositeView.extend({
       model: new Mumblr.Models.Post({ blog: this.blog }),
       postType: postType
     });
-    
+    debugger
     $("body").append(postForm.render().$el);
   }
 

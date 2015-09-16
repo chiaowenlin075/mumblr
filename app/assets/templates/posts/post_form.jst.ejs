@@ -1,27 +1,33 @@
-<img src="<%= current_user.escape('avatar_url') %>">
-<b><%= current_user.escape('username') %></b>
-<form class="post-form">
+<section class="post-modal posts-index-item">
+  <a href="#blog/<%= post.escape('blog_id') %>" target="_blank"><img class="thumbnail" src="<%= user.escape('avatar_url') %>"></a>
+  <b class="post-author"><%= user.escape('username') %></b>
 
-  <% if post.escape('post_type') == "text" %>
-    <input type="text"
-           name="post[title]"
-           value="<%= post.escape('title') %>"
-           placeholder="Title">
-    <textarea name="post[body]"
-              placeholder="Your text here"><%= post.escape('body') %></textarea>
-  <% elsif post.escape('post_type') == "image" %>
-    <!-- filepicker here -->
-  <% elsif post.escape('post_type') == "link" %>
-    <input type="text"
-           name="post[link_url]"
-           value="<%= post.escape('link_url') %>">
-    <textarea name="post[body]"><%= post.escape('body') %></textarea>
-  <% elsif post.escape('post_type') == "quote" %>
-    <textarea name="post[body]"><%= post.escape('body') %></textarea>
-    <input type="text"
-           name="post[title]"
-           value="<%= post.escape('title') %>">
-  <% end %>
-  <button class="close">Close</button>
-  <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>
-</form>
+  <form class="post-form">
+    <% if (post.escape('post_type') === "text"){ %>
+      <input type="text"
+             class="title"
+             name="post[title]"
+             value="<%= post.escape('title') %>"
+             placeholder="Title">
+      <textarea name="post[body]"
+                placeholder="Your text here"><%= post.escape('body') %></textarea>
+    <% } else if (post.escape('post_type') === "image"){ %>
+      <!-- filepicker here -->
+    <% } else if (post.escape('post_type') === "quote"){ %>
+      <textarea class="quote" name="post[body]"><%= post.escape('body') %></textarea>
+      <input type="text"
+             name="post[title]"
+             class="quote-from"
+             value="<%= post.escape('title') %>">
+    <% } else if (post.escape('post_type') === "link") { %>
+      <input type="text"
+             name="post[link_url]"
+             value="<%= post.escape('link_url') %>">
+      <textarea name="post[body]"><%= post.escape('body') %></textarea>
+    <% } %>
+  
+    <button class="close">Close</button>
+    <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>
+  </form>
+</section>
+<section class="block-modal"></section>
