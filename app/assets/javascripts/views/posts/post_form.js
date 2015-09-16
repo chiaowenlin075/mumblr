@@ -3,15 +3,15 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   className: "new-post",
 
   initialize: function(options){
-    this.collection = options.collection;
+    this.collection = this.model.blog.posts();
     this.model.set({
       blog_id: this.model.blog.escape('id'),
       post_type: options.postType
     });
-    debugger
   },
 
   events: {
+    // "click button.close": "remove", //why it still work even without this event handler?
     "click button.submit": "submit"
   },
 
@@ -27,9 +27,10 @@ Mumblr.Views.PostForm = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
-    var input = this.$el.serializeJSON();
+    var input = this.$(".post-form").serializeJSON();
     // if (Object.keys(input.post).length)
     //  validate input!!
+    debugger
     this.model.save(input.post, {
       success: function(model){
         this.collection.add(model);
