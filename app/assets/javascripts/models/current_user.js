@@ -1,5 +1,5 @@
 Mumblr.Models.CurrentUser = Backbone.Model.extend({
-  url: "/users/current_user_show",
+  url: "/api/users/current_user_show",
 
   recent_tags: function(){
 

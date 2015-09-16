@@ -1,0 +1,22 @@
+<section class="user-auth-content">
+  <h1 class="sign-in-logo">Mumblr<span>.</span></h1>
+  <p>Subscribe the blog you like and mumble the things you love!</p>
+  <%= show_errors(@user) %>
+  <form class="user-auth-form" action="<%= user_url %>" method="post">
+
+    <section class="input">
+      <input type="text"
+             name="user[email]"
+             placeholder="Email"
+             value="<%= @user.email %>">
+      <input type="password"
+             name="user[password]"
+             placeholder="Password">
+      <input type="text"
+             name="user[username]"
+             placeholder="Username"
+             value="<%= @user.username %>">
+    </section>
+    <button class="submit">Sign Up</button>
+  </form>
+</section>

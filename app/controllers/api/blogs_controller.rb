@@ -7,7 +7,7 @@ module Api
       @blog.owner_id = current_user.id
 
       if @blog.save
-        render "show"
+        render :show
       else
         render json: @blog.errors.full_messages, status: 422
       end
@@ -15,7 +15,7 @@ module Api
 
     def show
       @blog = Blog.includes(:owner, :posts).find(params[:id]) #, :likes, :comments, :tags))
-      render "show"
+      render :show
     end
 
     def current_user_blog
@@ -27,7 +27,7 @@ module Api
       return unless is_owner?(@blog)
 
       if @blog.update(blog_params)
-        render "show"
+        render :show
       else
         render json: @blog.errors.full_messages, status: 422
       end
@@ -37,7 +37,7 @@ module Api
       @blog = Blog.find(params[:id])
       return unless is_owner?(@blog)
       @blog.destroy!
-      redirect_to root_url
+      render json: {}
     end
 
     private
