@@ -126,16 +126,12 @@ h1 {
   width: 540px;
   font-size: 14px;
   background: #fff;
-  padding: 12px 0 0;
+  padding: 15px 0 0;
   word-wrap: break-word;
   border-radius: 3px;
   position: relative;
   box-sizing: border-box;
   display: block;
-}
-
-.posts-index-item > a {
-
 }
 
 .thumbnail {
@@ -149,15 +145,17 @@ h1 {
 }
 
 .post {
-
+  border-radius: 3px;
+  margin-top: -3px;
 }
 
 .post-author {
+  font-family: "Signika Negative";
   word-wrap: normal;
   white-space: nowrap;
   font-size: 13px;
-  font-weight: 700;
-  margin: 0 0 13px;
+  font-weight: 600;
+  margin: -3px 0 15px;
   line-height: 20px;
   width: 100%;
   display: block;
@@ -180,7 +178,7 @@ h1 {
   display: block;
   box-sizing: border-box;
   padding-right: 20px;
-  padding-left: 15px;
+  padding-left: 20px;
   word-wrap: break-word;
 }
 
