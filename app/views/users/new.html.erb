@@ -2,8 +2,7 @@
   <section class="user-auth-content">
     <h1 class="sign-in-logo">Mumblr<span>.</span></h1>
     <p>Subscribe the blog you like and mumble the things you love!</p>
-    <%= show_errors(@user) %>
-    <form class="user-auth-form" action="<%= user_url %>" method="post">
+    <form class="user-auth-form" action="<%= users_url %>" method="post">
 
       <section class="input">
         <input type="text"
@@ -18,6 +17,7 @@
                placeholder="Username"
                value="<%= @user.username %>">
       </section>
+      <ul class="error-msg-list"><%= show_errors(@user) %></ul>
       <button class="submit">Sign Up</button>
     </form>
   </section>

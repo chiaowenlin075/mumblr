@@ -1,5 +1,5 @@
-Mumblr.Views.PostShow = Backbone.View.extend({
-  template: JST['users/user_form'],
+Mumblr.Views.UserNewForm = Backbone.View.extend({
+  template: JST['users/signup_form'],
   className: "user-auth",
   tagName: "section",
 
@@ -24,7 +24,7 @@ Mumblr.Views.PostShow = Backbone.View.extend({
   submit: function(event){
     event.preventDefault();
     var input = this.$(".user-auth-form").serializeJSON();
-    
+
   }
 
 });

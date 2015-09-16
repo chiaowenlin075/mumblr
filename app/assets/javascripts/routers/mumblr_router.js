@@ -5,15 +5,10 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    "register": "register",
+    "": "posts", // temp: should be route to "posts"
     "dashboard": "dashboard",
-    "posts": "posts",
     "followers": "follower",
     "blog/:id": "blog"
-  },
-
-  register: function(){
-
   },
 
   dashboard: function(){

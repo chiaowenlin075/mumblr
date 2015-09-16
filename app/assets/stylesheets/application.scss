@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 html, body, div, section, ul, li, img, b, span, strong, a,
 p, h1, h2, h3, h4, article, i, button, figure, figcaption {
   border: 0;
@@ -63,7 +64,7 @@ input[type="submit"] {
   text-align: center;
 }
 
-/* Layout */
+// Layout
 
 body {
   font-family: "Open Sans", "PT Sans", "Source Sans Pro", Arial, sans-serif;
@@ -119,7 +120,11 @@ h1 {
   line-height: 47px;
 }
 
-/* User auth form */
+.back-transparent {
+  background: transparent;
+}
+
+// User auth form
 .user-auth {
   height: 100%;
   background: linear-gradient(
@@ -131,7 +136,7 @@ h1 {
 }
 
 .user-auth-content {
-  margin: 20% auto;
+  margin: 8% auto;
   width: 300px;
   color: #fff;
 }
@@ -144,6 +149,12 @@ h1 {
   font-family: Verdana;
   font-weight: bold;
   text-align: center;
+}
+
+.user-auth-content > p {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 .input {
@@ -175,7 +186,57 @@ h1 {
   width: 100%;
 }
 
-/* Post */
+.error-msg-list {
+  margin-bottom: 12px;
+}
+
+.error-msg {
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px 0;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.error-msg:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+// New Posts Options
+.post-options {
+  margin-bottom: 20px;
+  padding: 17px 0;
+  width: 540px;
+  background: #fff;
+  border-radius: 3px;
+  position: relative;
+  right: -85px;
+}
+
+.icon-text, .icon-image, .icon-quote, .icon-link {
+  float: left;
+  display: block;
+  cursor: pointer;
+  font-size: 40px;
+}
+
+.post-options > li {
+  float: left;
+}
+
+.post-options > li:not(:last-child) {
+  padding: 0 20px;
+  border-right: 1px solid #e5e5e5;
+}
+
+.post-type {
+  display: block;
+  float: left;
+}
+
+// Post Index
 
 .posts-index {
 
