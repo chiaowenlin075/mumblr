@@ -17,8 +17,11 @@
                placeholder="Username"
                value="<%= @user.username %>">
       </section>
-      <ul class="error-msg-list"><%= show_errors(@user) %></ul>
+      <% if show_errors(@user) %>
+        <ul class="error-msg-list"><%= show_errors(@user) %></ul>
+      <% end %>
       <button class="submit">Sign Up</button>
+      <a href="<%= new_session_url %>" class="demo-user">Try Demo User</a>
     </form>
   </section>
 </section>

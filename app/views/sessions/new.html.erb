@@ -11,8 +11,21 @@
                name="user[password]"
                placeholder="Password">
       </section>
-      <ul class="error-msg-list"><li class="error-msg"><%= flash[:notice] %></li></ul>
+      <% if flash[:notice] %>
+        <ul class="error-msg-list"><li class="error-msg"><%= flash[:notice] %></li></ul>
+      <% end %>
       <button class="submit">Sign In</button>
+      <button class="demo-user">Demo User</button>
     </form>
   </section>
 </section>
+
+<script>
+  $(function(){
+    $(".demo-user").on("click", function(e){
+      event.preventDefault();
+      $("input[type='text']").val("sennacy@cat.com");
+      $("input[type='password']").val("sennacy");
+    });
+  })
+</script>
