@@ -128,6 +128,10 @@ h1 {
   line-height: 47px;
 }
 
+.hide {
+  display: none;
+}
+
 .copyright {
   text-shadow: 0 0 2px #000;
   position: fixed;
@@ -514,4 +518,8 @@ input.title {
 
 .post-form .link-desc {
   padding-top: 22px;
+}
+
+.image-preview {
+  margin-bottom: 22px;
 }
