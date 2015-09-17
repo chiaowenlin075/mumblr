@@ -1,2 +1,2 @@
 json.extract!(user, :id, :email, :username, :activated)
-json.avatar_url user.avatar.url
+json.avatar_url asset_path(user.avatar.url)

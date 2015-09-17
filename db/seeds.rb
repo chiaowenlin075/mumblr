@@ -14,16 +14,8 @@ Post.create!(
 Post.create!(
   author_id: 1,
   blog_id: 1,
-  post_type: "quote",
-  title: "Jonathan",
-  body: "Let's name it Sennacty!"
-)
-
-Post.create!(
-  author_id: 1,
-  blog_id: 1,
   post_type: "image",
-  # image_url: "bagcat.gif",
+  image: File.open("app/assets/images/bagcat.gif"),
   body: "There's a cute cat in the bag..."
 )
 
@@ -31,8 +23,24 @@ Post.create!(
   author_id: 1,
   blog_id: 1,
   post_type: "image",
-  # image_url: "corgi.gif",
+  image: File.open("app/assets/images/corgi.gif"),
   body: "What a cute corgi!"
+)
+
+Post.create!(
+  author_id: 1,
+  blog_id: 1,
+  post_type: "text",
+  title: "W8D2",
+  body: "Blablablablablabla"
+)
+
+Post.create!(
+  author_id: 1,
+  blog_id: 1,
+  post_type: "quote",
+  title: "Jonathan",
+  body: "Let's name it Sennacy!"
 )
 
 Post.create!(
@@ -43,13 +51,6 @@ Post.create!(
   body: "This site is full of grumpy cats lol..."
 )
 
-Post.create!(
-  author_id: 1,
-  blog_id: 1,
-  post_type: "text",
-  title: "W8D2",
-  body: "Blablablablablabla"
-)
 
 Post.create!(
   author_id: 2,
@@ -63,7 +64,7 @@ Post.create!(
   author_id: 2,
   blog_id: 2,
   post_type: "image",
-  # image_url: "mopping.gif",
+  image: File.open("app/assets/images/mopping.gif"),
   body: "This is a weird cat..."
 )
 

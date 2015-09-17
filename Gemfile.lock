@@ -41,12 +41,11 @@ GEM
       activerecord (>= 3.2, <= 4.3)
       rake (~> 10.4)
     arel (6.0.3)
-    aws-sdk (2.1.22)
-      aws-sdk-resources (= 2.1.22)
-    aws-sdk-core (2.1.22)
-      jmespath (~> 1.0)
-    aws-sdk-resources (2.1.22)
-      aws-sdk-core (= 2.1.22)
+    aws-sdk (1.66.0)
+      aws-sdk-v1 (= 1.66.0)
+    aws-sdk-v1 (1.66.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     backbone-on-rails (1.2.0.0)
       eco
       ejs
@@ -100,8 +99,6 @@ GEM
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
-    jmespath (1.1.1)
-      json (~> 1.8)
     jquery-rails (4.0.5)
       rails-dom-testing (~> 1.0)
       railties (>= 4.2.0)
@@ -225,7 +222,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  aws-sdk
+  aws-sdk (~> 1.6)
   backbone-on-rails
   bcrypt
   better_errors
@@ -250,6 +247,3 @@ DEPENDENCIES
   spring
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.6
