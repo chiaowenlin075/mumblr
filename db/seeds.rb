@@ -1,7 +1,11 @@
+User.destroy_all
+Blog.destroy_all
+Post.destroy_all
+
 u1 = User.create(email: "sennacy@cat.com", password: "sennacy", username: "Sennacy")
-b1 = Blog.create!(owner_id: 1, title: "Sennacy's Blog")
+b1 = Blog.create!(owner_id: u1.id, title: "Sennacy's Blog")
 u2 = User.create(email: "breakfast@cat.com", password: "breakfast", username: "Breakfast")
-b2 = Blog.create!(owner_id: 2, title: "Breakfast's Blog")
+b2 = Blog.create!(owner_id: u2.id, title: "Breakfast's Blog")
 
 Post.create!(
   author_id: u1.id,
