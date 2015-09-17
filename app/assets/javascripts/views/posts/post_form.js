@@ -8,8 +8,6 @@ Mumblr.Views.PostForm = Backbone.View.extend({
       blog_id: this.model.blog.escape('id'),
       post_type: options.postType
     });
-    this.$(".submit").prop("disabled", true);
-    debugger
   },
 
   events: {
@@ -25,7 +23,8 @@ Mumblr.Views.PostForm = Backbone.View.extend({
       post: this.model
     });
     this.$el.html(content);
-
+    this.$(".submit").prop("disabled", true).addClass("disabledBtn");
+    debugger
     return this;
   },
 
