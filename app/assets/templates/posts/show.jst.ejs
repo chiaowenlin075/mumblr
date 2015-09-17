@@ -3,7 +3,7 @@
     <h1><%= post.escape('title') %></h1>
     <p><%= post.escape('body') %></p>
   <% } else if (post.escape('post_type') === "image"){ %>
-    <img src="assets/<%= post.escape('image_url') %>">
+    <img src="<%= post.escape('image_url') %>">
     <p><%= post.escape('body') %></p>
   <% } else if (post.escape('post_type') === "quote"){ %>
     <h1 class="quote"><%= post.escape('body') %></h1>
