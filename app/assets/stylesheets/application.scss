@@ -84,7 +84,7 @@ body {
 
 header {
   position: fixed;
-  z-index: 10;
+  z-index: 5;
   background: #36465d;
   display: block;
   box-shadow: 0 0 0 1px rgba(255,255,255,.13);
@@ -417,12 +417,48 @@ a.demo-user {
   margin-right: 6px;
 }
 
+// post-link
+.link {
+  display: block;
+  background: #f2f2f2;
+  color: #000;
+  padding: 20px;
+}
+
+.link h4 {
+  font-size: 22px;
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+.link h4:after {
+  content: " >"
+}
+
+// post-footer
+
+.post-response-list {
+  margin-top: 10px;
+  float: right;
+  width: 80px;
+}
+
+.post-response-list > li {
+  cursor: pointer;
+}
+
+.icon-heart, .icon-comment {
+  float: left;
+  margin-left: 18px;
+  font-size: 20px;
+}
+
 // new post form modal
 
 .block-modal {
   background: rgba(54,70,93,.95);
   position: fixed;
-  z-index: 20;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
@@ -430,18 +466,52 @@ a.demo-user {
 }
 
 .post-modal {
-  z-index: 21;
+  z-index: 15;
   top: 90px;
   position: absolute;
   left: 50%;
-  transform: translateX(calc(-50% + 40px));
+  transform: translateX(calc(-50% - 80px));
 }
 
 .post-form input,
 .post-form textarea {
   padding: 0 20px 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 input.title {
   font-size: 36px;
+}
+
+.post-form .close, .post-form .submit {
+  margin: 15px 20px;
+  padding: 6px;
+  border-radius: 3px;
+  font-size: 13px;
+}
+
+.post-form .close {
+  color: #fff;
+  background: #9c9c9c;
+}
+
+.post-form .submit {
+  float: right;
+}
+
+.post-form .quote {
+  font-family: "Libre Baskerville", "Vollkorn";
+  font-size: 30px;
+}
+
+.post-form .input-link {
+  padding: 55px 35px;
+  border-top: 2px dashed #ccc;
+  border-bottom: 2px dashed #ccc;
+  background: #f2f2f2;
+}
+
+.post-form .link-desc {
+  padding-top: 22px;
 }

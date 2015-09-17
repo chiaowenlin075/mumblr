@@ -12,18 +12,22 @@
       <textarea name="post[body]"
                 placeholder="Your text here"><%= post.escape('body') %></textarea>
     <% } else if (post.escape('post_type') === "image"){ %>
-      <input type="file" name="post[image]" id="input-post-image">
+      <input type="file" class="upload" name="post[image]">
+      <textarea name="post[body]"><%= post.escape('body') %></textarea>
     <% } else if (post.escape('post_type') === "quote"){ %>
-      <textarea class="quote" name="post[body]"><%= post.escape('body') %></textarea>
+      <textarea class="quote" name="post[body]" placeholder="Quote"><%= post.escape('body') %></textarea>
       <input type="text"
              name="post[title]"
              class="quote-from"
-             value="<%= post.escape('title') %>">
+             value="<%= post.escape('title') %>"
+             placeholder="-source">
     <% } else if (post.escape('post_type') === "link") { %>
       <input type="text"
              name="post[link_url]"
-             value="<%= post.escape('link_url') %>">
-      <textarea name="post[body]"><%= post.escape('body') %></textarea>
+             class="input-link"
+             value="<%= post.escape('link_url') %>"
+             placeholder="Type or paste a URL">
+      <textarea class="link-desc" name="post[body]" placeholder="Add a description, if you like"><%= post.escape('body') %></textarea>
     <% } %>
 
     <button class="close">Close</button>

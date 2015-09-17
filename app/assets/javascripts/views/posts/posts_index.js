@@ -9,13 +9,13 @@ Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template();
     this.$el.html(content);
-    this.attachSubviews();
+    this.attachSubviews({ prepend: true });
     return this;
   },
 
   addPost: function(model){
     var postView = new Mumblr.Views.PostsIndexItem({ model: model });
-    this.addSubview(".posts-index", postView);
+    this.addSubview(".posts-index", postView, { prepend: true });
   }
 
 });

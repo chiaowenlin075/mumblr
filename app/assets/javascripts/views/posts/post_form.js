@@ -31,8 +31,6 @@ Mumblr.Views.PostForm = Backbone.View.extend({
     // if (Object.keys(input.post).length)
     //  validate input!!
 
-    
-    debugger
     this.model.save(input.post, {
       success: function(model){
         this.collection.add(model);

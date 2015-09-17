@@ -3,15 +3,21 @@
     <h1><%= post.escape('title') %></h1>
     <p><%= post.escape('body') %></p>
   <% } else if (post.escape('post_type') === "image"){ %>
-    <img src="<%= post.escape('image_url') %>">
+    <img class="post-image" src="<%= post.escape('image_url') %>">
     <p><%= post.escape('body') %></p>
   <% } else if (post.escape('post_type') === "quote"){ %>
     <h1 class="quote"><%= post.escape('body') %></h1>
     <p class="quote-from"><%= post.escape('title') %></p>
   <% } else if (post.escape('post_type') === "link") { %>
-    <a href="<%= post.escape('link_url') %>"><%= post.escape('title') %></a>
+    <a class="link" href="<%= post.escape('link_url') %>" target="_blank">
+      <h4><%= post.escape('link_title') %></h4>
+    </a>
     <p><%= post.escape('body') %></p>
   <% } %>
 </section>
 <section class="post-footer group">
+  <ul class="post-response-list group">
+    <li><i class="fa fa-comment icon-comment"></i></li>
+    <li><i class="fa fa-heart icon-heart"></i></li>
+  </ul>
 </section>

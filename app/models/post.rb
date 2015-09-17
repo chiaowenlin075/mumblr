@@ -21,8 +21,9 @@
 class Post < ActiveRecord::Base
   validates :author, :blog, presence: true
   validates :post_type, inclusion: %w(text image quote link)
+  validate :valid_link_url
 
-  has_attached_file :image#, default_url: "cat.jpg"
+  has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,
@@ -31,9 +32,21 @@ class Post < ActiveRecord::Base
     inverse_of: :posts
   belongs_to :blog, inverse_of: :posts
 
-  # if a link post doesn't have a title, get the host name from link_url
+  # get the preview info for the link
   def link_title
+    return unless link_url
+    URI.parse(link_url).host ? URI.parse(link_url).host : link_url
+  end
 
+  private
+
+  def valid_link_url
+    return unless link_url
+    begin
+      URI.parse(link_url)
+    rescue URI::Error => e
+      errors[:invalid] << "Given link is not supported"
+    end
   end
 
 end
