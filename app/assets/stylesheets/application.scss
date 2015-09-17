@@ -137,6 +137,7 @@ h1 {
       ),image-url("background/back2.jpg");
   background-size: cover;
   overflow: hidden;
+  padding: 0 15px;
 }
 
 .user-auth-content {
@@ -225,6 +226,23 @@ a.demo-user {
   text-align: center;
 }
 
+.redir-sign-up > button, .redir-log-in > button {
+  display: block;
+  float: right;
+  margin: 10px 5px;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+.redir-sign-up > button{
+  background: white;
+}
+
+.redir-log-in > button {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
 // New Posts Options
 .post-options {
   margin-bottom: 20px;
