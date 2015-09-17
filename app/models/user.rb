@@ -2,21 +2,27 @@
 #
 # Table name: users
 #
-#  id               :integer          not null, primary key
-#  email            :string           not null
-#  password_digest  :string           not null
-#  username         :string           not null
-#  activated        :boolean          default(FALSE), not null
-#  activation_token :string           not null
-#  avatar_url       :string
-#  created_at       :datetime         not null
-#  updated_at       :datetime         not null
+#  id                  :integer          not null, primary key
+#  email               :string           not null
+#  password_digest     :string           not null
+#  username            :string           not null
+#  activated           :boolean          default(FALSE), not null
+#  activation_token    :string           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
 #
 
 class User < ActiveRecord::Base
   validates :email, :username, presence: true, uniqueness: true
   validates :password_digest, presence: { message: "You forgot to enter your password!" }
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  has_attached_file :avatar, styles: { thumb: "64x64>" }, default_url: "cat.jpg"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :sessions, inverse_of: :user, dependent: :destroy
   has_one :blog,
@@ -34,7 +40,7 @@ class User < ActiveRecord::Base
 
   after_initialize {
     self.activation_token = generate_activation_token
-    self.avatar_url = "cat.jpg"
+    # self.avatar_url = "cat.jpg"
   }
 
   def self.find_by_credential(email, password)

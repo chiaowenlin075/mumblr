@@ -10,9 +10,9 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
-gem 'filepicker-rails'
-gem 'friendly_id'
 gem 'figaro'
+gem "paperclip", "~> 4.3"
+gem 'friendly_id'
 gem 'font-awesome-rails'
 gem 'newrelic_rpm'
 

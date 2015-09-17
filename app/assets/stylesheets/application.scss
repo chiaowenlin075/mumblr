@@ -27,6 +27,10 @@ p, h1, h2, h3, h4, article, i, button, figure, figcaption {
   background: transparent
 }
 
+a {
+  text-decoration: none;
+}
+
 ul, li {
   list-style: none;
 }
@@ -124,8 +128,17 @@ h1 {
   line-height: 47px;
 }
 
-.back-transparent {
-  background: transparent;
+.copyright {
+  text-shadow: 0 0 2px #000;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #eee;
+  font-size: 13px;
+}
+
+.copyright a {
+  color: #eee;
 }
 
 // User auth form

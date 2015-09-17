@@ -23,7 +23,7 @@ Post.create!(
   author_id: 1,
   blog_id: 1,
   post_type: "image",
-  image_url: "bagcat.gif",
+  # image_url: "bagcat.gif",
   body: "There's a cute cat in the bag..."
 )
 
@@ -31,7 +31,7 @@ Post.create!(
   author_id: 1,
   blog_id: 1,
   post_type: "image",
-  image_url: "corgi.gif",
+  # image_url: "corgi.gif",
   body: "What a cute corgi!"
 )
 
@@ -63,7 +63,7 @@ Post.create!(
   author_id: 2,
   blog_id: 2,
   post_type: "image",
-  image_url: "mopping.gif",
+  # image_url: "mopping.gif",
   body: "This is a weird cat..."
 )
 
