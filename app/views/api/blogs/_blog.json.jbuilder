@@ -1,5 +1,5 @@
 json.extract!(blog, :id, :title, :description, :url)
-json.background_url asset_path(blog.background_url)
+json.background_url blog.background.url
 
 json.owner do
   json.partial!("api/users/user", user: blog.owner)

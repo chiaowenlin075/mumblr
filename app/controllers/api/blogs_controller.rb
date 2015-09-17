@@ -42,7 +42,7 @@ module Api
 
     private
     def blog_params
-      params.require(:blog).premit(:title, :description, :url, :background_url)
+      params.require(:blog).premit(:title, :description, :url, :background)
     end
 
     def is_owner?(blog)

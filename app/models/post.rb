@@ -22,7 +22,7 @@ class Post < ActiveRecord::Base
   validates :author, :blog, presence: true
   validates :post_type, inclusion: %w(text image quote link)
 
-  has_attached_file :image, styles: { thumb: "64x64>" }, default_url: "cat.jpg"
+  has_attached_file :image#, default_url: "cat.jpg"
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   belongs_to :author,

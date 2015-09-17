@@ -12,7 +12,7 @@
       <textarea name="post[body]"
                 placeholder="Your text here"><%= post.escape('body') %></textarea>
     <% } else if (post.escape('post_type') === "image"){ %>
-      <!-- filepicker here -->
+      <input type="file" name="post[image]">
     <% } else if (post.escape('post_type') === "quote"){ %>
       <textarea class="quote" name="post[body]"><%= post.escape('body') %></textarea>
       <input type="text"
@@ -25,7 +25,7 @@
              value="<%= post.escape('link_url') %>">
       <textarea name="post[body]"><%= post.escape('body') %></textarea>
     <% } %>
-  
+
     <button class="close">Close</button>
     <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>
   </form>

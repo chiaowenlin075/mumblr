@@ -57,7 +57,7 @@ module Api
     private
     def post_params
       params.require(:post).permit(
-        :blog_id, :post_type, :title, :body, :image_url, :link_url
+        :blog_id, :post_type, :title, :body, :image, :link_url
       )
     end
 

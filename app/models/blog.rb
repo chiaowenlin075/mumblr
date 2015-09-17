@@ -18,6 +18,10 @@
 class Blog < ActiveRecord::Base
   validates :owner, :title, presence: true
 
+  has_attached_file :background, default_url: "background/blog_default_back.jpg"
+  validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
+
+
   belongs_to :owner,
     class_name: "User",
     foreign_key: :owner_id,
