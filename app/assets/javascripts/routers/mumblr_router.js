@@ -16,7 +16,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   },
 
   posts: function(){
-    var contentView = new Mumblr.Views.CurrentUserBlog();
+    var contentView = new Mumblr.Views.CurrentUserPosts();
     this._swapView(".main-content", contentView);
 
     var blogInfo = new Mumblr.Views.BlogInfo();

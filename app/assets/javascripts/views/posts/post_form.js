@@ -35,22 +35,28 @@ Mumblr.Views.PostForm = Backbone.View.extend({
 
   imagePreview: function(event){
     event.preventDefault();
-    var preview = this.$(".image-preview")[0];
     var file    = this.$(".upload")[0].files[0];
     var reader  = new FileReader();
 
-    reader.onloadend = function () {
-      $(preview).removeClass("hide");
-      this.$(".upload").addClass("hide");
-      preview.src = reader.result;
+    reader.onloadend = function(){
+      this._updatePreview(reader.result);
     }.bind(this);
 
     if (file) {
       reader.readAsDataURL(file);
     } else {
-      preview.src = "";
+      this._updatePreview("");
     };
   },
+
+  _updatePreview: function(src){
+    this.$(".image-preview").removeClass("hide").attr("src", src);
+    this.$(".upload").addClass("hide");
+  },
+
+  // detectLink: function(){
+  //   this.$(".input-link")
+  // },
 
   submit: function(event){
     event.preventDefault();
@@ -81,7 +87,6 @@ Mumblr.Views.PostForm = Backbone.View.extend({
       url: this.model.url,
       method: "post",
       data: formData,
-      dataType: "json",
       processData: false,
       contentType: false,
       success: function(model){

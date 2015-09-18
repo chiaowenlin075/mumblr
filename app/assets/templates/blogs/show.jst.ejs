@@ -1,0 +1,10 @@
+<header class="blog-header">
+  <button>Follow</button>
+</header>
+<section class="blog-main">
+  <figure>
+    <img src="<%= blog.owner().escape('avatar_url')%>" class="blog-avatar">
+    <figcaption><%= blog.escape('description') %></figcaption>
+  </figure>
+  <div class="blog-posts"></div>
+</section>

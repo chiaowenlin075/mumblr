@@ -3,7 +3,7 @@ module Api
     before_action :require_login, only: [:show, :update, :destroy, :current_user_show]
 
     def show
-      @user = User.includes(:blog, :posts).find(params[:id])
+      @user = User.includes(:blogs, :posts).find(params[:id])
       render :show
     end
 

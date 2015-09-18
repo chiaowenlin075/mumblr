@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
+
     if @user.save
       login_user!(@user)
       @blog = Blog.create!(owner_id: @user.id)
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   end
   #
   # def show
-  #   @user = User.includes(:blog, :posts).find(params[:id])
+  #   @user = User.includes(:blogs, :posts).find(params[:id])
   #   render :show
   # end
 

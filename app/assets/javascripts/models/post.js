@@ -19,6 +19,25 @@ Mumblr.Models.Post = Backbone.Model.extend({
       delete payload.author
     };
     return payload;
+  },
+
+  saveImagePost: function(formData, options){
+    var method = this.isNew() ? "post" : "put";
+    var model = this;
+    $.ajax({
+      url: model.url,
+      method: "post",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function(data){
+        debugger
+        this.set(model.parse(data))
+      }.bind(this),
+      error: function(model, resp){
+        debugger
+      }.bind(this)
+    });
   }
 
 });
