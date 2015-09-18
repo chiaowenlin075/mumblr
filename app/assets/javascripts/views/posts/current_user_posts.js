@@ -13,7 +13,10 @@ Mumblr.Views.CurrentUserPosts = Backbone.CompositeView.extend({
     this.$el.html(content);
     var postOptionsBar = new Mumblr.Views.PostOptionsBar({ blog: this.model });
     postOptionsBar.render();
-    var postsIndexView = new Mumblr.Views.PostsIndex({ collection: this.model.posts() });
+    var postsIndexView = new Mumblr.Views.PostsIndex({
+      collection: this.model.posts(),
+      isBlog: false
+     });
     postsIndexView.render()
     this.$el.append(postOptionsBar.$el, postsIndexView.$el);
 

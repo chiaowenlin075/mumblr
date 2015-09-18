@@ -1,6 +1,6 @@
 <b><%= user.escape('username') %></b>
-<p><%= blog.escape('title') %></p>
+<a href="#blog/<%= blog.escape('id') %>"><%= blog.escape('title') %></a>
 <ul class="blog-info-list">
-  <li><a href="#posts">Posts<span><%= num_posts %></span></a></li>
+  <li class="change-main-to-posts">Posts<span><%= num_posts %></span></li>
   <li>Recent tags<div class="recent-tags"></div></li>
 </ul>

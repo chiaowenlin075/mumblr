@@ -14,39 +14,40 @@ Backbone.CompositeView = Backbone.View.extend({
   },
 
   // options can have 'ord': unshife or not; 'prepend': true/false
-  addSubview: function(selector, subview, options){
-    if (typeof options !== "undefined" && options.ord === "unshift") {
+  addSubview: function (selector, subview, prepend) {
+    if (prepend) {
       this.subviews(selector).unshift(subview);
     } else {
       this.subviews(selector).push(subview);
     }
-
-    this.attachSubview(selector, subview.render(), options);
+    // Try to attach the subview. Render it as a convenience.
+    this.attachSubview(selector, subview.render(), prepend);
   },
 
-  attachSubview: function(selector, subview, options){
-    if (typeof options !== "undefined" && options.prepend === true){
-        this.$(selector).prepend(subview.$el);
-    } else {
-        this.$(selector).append(subview.$el);
-    };
+  attachSubview: function (selector, subview, prepend) {
+     if (prepend) {
+       this.$(selector).prepend(subview.$el);
+     } else {
+       this.$(selector).append(subview.$el);
+     }
+     // Bind events in case `subview` has previously been removed from
+     // DOM.
+     subview.delegateEvents();
 
-    subview.delegateEvents();
-
-    if (subview.attachSubviews) {
-      subview.attachSubviews(options);
-    }
+     if (subview.attachSubviews) {
+       subview.attachSubviews();
+     }
   },
 
-  attachSubviews: function(options){
+  attachSubviews: function(){
     var view = this;
-   this.subviews().each(function (selectorSubviews, selector) {
-     view.$(selector).empty();
-     selectorSubviews.each(function (subview) {
-       view.attachSubview(selector, subview, options);
-     });
-   });
- },
+    this.subviews().each(function (selectorSubviews, selector) {
+      view.$(selector).empty();
+      selectorSubviews.each(function (subview) {
+        view.attachSubview(selector, subview);
+      });
+    });
+  },
 
   eachSubview: function(callback) {
     this.subviews().each(function (selectorSubviews, selector) {
@@ -85,6 +86,10 @@ Backbone.CompositeView = Backbone.View.extend({
 
     selectorSubviews.toArray()[i].remove();
     selectorSubviews.splice(i, 1);
+  },
+
+  unshiftSubview: function (selector, subview) {
+    this.addSubview(selector, subview, true);
   }
 
 });

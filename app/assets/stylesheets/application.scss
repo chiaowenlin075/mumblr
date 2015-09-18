@@ -262,6 +262,8 @@ a.demo-user {
 }
 // New Posts Options
 .post-options {
+  font-family: "Raleway";
+  font-size: 14px;
   margin-bottom: 20px;
   padding: 17px 0;
   width: 336px;
@@ -291,7 +293,7 @@ a.demo-user {
 
 .post-options > li {
   cursor: pointer;
-  width: 84px;
+  width: 81px;
   box-sizing: border-box;
   float: left;
   padding: 0 20px;
@@ -302,9 +304,12 @@ a.demo-user {
 }
 
 .post-type {
-  color: #aaa;
+  color: #7a7a7a;
   display: block;
   float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
 }
 
 // Post Index
@@ -527,4 +532,46 @@ input.title {
 .disabledBtn {
   color: #ccc;
   cursor: default;
+}
+
+// blog info list
+
+.blog-info {
+  color: rgba(255,255,255,.5);
+  font-size: 14px;
+}
+
+.blog-info > a {
+  font-family: "Raleway";
+  color: rgba(255,255,255,.5);
+  font-weight: 100;
+  font-size: 14px;
+  margin: 5px 0 10px 0;
+  display: block;
+  cursor: pointer;
+}
+
+.blog-info-list {
+  width: 220px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.blog-info-list > li {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.blog-info-list > li:hover {
+  background: rgba(255,255,255, .08);
+}
+
+.blog-info-list > li.focus {
+  background: rgba(255,255,255, .12);
+}
+
+.blog-info-list span {
+  display: block;
+  float: right;
 }
