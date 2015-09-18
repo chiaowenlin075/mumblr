@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
   end
 
   def feed(limit, time_stone)
-    # SELECT owned_posts AS owned_posts, followed_posts AS followed_posts
+    # SELECT owned_posts.* AS owned_posts, followed_posts.* AS followed_posts
     # FROM posts AS owned_posts
     # JOIN users ON owned_posts.author_id = users.id
     # JOIN follows ON follows.follower_id = users.id
@@ -75,6 +75,9 @@ class User < ActiveRecord::Base
     # JOIN posts AS followed_posts ON posts.blog_id = blogs.id
     # WHERE users.id = current_user.id AND posts's created at > given time
     # LIMIT limit_time
+
+    # WHERE posts.blog_id IN (...)
+    # OR posts.author_id = self.id
   end
 
   def recent_tags
