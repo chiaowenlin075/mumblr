@@ -1,22 +1,10 @@
-<header class="header">
-  <input type="text" class="search-bar" placeholder="Search Tumblr">
-  <% if current_user %>
-  <ul class="header-navbar">
-    <li><i class="fa fa-user icon-user"></i></li>
-    <li><%= button_to "Sign Out", session_url, method: :delete %></li>
-  </ul>
-  <% else %>
-  <ul>
-    <li><%= button_to "Log In", session_url, method: :post %></li>
-    <li><a href="#register" class="sign-up-btn">Sign Up</a></li>
-  </ul>
-  <% end %>
-</header>
 <div id="container">
+  <section class="header-container"></section>
   <section class="blog-container"></section>
   <section id="main" class="group">
     <section class="main-content"></section>
     <section class="main-sidebar"></section>
   </section>
+<%= button_to "Sign Out", session_url, method: :delete %>
 <footer class="footer"></footer>
 </div>

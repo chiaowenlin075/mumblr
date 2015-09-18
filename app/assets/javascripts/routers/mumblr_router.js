@@ -11,7 +11,12 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     "blog/:id": "blog"
   },
 
-
+  header: function(){
+    if (!this._currentView[".header-container"]){
+      var headerView = new Mumblr.Views.Header();
+      this.$rootEl.find(".header-container").html(headerView.render().$el);
+    }
+  },
 
   dashboard: function(){
     // var newView = new Mumblr.Views.Dashboard({ collection: })
@@ -47,6 +52,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   _swapView: function(newView, selector){
     this._currentView = this._currentView || {};
     if (typeof selector !== 'undefined'){
+      this.header();
       this._clearSubView(".blog-container", null);
       this._clearSubView(selector, newView)
       this.$rootEl.find(selector).html(newView.render().$el);
@@ -60,6 +66,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   _clearSubView: function(selector, newView){
     if (this._currentView[selector]){
       this._currentView[selector].remove();
+      this.$rootEl.find(selector).html("");
       this._currentView[selector] = newView;
     };
   }

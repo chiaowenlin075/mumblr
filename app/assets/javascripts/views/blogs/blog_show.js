@@ -13,8 +13,7 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
       collection: this.model.posts(),
       isBlog: true
     });
-    postsIndexView.render()
-    this.$el.append(postsIndexView.$el);
+    this.$(".blog-posts").append(postsIndexView.render().$el);
 
     return this;
   }

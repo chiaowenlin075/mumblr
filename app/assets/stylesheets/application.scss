@@ -23,6 +23,7 @@ p, h1, h2, h3, h4, article, i, button, figure, figcaption {
   font: inherit;
   text-align: inherit;
   text-decoration: inherit;
+  color: inherit;
 
   background: transparent
 }
@@ -82,25 +83,10 @@ body {
   width: 100vw;
 }
 
-header {
-  position: fixed;
-  z-index: 5;
-  background: #36465d;
-  display: block;
-  box-shadow: 0 0 0 1px rgba(255,255,255,.13);
-  top: 0px;
-  width: 100%;
-}
-
-.container {
-
-}
-
 #main {
   color: #444;
   width: 900px;
   margin: 0 auto;
-  padding: 92px 38px 30px;
 }
 
 .main-content {
@@ -113,7 +99,6 @@ header {
   width: 229px;
   float: right;
   color: #fff;
-  padding-bottom: 20px;
   margin-right: -1px;
   margin-top: -5px;
   opacity: 1;
@@ -140,10 +125,6 @@ h1 {
   left: 10px;
   color: #eee;
   font-size: 13px;
-}
-
-.copyright a {
-  color: #eee;
 }
 
 // User auth form
@@ -199,9 +180,8 @@ h1 {
 }
 
 .submit {
-   padding: 2px 6px 3px;
-   background: #40a3df;
-   color: #fff;
+  padding: 2px 6px 3px;
+  background: #40a3df;
 }
 
 .user-auth-form .submit {
@@ -234,7 +214,6 @@ h1 {
   height: 45px;
   width: 100%;
   background: #74cc9d;
-  color: #fff;
 }
 
 a.demo-user {
@@ -261,6 +240,25 @@ a.demo-user {
   background: rgba(0, 0, 0, 0.2);
   color: white;
 }
+
+// header
+.header {
+  position: fixed;
+  z-index: 5;
+  background: #36465d;
+  padding: 15px;
+  display: block;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.13);
+  top: 0px;
+  width: 100%;
+}
+
+.search-bar {
+  padding: 8px 8px 8px 40px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
 // New Posts Options
 .post-options {
   font-family: "Raleway";
@@ -326,9 +324,14 @@ a.demo-user {
 
 // Post Index
 
-.posts-index {
-
+.posts-main {
+  margin-top: 92px;
 }
+
+.posts-index {
+  margin-bottom: 100px;
+}
+
 .posts-index-item {
   margin-bottom: 20px;
   width: 540px;
@@ -355,6 +358,7 @@ a.demo-user {
 .post {
   border-radius: 3px;
   margin-top: -3px;
+  background: #fff;
 }
 
 .post-author {
@@ -555,6 +559,7 @@ input.title {
 .blog-info {
   color: rgba(255,255,255,.5);
   font-size: 14px;
+  margin-top: 92px;
 }
 
 .blog-info > a {
@@ -593,32 +598,65 @@ input.title {
 }
 
 // blog show
+
+.blog-container {
+  height: 100%;
+}
+
+.blog {
+  background: #f0f0f0;
+}
+
 .blog-header {
   height: 350px;
   width: 100%;
+  position: relative;
 }
 
 .follow-btn {
-  padding: 3px 5px;
+  padding: 5px 8px;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   float: right;
-  margin: 10px;
+  margin: 10px 30px;
   font-size: 14px;
 }
 
 .blog-main  {
-  margin: 275px auto 0;
+  margin: -75px auto 0;
   position: relative;
   z-index: 5;
   color: #444;
   width: 625px;
 }
 
-
 .blog-avatar {
   border-radius: 50%;
   width: 150px;
-  border: 5px solid #36465d;
+  border: 5px solid #e7e7e7;
+  margin: 0 auto;
+}
+
+.blog-main figcaption {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.blog-posts {
+  margin-top: 40px;
+  padding-bottom: 100px;
+}
+
+.blog-posts .post {
+  margin-bottom: 30px;
+  background: #fff;
+  word-wrap: break-word;
+  overflow: hidden;
+  border: 1px solid #dfdfdf;
+}
+
+.blog-posts .post h1 {
+  padding: 20px;
 }

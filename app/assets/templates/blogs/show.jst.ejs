@@ -4,7 +4,7 @@
 </header>
 <section class="blog-main">
   <img src="<%= blog.owner().escape('avatar_url')%>" class="blog-avatar">
-  <figcaption><%= blog.escape('description') %></figcaption>
-
+  <figcaption><%= blog.escape('title') %></figcaption>
+  <p><%= blog.escape('description') %></p>
   <div class="blog-posts"></div>
 </section>
