@@ -23,8 +23,8 @@ Mumblr.Views.PostForm = Backbone.View.extend({
       post: this.model
     });
     this.$el.html(content);
-    this.$(".submit").prop("disabled", true).addClass("disabledBtn");
-    debugger
+    // this.$(".submit").prop("disabled", true).addClass("disabledBtn");
+
     return this;
   },
 

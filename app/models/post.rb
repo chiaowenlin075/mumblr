@@ -17,11 +17,13 @@
 #  image_file_size    :integer
 #  image_updated_at   :datetime
 #
+require 'open-uri'
 
 class Post < ActiveRecord::Base
   validates :author, :blog, presence: true
   validates :post_type, inclusion: %w(text image quote link)
   validate :valid_link_url
+  before_validation :link_url_check
 
   has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -32,19 +34,25 @@ class Post < ActiveRecord::Base
     inverse_of: :posts
   belongs_to :blog, inverse_of: :posts
 
+  def link_url_check
+    return unless link_url
+    self.link_url = /^http[s]*:\/\/.+/.match(link_url) ? link_url : "http://" + link_url
+  end
+
   # get the preview info for the link
   def link_title
     return unless link_url
-    URI.parse(link_url).host ? URI.parse(link_url).host : link_url
+    URI.parse(link_url).read.match(/<title>(.*)<\/title>/)[1]
   end
 
   private
 
   def valid_link_url
     return unless link_url
+
     begin
-      URI.parse(link_url)
-    rescue URI::Error => e
+      open(link_url)
+    rescue
       errors[:invalid] << "Given link is not supported"
     end
   end
