@@ -21,7 +21,10 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: { message: "You forgot to enter your password!" }
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_attached_file :avatar, styles: { thumb: "64x64>" }, default_url: "cat.jpg"
+  has_attached_file :avatar, styles: {
+    thumb: "64x64>",
+    origin:  "800x600>"
+  }, default_url: "cat.jpg"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :sessions, inverse_of: :user, dependent: :destroy

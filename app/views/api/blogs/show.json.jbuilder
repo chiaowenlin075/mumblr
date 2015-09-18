@@ -1,1 +1,1 @@
-json.partial!("api/blogs/blog", blog: @blog)
+json.partial!("api/blogs/blog", blog: @blog, posts: @posts)

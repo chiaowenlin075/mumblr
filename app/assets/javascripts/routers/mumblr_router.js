@@ -20,7 +20,6 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   posts: function(){
     // posts and followers share the same ".main-sidebar",
     // check whether theres content inside .main-sidebar, if no, add into it
-
     var contentView = new Mumblr.Views.CurrentUserPosts();
     this._swapView(contentView, ".main-content");
 
@@ -32,7 +31,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     var blog = new Mumblr.Models.Blog({ id: id });
     blog.fetch();
     var blogView = new Mumblr.Views.BlogShow({ model: blog });
-    this._swapView("")
+    this._swapView(blogView);
   },
 
   followers: function(){
@@ -48,14 +47,20 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   _swapView: function(newView, selector){
     this._currentView = this._currentView || {};
     if (typeof selector !== 'undefined'){
-      this._currentView[selector] && this._currentView[selector].remove();
-      this._currentView[selector] = newView;
+      this._clearSubView(".blog-container", null);
+      this._clearSubView(selector, newView)
       this.$rootEl.find(selector).html(newView.render().$el);
     } else {
-      debugger
-      // for blog show need to take the entire #main
-      // iterate thru all subview and remove them!
-      // this._currentView.;
+      for (key in this._currentView){ this._clearSubView(key, null); };
+      this._currentView[".blog-container"] = newView;
+      this.$rootEl.find(".blog-container").html(newView.render().$el);
     }
+  },
+
+  _clearSubView: function(selector, newView){
+    if (this._currentView[selector]){
+      this._currentView[selector].remove();
+      this._currentView[selector] = newView;
+    };
   }
 });

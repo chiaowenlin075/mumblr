@@ -93,17 +93,18 @@ header {
 }
 
 .container {
-  width: 900px;
-  margin: 0 auto;
-  padding: 92px 30px 30px;
-  color: #444;
+
 }
 
 #main {
-  padding: 0 8px;
+  color: #444;
+  width: 900px;
+  margin: 0 auto;
+  padding: 92px 38px 30px;
 }
 
 .main-content {
+  margin: 0 8px;
   width: 625px;
   float: left;
 }
@@ -266,7 +267,7 @@ a.demo-user {
   font-size: 14px;
   margin-bottom: 20px;
   padding: 17px 0;
-  width: 336px;
+  width: 324px;
   background: #fff;
   border-radius: 3px;
   position: relative;
@@ -277,6 +278,17 @@ a.demo-user {
   float: left;
   display: block;
   font-size: 40px;
+}
+
+.icon-text:hover, .icon-image:hover,
+.icon-quote:hover, .icon-link:hover {
+  position: relative;
+  top: -3px;
+}
+
+.icon-text:active, .icon-image:active,
+.icon-quote:active, .icon-link:active {
+  top: 3px;
 }
 
 .icon-image {
@@ -578,4 +590,35 @@ input.title {
 .blog-info-list span {
   display: block;
   float: right;
+}
+
+// blog show
+.blog-header {
+  height: 350px;
+  width: 100%;
+}
+
+.follow-btn {
+  padding: 3px 5px;
+  border-radius: 3px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  float: right;
+  margin: 10px;
+  font-size: 14px;
+}
+
+.blog-main  {
+  margin: 275px auto 0;
+  position: relative;
+  z-index: 5;
+  color: #444;
+  width: 625px;
+}
+
+
+.blog-avatar {
+  border-radius: 50%;
+  width: 150px;
+  border: 5px solid #36465d;
 }

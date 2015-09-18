@@ -5,6 +5,6 @@ json.owner do
   json.partial!("api/users/user", user: blog.owner)
 end
 
-json.posts blog.posts do |post|
+json.posts posts do |post|
   json.partial!("api/posts/post", post: post)
 end

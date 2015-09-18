@@ -8,7 +8,7 @@ window.Mumblr = {
     this.CurrentUser.fetch();
 
     var router = new Mumblr.Routers.Router({
-      $rootEl: $("#main")
+      $rootEl: $("#container")
     });
     Backbone.history.start();
   }

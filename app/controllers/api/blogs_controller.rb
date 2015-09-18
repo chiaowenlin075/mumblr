@@ -14,11 +14,13 @@ module Api
     end
 
     def show
-      @blog = Blog.includes(:owner, :posts).find(params[:id]) #, :likes, :comments, :tags))
+      @blog = Blog.includes(:owner).find(params[:id]) #, :likes, :comments, :tags))
+      @posts = Post.where(blog_id: @blog.id).includes(:author)
       render :show
     end
 
     def current_user_blog
+      @posts = Post.where(blog_id: current_user.blog.id).includes(:author)
       render :current_user_blog
     end
 
