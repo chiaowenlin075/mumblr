@@ -1,13 +1,14 @@
+<span class="logo">m</span>
 <input type="text" class="search-bar" placeholder="Search Tumblr">
 <span><i class="fa fa-search icon-search"></i></span>
 
 <ul class="header-navbar">
   <li><i class="fa fa-home icon-dashboard"></i></li>
-  <li><i class="fa fa-user icon-user"></i>
+  <li class="to-user-list"><i class="fa fa-user icon-user"></i>
     <ul class="user-nav-list">
-      <li><a href="#/likes">Likes<span><%= num_likes %></a></li>
-      <li><a href="#/following">Following<span><%= num_likes %></a></li>
-      <li><a href="#/user/edit">Edit Account Info</a></li>
+      <li><a href="#/likes"><i class="fa fa-heart icon-heart"></i>Likes<span><%= num_likes %></a></li>
+      <li><a href="#/following"><i class="fa fa-user-plus"></i>Following<span><%= num_likes %></a></li>
+      <li><a href="#/user/edit"><i class="fa fa-cog"></i>Edit Account Info</a></li>
     </ul>
   </li>
 </ul>

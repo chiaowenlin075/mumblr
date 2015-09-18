@@ -251,12 +251,80 @@ a.demo-user {
   box-shadow: 0 0 0 1px rgba(255,255,255,.13);
   top: 0px;
   width: 100%;
+  color: rgba(255,255,255,.5);
+}
+
+.logo {
+  font-size: 28px;
+  font-family: "Overlock";
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  float: left;
+  margin-right: 20px;
 }
 
 .search-bar {
   padding: 8px 8px 8px 40px;
   border-radius: 3px;
   background: rgba(0, 0, 0, 0.3);
+  float: left;
+  width: 535px;
+  box-sizing: border-box;
+}
+
+.search-bar:focus {
+  background: #fff;
+  color: #000;
+}
+
+.icon-search {
+  position: relative;
+  top: 3px;
+  left: -525px;
+}
+
+.search-bar:focus .icon-search {
+  color: #000;
+}
+
+.icon-user, .icon-dashboard {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.header-navbar {
+  float: right;
+  width: 120px;
+  margin-right: 25px;
+}
+
+.header-navbar > li {
+  margin-left: 28px;
+  float: left;
+}
+
+.header-navbar > li:hover {
+  color: #fff;
+}
+
+.to-user-list {
+  position: relative;
+}
+
+.user-nav-list {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: #fff;
+  width: 240px;
+  border-radius: 3px;
+  border: 1px solid #000;
+}
+
+.to-user-list:hover .user-nav-list {
+  display: block;
 }
 
 // New Posts Options
