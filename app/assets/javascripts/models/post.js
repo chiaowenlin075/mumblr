@@ -25,18 +25,19 @@ Mumblr.Models.Post = Backbone.Model.extend({
     var method = this.isNew() ? "post" : "put";
     var model = this;
     $.ajax({
-      url: model.url,
+      url: _.result(model, "url"),
       method: "post",
       data: formData,
       processData: false,
       contentType: false,
-      success: function(data){
-        debugger
-        this.set(model.parse(data))
-      }.bind(this),
-      error: function(model, resp){
-        debugger
-      }.bind(this)
+      success: function(resp){
+        model.set(model.parse(resp));
+        model.trigger('sync', model, resp, options);
+        options.success && options.success(model, resp, options);
+      },
+      error: function(resp){
+        options.error && options.error(model, resp, options);
+      }
     });
   }
 

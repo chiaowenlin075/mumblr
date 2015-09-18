@@ -66,42 +66,27 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   submit: function(event){
     event.preventDefault();
     if (this.model.escape('post_type') === "image"){
-      this.postImage();
+      var file = this.$(".upload")[0].files[0];
+      var formData = new FormData();
+      formData.append("post[post_type]", "image");
+      formData.append("post[blog_id]", this.model.escape('blog_id'));
+      formData.append("post[image]", file);
+      formData.append("post[body]", this.$("textarea").val());
+      this.model.saveImagePost(formData, this.saveCallback());
       return;
     };
-    var input = this.$(".post-form").serializeJSON();
-    // if (Object.keys(input.post).length)
-    //  validate input!!
 
-    this.model.save(input.post, {
-      success: function(model){
-        this.collection.add(model);
-        this.remove();
-      }.bind(this)
-    });
+    var input = this.$(".post-form").serializeJSON();
+    this.model.save(input.post, this.saveCallback());
   },
 
-  postImage: function(){
-    var file = this.$(".upload")[0].files[0];
-
-    var formData = new FormData();
-    formData.append("post[image]", file);
-    formData.append("post[body]", this.$("textarea").val());
-
-    $.ajax({
-      url: this.model.url,
-      method: "post",
-      data: formData,
-      processData: false,
-      contentType: false,
+  saveCallback: function(){
+    return {
       success: function(model){
-        debugger
         this.collection.add(model);
         this.remove();
-      }.bind(this),
-      error: function(model, resp){
-        debugger
       }.bind(this)
-    });
+    };
   }
+
 });

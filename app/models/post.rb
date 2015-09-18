@@ -22,7 +22,7 @@ require 'open-uri'
 class Post < ActiveRecord::Base
   validates :author, :blog, presence: true
   validates :post_type, inclusion: %w(text image quote link)
-  validate :valid_link_url
+  validate :validate_link_url
   before_validation :link_url_check
 
   has_attached_file :image
@@ -47,12 +47,18 @@ class Post < ActiveRecord::Base
 
   private
 
-  def valid_link_url
-    return unless link_url
-
+  def link_url_valid?
     begin
       open(link_url)
+      return true
     rescue
+      return false
+    end
+  end
+
+  def validate_link_url
+    return unless link_url
+    if !link_url_valid?
       errors[:invalid] << "Given link is not supported"
     end
   end
