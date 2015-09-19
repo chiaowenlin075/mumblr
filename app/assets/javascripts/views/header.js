@@ -23,6 +23,7 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
 
   logOut: function(event){
     event.preventDefault();
+    
   }
 
 });

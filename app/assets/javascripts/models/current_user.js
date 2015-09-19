@@ -10,6 +10,11 @@ Mumblr.Models.CurrentUser = Backbone.Model.extend({
       this.recent_tags().set(payload.recent_tags);
       delete payload.recent_tags;
     };
+
+    if (payload.blog_id){
+      this.blog_id = payload.blog_id;
+      delete payload.blog_id;
+    }
     return payload;
   }
 

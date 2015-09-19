@@ -1,6 +1,6 @@
 <span class="logo">m</span>
 <input type="text" class="search-bar" placeholder="Search Tumblr">
-<span><i class="icon-search"></i></span>
+<i class="icon-search"></i>
 
 <ul class="header-navbar">
   <li>
@@ -9,9 +9,10 @@
   <li class="to-user-list"><i class="icon-user"></i>
     <ul class="user-nav-list">
       <li>ACCOUNT<span class="log-out">Log Out</span></li>
-      <li><a href="#/likes"><i class="icon-heart-small"></i>Likes<span><%= num_likes %></span></a></li>
-      <li><a href="#/following"><i class="icon-following-small"></i>Following<span><%= num_likes %></span></a></li>
-      <li><a href="#/user/edit"><i class="icon-setting-small"></i>Edit Account Info</a></li>
+      <li><a href="#blog/<%= _.result(user, "blog_id") %>"><i class="icon-point-right"></i>Your Blog</a></li>
+      <li><a href="#likes"><i class="icon-heart-small"></i>Likes<span><%= num_likes %></span></a></li>
+      <li><a href="#following"><i class="icon-following-small"></i>Following<span><%= num_likes %></span></a></li>
+      <li><a href="#user/edit"><i class="icon-setting-small"></i>Edit Account Info</a></li>
     </ul>
   </li>
 </ul>
