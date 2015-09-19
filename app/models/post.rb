@@ -42,12 +42,15 @@ class Post < ActiveRecord::Base
   # get the preview info for the link
   def link_title
     return unless link_url
-    find_title = URI.parse(link_url).read.match(/<title>(.*)<\/title>/)
-    find_title ? find_title[1] : "Untitled"
+    begin
+      find_title = URI.parse(link_url).read.match(/<title>(.*)<\/title>/)
+      return find_title ? find_title[1] : "Untitled"
+    rescue
+      return "Untitled"
+    end
   end
 
   private
-
   def link_url_valid?
     begin
       open(link_url)

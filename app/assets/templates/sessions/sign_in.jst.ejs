@@ -2,24 +2,18 @@
 <a class="redir-log-in" href="#"><button>Log In</button></a>
 <section class="user-auth-content">
   <h1 class="sign-in-logo">Mumblr<span>.</span></h1>
-  <p>Subscribe the blog you like and mumble the things you love!</p>
   <form class="user-auth-form">
 
     <section class="input">
       <input type="text"
              name="user[email]"
-             placeholder="Email"
-             value="<%= user.email %>">
+             placeholder="Email">
       <input type="password"
              name="user[password]"
              placeholder="Password">
-      <input type="text"
-             name="user[username]"
-             placeholder="Username"
-             value="<%= user.username %>">
     </section>
     <div class="error"></div>
-    <button class="submit">Sign Up</button>
-    <a href="#" class="demo-user">Try Demo User</a>
+    <button class="submit">Sign In</button>
+    <button class="demo-user">Demo User</button>
   </form>
 </section>

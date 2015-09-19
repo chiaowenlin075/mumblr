@@ -1,4 +1,4 @@
-Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
+Mumblr.Routers.Session = Backbone.Router.extend({
 
   initialize: function(options){
     this.$rootEl = options.$rootEl;
@@ -6,17 +6,10 @@ Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
 
   routes: {
     "": "signIn",
-    "users/new": "new",
-    "posts": "posts", // temp: should be route to "posts"
-    "dashboard": "dashboard",
-    "followers": "follower",
-    "blog/:id": "blog"
+    "users/new": "new"
   },
 
   header: function(){
-    var callback = this.header.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-
     if (!this._currentView[".header-container"]){
       var headerView = new Mumblr.Views.Header();
       this._clearSubView(".header-container", headerView);
@@ -25,9 +18,6 @@ Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
   },
 
   sidebar: function(){
-    var callback = this.sidebar.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-
     if (!this._currentView[".main-sidebar"]){
       var blogInfo = new Mumblr.Views.BlogInfo();
       this._swapView(blogInfo, ".main-sidebar");
@@ -49,48 +39,7 @@ Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
     this._swapView(signInView);
   },
 
-  dashboard: function(){
-    var callback = this.dashboard.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-    // var newView = new Mumblr.Views.Dashboard({ collection: })
-  },
-
-  posts: function(){
-        debugger
-    var callback = this.posts.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-    // posts and followers share the same ".main-sidebar",
-    // check whether theres content inside .main-sidebar, if no, add into it
-    var contentView = new Mumblr.Views.CurrentUserPosts();
-    this._swapView(contentView, ".main-content");
-    this.sidebar();
-  },
-
-  blog: function(id){
-    var callback = this.blog.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-
-    var blog = new Mumblr.Models.Blog({ id: id });
-    blog.fetch();
-    var blogView = new Mumblr.Views.BlogShow({ model: blog });
-    this._swapView(blogView);
-  },
-
-  followers: function(){
-    var callback = this.followers.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-    // posts and followers share the same ".main-sidebar",
-    // check whether theres content inside .main-sidebar, if no, add into it
-    // handle this in swapView maybe?
-  },
-
-  userEdit: function(){
-    var callback = this.userEdit.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-  },
-
   _requireSignedIn: function(callback){
-    debugger
     if (!Mumblr.CurrentUser.isSignedIn()) {
       callback = callback || this._goSignIn.bind(this);
       this.signIn(callback);
@@ -142,5 +91,4 @@ Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
     };
     this._currentView[selector] = newView;
   }
-
 });

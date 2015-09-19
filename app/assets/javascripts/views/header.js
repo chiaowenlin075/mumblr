@@ -23,7 +23,12 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
 
   logOut: function(event){
     event.preventDefault();
-    
+    Mumblr.CurrentUser.signOut({
+      success: function(){
+        Backbone.history.navigate("", { trigger: true });
+      }
+    });
+    return;
   }
 
 });
