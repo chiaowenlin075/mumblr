@@ -27,6 +27,7 @@ class Blog < ActiveRecord::Base
     foreign_key: :owner_id,
     inverse_of: :blog
   has_many :posts, inverse_of: :blog, dependent: :destroy
+  has_many :followings, inverse_of: :blog, dependent: :destroy
 
   after_initialize {
     self.title ||= "Untitled"

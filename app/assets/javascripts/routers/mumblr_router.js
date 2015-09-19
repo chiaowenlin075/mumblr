@@ -1,4 +1,4 @@
-Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
+Mumblr.Routers.Router = Backbone.Router.extend({
 
   initialize: function(options){
     this.$rootEl = options.$rootEl;
@@ -56,7 +56,6 @@ Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
   },
 
   posts: function(){
-        debugger
     var callback = this.posts.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
     // posts and followers share the same ".main-sidebar",
@@ -71,7 +70,6 @@ Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
     if (!this._requireSignedIn(callback)) { return; }
 
     var blog = new Mumblr.Models.Blog({ id: id });
-    blog.fetch();
     var blogView = new Mumblr.Views.BlogShow({ model: blog });
     this._swapView(blogView);
   },
@@ -90,7 +88,6 @@ Mumblr.Routers.Router = Mumblr.Routers.Session.extend({
   },
 
   _requireSignedIn: function(callback){
-    debugger
     if (!Mumblr.CurrentUser.isSignedIn()) {
       callback = callback || this._goSignIn.bind(this);
       this.signIn(callback);

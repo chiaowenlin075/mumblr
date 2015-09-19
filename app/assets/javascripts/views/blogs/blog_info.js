@@ -3,7 +3,7 @@ Mumblr.Views.BlogInfo = Backbone.CompositeView.extend({
   className: "blog-info",
 
   initialize: function(){
-    this.model = new Mumblr.Models.CurrentUserBlog();
+    this.model = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blog_id });
     this.listenTo(this.model, "sync", this.render);
     this.model.fetch();
   },

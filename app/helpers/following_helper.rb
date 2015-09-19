@@ -1,0 +1,2 @@
+module FollowingHelper
+end

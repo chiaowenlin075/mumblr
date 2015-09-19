@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
     foreign_key: :author_id,
     inverse_of: :author,
     dependent: :destroy
+  has_many :followings,
+    foreign_key: :follower_id,
+    inverse_of: :follower,
+    dependent: :destroy
 
   attr_reader :password
 

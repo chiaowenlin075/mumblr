@@ -1,6 +1,6 @@
 module Api
   class BlogsController < ApplicationController
-  
+
     def create
       @blog = Blog.new(blog_params)
       @blog.owner_id = current_user.id
@@ -16,11 +16,6 @@ module Api
       @blog = Blog.includes(:owner).find(params[:id]) #, :likes, :comments, :tags))
       @posts = Post.where(blog_id: @blog.id).includes(:author)
       render :show
-    end
-
-    def current_user_blog
-      @posts = Post.where(blog_id: current_user.blog.id).includes(:author)
-      render :current_user_blog
     end
 
     def update
