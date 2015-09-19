@@ -19,6 +19,13 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     }
   },
 
+  sidebar: function(){
+    if (!this._currentView[".main-sidebar"]){
+      var blogInfo = new Mumblr.Views.BlogInfo();
+      this._swapView(blogInfo, ".main-sidebar");
+    };
+  },
+
   dashboard: function(){
     // var newView = new Mumblr.Views.Dashboard({ collection: })
   },
@@ -28,9 +35,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     // check whether theres content inside .main-sidebar, if no, add into it
     var contentView = new Mumblr.Views.CurrentUserPosts();
     this._swapView(contentView, ".main-content");
-
-    var blogInfo = new Mumblr.Views.BlogInfo();
-    this._swapView(blogInfo, ".main-sidebar");
+    this.sidebar();
   },
 
   blog: function(id){

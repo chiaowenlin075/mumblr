@@ -14,7 +14,7 @@
  *= require_self
  */
 
-html, body, div, section, ul, li, img, b, span, strong, a,
+html, body, main, div, section, ul, li, img, b, span, strong, a,
 p, h1, h2, h3, h4, article, i, button, figure, figcaption {
   border: 0;
   padding: 0;
@@ -126,6 +126,35 @@ h1 {
   color: #eee;
   font-size: 13px;
 }
+
+// sprites
+[class*="icon-"] {
+  background: image-url("sprite.png") no-repeat;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.icon-text { background-position: -10px -60px; width: 44px; height: 44px; }
+.icon-image { background-position: -10px -114px; width: 40px; height: 40px; }
+.icon-link { background-position: -10px -164px; width: 40px; height: 40px; }
+.icon-quote { background-position: -10px -214px; width: 40px; height: 40px; }
+.icon-home { background-position: -10px -348px; width: 32px; height: 32px; }
+.icon-user { background-position: -10px -390px; width: 32px; height: 32px; }
+.icon-delete { background-position: -10px -432px; width: 20px; height: 20px; }
+.icon-delete:hover { background-position: -10px -462px; width: 20px; height: 20px; }
+.icon-comment { background-position: -10px -492px; width: 20px; height: 20px; }
+.icon-setting { background-position: -10px -522px; width: 20px; height: 20px; }
+.icon-heart { background-position: -10px -552px; width: 20px; height: 20px; }
+.icon-heart-broken { background-position: -10px -582px; width: 20px; height: 20px; }
+.icon-heart-red { background-position: -10px -612px; width: 20px; height: 20px; }
+.icon-edit { background-position: -10px -642px; width: 20px; height: 20px; }
+.icon-edit:hover { background-position: -10px -672px; width: 20px; height: 20px; }
+.icon-search { background-position: -10px -702px; width: 20px; height: 20px; }
+.icon-circle-down { background-position: -10px -762px; width: 16px; height: 16px; }
+.icon-setting-small { background-position: -10px -788px; width: 16px; height: 16px; }
+.icon-heart-small { background-position: -10px -814px; width: 16px; height: 16px; }
+.icon-following-small { background-position: -10px -840px; width: 16px; height: 16px; }
+.icon-plus { background-position: -36px -762px; width: 14px; height: 14px; }
 
 // User auth form
 .user-auth {
@@ -304,6 +333,37 @@ a.demo-user {
   color: #fff;
 }
 
+.redir-dashboard:before {
+  content: attr(title);
+  color: #2F4054;
+  display: none;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 8px 10px;
+  border-radius: 3px;
+  background: #fff;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
+
+.redir-dashboard:after {
+  content: "";
+  display: none;
+  width: 2px;
+  border-bottom: 7px solid #fff;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: relative;
+  top: 1px;
+  right: -7px;
+}
+
+.redir-dashboard:hover:before,
+.redir-dashboard:hover:after {
+  display: block;
+}
+
 .to-user-list {
   position: relative;
 }
@@ -311,16 +371,70 @@ a.demo-user {
 .user-nav-list {
   display: none;
   position: absolute;
-  top: 40px;
+  top: 44px;
   right: 0;
-  background: #fff;
+  background: #EFEFEF;
   width: 240px;
   border-radius: 3px;
   border: 1px solid #000;
 }
 
-.to-user-list:hover .user-nav-list {
+.to-user-list:hover .user-nav-list,
+.to-user-list:hover .user-nav-list:before, {
   display: block;
+}
+
+.user-nav-list a {
+  display: block;
+  padding: 6px 10px;
+  color: #000;
+}
+
+.user-nav-list:before {
+  content: "";
+  display: none;
+  width: 2px;
+  border-bottom: 7px solid #EFEFEF;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: relative;
+  top: -7px;
+  right: -218px;
+}
+
+.user-nav-list > li:first-child {
+  color: #737373;
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.user-nav-list > li:not(:first-child){
+  background: #fff;
+}
+
+.user-nav-list > li:not(:first-child):hover {
+  background: #e0ebf5;
+}
+
+.user-nav-list > li:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.user-nav-list span {
+  display: block;
+  float: right;
+}
+
+.log-out {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.icon-heart-small,
+.icon-following-small,
+.icon-setting-small {
+  margin-right: 10px;
 }
 
 // New Posts Options
@@ -335,35 +449,6 @@ a.demo-user {
   position: relative;
   right: -85px;
 }
-
-[class*="icon-"] {
-  background: image-url("sprite.png") no-repeat;
-  display: inline-block;
-  overflow: hidden;
-}
-
-.icon-text { background-position: -10px -60px; width: 44px; height: 44px; }
-.icon-image { background-position: -10px -114px; width: 40px; height: 40px; }
-.icon-link { background-position: -10px -164px; width: 40px; height: 40px; }
-.icon-quote { background-position: -10px -214px; width: 40px; height: 40px; }
-.icon-home { background-position: -10px -348px; width: 32px; height: 32px; }
-.icon-user { background-position: -10px -390px; width: 32px; height: 32px; }
-.icon-delete { background-position: -10px -432px; width: 20px; height: 20px; }
-.icon-delete:hover { background-position: -10px -462px; width: 20px; height: 20px; }
-.icon-comment { background-position: -10px -492px; width: 20px; height: 20px; }
-.icon-setting { background-position: -10px -522px; width: 20px; height: 20px; }
-.icon-heart { background-position: -10px -552px; width: 20px; height: 20px; }
-.icon-heart-broken { background-position: -10px -582px; width: 20px; height: 20px; }
-.icon-heart-red { background-position: -10px -612px; width: 20px; height: 20px; }
-.icon-edit { background-position: -10px -642px; width: 20px; height: 20px; }
-.icon-edit:hover { background-position: -10px -672px; width: 20px; height: 20px; }
-.icon-search { background-position: -10px -702px; width: 20px; height: 20px; }
-.icon-circle-down { background-position: -10px -762px; width: 16px; height: 16px; }
-.icon-setting-small { background-position: -10px -788px; width: 16px; height: 16px; }
-.icon-heart-small { background-position: -10px -814px; width: 16px; height: 16px; }
-.icon-following-small { background-position: -10px -840px; width: 16px; height: 16px; }
-.icon-plus { background-position: -36px -762px; width: 14px; height: 14px; }
-
 
 .icon-text:hover, .icon-image:hover,
 .icon-quote:hover, .icon-link:hover {
@@ -653,20 +738,29 @@ input.title {
 
 .blog-info-list > li {
   width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.blog-info-list > li:last-child {
+  padding: 10px;
+  box-sizing: bo
+}
+
+.blog-info-link {
+  display: block;
   padding: 10px;
   box-sizing: border-box;
-  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .blog-info-list > li:hover {
   background: rgba(255,255,255, .08);
 }
 
-.blog-info-list > li.focus {
+.blog-info-link.focus {
   background: rgba(255,255,255, .12);
 }
 
-.blog-info-list span {
+.blog-info-link > span {
   display: block;
   float: right;
 }

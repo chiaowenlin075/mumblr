@@ -8,6 +8,10 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
     this.listenTo(this.user, "sync", this.render);
   },
 
+  events: {
+    "click .log-out": "logOut"
+  },
+
   render: function(){
     var content = this.template({
       user: this.user,
@@ -15,6 +19,10 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     return this;
+  },
+
+  logOut: function(event){
+    event.preventDefault();
   }
 
 });
