@@ -14,6 +14,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   header: function(){
     if (!this._currentView[".header-container"]){
       var headerView = new Mumblr.Views.Header();
+      this._clearSubView(".header-container", headerView);
       this.$rootEl.find(".header-container").html(headerView.render().$el);
     }
   },
@@ -57,17 +58,20 @@ Mumblr.Routers.Router = Backbone.Router.extend({
       this._clearSubView(selector, newView)
       this.$rootEl.find(selector).html(newView.render().$el);
     } else {
-      for (key in this._currentView){ this._clearSubView(key, null); };
+
+      for (key in this._currentView){
+        this._clearSubView(key, null);
+      };
       this._currentView[".blog-container"] = newView;
       this.$rootEl.find(".blog-container").html(newView.render().$el);
-    }
+    };
   },
 
   _clearSubView: function(selector, newView){
     if (this._currentView[selector]){
       this._currentView[selector].remove();
       this.$rootEl.find(selector).html("");
-      this._currentView[selector] = newView;
     };
+    this._currentView[selector] = newView;
   }
 });
