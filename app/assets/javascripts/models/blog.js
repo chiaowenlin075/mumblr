@@ -14,6 +14,11 @@ Mumblr.Models.Blog = Backbone.Model.extend({
     return this._posts;
   },
 
+  followers: function(){
+    this._followers = this._followers || new Mumblr.Collections.Users();
+    return this._followers;
+  },
+
   parse: function(payload){
     if (payload.posts){
       this.posts().set(payload.posts, { parse: true });
@@ -22,6 +27,10 @@ Mumblr.Models.Blog = Backbone.Model.extend({
     if (payload.owner){
       this.owner().set(payload.owner);
       delete payload.owner
+    };
+    if (payload.followers){
+      this.followers().set(payload.followers);
+      delete payload.followers
     };
 
     return payload;

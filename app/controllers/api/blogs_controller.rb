@@ -13,13 +13,13 @@ module Api
     end
 
     def show
-      @blog = Blog.includes(:owner).find(params[:id]) #, :likes, :comments, :tags))
+      @blog = Blog.includes(:owner, :followers).find(params[:id]) #, :likes, :comments, :tags))
       @posts = Post.where(blog_id: @blog.id).includes(:author)
       render :show
     end
 
     def update
-      @blog = Blog.find(params[:id])
+      @blog = Blog.includes(:owner, :followers).find(params[:id])
       return unless is_owner?(@blog)
 
       if @blog.update(blog_params)

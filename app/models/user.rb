@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
     foreign_key: :follower_id,
     inverse_of: :follower,
     dependent: :destroy
+  has_many :followed_blogs, through: :followings, source: :blog
 
   attr_reader :password
 

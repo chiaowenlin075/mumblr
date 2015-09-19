@@ -1,4 +1,4 @@
-json.partial!("api/users/user", user: current_user)
+json.partial!("api/users/user", user: current_user, need_followed_blogs: true)
 
 json.blog_id current_user.blog.id
 

@@ -68,6 +68,11 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
 
   },
 
+  followed_blogs: function(){
+    this._followed_blogs = this._followed_blogs || new Mumblr.Collections.Blogs();
+    return this._followed_blogs;
+  },
+
   parse: function(payload){
     if (payload.recent_tags){
       this.recent_tags().set(payload.recent_tags);
@@ -77,6 +82,11 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
     if (payload.blog_id){
       this.blog_id = payload.blog_id;
       delete payload.blog_id;
+    };
+
+    if (payload.followed_blogs){
+      this.followed_blogs = payload.followed_blogs;
+      delete payload.followed_blogs;
     }
     return payload;
   }

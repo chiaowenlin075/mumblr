@@ -28,6 +28,7 @@ class Blog < ActiveRecord::Base
     inverse_of: :blog
   has_many :posts, inverse_of: :blog, dependent: :destroy
   has_many :followings, inverse_of: :blog, dependent: :destroy
+  has_many :followers, through: :followings, source: :follower
 
   after_initialize {
     self.title ||= "Untitled"

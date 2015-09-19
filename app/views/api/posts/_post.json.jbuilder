@@ -9,5 +9,5 @@ if post.link_url
 end
 
 json.author do
-  json.partial!("api/users/user", user: post.author)
+  json.partial!("api/users/user", user: post.author, need_followed_blogs: false)
 end
