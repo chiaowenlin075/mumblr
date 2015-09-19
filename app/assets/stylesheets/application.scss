@@ -265,8 +265,9 @@ a.demo-user {
 }
 
 .search-bar {
-  padding: 8px 8px 8px 40px;
+  padding: 9px 8px 9px 40px;
   border-radius: 3px;
+  font-size: 16px;
   background: rgba(0, 0, 0, 0.3);
   float: left;
   width: 535px;
@@ -280,19 +281,18 @@ a.demo-user {
 
 .icon-search {
   position: relative;
-  top: 3px;
+  top: 6px;
   left: -525px;
 }
 
-.icon-user, .icon-dashboard {
-  font-size: 30px;
+.icon-user, .icon-home {
   cursor: pointer;
 }
 
 .header-navbar {
   float: right;
   width: 120px;
-  margin-right: 25px;
+  margin-right: 35px;
 }
 
 .header-navbar > li {
@@ -336,11 +336,34 @@ a.demo-user {
   right: -85px;
 }
 
-.icon-text, .icon-image, .icon-quote, .icon-link {
-  float: left;
-  display: block;
-  font-size: 40px;
+[class*="icon-"] {
+  background: image-url("sprite.png") no-repeat;
+  display: inline-block;
+  overflow: hidden;
 }
+
+.icon-text { background-position: -10px -60px; width: 44px; height: 44px; }
+.icon-image { background-position: -10px -114px; width: 40px; height: 40px; }
+.icon-link { background-position: -10px -164px; width: 40px; height: 40px; }
+.icon-quote { background-position: -10px -214px; width: 40px; height: 40px; }
+.icon-home { background-position: -10px -348px; width: 32px; height: 32px; }
+.icon-user { background-position: -10px -390px; width: 32px; height: 32px; }
+.icon-delete { background-position: -10px -432px; width: 20px; height: 20px; }
+.icon-delete:hover { background-position: -10px -462px; width: 20px; height: 20px; }
+.icon-comment { background-position: -10px -492px; width: 20px; height: 20px; }
+.icon-setting { background-position: -10px -522px; width: 20px; height: 20px; }
+.icon-heart { background-position: -10px -552px; width: 20px; height: 20px; }
+.icon-heart-broken { background-position: -10px -582px; width: 20px; height: 20px; }
+.icon-heart-red { background-position: -10px -612px; width: 20px; height: 20px; }
+.icon-edit { background-position: -10px -642px; width: 20px; height: 20px; }
+.icon-edit:hover { background-position: -10px -672px; width: 20px; height: 20px; }
+.icon-search { background-position: -10px -702px; width: 20px; height: 20px; }
+.icon-circle-down { background-position: -10px -762px; width: 16px; height: 16px; }
+.icon-setting-small { background-position: -10px -788px; width: 16px; height: 16px; }
+.icon-heart-small { background-position: -10px -814px; width: 16px; height: 16px; }
+.icon-following-small { background-position: -10px -840px; width: 16px; height: 16px; }
+.icon-plus { background-position: -36px -762px; width: 14px; height: 14px; }
+
 
 .icon-text:hover, .icon-image:hover,
 .icon-quote:hover, .icon-link:hover {
@@ -351,18 +374,6 @@ a.demo-user {
 .icon-text:active, .icon-image:active,
 .icon-quote:active, .icon-link:active {
   top: 3px;
-}
-
-.icon-image {
-  color: #db7447;
-}
-
-.icon-quote {
-  color: #ffac0f;
-}
-
-.icon-link {
-  color: #74cc9d;
 }
 
 .post-options > li {
@@ -543,7 +554,6 @@ a.demo-user {
 .icon-heart, .icon-comment {
   float: left;
   margin-left: 18px;
-  font-size: 20px;
 }
 
 // new post form modal
