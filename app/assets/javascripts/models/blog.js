@@ -1,39 +1,53 @@
-Mumblr.Models.Blog = Backbone.Model.extend({
-  urlRoot: "/api/blogs",
+Mumblr.Models.Blog = Backbone.Model.extend(
+  _.extend({}, Mumblr.Mixins.FollowOrLikeable, {
+    urlRoot: "/api/blogs",
 
-  owner: function(){
-    this._owner = this._owner || new Mumblr.Models.User();
-    return this._owner;
-  },
+    options: {
+      targetEvent: "following",
+      foreignKey: "blog_id"
+    },
 
-  posts: function(){
-    this._posts = this._posts || new Mumblr.Collections.Posts({
-      blog: this
-    });
+    owner: function(){
+      this._owner = this._owner || new Mumblr.Models.User();
+      return this._owner;
+    },
 
-    return this._posts;
-  },
+    posts: function(){
+      this._posts = this._posts || new Mumblr.Collections.Posts({
+        blog: this
+      });
 
-  followers: function(){
-    this._followers = this._followers || new Mumblr.Collections.Users();
-    return this._followers;
-  },
+      return this._posts;
+    },
 
-  parse: function(payload){
-    if (payload.posts){
-      this.posts().set(payload.posts, { parse: true });
-      delete payload.posts
-    };
-    if (payload.owner){
-      this.owner().set(payload.owner);
-      delete payload.owner
-    };
-    if (payload.followers){
-      this.followers().set(payload.followers);
-      delete payload.followers
-    };
+    followers: function(){
+      this._followers = this._followers || new Mumblr.Collections.Users();
+      return this._followers;
+    },
 
-    return payload;
-  }
+    parse: function(payload){
+      if (payload.posts){
+        this.posts().set(payload.posts, { parse: true });
+        delete payload.posts
+      };
+      if (payload.owner){
+        this.owner().set(payload.owner);
+        delete payload.owner
+      };
+      if (payload.followers){
+        this.followers().set(payload.followers);
+        delete payload.followers
+      };
+      this.parseTarget(payload);
+      return payload;
+    },
 
-});
+    follow: function(){
+      return this.target();
+    },
+
+    toggleFollow: function(){
+      this.toggleEvent();
+    }
+  })
+);

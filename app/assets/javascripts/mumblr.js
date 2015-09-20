@@ -1,4 +1,5 @@
 window.Mumblr = {
+  Mixins: {},
   Models: {},
   Collections: {},
   Views: {},

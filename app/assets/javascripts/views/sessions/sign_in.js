@@ -42,7 +42,7 @@ Mumblr.Views.SignIn = Backbone.View.extend({
     if(this.callback) {
       this.callback();
     } else {
-      Backbone.history.navigate("posts", { trigger: true });
+      Backbone.history.navigate("#posts", { trigger: true });
     }
   },
 

@@ -16,7 +16,11 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
       collection: this.model.posts(),
       isBlog: true
     });
-    this.$(".blog-posts").append(postsIndexView.render().$el);
+    this.addSubview(".blog-posts", postsIndexView)
+    var followWidget = new Mumblr.Views.FollowWidget({
+      model: this.model
+    })
+    this.addSubview(".follow-status", followWidget)
     return this;
   }
 

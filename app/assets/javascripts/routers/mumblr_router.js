@@ -110,7 +110,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   },
 
   _goDashboard: function(){
-    Backbone.history.navigate("#dashboard", { trigger: true });
+    Backbone.history.navigate("#posts", { trigger: true });
   },
 
   _swapView: function(newView, selector){

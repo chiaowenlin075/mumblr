@@ -15,12 +15,16 @@ module Api
     def show
       @blog = Blog.includes(:owner, :followers).find(params[:id]) #, :likes, :comments, :tags))
       @posts = Post.where(blog_id: @blog.id).includes(:author)
+
+      @followings_hash = {}
+      if logged_in?
+        @followings_hash[@blog.id] = @blog.followings.find_by(follower_id: current_user.id)
+      end
       render :show
     end
 
     def update
       @blog = Blog.includes(:owner, :followers).find(params[:id])
-      return unless is_owner?(@blog)
 
       if @blog.update(blog_params)
         render :show
@@ -38,7 +42,7 @@ module Api
 
     private
     def blog_params
-      params.require(:blog).premit(:title, :description, :url, :background)
+      params.require(:blog).permit(:title, :description, :url, :background)
     end
 
     def is_owner?(blog)

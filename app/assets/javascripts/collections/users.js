@@ -1,4 +1,4 @@
-Mumblr.Collections.User = Backbone.Collection.extend({
+Mumblr.Collections.Users = Backbone.Collection.extend({
   url: "/api/users"
-  
+
 });

@@ -3,7 +3,7 @@
   <nav class="blog-navbar">
     <a href="#dashboard"><i class="icon-explore-small"/>Back To Dashboard</a>
     <% if (currentUser.escape('id') !== blog.owner().escape('id')) { %>
-      <button class="follow-btn"><i class="icon-plus"/> Follow</button>
+      <div class="follow-status"></div>
     <% } else { %>
       <button class="edit-blog"><i class="icon-tool"/> Edit</button>
     <% } %>

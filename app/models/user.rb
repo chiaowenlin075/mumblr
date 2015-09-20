@@ -48,7 +48,6 @@ class User < ActiveRecord::Base
 
   after_initialize {
     self.activation_token = generate_activation_token
-    # self.avatar_url = "cat.jpg"
   }
 
   def self.find_by_credential(email, password)
@@ -69,6 +68,17 @@ class User < ActiveRecord::Base
       code = SecureRandom::urlsafe_base64(20)
       return code unless self.class.exists?(activation_token: code)
     end
+  end
+
+  def blog_follow_hash
+    zipped_follows = followings.pluck(:blog_id).zip(followings)
+    follow_hash = {}
+
+    zipped_follows.each do |id, like|
+      follow_hash[id] = like
+    end
+
+    follow_hash
   end
 
   def feed(limit, time_stone)
