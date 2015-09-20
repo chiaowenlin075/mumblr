@@ -8,10 +8,12 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
 
   events: {
     "click button.close": "exit",
-    "click .show-info": "edit"
+    "click .icon-edit": "edit",
+    "blur .editable": "update"
   },
 
   render: function(){
+    debugger
     var content = this.template({ blog: this.model });
     this.$el.html(content);
     return this;
@@ -20,13 +22,30 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
   edit: function(event){
     event.preventDefault();
     $(event.currentTarget).addClass("hide");
-    $(event.currentTarget).next().removeClass("hide");
-    debugger
+    $(event.currentTarget).prev().addClass("hide");
+    var $inputArea = $(event.currentTarget).next().removeClass("hide");
+    $inputArea.focus();
+    // debugger
   },
 
-  submit: function(event){
+  update: function(event){
     event.preventDefault();
-
+    var $inputArea = $(event.currentTarget);
+    var input = $inputArea.serializeJSON();
+    this.model.save(input.blog, {
+      success: function(model){
+        $inputArea.siblings().not("label").toggleClass("hide");
+        $inputArea.addClass("hide");
+      }.bind(this),
+      error: function(model, resp){
+        debugger
+        // var errMsg = resp.responseJSON[0];
+        // var $err = $("<strong class='error-msg'>").html(errMsg);
+        // $inputArea.parent().append($err);
+        // $inputArea.focus();
+        debugger
+      }
+    })
   },
 
   exit: function(event){

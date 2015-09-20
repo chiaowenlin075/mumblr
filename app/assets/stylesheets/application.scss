@@ -114,7 +114,8 @@ h1 {
   line-height: 47px;
 }
 
-input.hide, textarea.hide, label.hide {
+input.hide, textarea.hide, label.hide,
+[class*="icon-"].hide, p.hide {
   display: none;
 }
 
@@ -753,7 +754,6 @@ input.title {
 
 .blog-info-list > li:last-child {
   padding: 10px;
-  box-sizing: bo
 }
 
 .blog-info-link {
@@ -820,7 +820,7 @@ input.title {
 .blog-avatar {
   border-radius: 50%;
   width: 150px;
-  border: 5px solid #e7e7e7;
+  border: 5px solid #f0f0f0;
   margin: 0 auto;
 }
 
@@ -854,15 +854,65 @@ input.title {
 
 // edit blog
 
-.blog-modal {
+.blog-modal-form {
   z-index: 15;
   top: 90px;
   position: absolute;
+  background: #f0f0f0;
+  width: 400px;
+  padding: 25px;
+  border-radius: 3px;
   left: 50%;
+  font-size: 14px;
   transform: translateX(-50%);
 }
 
 .background-preview {
   width: 100px;
   float: left;
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+
+.show-info {
+  margin-bottom: 5px;
+  float: left;
+  width: calc(100% - 20px);
+}
+
+.blog-modal-form .icon-edit {
+  float: right;
+}
+
+.blog-modal-form input[type="text"],
+.blog-modal-form textarea {
+  width: 100% ;
+  box-shadow: inset 0 0 1px #000000;
+  padding: 5px 8px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.blog-modal-form label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.blog-modal-form .submit,
+.blog-modal-form .close {
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.blog-modal-form .submit {
+  float: right;
+}
+
+.blog-modal-form .close {
+  float: left;
+  background: rgba(0, 0, 0, 0.5);
 }

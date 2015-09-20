@@ -26,9 +26,9 @@ module Api
     def update
       @blog = Blog.includes(:owner, :followers).find(params[:id])
       return unless is_owner?(@blog)
-      
+
       if @blog.update(blog_params)
-        render :show
+        render :update_show
       else
         render json: @blog.errors.full_messages, status: 422
       end
