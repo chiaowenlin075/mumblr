@@ -3,9 +3,9 @@ Blog.destroy_all
 Post.destroy_all
 
 u1 = User.create(email: "sennacy@cat.com", password: "sennacy", username: "Sennacy")
-b1 = Blog.create!(owner_id: u1.id, title: "Sennacy's Blog")
+b1 = Blog.create!(owner_id: u1.id, title: "Sennacy's Blog", description: "Hello there! This is Sennacy's blog! <3")
 u2 = User.create(email: "breakfast@cat.com", password: "breakfast", username: "Breakfast")
-b2 = Blog.create!(owner_id: u2.id, title: "Breakfast's Blog")
+b2 = Blog.create!(owner_id: u2.id, title: "Breakfast's Blog", description: "Breakfast is mumblrrring here~"))
 
 Post.create!(
   author_id: u1.id,
@@ -84,6 +84,6 @@ Post.create!(
   author_id: u2.id,
   blog_id: b2.id,
   post_type: "text",
-  title: "Dairy",
+  title: "Diary",
   body: "Blablablablablabla"
 )

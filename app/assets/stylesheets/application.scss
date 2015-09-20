@@ -152,26 +152,18 @@ h1 {
 .icon-heart-broken { background-position: -10px -627px; width: 20px; height: 20px; }
 .icon-heart-red { background-position: -10px -657px; width: 20px; height: 20px; }
 .icon-heart { background-position: -10px -687px; width: 20px; height: 20px; }
-.icon-point-right { background-position: -10px -717px; width: 20px; height: 20px; }
-.icon-search { background-position: -10px -747px; width: 20px; height: 20px; }
-.icon-search:focus { background-position: -10px -777px; width: 20px; height: 20px; }
-.icon-setting { background-position: -10px -807px; width: 20px; height: 20px; }
-.icon-circle-down { background-position: -10px -837px; width: 16px; height: 16px; }
-.icon-following-small { background-position: -10px -863px; width: 16px; height: 16px; }
-.icon-heart-small { background-position: -10px -889px; width: 16px; height: 16px; }
-.icon-setting-small { background-position: -10px -915px; width: 16px; height: 16px; }
-.icon-plus { background-position: -36px -837px; width: 14px; height: 14px; }
-
-
 .icon-search { background-position: -10px -717px; width: 20px; height: 20px; }
 .icon-search:focus { background-position: -10px -747px; width: 20px; height: 20px; }
 .icon-setting { background-position: -10px -777px; width: 20px; height: 20px; }
-.icon-circle-down { background-position: -10px -807px; width: 16px; height: 16px; }
-.icon-following-small { background-position: -10px -833px; width: 16px; height: 16px; }
-.icon-heart-small { background-position: -10px -859px; width: 16px; height: 16px; }
-.icon-point-right { background-position: -10px -885px; width: 16px; height: 16px; }
-.icon-setting { background-position: -10px -911px; width: 16px; height: 16px; }
-.icon-plus { background-position: -36px -807px; width: 14px; height: 14px; }
+.icon-explore-small { background-position: -10px -807px; width: 18px; height: 18px; }
+.icon-tool { background-position: -10px -835px; width: 17px; height: 17px; }
+.icon-circle-down { background-position: -10px -862px; width: 16px; height: 16px; }
+.icon-following-small { background-position: -10px -888px; width: 16px; height: 16px; }
+.icon-heart-small { background-position: -10px -914px; width: 16px; height: 16px; }
+.icon-point-right { background-position: -10px -940px; width: 16px; height: 16px; }
+.icon-setting-small { background-position: -10px -966px; width: 16px; height: 16px; }
+.icon-plus { background-position: -36px -862px; width: 14px; height: 14px; }
+
 // User auth form
 .user-auth {
   height: 100vh;
@@ -796,16 +788,21 @@ input.title {
   position: relative;
 }
 
-.follow-btn {
-  padding: 5px 8px;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
+.blog-navbar {
   float: right;
-  margin: 10px 30px;
+  color: white;
+  margin: 0 15px;
 }
 
-.icon-plus {
+.blog-navbar > * {
+  float: left;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 10px 5px;
+  border-radius: 3px;
+}
+
+.blog-navbar i {
   margin-right: 5px;
 }
 
@@ -828,6 +825,11 @@ input.title {
   text-align: center;
   font-size: 36px;
   font-weight: bold;
+}
+
+.blog-desc {
+  text-align: center;
+  margin-top: 10px;
 }
 
 .blog-posts {

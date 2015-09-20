@@ -1,11 +1,10 @@
 module Api
   class UsersController < ApplicationController
 
-    # def show
-    #   @user = User.includes(:blog, :posts, :followed_blogs).find(params[:id])
-    #   render :show
-    # end
-
+    def show
+      @user = User.includes(:blog, :posts, :followed_blogs).find(params[:id])
+      render :show
+    end
 
     def create
       @user = User.new(user_params)

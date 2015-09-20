@@ -1,12 +1,17 @@
 <header class="blog-header"
         style="background-image: url(<%= blog.escape('background_url') %>)">
-  <% if (currentUser.escape('id') !== blog.owner().escape('id')) { %>
-    <button class="follow-btn"><i class="icon-plus"></i> Follow</button>
-  <% } %>
+  <nav class="blog-navbar">
+    <a href="#dashboard"><i class="icon-explore-small"/>Back To Dashboard</a>
+    <% if (currentUser.escape('id') !== blog.owner().escape('id')) { %>
+      <button class="follow-btn"><i class="icon-plus"/> Follow</button>
+    <% } else { %>
+      <button class="edit-blog"><i class="icon-tool"/> Edit</button>
+    <% } %>
+  </nav>
 </header>
 <section class="blog-main">
   <img src="<%= blog.owner().escape('avatar_url')%>" class="blog-avatar">
   <figcaption><%= blog.escape('title') %></figcaption>
-  <p><%= blog.escape('description') %></p>
+  <p class="blog-desc"><%= blog.escape('description') %></p>
   <div class="blog-posts"></div>
 </section>

@@ -66,10 +66,8 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   },
 
   blog: function(id){
-    var callback = this.blog.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-
     var blog = new Mumblr.Models.Blog({ id: id });
+    blog.fetch();
     var blogView = new Mumblr.Views.BlogShow({ model: blog });
     this._swapView(blogView);
   },
