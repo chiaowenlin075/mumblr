@@ -1,5 +1,5 @@
-json.extract!(post, :id, :blog_id, :post_type,
-              :num_likes, :title, :body, :link_url)
+json.extract!(post, :id, :blog_id, :post_type, :title, :body, :link_url)
+# json.num_likes post.likes.size
 if post.image
 json.image_url asset_path(post.image.url)
 end

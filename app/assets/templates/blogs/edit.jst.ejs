@@ -1,0 +1,22 @@
+<section class="blog-modal">
+  <form class="blog-form">
+    <section>
+      <label class="show-info"><%= blog.escape('title') %></label>
+      <input type="text"
+             class="editable hide"
+             name="blog[title]"
+             value="<%= blog.escape('title') %>">
+    </section>
+    <section>
+      <p class="show-info"><%= blog.escape('description') %></p>
+      <textarea name="blog[description]"
+                class="editable hide"><%= blog.escape('description') %></textarea>
+    </section>
+      <img src="<%= blog.escape('background_url') %>" class="background-preview hide">
+      <input type="file" class="upload" name="blog[background]">
+
+    <button class="close">Close</button>
+    <button class="submit">Save</button>
+  </form>
+</section>
+<section class="block-modal"></section>

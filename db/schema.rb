@@ -17,20 +17,18 @@ ActiveRecord::Schema.define(version: 20150918215654) do
   enable_extension "plpgsql"
 
   create_table "blogs", force: :cascade do |t|
-    t.string   "title",                               null: false
-    t.integer  "owner_id",                            null: false
+    t.string   "title",                   null: false
+    t.integer  "owner_id",                null: false
     t.text     "description"
-    t.integer  "num_follows",             default: 0, null: false
     t.string   "url"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "background_file_name"
     t.string   "background_content_type"
     t.integer  "background_file_size"
     t.datetime "background_updated_at"
   end
 
-  add_index "blogs", ["num_follows"], name: "index_blogs_on_num_follows", using: :btree
   add_index "blogs", ["owner_id"], name: "index_blogs_on_owner_id", unique: true, using: :btree
 
   create_table "followings", force: :cascade do |t|
@@ -45,15 +43,14 @@ ActiveRecord::Schema.define(version: 20150918215654) do
   add_index "followings", ["follower_id"], name: "index_followings_on_follower_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
-    t.integer  "author_id",                      null: false
-    t.integer  "blog_id",                        null: false
-    t.string   "post_type",                      null: false
-    t.integer  "num_likes",          default: 0, null: false
+    t.integer  "author_id",          null: false
+    t.integer  "blog_id",            null: false
+    t.string   "post_type",          null: false
     t.string   "title"
     t.text     "body"
     t.string   "link_url"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -62,7 +59,6 @@ ActiveRecord::Schema.define(version: 20150918215654) do
 
   add_index "posts", ["author_id"], name: "index_posts_on_author_id", using: :btree
   add_index "posts", ["blog_id"], name: "index_posts_on_blog_id", using: :btree
-  add_index "posts", ["num_likes"], name: "index_posts_on_num_likes", using: :btree
 
   create_table "sessions", force: :cascade do |t|
     t.integer  "user_id",       null: false

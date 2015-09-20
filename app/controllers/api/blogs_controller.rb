@@ -25,7 +25,8 @@ module Api
 
     def update
       @blog = Blog.includes(:owner, :followers).find(params[:id])
-
+      return unless is_owner?(@blog)
+      
       if @blog.update(blog_params)
         render :show
       else

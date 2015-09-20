@@ -6,6 +6,10 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
   },
 
+  events: {
+    "click .edit-blog": "editBlog"
+  },
+
   render: function(){
     var content = this.template({
       blog: this.model,
@@ -22,6 +26,12 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
     })
     this.addSubview(".follow-status", followWidget)
     return this;
+  },
+
+  editBlog: function(event){
+    event.preventDefault();
+    var editForm = new Mumblr.Views.BlogEdit({ model: this.model });
+    $("body").append(editForm.render().$el);
   }
 
 });

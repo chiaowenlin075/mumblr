@@ -114,7 +114,7 @@ h1 {
   line-height: 47px;
 }
 
-.hide {
+input.hide, textarea.hide, label.hide {
   display: none;
 }
 
@@ -584,6 +584,7 @@ a.demo-user {
 
 .post-image {
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .post-footer {
@@ -714,6 +715,7 @@ input.title {
 
 .image-preview {
   margin-bottom: 22px;
+  width: 100%;
 }
 
 .disabledBtn {
@@ -848,4 +850,19 @@ input.title {
 
 .blog-posts .post h1 {
   padding: 20px;
+}
+
+// edit blog
+
+.blog-modal {
+  z-index: 15;
+  top: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.background-preview {
+  width: 100px;
+  float: left;
 }

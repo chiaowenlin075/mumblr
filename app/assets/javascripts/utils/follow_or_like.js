@@ -16,8 +16,6 @@ Mumblr.Mixins.FollowOrLikeable = {
     this.target().set(this.options.foreignKey, this.escape('id'));
     this.target().save({}, {
       success: function (data) {
-        debugger
-        // this.target().set(data);
         this.updateNumCount(1);
       }.bind(this)
     });
@@ -46,7 +44,6 @@ Mumblr.Mixins.FollowOrLikeable = {
     } else if (this.options.targetEvent === "like") {
       this.set("num_likes", this.get("num_likes") + delta);
     }
-    this.save({});
   },
 
   parseTarget: function (payload) {
