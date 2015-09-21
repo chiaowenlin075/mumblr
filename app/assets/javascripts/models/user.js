@@ -73,6 +73,11 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
     return this._followed_blogs;
   },
 
+  feeds: function(){
+    this._feeds = this._feeds || new Mumblr.Collections.Posts();
+    return this._feeds;
+  },
+
   parse: function(payload){
     if (payload.recent_tags){
       this.recent_tags().set(payload.recent_tags);
@@ -85,9 +90,14 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
     };
 
     if (payload.followed_blogs){
-      this.followed_blogs = payload.followed_blogs;
+      this.followed_blogs().set(payload.followed_blogs, { parse: true );
       delete payload.followed_blogs;
-    }
+    };
+
+    if (payload.feeds){
+      this.feeds().set(payload.feeds, { parse: true });
+      delete payload.feeds;
+    };
     return payload;
   }
 

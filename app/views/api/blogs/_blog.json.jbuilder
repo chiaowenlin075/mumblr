@@ -2,12 +2,12 @@ json.extract!(blog, :id, :title, :description, :url)
 json.background_url asset_path(blog.background.url)
 json.num_follows blog.followings.size
 
-if need_followStatus
-  json.following followings_hash[blog.id]
-end
-
 json.owner do
   json.partial!("api/users/user", user: blog.owner, need_followed_blogs: false)
+end
+
+if need_followStatus
+  json.following followings_hash[blog.id]
 end
 
 if need_posts

@@ -81,7 +81,7 @@ class User < ActiveRecord::Base
     follow_hash
   end
 
-  def feed(limit = 25, time_stone = Time.now)
+  def feeds(limit = 25, time_stone = Time.now)
     binds = { time_stone: time_stone, id: self.id, limit: limit }
     Post.find_by_sql([<<-SQL, binds])
       SELECT DISTINCT posts.*
