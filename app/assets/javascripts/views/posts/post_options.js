@@ -4,7 +4,7 @@ Mumblr.Views.PostOptionsBar = Backbone.CompositeView.extend({
   tagName: "section",
 
   initialize: function(options){
-    this.blog = options.blog;
+    this.blog_id = options.blog_id;
     this.collection = options.collection;
   },
 
@@ -22,8 +22,9 @@ Mumblr.Views.PostOptionsBar = Backbone.CompositeView.extend({
     event.preventDefault();
     var postType = $(event.currentTarget).data("post-type");
     var postForm = new Mumblr.Views.PostForm({
-      model: new Mumblr.Models.Post({ blog: this.blog }),
+      model: new Mumblr.Models.Post(),
       collection: this.collection,
+      blog_id: this.blog_id,
       postType: postType
     });
 

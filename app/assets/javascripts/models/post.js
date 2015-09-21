@@ -1,16 +1,10 @@
 Mumblr.Models.Post = Backbone.Model.extend(
   _.extend({}, Mumblr.Mixins.FollowOrLikeable, {
+    urlRoot: "/api/posts",
+
     options: {
       targetEvent: "liking",
       foreignKey: "post_id"
-    },
-
-    initialize: function(options){
-      this.blog = options.blog;
-    },
-
-    urlRoot: function(){
-      return _.result(this.blog, "url") + "/posts";
     },
 
     author: function(){

@@ -5,7 +5,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   initialize: function(options){
     this.collection = options.collection;
     this.model.set({
-      blog_id: this.model.blog.escape('id'),
+      blog_id: options.blog_id,
       post_type: options.postType
     });
   },
@@ -19,7 +19,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
 
   render: function(){
     var content = this.template({
-      user: this.model.blog.owner(),
+      user: Mumblr.CurrentUser,
       post: this.model
     });
     this.$el.html(content);

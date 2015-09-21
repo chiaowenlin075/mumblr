@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       collection do
         get :current_user_blog
       end
-      resources :posts, only: [:new, :create, :show, :update, :destroy, :index]
     end
+    resources :posts, only: [:create, :show, :update, :destroy, :index]
     resources :followings, only: [:create, :index, :destroy]
     resources :likings, only: [:create, :index, :destroy]
   end

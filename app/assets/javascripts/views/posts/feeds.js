@@ -4,16 +4,14 @@ Mumblr.Views.Feeds = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.user = Mumblr.CurrentUser;
-    this.blog = options.blog;
     this.listenTo(this.user, "sync", this.render);
-    this.listenTo(this.blog, "sync", this.render);
   },
 
   render: function(){
     var content = this.template();
     this.$el.html(content);
     var postOptionsBar = new Mumblr.Views.PostOptionsBar({
-      blog: this.blog,
+      blog: this.user.blog_id,
       collection: this.user.feeds()
     });
     this.addSubview(".post-option-bar", postOptionsBar);
