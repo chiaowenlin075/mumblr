@@ -81,18 +81,22 @@ class User < ActiveRecord::Base
     follow_hash
   end
 
-  def feed(limit, time_stone)
-    # SELECT owned_posts.* AS owned_posts, followed_posts.* AS followed_posts
-    # FROM posts AS owned_posts
-    # JOIN users ON owned_posts.author_id = users.id
-    # JOIN follows ON follows.follower_id = users.id
-    # JOIN blogs ON followed_blog_id = blogs.id
-    # JOIN posts AS followed_posts ON posts.blog_id = blogs.id
-    # WHERE users.id = current_user.id AND posts's created at > given time
-    # LIMIT limit_time
-
-    # WHERE posts.blog_id IN (...)
-    # OR posts.author_id = self.id
+  def feed(limit = 25, time_stone = Time.now)
+    binds = { time_stone: time_stone, id: self.id, limit: limit }
+    Post.find_by_sql([<<-SQL, binds])
+      SELECT DISTINCT posts.*
+      FROM posts
+      WHERE posts.created_at < :time_stone AND posts.author_id = :id
+      OR posts.blog_id IN (
+          SELECT blogs.id
+          FROM users
+          JOIN followings ON followings.follower_id = users.id
+          JOIN blogs ON blogs.id = followings.blog_id
+          WHERE users.id = :id
+        )
+      ORDER BY posts.created_at DESC
+      LIMIT :limit
+    SQL
   end
 
   def recent_tags
