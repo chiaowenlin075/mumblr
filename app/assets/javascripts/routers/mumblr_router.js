@@ -24,12 +24,12 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     }
   },
 
-  sidebar: function(){
+  sidebar: function(blog){
     var callback = this.sidebar.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
     if (!this._currentView[".main-sidebar"]){
-      var blogInfo = new Mumblr.Views.BlogInfo();
+      var blogInfo = new Mumblr.Views.BlogInfo({ blog: blog });
       this._swapView(blogInfo, ".main-sidebar");
     };
   },
@@ -52,10 +52,12 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   dashboard: function(){
     var callback = this.dashboard.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-    // var newView = new Mumblr.Views.Dashboard({ collection: })
-    var contentView = new Mumblr.Views.Feeds();
+    var blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blog_id });
+    blog.fetch();
+
+    var contentView = new Mumblr.Views.Feeds({ blog: blog });
     this._swapView(contentView, ".main-content");
-    this.sidebar();
+    this.sidebar(blog);
   },
 
   posts: function(){
@@ -63,9 +65,11 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     if (!this._requireSignedIn(callback)) { return; }
     // posts and followers share the same ".main-sidebar",
     // check whether theres content inside .main-sidebar, if no, add into it
+    var blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blog_id });
+    blog.fetch();
     var contentView = new Mumblr.Views.CurrentUserPosts();
     this._swapView(contentView, ".main-content");
-    this.sidebar();
+    this.sidebar(blog);
   },
 
   blog: function(id){

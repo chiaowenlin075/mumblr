@@ -1,4 +1,4 @@
-Mumblr.Views.PostsIndexItem = Backbone.View.extend({
+Mumblr.Views.PostsIndexItem = Backbone.CompositeView.extend({
   template: JST['posts/index_item'],
   className: "posts-index-item",
   tagName: "li",
@@ -16,7 +16,7 @@ Mumblr.Views.PostsIndexItem = Backbone.View.extend({
     var postShowView = new Mumblr.Views.PostShow({
       model: this.model
     });
-    this.$el.append(postShowView.render().$el);
+    this.addSubview(".post-show-container", postShowView);
     return this;
   }
 

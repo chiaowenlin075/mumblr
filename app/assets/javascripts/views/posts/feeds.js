@@ -2,13 +2,11 @@ Mumblr.Views.Feeds = Backbone.CompositeView.extend({
   template: JST['posts/feeds'],
   className: "posts-main",
 
-  initialize: function(){
+  initialize: function(options){
     this.user = Mumblr.CurrentUser;
-    this.blog = new Mumblr.Models.Blog({ id: this.user.blog_id });
+    this.blog = options.blog;
     this.listenTo(this.user, "sync", this.render);
     this.listenTo(this.blog, "sync", this.render);
-    this.user.fetch();
-    this.blog.fetch();
   },
 
   render: function(){

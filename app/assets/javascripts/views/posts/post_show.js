@@ -13,10 +13,14 @@ Mumblr.Views.PostShow = Backbone.CompositeView.extend({
       currentUser: Mumblr.CurrentUser
     });
     this.$el.html(content);
-    var likeWidget = new Mumblr.Views.LikeWidget({
-      model: this.model
-    })
-    this.addSubview(".like-status", likeWidget);
+
+    if (this.$(".like-status").length) {
+      var likeWidget = new Mumblr.Views.LikeWidget({
+        model: this.model
+      })
+      this.addSubview(".like-status", likeWidget);
+    };
+
     return this;
   }
 
