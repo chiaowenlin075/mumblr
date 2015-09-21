@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
           JOIN blogs ON blogs.id = followings.blog_id
           WHERE users.id = :id
         )
-      ORDER BY posts.created_at DESC
+      ORDER BY posts.created_at 
       LIMIT :limit
     SQL
   end

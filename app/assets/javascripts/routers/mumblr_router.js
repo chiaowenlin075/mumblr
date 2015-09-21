@@ -53,6 +53,9 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     var callback = this.dashboard.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
     // var newView = new Mumblr.Views.Dashboard({ collection: })
+    var contentView = new Mumblr.Views.Feeds();
+    this._swapView(contentView, ".main-content");
+    this.sidebar();
   },
 
   posts: function(){
@@ -110,7 +113,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   },
 
   _goDashboard: function(){
-    Backbone.history.navigate("#posts", { trigger: true });
+    Backbone.history.navigate("#dashboard", { trigger: true });
   },
 
   _swapView: function(newView, selector){

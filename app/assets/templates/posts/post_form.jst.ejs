@@ -30,7 +30,7 @@
              placeholder="Type or paste a URL">
       <textarea class="link-desc" name="post[body]" placeholder="Add a description, if you like"><%= post.escape('body') %></textarea>
     <% } %>
-
+    <div class="error"></div>
     <button class="close">Close</button>
     <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>
   </form>

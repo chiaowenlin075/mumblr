@@ -3,7 +3,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   className: "new-post",
 
   initialize: function(options){
-    this.collection = this.model.blog.posts();
+    this.collection = options.collection;
     this.model.set({
       blog_id: this.model.blog.escape('id'),
       post_type: options.postType
@@ -81,6 +81,12 @@ Mumblr.Views.PostForm = Backbone.View.extend({
       success: function(model){
         this.collection.add(model);
         this.remove();
+      }.bind(this),
+      error: function(model, resp){
+        this.$("input").val("");
+        var errMsg = resp.responseJSON[0];
+        var $err = $("<strong class='error-msg'>").html(errMsg);
+        this.$(".error").html($err);
       }.bind(this)
     };
   }

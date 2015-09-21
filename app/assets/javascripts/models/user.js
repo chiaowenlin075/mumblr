@@ -90,7 +90,7 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
     };
 
     if (payload.followed_blogs){
-      this.followed_blogs().set(payload.followed_blogs, { parse: true );
+      this.followed_blogs().set(payload.followed_blogs, { parse: true });
       delete payload.followed_blogs;
     };
 

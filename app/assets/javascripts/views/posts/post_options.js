@@ -5,6 +5,7 @@ Mumblr.Views.PostOptionsBar = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.blog = options.blog;
+    this.collection = options.collection;
   },
 
   events: {
@@ -22,6 +23,7 @@ Mumblr.Views.PostOptionsBar = Backbone.CompositeView.extend({
     var postType = $(event.currentTarget).data("post-type");
     var postForm = new Mumblr.Views.PostForm({
       model: new Mumblr.Models.Post({ blog: this.blog }),
+      collection: this.collection,
       postType: postType
     });
 

@@ -26,14 +26,14 @@ class Following < ActiveRecord::Base
                          .where("blogs.id = ?", self.blog_id)
                          .pluck("followings.follower_id")
     if followers.include?(follower_id)
-      errors[:invalid] << "Can't follow same blog twice!"
+      errors[:invalid!] << "Can't follow same blog twice!"
     end
   end
 
   def no_follow_self_blog
     owned_blog = Blog.where(id: self.blog_id).where(owner_id: self.follower_id)
     unless owned_blog.empty?
-      errors[:invalid] << "Can't follow your own blog!"
+      errors[:invalid!] << "Can't follow your own blog!"
     end
   end
 end

@@ -13,9 +13,7 @@ Mumblr.Models.Blog = Backbone.Model.extend(
     },
 
     posts: function(){
-      this._posts = this._posts || new Mumblr.Collections.Posts({
-        blog: this
-      });
+      this._posts = this._posts || new Mumblr.Collections.Posts();
 
       return this._posts;
     },

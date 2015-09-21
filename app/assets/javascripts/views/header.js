@@ -15,7 +15,7 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
   render: function(){
     var content = this.template({
       user: this.user,
-      num_likes: 3
+      num_likes: 8
     });
     this.$el.html(content);
     return this;

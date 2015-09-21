@@ -6,7 +6,6 @@
 #  author_id          :integer          not null
 #  blog_id            :integer          not null
 #  post_type          :string           not null
-#  num_likes          :integer          default(0), not null
 #  title              :string
 #  body               :text
 #  link_url           :string
@@ -63,7 +62,7 @@ class Post < ActiveRecord::Base
   def validate_link_url
     return unless link_url
     if !link_url_valid?
-      errors[:invalid] << "Given link is not supported"
+      errors[:invalid!] << "Given link is not supported"
     end
   end
 
