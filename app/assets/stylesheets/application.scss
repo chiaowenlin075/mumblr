@@ -636,20 +636,35 @@ a.demo-user {
 
 // post-footer
 
+.num_likes {
+  float: left;
+}
+
 .post-response-list {
-  margin-top: 10px;
+  margin-top: 5px;
   float: right;
   width: 80px;
 }
 
 .post-response-list > li {
-  cursor: pointer;
-}
-
-.icon-heart, .icon-comment {
+  // cursor: pointer;
   float: left;
   margin-left: 18px;
 }
+
+.post-response-list .icon-comment,
+.post-response-list .icon-setting {
+  cursor: pointer;
+}
+//
+// .like-btn {
+//   overflow: hidden;
+// }
+//
+// .post-response-list .like-status {
+//   float: left;
+//   margin-left: 18px;
+// }
 
 // new post form modal
 

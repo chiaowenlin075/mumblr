@@ -1,19 +1,22 @@
-Mumblr.Views.PostShow = Backbone.View.extend({
+Mumblr.Views.PostShow = Backbone.CompositeView.extend({
   template: JST['posts/show'],
   className: "post",
   tagName: "article",
 
   initialize: function(){
-    this.listenTo(this.model, "remove change destroy", this.render);
+    this.listenTo(this.model, "change destroy", this.render);
   },
 
   render: function(){
     var content = this.template({
       post: this.model,
-      user: this.model.author()
+      currentUser: Mumblr.CurrentUser
     });
-
     this.$el.html(content);
+    var likeWidget = new Mumblr.Views.LikeWidget({
+      model: this.model
+    })
+    this.addSubview(".like-status", likeWidget);
     return this;
   }
 

@@ -1,1 +1,1 @@
-json.partial!("post", post: @post)
+json.partial!("post", post: @post, need_likeStatus: true, likings_hash: @likings_hash)

@@ -4,8 +4,8 @@ Mumblr.Mixins.FollowOrLikeable = {
     if (!this._target) {
       if (this.options.targetEvent === "following") {
         this._target = new Mumblr.Models.Following();
-      } else if (this.options.targetEvent === "like") {
-        this._target = new Mumblr.Models.Like();
+      } else if (this.options.targetEvent === "liking") {
+        this._target = new Mumblr.Models.Liking();
       }
     }
     return this._target;
@@ -40,7 +40,7 @@ Mumblr.Mixins.FollowOrLikeable = {
   updateNumCount: function (delta) {
     if (this.options.targetEvent === "following") {
       this.set("num_follows", this.get("num_follows") + delta);
-    } else if (this.options.targetEvent === "like") {
+    } else if (this.options.targetEvent === "liking") {
       this.set("num_likes", this.get("num_likes") + delta);
     }
   },

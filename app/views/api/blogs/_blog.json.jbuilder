@@ -12,7 +12,12 @@ end
 
 if need_posts
   json.posts posts do |post|
-    json.partial!("api/posts/post", post: post)
+    json.partial!(
+      "api/posts/post",
+      post: post,
+      need_likeStatus: need_likeStatus,
+      likings_hash: likings_hash
+    )
   end
 end
 

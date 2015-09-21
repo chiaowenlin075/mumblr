@@ -43,12 +43,12 @@ class User < ActiveRecord::Base
     inverse_of: :follower,
     dependent: :destroy
   has_many :followed_blogs, through: :followings, source: :blog
-  has_many :likes,
+  has_many :likings,
     class_name: "Liking",
     foreign_key: :liker_id,
     inverse_of: :liker,
     dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post 
+  has_many :liked_posts, through: :likes, source: :post
 
   attr_reader :password
 
@@ -85,6 +85,17 @@ class User < ActiveRecord::Base
     end
 
     follow_hash
+  end
+
+  def post_likes_hash
+    zipped_likes = likings.pluck(:post_id).zip(likings)
+    likes_hash = {}
+
+    zipped_likes.each do |id, like|
+      likes_hash[id] = like
+    end
+
+    likes_hash
   end
 
   def feeds(limit = 25, time_stone = Time.now)

@@ -1,10 +1,5 @@
 module Api
   class PostsController < ApplicationController
-  
-    def new
-      @post = Post.new
-      render :new
-    end
 
     def create
       @post = current_user.posts.new(post_params)
@@ -17,21 +12,13 @@ module Api
       end
     end
 
-    # might not need Posts#index, Blogs#show will handle all the posts
-    # def index
-    #   # all posts in the same blog (your posts)
-    #   @posts = current_user.posts #.includes(:likes, :comments, :tags)
-    # end
-
-    # def feed
-      # all posts from you/subscirbed blogs
-      # @followed_blogs = current_user.followed_blogs
-
-      # @posts = feed(params[:limit], params[:time_stone])
-    # end
-
     def show
-      @post = Post.includes(:author).find(params[:id]) #.includes(:likes, :comments, :tags)
+      @post = Post.includes(:likes, :author).find(params[:id]) #.includes(:likes, :comments, :tags)
+
+      @likings_hash = {}
+      if logged_in?
+        @likings_hash[@post.id] = @post.likings.find_by(liker_id: current_user.id)
+      end
       render :show
     end
 
@@ -40,7 +27,7 @@ module Api
       return unless is_author?(@post)
 
       if @post.update(post_params)
-        render :show
+        render :update_show
       else
         render json: @post.errors.full_messages, status: 422
       end

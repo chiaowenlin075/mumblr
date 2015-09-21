@@ -1,5 +1,6 @@
 json.extract!(post, :id, :blog_id, :post_type, :title, :body, :link_url)
-# json.num_likes post.likes.size
+json.num_likes post.likings.size
+
 if post.image
 json.image_url asset_path(post.image.url)
 end
@@ -9,5 +10,9 @@ if post.link_url
 end
 
 json.author do
-  json.partial!("api/users/user", user: post.author, need_followed_blogs: false)
+  json.partial!("api/users/user", user: post.author, need_followed_blogs: false, need_likeStatus: false)
+end
+
+if need_likeStatus
+  json.liking likings_hash[post.id]
 end

@@ -32,7 +32,7 @@ class Post < ActiveRecord::Base
     foreign_key: :author_id,
     inverse_of: :posts
   belongs_to :blog, inverse_of: :posts
-  has_many :likes,
+  has_many :likings,
     class_name: "Liking",
     inverse_of: :post,
     dependent: :destroy

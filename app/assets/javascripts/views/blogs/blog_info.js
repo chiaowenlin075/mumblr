@@ -12,8 +12,8 @@ Mumblr.Views.BlogInfo = Backbone.CompositeView.extend({
     var content = this.template({
       blog: this.model,
       user: this.model.owner(),
-      num_posts: this.model.posts().length//,
-      // num_followers: this.model.followers().length
+      num_posts: this.model.posts().length,//,
+      num_followers: this.model.get("num_follows")
     });
     this.$el.html(content);
     // var tagsIndexView = new Mumblr.Views.TagsIndex({ collection: this.model.posts() });

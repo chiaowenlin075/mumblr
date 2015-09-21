@@ -11,7 +11,7 @@
 </header>
 <section class="blog-main">
   <img src="<%= blog.owner().escape('avatar_url')%>" class="blog-avatar">
-  <figcaption><%= blog.escape('title') %></figcaption>
+  <figcaption><%= blog.escape('title') ? blog.escape('title') : "Untitled" %></figcaption>
   <p class="blog-desc"><%= blog.escape('description') %></p>
   <div class="blog-posts"></div>
 </section>

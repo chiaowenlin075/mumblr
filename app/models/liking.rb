@@ -14,11 +14,11 @@ class Liking < ActiveRecord::Base
   validate :no_like_twice
   validate :no_like_self_post
 
-  belongs_to :post, inverse_of: :likes
+  belongs_to :post, inverse_of: :likings
   belongs_to :liker,
     class_name: "User",
     foreign_key: :liker_id,
-    inverse_of: :likes
+    inverse_of: :likings
 
   private
   def no_like_twice
