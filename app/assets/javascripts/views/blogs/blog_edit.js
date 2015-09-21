@@ -9,11 +9,12 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
   events: {
     "click button.close": "exit",
     "click .icon-edit": "edit",
-    "blur .editable": "update"
+    "blur .editable": "update",
+    "change .upload": "backgroundPreview",
+    "click .submit": "save"
   },
 
   render: function(){
-    debugger
     var content = this.template({ blog: this.model });
     this.$el.html(content);
     return this;
@@ -36,16 +37,38 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
       success: function(model){
         $inputArea.siblings().not("label").toggleClass("hide");
         $inputArea.addClass("hide");
-      }.bind(this),
-      error: function(model, resp){
-        debugger
-        // var errMsg = resp.responseJSON[0];
-        // var $err = $("<strong class='error-msg'>").html(errMsg);
-        // $inputArea.parent().append($err);
-        // $inputArea.focus();
-        debugger
-      }
+      }.bind(this)
     })
+  },
+
+  backgroundPreview: function(event){
+    event.preventDefault();
+    var file = this.$(".upload")[0].files[0];
+    var reader  = new FileReader();
+
+    reader.onloadend = function(){
+      this._updatePreview(reader.result);
+      this.updateBackground(file);
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this._updatePreview("");
+    };
+  },
+
+  _updatePreview: function(src){
+    this.$(".background-preview").attr("src", src);
+  },
+
+  updateBackground: function(file){
+    var input = this.$(".blog-modal-form").serializeJSON().blog;
+    var formData = new FormData();
+    formData.append("blog[title]", input.title);
+    formData.append("blog[description]", input.description);
+    formData.append("blog[background]", file);
+    this.model.saveBackground(formData);
   },
 
   exit: function(event){

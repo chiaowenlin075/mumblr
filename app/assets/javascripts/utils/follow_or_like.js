@@ -12,7 +12,6 @@ Mumblr.Mixins.FollowOrLikeable = {
   },
 
   createModel: function () {
-    debugger
     this.target().set(this.options.foreignKey, this.escape('id'));
     this.target().save({}, {
       success: function (data) {

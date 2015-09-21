@@ -1,7 +1,7 @@
 <form class="blog-modal-form">
   <section class="group">
     <label>Title:</label>
-    <p class="show-info"><%= blog.escape('title') %></p><i class="icon-edit"/>
+    <p class="show-info"><%= blog.escape('title') ? blog.escape('title') : "Untitled" %></p><i class="icon-edit"/>
     <input type="text"
            class="editable hide"
            name="blog[title]"
@@ -19,7 +19,6 @@
     <input type="file" class="upload" name="blog[background]">
   </section>
   <button class="close">Close</button>
-  <button class="submit">Save</button>
 </form>
 
 <section class="block-modal"></section>

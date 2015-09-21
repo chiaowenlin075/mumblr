@@ -54,10 +54,6 @@ Mumblr.Views.PostForm = Backbone.View.extend({
     this.$(".upload").addClass("hide");
   },
 
-  // detectLink: function(){
-  //   this.$(".input-link")
-  // },
-
   exit: function(event){
     event.preventDefault();
     this.remove();

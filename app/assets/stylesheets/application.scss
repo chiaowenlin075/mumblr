@@ -860,7 +860,7 @@ input.title {
   position: absolute;
   background: #f0f0f0;
   width: 400px;
-  padding: 25px;
+  padding: 25px 25px 0 25px;
   border-radius: 3px;
   left: 50%;
   font-size: 14px;
@@ -868,10 +868,9 @@ input.title {
 }
 
 .background-preview {
-  width: 100px;
+  width: 150px;
   float: left;
   margin-right: 15px;
-  margin-bottom: 20px;
 }
 
 .show-info {
@@ -900,19 +899,13 @@ input.title {
   margin-bottom: 10px;
 }
 
-.blog-modal-form .submit,
 .blog-modal-form .close {
-  border-radius: 3px;
-  padding: 5px 10px;
   font-weight: bold;
   color: #fff;
-}
-
-.blog-modal-form .submit {
-  float: right;
-}
-
-.blog-modal-form .close {
-  float: left;
   background: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  padding: 5px 10px;
+  float: right;
+  position: relative;
+  top: -28px;
 }

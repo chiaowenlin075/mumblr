@@ -16,11 +16,10 @@
 #
 
 class Blog < ActiveRecord::Base
-  validates :owner, :title, presence: true
+  validates :owner, presence: true
 
   has_attached_file :background, default_url: "background/blog_default_back.jpg"
   validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
-
 
   belongs_to :owner,
     class_name: "User",
@@ -30,8 +29,7 @@ class Blog < ActiveRecord::Base
   has_many :followings, inverse_of: :blog, dependent: :destroy
   has_many :followers, through: :followings, source: :follower
 
-  after_initialize {
-    self.title ||= "Untitled"
-    # self.background_url ||= "blog_default_back.jpg"
+  before_save {
+    self.title = title == "" ? "Untitled" : title
   }
 end
