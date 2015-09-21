@@ -43,6 +43,12 @@ class User < ActiveRecord::Base
     inverse_of: :follower,
     dependent: :destroy
   has_many :followed_blogs, through: :followings, source: :blog
+  has_many :likes,
+    class_name: "Liking",
+    foreign_key: :liker_id,
+    inverse_of: :liker,
+    dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post 
 
   attr_reader :password
 
@@ -94,7 +100,7 @@ class User < ActiveRecord::Base
           JOIN blogs ON blogs.id = followings.blog_id
           WHERE users.id = :id
         )
-      ORDER BY posts.created_at 
+      ORDER BY posts.created_at
       LIMIT :limit
     SQL
   end

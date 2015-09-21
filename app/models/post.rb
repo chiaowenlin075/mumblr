@@ -32,6 +32,10 @@ class Post < ActiveRecord::Base
     foreign_key: :author_id,
     inverse_of: :posts
   belongs_to :blog, inverse_of: :posts
+  has_many :likes,
+    class_name: "Liking",
+    inverse_of: :post,
+    dependent: :destroy
 
   def link_url_check
     return unless link_url

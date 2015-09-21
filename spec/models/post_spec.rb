@@ -6,7 +6,6 @@
 #  author_id          :integer          not null
 #  blog_id            :integer          not null
 #  post_type          :string           not null
-#  num_likes          :integer          default(0), not null
 #  title              :string
 #  body               :text
 #  link_url           :string

@@ -3,7 +3,7 @@
 # Table name: blogs
 #
 #  id                      :integer          not null, primary key
-#  title                   :string           not null
+#  title                   :string
 #  owner_id                :integer          not null
 #  description             :text
 #  url                     :string
