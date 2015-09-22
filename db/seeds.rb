@@ -20,7 +20,7 @@ users.each do |user|
 end
 
 u1 = User.first
-b1.Blog.first
+b1 = Blog.first
 u2 = User.find(2)
 b2 = Blog.find(2)
 
