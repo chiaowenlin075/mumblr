@@ -1,6 +1,7 @@
 json.extract!(blog, :id, :title, :description, :url)
 json.background_url asset_path(blog.background.url)
 json.num_follows blog.followings.size
+json.num_posts blog.posts.size
 
 json.owner do
   json.partial!("api/users/user", user: blog.owner, need_followed_blogs: false)

@@ -804,6 +804,23 @@ input.title {
   float: right;
 }
 
+.recent-tags {
+  margin-top: 8px;
+}
+
+.recent-tags > li {
+  display: inline-block;
+}
+
+.recent-tags a {
+  display: inline-block;
+  margin: 4px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  background: #FF9D27;
+  color: #fff;
+}
+
 // blog show
 
 .blog-container {

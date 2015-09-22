@@ -41,6 +41,7 @@ Mumblr.Models.Post = Backbone.Model.extend(
     saveImagePost: function(formData, options){
       var method = this.isNew() ? "post" : "put";
       var model = this;
+
       $.ajax({
         url: _.result(model, "url"),
         method: "post",

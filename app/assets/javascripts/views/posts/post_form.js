@@ -3,9 +3,10 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   className: "new-post",
 
   initialize: function(options){
+    this.blog = options.blog;
     this.collection = options.collection;
     this.model.set({
-      blog_id: options.blogId,
+      blog_id: this.blog.escape('id'),
       post_type: options.postType
     });
   },
@@ -69,6 +70,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
       formData.append("post[blog_id]", this.model.escape('blog_id'));
       formData.append("post[image]", file);
       formData.append("post[body]", this.$("textarea").val());
+      formData.append("post[tags]", this.$(".new-tags").val());
       this.model.saveImagePost(formData, this.saveCallback());
       return;
     };
@@ -81,6 +83,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
     return {
       success: function(model){
         this.collection.add(model);
+        this.blog.set("num_posts", this.blog.get("num_posts") + 1);
         this.remove();
       }.bind(this),
       error: function(model, resp){

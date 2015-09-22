@@ -11,8 +11,8 @@ Mumblr.Views.CurrentUserPosts = Backbone.CompositeView.extend({
     var content = this.template();
     this.$el.html(content);
     var postOptionsBar = new Mumblr.Views.PostOptionsBar({
-      blogId: this.model.escape('id'),
-      collection: this.model.posts()
+      blog: this.model,
+      collection: this.model.posts(),
     });
     this.addSubview(".post-option-bar", postOptionsBar);
     var postsIndexView = new Mumblr.Views.PostsIndex({

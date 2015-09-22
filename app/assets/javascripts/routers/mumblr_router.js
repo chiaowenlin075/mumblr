@@ -55,7 +55,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     var blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blogId });
     blog.fetch();
 
-    var contentView = new Mumblr.Views.Feeds();
+    var contentView = new Mumblr.Views.Feeds({ blog: blog });
     this._swapView(contentView, ".main-content");
     this.sidebar(blog);
   },
