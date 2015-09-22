@@ -515,31 +515,39 @@ a.demo-user {
 }
 
 .thumbnail {
+  display: block;
   box-sizing: border-box;
   position: absolute;
-  border-radius: 3px;
   width: 64px;
   height: 64px;
   left: -85px;
   top: 0;
 }
 
-.post-author:before {
-  content: "Check out my blog!";
-  display: block;
-  background: #EA3556;
-  word-wrap: break-word;
-  width:  100px;
-  padding: 5px 12px;
-  border-radius: 5px;
-  color: #fff;
-  position: absolute;
-  top: -55px;
-  left: -110px;
+.thumbnail > img {
+  width: 100%;
+  border-radius: 3px;
 }
 
-.thumbnail:hover .post-author:before {
-  display: none;
+.thumbnail:before {
+  content: "Check out my blog!";
+  opacity: 0;
+  background: #EA3556;
+  word-wrap: break-word;
+  width:  90px;
+  height: 90px;
+  padding: 5px 12px;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  top: -15px;
+  left: -110px;
+  padding: 15px 22px;
+  box-sizing: border-box;
+}
+
+.thumbnail:hover:before {
+  opacity: 1;
 }
 
 .post {
