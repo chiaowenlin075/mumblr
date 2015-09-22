@@ -12,7 +12,7 @@
 
 class Tagging < ActiveRecord::Base
   validates :label, :post, :tagger, presence: true
-  validates :label, uniqueness: { scope: :post }
+  validates :label, uniqueness: { scope: :post, case_sensitive: true }
   validates :label, length: { maximum: 25 }
   before_validation :prefix_hash
 
@@ -27,4 +27,5 @@ class Tagging < ActiveRecord::Base
     reg = /(\w+)/
     self.label = "#" + reg.match(label)[1]
   end
+
 end

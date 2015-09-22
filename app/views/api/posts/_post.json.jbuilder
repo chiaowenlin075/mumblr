@@ -13,6 +13,8 @@ json.author do
   json.partial!("api/users/user", user: post.author, need_followed_blogs: false, need_likeStatus: false)
 end
 
+json.tags post.taggings.pluck(:label)
+
 if need_likeStatus
   json.liking likings_hash[post.id]
 end

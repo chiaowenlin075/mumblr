@@ -2,10 +2,17 @@ module Api
   class PostsController < ApplicationController
 
     def create
-      @post = current_user.posts.new(post_params)
-      @post_type = params[:post_type]
+      @post = current_user.posts.new(post_params.except(:tags))
+      @tag_labels = post_params[:tags].split
 
       if @post.save
+        @tag_labels.map{ |el| /(\w+)/.match(el)[1] }
+                   .uniq(&:downcase).each do |label|
+          @post.taggings.create!(
+            tagger_id: current_user.id,
+            label: label
+          )
+        end
         render :new_post
       else
         render json: @post.errors.full_messages, status: 422
@@ -41,9 +48,10 @@ module Api
     end
 
     private
+
     def post_params
       params.require(:post).permit(
-        :blog_id, :post_type, :title, :body, :image, :link_url, :taggings
+        :blog_id, :post_type, :title, :body, :image, :link_url, :tags
       )
     end
 

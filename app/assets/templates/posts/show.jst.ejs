@@ -14,6 +14,11 @@
     </a>
     <p><%= post.escape('body') %></p>
   <% } %>
+  <ul class="tags">
+    <% _.result(post, "tags").forEach(function(tag){ %>
+      <li><a href="#search?=<%= tag.slice(1) %>"><%= tag %></a></li>
+    <% }) %>
+  </ul>
 </section>
 <section class="post-footer group">
   <span class="num_likes"><%= post.escape("num_likes") %> likes</span>

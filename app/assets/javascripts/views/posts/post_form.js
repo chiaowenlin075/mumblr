@@ -13,7 +13,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   events: {
     "click button.close": "exit", //why it still work even without this event handler?
     "change .upload": "imagePreview",
-    "click button.submit": "submit"
+    "submit .post-form": "submit"
     // "keydown .post-form": "enabledSubmit"
   },
 
