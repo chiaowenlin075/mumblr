@@ -5,7 +5,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   initialize: function(options){
     this.collection = options.collection;
     this.model.set({
-      blog_id: options.blog_id,
+      blog_id: options.blogId,
       post_type: options.postType
     });
   },

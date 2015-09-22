@@ -6,7 +6,7 @@ module Api
       @post_type = params[:post_type]
 
       if @post.save
-        render :show
+        render :new_post
       else
         render json: @post.errors.full_messages, status: 422
       end
