@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api , defaults: { format: :json } do
     resource :session, only: [:show, :create, :destroy]
     resources :users, only: [:show, :index, :create, :update, :destroy]
-    resources :blogs, only: [:create, :update, :destroy, :show] do
+    resources :blogs, only: [:create, :index, :update, :destroy, :show] do
       collection do
         get :current_user_blog
       end

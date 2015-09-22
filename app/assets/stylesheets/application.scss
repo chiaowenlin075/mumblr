@@ -524,6 +524,24 @@ a.demo-user {
   top: 0;
 }
 
+.post-author:before {
+  content: "Check out my blog!";
+  display: block;
+  background: #EA3556;
+  word-wrap: break-word;
+  width:  100px;
+  padding: 5px 12px;
+  border-radius: 5px;
+  color: #fff;
+  position: absolute;
+  top: -55px;
+  left: -110px;
+}
+
+.thumbnail:hover .post-author:before {
+  display: none;
+}
+
 .post {
   border-radius: 3px;
   margin-top: -3px;

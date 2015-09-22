@@ -25,6 +25,13 @@ module Api
       render :show
     end
 
+    def index
+      # Blog.includes(:owner, :followings)
+      #     .joins(:followings)
+      #     .group("blogs.id")
+      #     .order("followings")
+    end
+
     def update
       @blog = Blog.includes(:owner, :followers).find(params[:id])
       return unless is_owner?(@blog)
