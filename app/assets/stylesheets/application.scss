@@ -656,17 +656,6 @@ a.demo-user {
 .post-response-list .icon-setting {
   cursor: pointer;
 }
-//
-// .like-btn {
-//   overflow: hidden;
-// }
-//
-// .post-response-list .like-status {
-//   float: left;
-//   margin-left: 18px;
-// }
-
-// new post form modal
 
 .block-modal {
   background: rgba(54,70,93,.95);
@@ -749,9 +738,8 @@ input.title {
   width: 100%;
 }
 
-.disabledBtn {
-  color: #ccc;
-  cursor: default;
+.disabled-btn {
+  cursor: wait;
 }
 
 // blog info list

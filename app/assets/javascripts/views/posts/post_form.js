@@ -61,7 +61,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
-    this.$("button.submit").prop("disabled", true);
+    this.$("button.submit").addClass("disabled-btn").prop("disabled", true);
     if (this.model.escape('post_type') === "image"){
       var file = this.$(".upload")[0].files[0];
       var formData = new FormData();
@@ -84,7 +84,7 @@ Mumblr.Views.PostForm = Backbone.View.extend({
         this.remove();
       }.bind(this),
       error: function(model, resp){
-        this.$("button.submit").prop("disabled", false);
+        this.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
         this.$("input").val("");
         var errMsg = resp.responseJSON[0];
         var $err = $("<strong class='error-msg'>").html(errMsg);
