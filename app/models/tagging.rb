@@ -25,6 +25,6 @@ class Tagging < ActiveRecord::Base
   private
   def prefix_hash
     reg = /(\w+)/
-    self.label = "#" + reg.match(reg)[1]
+    self.label = "#" + reg.match(label)[1]
   end
 end
