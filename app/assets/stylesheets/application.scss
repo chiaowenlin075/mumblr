@@ -536,17 +536,31 @@ a.demo-user {
   word-wrap: break-word;
   width:  90px;
   height: 90px;
-  padding: 5px 12px;
   border-radius: 50%;
   color: #fff;
   position: absolute;
-  top: -15px;
-  left: -110px;
+  top: -100px;
+  left: -14px;
   padding: 15px 22px;
   box-sizing: border-box;
 }
 
-.thumbnail:hover:before {
+.thumbnail:after {
+  content: "";
+  opacity: 0;
+  height: 5px;
+  width: 10px;
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  border-top: 8px solid #EA3556;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  box-sizing: border-box;
+}
+
+.thumbnail:hover:before,
+.thumbnail:hover:after {
   opacity: 1;
 }
 
