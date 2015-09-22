@@ -8,7 +8,7 @@ file = ["bagcat.gif", "cat.jpg", "chef.gif", "corgi.gif", "dog1.pg", "dog2.jpg",
 
 users.each do |user|
   p = Post.create!(
-    email: "#{user.lowercase}@cat.com",
+    email: "#{user.downcase}@cat.com",
     password: user,
     username: user
   )
