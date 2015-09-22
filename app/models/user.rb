@@ -19,7 +19,8 @@
 class User < ActiveRecord::Base
   include DateFormatable
 
-  validates :email, :username, presence: true, uniqueness: true
+  validates :email, :username, presence: true, uniqueness: { case_sensitive: false }
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
   validates :password_digest, presence: { message: "You forgot to enter your password!" }
   validates :password, length: { minimum: 6, allow_nil: true }
 
