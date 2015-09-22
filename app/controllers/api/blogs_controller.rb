@@ -14,7 +14,7 @@ module Api
 
     def show
       @blog = Blog.includes(:owner, :followers).find(params[:id]) #, :likes, :comments, :tags))
-      @posts = Post.includes(:author, :likings).where(blog_id: @blog.id)
+      @posts = Post.includes(:author, :likings, :taggings).where(blog_id: @blog.id)
 
       @followings_hash, @likings_hash = {}, {}
       if logged_in?

@@ -48,7 +48,12 @@ class User < ActiveRecord::Base
     foreign_key: :liker_id,
     inverse_of: :liker,
     dependent: :destroy
-  has_many :liked_posts, through: :likes, source: :post
+  has_many :liked_posts, through: :likings, source: :post
+  has_many :taggings,
+    class_name: "Tagging",
+    foreign_key: :tagger_id,
+    inverse_of: :tagger,
+    dependent: :destroy
 
   attr_reader :password
 
@@ -99,24 +104,14 @@ class User < ActiveRecord::Base
   end
 
   def feeds(limit = 25, time_stone = Time.now)
-    binds = { time_stone: time_stone, id: self.id, limit: limit }
-    Post.find_by_sql([<<-SQL, binds])
-      SELECT DISTINCT posts.*
-      FROM posts
-      WHERE posts.created_at < :time_stone AND posts.author_id = :id
-      OR posts.blog_id IN (
-          SELECT blogs.id
-          FROM users
-          JOIN followings ON followings.follower_id = users.id
-          JOIN blogs ON blogs.id = followings.blog_id
-          WHERE users.id = :id
-        )
-      ORDER BY posts.created_at
-      LIMIT :limit
-    SQL
+    Post.includes(:author, :likings, :taggings)
+        .where("posts.author_id = ? OR posts.blog_id IN (?)", self.id, followed_blogs.pluck(:id))
+        .where("posts.created_at < ?", time_stone)
+        .order("posts.created_at")
+        .limit(limit)
   end
 
   def recent_tags
-    # sql find recent tags limit (10)
+    self.taggings.order("taggings.created_at DESC").limit(10).pluck(:label)
   end
 end

@@ -36,6 +36,7 @@ class Post < ActiveRecord::Base
     class_name: "Liking",
     inverse_of: :post,
     dependent: :destroy
+  has_many :taggings, inverse_of: :post, dependent: :destroy
 
   def link_url_check
     return unless link_url

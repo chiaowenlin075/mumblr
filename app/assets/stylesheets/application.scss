@@ -697,11 +697,23 @@ input.title {
   font-size: 36px;
 }
 
+.new-tags {
+  padding: 10px 20px;
+  width: 100%;
+  overflow: auto;
+}
+
+.form-input {
+  border-bottom: 1px solid #e5e5e5;
+}
+
 .post-form .close, .post-form .submit {
   margin: 15px 20px;
-  padding: 6px;
+  padding: 6px 12px;
   border-radius: 3px;
   font-size: 13px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .post-form .error {
@@ -709,7 +721,6 @@ input.title {
 }
 
 .post-form .close {
-  color: #fff;
   background: #9c9c9c;
 }
 

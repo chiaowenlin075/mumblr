@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150921155956) do
+ActiveRecord::Schema.define(version: 20150922010314) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,18 @@ ActiveRecord::Schema.define(version: 20150921155956) do
   end
 
   add_index "sessions", ["session_token"], name: "index_sessions_on_session_token", unique: true, using: :btree
+
+  create_table "taggings", force: :cascade do |t|
+    t.string   "label",      null: false
+    t.integer  "post_id",    null: false
+    t.integer  "tagger_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["post_id", "label"], name: "index_taggings_on_post_id_and_label", unique: true, using: :btree
+  add_index "taggings", ["post_id"], name: "index_taggings_on_post_id", using: :btree
+  add_index "taggings", ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                               null: false

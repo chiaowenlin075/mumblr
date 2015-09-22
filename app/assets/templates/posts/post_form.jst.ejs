@@ -3,34 +3,37 @@
   <b class="post-author"><%= user.escape('username') %></b>
 
   <form class="post-form">
-    <% if (post.escape('post_type') === "text"){ %>
-      <input type="text"
-             class="title"
-             name="post[title]"
-             value="<%= post.escape('title') %>"
-             placeholder="Title">
-      <textarea name="post[body]"
-                placeholder="Your text here"><%= post.escape('body') %></textarea>
-    <% } else if (post.escape('post_type') === "image"){ %>
-      <input type="file" class="upload" name="post[image]">
-      <img class="image-preview hide">
-      <textarea name="post[body]" placeholder="Add a caption, if you like"><%= post.escape('body') %></textarea>
-    <% } else if (post.escape('post_type') === "quote"){ %>
-      <textarea class="quote" name="post[body]" placeholder="Quote"><%= post.escape('body') %></textarea>
-      <input type="text"
-             name="post[title]"
-             class="quote-from"
-             value="<%= post.escape('title') %>"
-             placeholder="-source">
-    <% } else if (post.escape('post_type') === "link") { %>
-      <input type="text"
-             name="post[link_url]"
-             class="input-link"
-             value="<%= post.escape('link_url') %>"
-             placeholder="Type or paste a URL">
-      <textarea class="link-desc" name="post[body]" placeholder="Add a description, if you like"><%= post.escape('body') %></textarea>
-    <% } %>
-    <div class="error"></div>
+    <section class="form-input">
+      <% if (post.escape('post_type') === "text"){ %>
+        <input type="text"
+               class="title"
+               name="post[title]"
+               value="<%= post.escape('title') %>"
+               placeholder="Title">
+        <textarea name="post[body]"
+                  placeholder="Your text here"><%= post.escape('body') %></textarea>
+      <% } else if (post.escape('post_type') === "image"){ %>
+        <input type="file" class="upload" name="post[image]">
+        <img class="image-preview hide">
+        <textarea name="post[body]" placeholder="Add a caption, if you like"><%= post.escape('body') %></textarea>
+      <% } else if (post.escape('post_type') === "quote"){ %>
+        <textarea class="quote" name="post[body]" placeholder="Quote"><%= post.escape('body') %></textarea>
+        <input type="text"
+               name="post[title]"
+               class="quote-from"
+               value="<%= post.escape('title') %>"
+               placeholder="-source">
+      <% } else if (post.escape('post_type') === "link") { %>
+        <input type="text"
+               name="post[link_url]"
+               class="input-link"
+               value="<%= post.escape('link_url') %>"
+               placeholder="Type or paste a URL">
+        <textarea class="link-desc" name="post[body]" placeholder="Add a description, if you like"><%= post.escape('body') %></textarea>
+      <% } %>
+      <div class="error"></div>
+      <input type="text" class="new-tags" name="post[taggings][]" placeholder="#tags">
+    </section>
     <button class="close">Close</button>
     <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>
   </form>

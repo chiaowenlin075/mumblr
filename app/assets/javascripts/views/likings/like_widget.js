@@ -11,7 +11,6 @@ Mumblr.Views.LikeWidget = Backbone.View.extend({
 
   toggleLike: function (event) {
     event.preventDefault();
-    debugger
     this.model.toggleLike();
   },
 

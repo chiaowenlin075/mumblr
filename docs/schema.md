@@ -35,14 +35,15 @@ id          | integer   | not null, primary key
 blog_id     | integer   | not null, foreign key (references blogs)
 follower_id | integer   | not null, foreign key (references users)
 
-## tags
+## taggings
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 label       | string    | not null
 post_id     | integer   | not null, foreign key (references posts)
+tagger_id   | integer   | not null, foreign key (references users)
 
-## likes
+## likings
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key

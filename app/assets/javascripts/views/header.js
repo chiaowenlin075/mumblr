@@ -6,6 +6,8 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
   initialize: function(options){
     this.user = Mumblr.CurrentUser;
     this.listenTo(this.user, "sync", this.render);
+    this.listenTo(this.user.likedPosts(), "remove add", this.render);
+    this.listenTo(this.user.followedBlogs(), "remove add", this.render);
   },
 
   events: {
@@ -13,10 +15,7 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template({
-      user: this.user,
-      num_likes: 8
-    });
+    var content = this.template({ user: this.user });
     this.$el.html(content);
     return this;
   },

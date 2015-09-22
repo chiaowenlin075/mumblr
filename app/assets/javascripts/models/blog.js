@@ -7,6 +7,10 @@ Mumblr.Models.Blog = Backbone.Model.extend(
       foreignKey: "blog_id"
     },
 
+    initialize: function(){
+      this.eventCollection = Mumblr.CurrentUser.followedBlogs();
+    },
+
     owner: function(){
       this._owner = this._owner || new Mumblr.Models.User();
       return this._owner;

@@ -3,6 +3,7 @@ module Api
 
     def show
       if current_user
+        @liked_posts = current_user.liked_posts.includes(:author)
         render :show
       else
         render json: {}

@@ -11,8 +11,8 @@ json.feeds current_user.feeds do |feed|
   )
 end
 
-# json.recent_tags do
-#   json.array! user.recent_tags do |tag|
-#     json.extract!(tag, :id, :label, :post_id)
-#   end
-# end
+json.liked_posts @liked_posts do |post|
+  json.partial!("api/posts/post", post: post, need_likeStatus: false)
+end
+
+json.recent_tags current_user.recent_tags

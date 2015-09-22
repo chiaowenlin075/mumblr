@@ -57,20 +57,22 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
    },
 
   fireSessionEvent: function(){
-    if(this.isSignedIn()){
-      this.trigger("signIn");
-    } else {
-      this.trigger("signOut");
-    };
+    this.isSignedIn() ? this.trigger("signIn") : this.trigger("signOut");
   },
 
-  recent_tags: function(){
-
+  recentTags: function(){
+    this._recentTags = this._recentTags || new Mumblr.Collections.Taggings();
+    return this._recentTags;
   },
 
-  followed_blogs: function(){
-    this._followed_blogs = this._followed_blogs || new Mumblr.Collections.Blogs();
-    return this._followed_blogs;
+  followedBlogs: function(){
+    this._followedBlogs = this._followedBlogs || new Mumblr.Collections.Blogs();
+    return this._followedBlogs;
+  },
+
+  likedPosts: function(){
+    this._likedPosts = this._likedPosts || new Mumblr.Collections.Posts();
+    return this._likedPosts;
   },
 
   feeds: function(){
@@ -80,17 +82,17 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
 
   parse: function(payload){
     if (payload.recent_tags){
-      this.recent_tags().set(payload.recent_tags);
+      this.recentTags().set(payload.recent_tags);
       delete payload.recent_tags;
     };
 
     if (payload.blog_id){
-      this.blog_id = payload.blog_id;
+      this.blogId = payload.blog_id;
       delete payload.blog_id;
     };
 
     if (payload.followed_blogs){
-      this.followed_blogs().set(payload.followed_blogs, { parse: true });
+      this.followedBlogs().set(payload.followed_blogs, { parse: true });
       delete payload.followed_blogs;
     };
 
@@ -98,6 +100,12 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
       this.feeds().set(payload.feeds, { parse: true });
       delete payload.feeds;
     };
+
+    if (payload.liked_posts){
+      this.likedPosts().set(payload.liked_posts, { parse: true });
+      delete payload.liked_posts;
+    };
+
     return payload;
   }
 
