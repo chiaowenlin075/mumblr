@@ -7,7 +7,7 @@ post_types = ["text", "image", "link", "quote"]
 file = ["bagcat.gif", "cat.jpg", "chef.gif", "corgi.gif", "dog1.pg", "dog2.jpg", "mopping.gif"]
 
 users.each do |user|
-  p = Post.create!(
+  p = User.create!(
     email: "#{user.downcase}@cat.com",
     password: user,
     username: user
