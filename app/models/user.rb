@@ -17,6 +17,8 @@
 #
 
 class User < ActiveRecord::Base
+  include DateFormatable
+
   validates :email, :username, presence: true, uniqueness: true
   validates :password_digest, presence: { message: "You forgot to enter your password!" }
   validates :password, length: { minimum: 6, allow_nil: true }

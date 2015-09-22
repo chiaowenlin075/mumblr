@@ -1,4 +1,4 @@
-json.extract!(user, :id, :email, :username, :activated)
+json.extract!(user, :id, :email, :username, :activated, :created_at)
 json.avatar_url asset_path(user.avatar.url)
 
 if need_followed_blogs

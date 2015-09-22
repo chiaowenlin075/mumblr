@@ -10,7 +10,7 @@ module Api
     end
 
     def index
-      @likes = current_user.likes
+      @likings = current_user.likings
       render :index
     end
 

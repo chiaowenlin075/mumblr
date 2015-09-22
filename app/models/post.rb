@@ -19,6 +19,8 @@
 require 'open-uri'
 
 class Post < ActiveRecord::Base
+  include DateFormatable
+
   validates :author, :blog, presence: true
   validates :post_type, inclusion: %w(text image quote link)
   validate :validate_link_url

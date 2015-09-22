@@ -13,7 +13,7 @@ module Api
     end
 
     def show
-      @post = Post.includes(:likings, :author).find(params[:id]) #.includes(:likes, :comments, :tags)
+      @post = Post.includes(:likings, :author, :taggings).find(params[:id]) #.includes(:likes, :comments, :tags)
 
       @likings_hash = {}
       if logged_in?

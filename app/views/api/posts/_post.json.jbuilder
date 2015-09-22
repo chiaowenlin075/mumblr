@@ -1,4 +1,4 @@
-json.extract!(post, :id, :blog_id, :post_type, :title, :body, :link_url)
+json.extract!(post, :id, :blog_id, :post_type, :title, :body, :link_url, :created_at)
 json.num_likes post.likings.size
 
 if post.image
