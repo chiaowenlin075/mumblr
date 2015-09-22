@@ -14,8 +14,8 @@ mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
 - [x] Create blogs
 - [x] Create blog posts
 - [x] View blogs and posts
-- [ ] Subscribe(Follow) to blogs
-- [ ] View a feed of subscribed blogs
+- [x] Subscribe(Follow) to blogs
+- [x] View a feed of subscribed blogs
 - [ ] Tag blog posts
 - [ ] Search for blogs by title
 - [ ] Search for posts by tag
