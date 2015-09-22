@@ -32,7 +32,7 @@
         <textarea class="link-desc" name="post[body]" placeholder="Add a description, if you like"><%= post.escape('body') %></textarea>
       <% } %>
       <div class="error"></div>
-      <input type="text" class="new-tags" name="post[taggings][]" placeholder="#tags">
+      <input type="text" class="new-tags" name="post[taggings]" placeholder="#tags">
     </section>
     <button class="close">Close</button>
     <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>
