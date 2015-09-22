@@ -18,13 +18,15 @@
 <section class="post-footer group">
   <span class="num_likes"><%= post.escape("num_likes") %> likes</span>
   <ul class="post-response-list group">
-    <li><i class="icon-comment"></i></li>
-    <li>
-      <% if (currentUser.escape('id') !== post.author().escape('id')) { %>
-        <div class="like-status"></div>
-      <% } else { %>
-        <i class="icon-setting"/>
-      <% } %>
-    </li>
+    <% if (!currentUser.isNew()){ %>
+      <li><i class="icon-comment"></i></li>
+      <li>
+        <% if (currentUser.escape('id') !== post.author().escape('id')) { %>
+          <div class="like-status"></div>
+        <% } else { %>
+          <i class="icon-setting"/>
+        <% } %>
+      </li>
+    <% } %>
   </ul>
 </section>

@@ -7,10 +7,6 @@ Mumblr.Models.Post = Backbone.Model.extend(
       foreignKey: "post_id"
     },
 
-    initialize: function(){
-      this.eventCollection = Mumblr.CurrentUser.likedPosts();
-    },
-
     author: function(){
       this._author = this._author || new Mumblr.Models.User();
       return this._author;

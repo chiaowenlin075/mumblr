@@ -2,10 +2,12 @@
         style="background-image: url(<%= blog.escape('background_url') %>)">
   <nav class="blog-navbar">
     <a href="#dashboard"><i class="icon-explore-small"/>Back To Dashboard</a>
-    <% if (currentUser.escape('id') !== blog.owner().escape('id')) { %>
-      <div class="follow-status"></div>
-    <% } else { %>
-      <button class="edit-blog"><i class="icon-tool"/> Edit</button>
+    <% if (!currentUser.isNew()){ %>
+      <% if (currentUser.escape('id') !== blog.owner().escape('id')) { %>
+        <div class="follow-status"></div>
+      <% } else { %>
+        <button class="edit-blog"><i class="icon-tool"/> Edit</button>
+      <% } %>
     <% } %>
   </nav>
 </header>

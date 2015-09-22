@@ -16,7 +16,6 @@ Mumblr.Mixins.FollowOrLikeable = {
     this.target().save({}, {
       success: function (data) {
         this.updateNumCount(1);
-        this.eventCollection.add(this);
       }.bind(this)
     });
   },
@@ -26,7 +25,6 @@ Mumblr.Mixins.FollowOrLikeable = {
       success: function (model) {
         model.unset("id");
         this.updateNumCount(-1);
-        this.eventCollection.remove(this);
       }.bind(this)
     });
   },
@@ -36,7 +34,8 @@ Mumblr.Mixins.FollowOrLikeable = {
       this.createModel();
     } else {
       this.destroyModel();
-    }
+    };
+    Mumblr.CurrentUser.fetch();
   },
 
   updateNumCount: function (delta) {
