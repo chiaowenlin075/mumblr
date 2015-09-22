@@ -539,10 +539,11 @@ a.demo-user {
   border-radius: 50%;
   color: #fff;
   position: absolute;
-  top: -100px;
+  top: -80px;
   left: -14px;
   padding: 15px 22px;
   box-sizing: border-box;
+  transition: opacity 500ms ease, top 500ms ease;
 }
 
 .thumbnail:after {
@@ -551,17 +552,23 @@ a.demo-user {
   height: 5px;
   width: 10px;
   position: absolute;
-  top: -12px;
+  top: 8px;
   left: 24px;
   border-top: 8px solid #EA3556;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   box-sizing: border-box;
+  transition: opacity 500ms ease, top 500ms ease;
 }
 
-.thumbnail:hover:before,
 .thumbnail:hover:after {
   opacity: 1;
+  top: -12px;
+}
+
+.thumbnail:hover:before {
+  opacity: 1;
+  top: -100px;
 }
 
 .post {
