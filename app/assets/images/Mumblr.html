@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<!-- saved from url=(0032)http://localhost:3000/#dashboard -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Mumblr</title>
+  <link href="./Mumblr_files/css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" media="all" href="./Mumblr_files/blog.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./Mumblr_files/following.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./Mumblr_files/likings.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./Mumblr_files/root.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./Mumblr_files/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./Mumblr_files/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css">
+<link rel="stylesheet" media="all" href="./Mumblr_files/application.self-ffd647dc50193a10ce78e9fd6237fe16c8dda4e3f00379ec8d79aa4fa2b19c58.css">
+  <script src="./Mumblr_files/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js"></script><style type="text/css"></style>
+<script src="./Mumblr_files/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js"></script>
+<script src="./Mumblr_files/underscore.self-4b328e42c558197d5b99d7727cfcc60bac9763fad660651230e8baf93f6067ed.js"></script>
+<script src="./Mumblr_files/backbone.self-4ac1c9ebee6ebcd1614a8f92d41cb270e61e0b8f61c804c0d1b26fda4b889824.js"></script>
+<script src="./Mumblr_files/jquery.serializejson.self-c480e85ec7f2b02efd59ab693b310ece9aaac9ce35b2b7f9fc817a27d5ee0a79.js"></script>
+<script src="./Mumblr_files/mumblr.self-b98ae0c5aabd24f81a183e7f50bdb5db00ad05dd3b3fdbafd731c5827cdde38e.js"></script>
+<script src="./Mumblr_files/composite_view.self-6f4f22ee5fc0b1e3fa91885a5a479c68ba3871df412c438cf3802fa40ff519e6.js"></script>
+<script src="./Mumblr_files/follow_or_like.self-672a485ccbb18f49b189172fd3e438d0ee68307c92460dab241f08db004d8394.js"></script>
+<script src="./Mumblr_files/blog.self-a631cbe4c855cc0cb1b4cda51ee313d128e4e9599c466001ba5228f7686b15cf.js"></script>
+<script src="./Mumblr_files/following.self-806d3b6730f4138fcaea4f31d3da67e47f7566b34bd2241965b88bb26152ca15.js"></script>
+<script src="./Mumblr_files/liking.self-2e2bebc108e6756cee5a6b16dc846ad4f76685737e8f944caf7b01165039a22a.js"></script>
+<script src="./Mumblr_files/post.self-c385ad54d830ce0b7a99a94e5844a49692b3a6771af5ddc9b6df24b0e2ae56b4.js"></script>
+<script src="./Mumblr_files/tagging.self-091d579441edbfcda08626201017c91d622474f129f1f8509dc1336b23363ee8.js"></script>
+<script src="./Mumblr_files/user.self-94c2e158d2c1bc86863fd0f03995053b088fe0b0c882c28ae63734e769b93e5a.js"></script>
+<script src="./Mumblr_files/blogs.self-ef70755dd886b489147ce83c9fea09982dd4a1d60479c571357a9471230dce7f.js"></script>
+<script src="./Mumblr_files/followings.self-4ce81f86ce2f8113d476d0ba13b0863fafe728b25593ca2b0331091034b7f1c3.js"></script>
+<script src="./Mumblr_files/posts.self-44df85a743d2799d2c1438676db149a0c7e2a0adef0ac3bc96a03bb02f3d3042.js"></script>
+<script src="./Mumblr_files/taggings.self-4b2221b5f5810bf2653cfee68925df984e1c8db546749ae4053f33b49fb6f614.js"></script>
+<script src="./Mumblr_files/users.self-bcbafb48fabe93861b87c11253ba9baf8130537420a69f0682d1b535e109c789.js"></script>
+<script src="./Mumblr_files/blog_info.self-0b82859ad21493da1347d2e4c55b88d76f88952b7134f998361f4d27f401821f.js"></script>
+<script src="./Mumblr_files/edit.self-b7731eeff200e047b30fff2b1e8850b8da4618d9660236fd013fb3126e31e4d3.js"></script>
+<script src="./Mumblr_files/show.self-43924fc2224d50cd8d75e8581c61e0aaa6c148c825c930bf096fb69852c404fe.js"></script>
+<script src="./Mumblr_files/follow_widget.self-ed0f5fc6ffc33104ac74acbf08fa2419824f984fe0e43838ca8ada08323f60f0.js"></script>
+<script src="./Mumblr_files/header.self-b9bf8270c99d087c436498d9f164595cb0cdc3cf8287e1e8b90c0f71234919e0.js"></script>
+<script src="./Mumblr_files/like_widget.self-7e31a3a564d7d0587c1461db007c2f95340aa181d2a1da97a564ffd2d0cd0bc5.js"></script>
+<script src="./Mumblr_files/current_user_posts.self-ad699571e14b2f9d69e741ed1d99e5eb91092cf1dcfa4139c88f807afd6e8bf4.js"></script>
+<script src="./Mumblr_files/feeds.self-2b8ccf456e043b5e14be31563ed7946daca47ad61ab79ab7f534a6935137fe79.js"></script>
+<script src="./Mumblr_files/index.self-ff5bba1d03f3af13c57f4e9bb754787c7cdcb81b47b9c08e4e852fd15645d337.js"></script>
+<script src="./Mumblr_files/index_item.self-f88668b7a96b7868165f657160bcab856a85ea61a8d14b846154aa83732931d0.js"></script>
+<script src="./Mumblr_files/post_form.self-62c5437e5fea8d146b9e458fd39860e074fe1401d84cc6e624419003dc543e8c.js"></script>
+<script src="./Mumblr_files/post_options_bar.self-7f66e2fec03b762a155618503d4c70ea16239685b6b08a883af14ff12c6da88c.js"></script>
+<script src="./Mumblr_files/show.self-d285689d0774837485f437a679ded44b0855effd6781fb4a1c8eb6ddab564b34.js"></script>
+<script src="./Mumblr_files/sign_in.self-355302ccac79fd2a9ae06081f20294384be30909d96584cdbea99a3bfca8e4c7.js"></script>
+<script src="./Mumblr_files/edit_form.self-7205f5b8ba1274960b6bff61df853bc5ee344afcb6d76a77c269994ac60f7694.js"></script>
+<script src="./Mumblr_files/signup_form.self-9b86d3539a1a436d0234f18d31f9fe0db158bf51e716a1668d0513044f644f0d.js"></script>
+<script src="./Mumblr_files/blog_edit.self-b7c0e8991794a5b6733fe0b77f4aab110ee580222ea55d26e0973536576168b6.js"></script>
+<script src="./Mumblr_files/blog_info.self-2c7530db3170827caf334c46a7e8ef639c6c218affdc95265aebd125fd0c46ae.js"></script>
+<script src="./Mumblr_files/blog_show.self-3f53aa490285e907a8531b5c1d0094c0b2be960441dec15441ea42c0d176be67.js"></script>
+<script src="./Mumblr_files/follow_widget.self-9a61169ea8b35007a4e2f40f06fe6b3ffff000e3d6f6f7fca063e948625ded18.js"></script>
+<script src="./Mumblr_files/header.self-4da8fa52db9b0b92997605c172f2acf56f72e1ca4a5dfef9c15faf06dc66375b.js"></script>
+<script src="./Mumblr_files/like_widget.self-91555c54c1381ed3d866d42386cc27bf7b2ee3923e1a9c447ddd763221ee1f04.js"></script>
+<script src="./Mumblr_files/current_user_posts.self-516a4e35cf42003bc0678db6fab456abcb5a6786e9f174f1a23215e8462dc4e7.js"></script>
+<script src="./Mumblr_files/feeds.self-60c95b6898c61aa64aec2267a6f1d8418d4e24c64541de1834064f702989fd6d.js"></script>
+<script src="./Mumblr_files/post_form.self-6c1dcbeab8bec52f3cc9f8892f0a30b141e540fd4584504cb84240951ae75049.js"></script>
+<script src="./Mumblr_files/post_options.self-6865400a45c5f118aa9634cdd9b2560020d226fdee46355d4fcdcd08baa9b607.js"></script>
+<script src="./Mumblr_files/post_show.self-00320f920d274ea8d7bed8bdd1c5be829bcb4d130d704ceceac3c93c92a68a2e.js"></script>
+<script src="./Mumblr_files/posts_index.self-32886a3ad098ab3c997c61cd7fc4a3d6897dac9ea355aceb6fdf64ec3c70a2d1.js"></script>
+<script src="./Mumblr_files/posts_index_item.self-7834a04235df17c82e31a3c08a112b378107f918331e9d3929300fd2369e3562.js"></script>
+<script src="./Mumblr_files/sign_in.self-8cc9f40e9e9d8dfbc9a18503dcf7d064409cf2818da081670de66fa815892c5e.js"></script>
+<script src="./Mumblr_files/edit_form.self-f43070f9383a34abb2ea1851445255909493260c3984dbf72ca073dae396506b.js"></script>
+<script src="./Mumblr_files/user_form.self-d51c984895ab203595e72fcb6f87d0142712de3e0d1a1366b91decdc450b0eae.js"></script>
+<script src="./Mumblr_files/mumblr_router.self-b03df724fa99a12b0a436814cf4afa7b7e8f0d28ae682525c7562328b88852d0.js"></script>
+<script src="./Mumblr_files/application.self-e5d5cca64271c4c8ebd7d72a4e34c6eb16e8f036b14a575d09fa3fbb5df6f25e.js"></script>
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="s5KdDYX5w71G0DXs3psgcRx3UbYXDYi3C8vlRNWxH7TUUpl49mBJvjme5ezM8YMKjVuHoqeWgvaj6+HoAJUAGQ==">
+</head>
+<body><div id="StayFocusd-infobar" style="display:none;">
+    <img src="chrome-extension://laankejkbhbdhmipfmgcngdelahlfoji/common/img/eye_19x19_red.png">
+    <span id="StayFocusd-infobar-msg"></span>
+    <span id="StayFocusd-infobar-links">
+        <a id="StayFocusd-infobar-never-show">hide forever</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+        <a id="StayFocusd-infobar-hide">hide once</a>
+    </span>
+</div>
+
+<div id="container">
+  <section class="header-container"><header class="header"><span class="logo">m</span>
+<input type="text" class="search-bar" placeholder="Search Tumblr">
+<i class="icon-search"></i>
+
+<ul class="header-navbar">
+  <li>
+    <a href="http://localhost:3000/#" class="redir-dashboard" title="Go To Dashboard"><i class="icon-home"></i></a>
+  </li>
+  <li class="to-user-list"><i class="icon-user"></i>
+    <ul class="user-nav-list">
+      <li>ACCOUNT<span class="log-out">Log Out</span></li>
+      <li><a href="http://localhost:3000/#blog/"><i class="icon-point-right"></i>Your Blog</a></li>
+      <li><a href="http://localhost:3000/#likes"><i class="icon-heart-small"></i>Likes<span>7</span></a></li>
+      <li><a href="http://localhost:3000/#following"><i class="icon-following-small"></i>Following<span>3</span></a></li>
+      <li><a href="http://localhost:3000/#setting"><i class="icon-setting-small"></i>Edit Account Info</a></li>
+    </ul>
+  </li>
+</ul>
+</header></section>
+  <section class="blog-container"></section>
+  <main id="main" class="group">
+    <section class="main-content"><div class="posts-main"><div class="post-option-bar"><section class="new-post-options"><ul class="post-options group">
+  <li class="group" data-post-type="text"><i class="icon-text"></i><span class="post-type">Text</span></li>
+  <li class="group" data-post-type="image"><i class="icon-image"></i><span class="post-type">Photo</span></li>
+  <li class="group" data-post-type="quote"><i class="icon-quote"></i><span class="post-type">Quote</span></li>
+  <li class="group" data-post-type="link"><i class="icon-link"></i><span class="post-type">Link</span></li>
+</ul>
+</section></div>
+<div class="posts"><div><ul class="posts-index"><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>test</h1>
+    <p>test</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=333">#333</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=444">#444</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>test</h1>
+    <p>test</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=111">#111</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=222">#222</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>test</h1>
+    <p>test</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=test9">#test9</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test10">#test10</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>test</h1>
+    <p>test</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=test7">#test7</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test8">#test8</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>test</h1>
+    <p>test</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=test4">#test4</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test5">#test5</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>test1</h1>
+    <p>test1</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=test1">#test1</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test2">#test2</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>test</h1>
+    <p>test</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=test">#test</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <img class="post-image" src="./Mumblr_files/chef.gif">
+    <p>asdgstbsdf</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <a class="link" href="https://www.google.com/search?q=cat&source=lnms&tbm=isch&sa=X&ved=0CAcQ_AUoAWoVChMIjYu_3YaHyAIVAns-Ch1dQg_X&biw=1176&bih=592" target="_blank">
+      <h4>cat - Google Search</h4>
+    </a>
+    <p>cat ~~~</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/3" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">test123</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>Test out text post</h1>
+    <p>test test</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">1 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-red"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/3" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">test123</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <img class="post-image" src="./Mumblr_files/dog1.jpg">
+    <p>My favorite dog &lt;3</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">1 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-red"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/4" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">test1</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <a class="link" href="http://stackoverflow.com/questions/769683/show-tables-in-postgresql" target="_blank">
+      <h4>Show tables in Postgresql - Stack Overflow</h4>
+    </a>
+    <p>Search for something...</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">1 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-red"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/4" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">test1</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1 class="quote">YAYAYAYA</h1>
+    <p class="quote-from">blablabla</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">1 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-red"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/4" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">test1</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>asfasegas</h1>
+    <p>gwagsdfafaesgfsagwaef</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">1 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-red"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/2" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Breakfast</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>Diary</h1>
+    <p>Blablablablablabla</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-broken"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/2" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Breakfast</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <a class="link" href="http://www.google.com/" target="_blank">
+      <h4>Google</h4>
+    </a>
+    <p>My favorite searching engine...</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-broken"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/2" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Breakfast</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <img class="post-image" src="./Mumblr_files/mopping.gif">
+    <p>This is a weird cat...</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">1 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-red"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/2" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Breakfast</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1 class="quote">Gizmo</h1>
+    <p class="quote-from">Blablablablablablablabla</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">1 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <div class="like-status"><div><button class="like-btn">
+  
+    <i class="icon-heart-red"></i>
+  
+</button>
+</div></div>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <a class="link" href="http://www.grumpycats.com/" target="_blank">
+      <h4>Grumpy CatÂ® - The world&amp;#039;s grumpiest cat!</h4>
+    </a>
+    <p>This site is full of grumpy cats lol...</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1 class="quote">Let's name it Sennacy!</h1>
+    <p class="quote-from">Jonathan</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1>W8D2</h1>
+    <p>Blablablablablabla</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <img class="post-image" src="./Mumblr_files/corgi.gif">
+    <p>What a cute corgi!</p>
+  
+  <ul class="tags">
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <img class="post-image" src="./Mumblr_files/bagcat.gif">
+    <p>There's a cute cat in the bag...</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=ennacy">sennacy</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li><li class="posts-index-item"><a href="http://localhost:3000/#blog/1" class="thumbnail"><img src="./Mumblr_files/cat-fa02e98c110eab04ffd351a52d786fd7995da5c87fd552c72d42b1064dda9291.jpg"></a>
+<b class="post-author">Sennacy</b>
+<div class="post-show-container"><article class="post"><section class="post-container">
+  
+    <h1 class="quote">Genius is 1% talent and 99% percent hard work..</h1>
+    <p class="quote-from">Albert Einstein</p>
+  
+  <ul class="tags">
+    
+      <li><a href="http://localhost:3000/#search?=at">cat</a></li>
+    
+  </ul>
+</section>
+<section class="post-footer group">
+  <span class="num_likes">0 likes</span>
+  <ul class="post-response-list group">
+    
+      <li><i class="icon-comment"></i></li>
+      <li>
+        
+          <i class="icon-setting"></i>
+        
+      </li>
+    
+  </ul>
+</section>
+</article></div>
+</li></ul>
+</div></div>
+</div></section>
+    <section class="main-sidebar"><div class="blog-info"><b>Sennacy</b>
+<a href="http://localhost:3000/#blog/1">Untitled</a>
+<ul class="blog-info-list">
+  <li><a href="http://localhost:3000/#posts" class="blog-info-link">Posts<span>15</span></a></li>
+  <li><a href="http://localhost:3000/#followers" class="blog-info-link">Followers<span>1</span></a></li>
+  <li>Recent tags<ul class="recent-tags">
+    
+      <li><a href="http://localhost:3000/#search?=444">#444</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=333">#333</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=222">#222</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=111">#111</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test10">#test10</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test9">#test9</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test8">#test8</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test7">#test7</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test5">#test5</a></li>
+    
+      <li><a href="http://localhost:3000/#search?=test4">#test4</a></li>
+    
+  </ul></li>
+</ul>
+</div></section>
+  </main>
+  <footer class="footer"></footer>
+</div>
+
+<span class="copyright">© 2015 <a href="https://www.linkedin.com/in/chiaowenlin" target="_blank">Chiao-Wen Lin</a> for demonstration only</span>
+
+
+</body></html>

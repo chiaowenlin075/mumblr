@@ -44,7 +44,7 @@ Mumblr.Models.Post = Backbone.Model.extend(
 
       $.ajax({
         url: _.result(model, "url"),
-        method: method,
+        method: "post",
         data: formData,
         processData: false,
         contentType: false,

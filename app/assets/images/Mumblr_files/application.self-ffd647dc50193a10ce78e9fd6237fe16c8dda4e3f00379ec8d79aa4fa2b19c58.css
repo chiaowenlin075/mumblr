@@ -1,0 +1,1337 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* line 18, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+html, body, main, div, section, ul, li, img, b, span, strong, a,
+p, h1, h2, h3, h4, article, i, button, figure, figcaption {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+/* line 32, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+a {
+  text-decoration: none;
+}
+
+/* line 36, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+ul, li {
+  list-style: none;
+}
+
+/* line 40, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+img {
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+/* line 46, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* line 52, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+input[type="password"],
+input[type="email"],
+input[type="text"],
+label, textarea {
+  display: block;
+  border: 0;
+  outline: 0;
+  font-size: 14px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* line 65, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+button,
+input[type="submit"] {
+  cursor: pointer;
+  outline: 0;
+  border: 0;
+  text-align: center;
+}
+
+/* line 73, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+textarea {
+  min-height: 80px;
+}
+
+/* line 79, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+body {
+  font-family: "Open Sans", "PT Sans", "Source Sans Pro", Arial, sans-serif;
+  background: #36465d;
+  vertical-align: baseline;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* line 87, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+#main {
+  color: #444;
+  width: 900px;
+  margin: 0 auto;
+}
+
+/* line 93, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.main-content {
+  margin: 0 8px;
+  width: 625px;
+  float: left;
+}
+
+/* line 99, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.main-sidebar {
+  width: 229px;
+  float: right;
+  color: #fff;
+  margin-right: -1px;
+  margin-top: -5px;
+  opacity: 1;
+}
+
+/* line 112, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+h1 {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 47px;
+}
+
+/* line 118, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+input.hide, textarea.hide, label.hide,
+[class*="icon-"].hide, p.hide {
+  display: none;
+}
+
+/* line 123, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.copyright {
+  text-shadow: 0 0 2px #000;
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: #eee;
+  font-size: 13px;
+}
+
+/* line 132, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.block {
+  background: #36465d;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 500;
+}
+
+/* line 143, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+[class*="icon-"] {
+  background: url(/assets/sprite-ca4529d77b734e6e828e09ffd82bc6ac135be8d844aa0e4a177c82a57e557f36.png) no-repeat;
+  display: inline-block;
+  overflow: hidden;
+}
+
+/* line 149, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-music {
+  background-position: -10px -0px;
+  width: 50px;
+  height: 50px;
+}
+
+/* line 150, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-spinner {
+  background-position: -10px -60px;
+  width: 45px;
+  height: 45px;
+}
+
+/* line 151, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-text {
+  background-position: -10px -115px;
+  width: 44px;
+  height: 44px;
+}
+
+/* line 152, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-image {
+  background-position: -10px -169px;
+  width: 40px;
+  height: 40px;
+}
+
+/* line 153, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-link {
+  background-position: -10px -219px;
+  width: 40px;
+  height: 40px;
+}
+
+/* line 154, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-quote {
+  background-position: -10px -269px;
+  width: 40px;
+  height: 40px;
+}
+
+/* line 155, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-explore {
+  background-position: -10px -319px;
+  width: 35px;
+  height: 35px;
+}
+
+/* line 156, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-home {
+  background-position: -10px -364px;
+  width: 32px;
+  height: 32px;
+}
+
+/* line 157, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-setting-big:hover {
+  background-position: -10px -406px;
+  width: 32px;
+  height: 32px;
+}
+
+/* line 158, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-setting-big {
+  background-position: -10px -448px;
+  width: 32px;
+  height: 32px;
+}
+
+/* line 159, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-user {
+  background-position: -10px -490px;
+  width: 32px;
+  height: 32px;
+}
+
+/* line 160, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-comment {
+  background-position: -10px -532px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 161, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-delete {
+  background-position: -10px -562px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 162, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-delete:hover {
+  background-position: -10px -592px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 163, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-edit {
+  background-position: -10px -622px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 164, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-edit:hover {
+  background-position: -10px -652px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 165, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-heart-broken {
+  background-position: -10px -682px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 166, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-heart-red {
+  background-position: -10px -712px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 167, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-heart {
+  background-position: -10px -742px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 168, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-search {
+  background-position: -10px -772px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 169, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-search:focus {
+  background-position: -10px -802px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 170, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-setting {
+  background-position: -10px -832px;
+  width: 20px;
+  height: 20px;
+}
+
+/* line 171, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-explore-small {
+  background-position: -10px -862px;
+  width: 18px;
+  height: 18px;
+}
+
+/* line 172, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-tool {
+  background-position: -10px -890px;
+  width: 17px;
+  height: 17px;
+}
+
+/* line 173, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-circle-down {
+  background-position: -10px -917px;
+  width: 16px;
+  height: 16px;
+}
+
+/* line 174, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-following-small {
+  background-position: -10px -943px;
+  width: 16px;
+  height: 16px;
+}
+
+/* line 175, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-heart-small {
+  background-position: -10px -969px;
+  width: 16px;
+  height: 16px;
+}
+
+/* line 176, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-point-right {
+  background-position: -10px -995px;
+  width: 16px;
+  height: 16px;
+}
+
+/* line 177, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-setting-small {
+  background-position: -10px -1021px;
+  width: 16px;
+  height: 16px;
+}
+
+/* line 178, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-minus {
+  background-position: -10px -1047px;
+  width: 15px;
+  height: 15px;
+}
+
+/* line 179, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-plus {
+  background-position: -36px -917px;
+  width: 14px;
+  height: 14px;
+}
+
+/* line 181, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-spinner {
+  animation: spinning 2s infinite;
+  animation: spinning 1s infinite steps(8);
+}
+
+/* line 186, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.block .icon-spinner {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 30px);
+  transform: translate(-50%);
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes spinning {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+/* line 214, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-auth {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/assets/background/back2-0cbc9e739087e854a3964c77e0c8594d2a1fcac0236dd1c890d474f635ff387c.jpg);
+  background-size: cover;
+  overflow: hidden;
+  padding: 0 15px;
+}
+
+/* line 225, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-auth-content {
+  margin: 8% auto;
+  width: 300px;
+  color: #fff;
+}
+
+/* line 234, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.sign-in-logo {
+  font-size: 50px;
+  font-family: Verdana;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* line 241, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-auth-content > p {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+/* line 247, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.input {
+  color: #000;
+  width: 100%;
+  margin: 15px 0 12px 0;
+}
+
+/* line 253, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.input input {
+  width: 100%;
+  height: 45px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* line 261, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.input input:not(:last-child) {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* line 265, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.submit {
+  padding: 2px 6px 3px;
+  background: #40a3df;
+}
+
+/* line 270, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-auth-form .submit {
+  height: 45px;
+  width: 100%;
+}
+
+/* line 275, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.error-msg-list {
+  margin-bottom: 12px;
+}
+
+/* line 279, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.error-msg {
+  display: block;
+  width: 100%;
+  min-height: 45px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px 0;
+  text-align: center;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+/* line 290, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.error-msg:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+/* line 294, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.demo-user {
+  padding: 2px 6px 3px;
+  margin-top: 5px;
+  height: 45px;
+  width: 100%;
+  background: #74cc9d;
+}
+
+/* line 302, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+a.demo-user {
+  display: block;
+  padding-top: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* line 309, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.redir-sign-up > button, .redir-log-in > button {
+  display: block;
+  float: right;
+  margin: 10px 5px;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+/* line 318, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.redir-sign-up > button {
+  background: white;
+}
+
+/* line 322, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.redir-log-in > button {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+/* line 328, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.header {
+  position: fixed;
+  z-index: 5;
+  background: #36465d;
+  padding: 15px;
+  display: block;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.13);
+  top: 0px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* line 340, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.logo {
+  font-size: 28px;
+  font-family: "Overlock";
+  font-weight: bold;
+  color: #fff;
+  display: block;
+  float: left;
+  margin-right: 20px;
+}
+
+/* line 350, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.search-bar {
+  padding: 9px 8px 9px 40px;
+  border-radius: 3px;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.16);
+  float: left;
+  width: 40%;
+  box-sizing: border-box;
+}
+
+/* line 361, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.search-bar:focus {
+  background: #fff;
+  color: #000;
+}
+
+/* line 366, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-search {
+  position: relative;
+  top: 6px;
+  left: -39%;
+}
+
+/* line 372, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-user, .icon-home {
+  cursor: pointer;
+}
+
+/* line 376, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.header-navbar {
+  float: right;
+  width: 120px;
+  margin-right: 35px;
+}
+
+/* line 382, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.header-navbar > li {
+  margin-left: 28px;
+  float: left;
+}
+
+/* line 387, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.header-navbar > li:hover {
+  color: #fff;
+}
+
+/* line 391, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.redir-dashboard:before {
+  content: attr(title);
+  color: #2F4054;
+  display: block;
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 8px 10px;
+  border-radius: 3px;
+  background: #fff;
+  position: absolute;
+  top: 60px;
+  right: 60px;
+}
+
+/* line 405, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.redir-dashboard:after {
+  content: "";
+  display: block;
+  width: 2px;
+  border-bottom: 7px solid red;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: absolute;
+  top: 30px;
+  right: -2px;
+}
+
+/* line 417, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.redir-dashboard:hover:before,
+.redir-dashboard:hover:after {
+  display: block;
+}
+
+/* line 422, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.to-user-list {
+  position: relative;
+}
+
+/* line 426, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list {
+  display: none;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  background: #EFEFEF;
+  width: 240px;
+  border-radius: 3px;
+  border: 1px solid #000;
+}
+
+/* line 437, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.to-user-list:hover .user-nav-list,
+.to-user-list:hover .user-nav-list:before {
+  display: block;
+}
+
+/* line 442, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list a {
+  display: block;
+  padding: 6px 10px;
+  color: #000;
+}
+
+/* line 448, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list:before {
+  content: "";
+  display: none;
+  width: 2px;
+  border-bottom: 7px solid #EFEFEF;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: relative;
+  top: -7px;
+  right: -218px;
+}
+
+/* line 460, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list > li:first-child {
+  color: #737373;
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+/* line 466, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list > li:not(:first-child) {
+  background: #fff;
+}
+
+/* line 470, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list > li:not(:first-child):hover {
+  background: #e0ebf5;
+}
+
+/* line 474, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list > li:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+/* line 479, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list span {
+  display: block;
+  float: right;
+}
+
+/* line 484, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.log-out {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* line 489, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-nav-list [class*="icon-"] {
+  margin-right: 10px;
+}
+
+/* line 494, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-options {
+  font-family: "Raleway";
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 17px 0;
+  width: 352px;
+  background: #fff;
+  border-radius: 3px;
+  position: relative;
+  right: -85px;
+}
+
+/* line 506, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-text:hover, .icon-image:hover,
+.icon-quote:hover, .icon-link:hover {
+  position: relative;
+  top: -3px;
+}
+
+/* line 512, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.icon-text:active, .icon-image:active,
+.icon-quote:active, .icon-link:active {
+  top: 3px;
+}
+
+/* line 517, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-options > li {
+  cursor: pointer;
+  width: 88px;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 24px;
+}
+
+/* line 525, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-options > li:not(:last-child) {
+  border-right: 1px solid #e5e5e5;
+}
+
+/* line 529, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-type {
+  color: #7a7a7a;
+  display: block;
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* line 540, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.posts-main {
+  margin-top: 92px;
+}
+
+/* line 544, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.posts-index {
+  margin-bottom: 100px;
+}
+
+/* line 548, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.posts-index-item {
+  margin-bottom: 20px;
+  width: 540px;
+  font-size: 14px;
+  background: #fff;
+  padding: 15px 0 0;
+  word-wrap: break-word;
+  border-radius: 3px;
+  position: relative;
+  right: -85px;
+  box-sizing: border-box;
+}
+
+/* line 561, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.thumbnail {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: -85px;
+  top: 0;
+}
+
+/* line 571, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.thumbnail > img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+/* line 576, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.thumbnail:before {
+  content: "Check out my blog!";
+  opacity: 0;
+  background: #EA3556;
+  word-wrap: break-word;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  color: #fff;
+  position: absolute;
+  top: -80px;
+  left: -14px;
+  padding: 15px 22px;
+  box-sizing: border-box;
+  transition: opacity 500ms ease, top 500ms ease;
+}
+
+/* line 593, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.thumbnail:after {
+  content: "";
+  opacity: 0;
+  height: 5px;
+  width: 10px;
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  border-top: 8px solid #EA3556;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  box-sizing: border-box;
+  transition: opacity 500ms ease, top 500ms ease;
+}
+
+/* line 608, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.thumbnail:hover:after {
+  opacity: 1;
+  top: -12px;
+}
+
+/* line 613, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.thumbnail:hover:before {
+  opacity: 1;
+  top: -100px;
+}
+
+/* line 618, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post {
+  border-radius: 3px;
+  margin-top: -3px;
+  background: #fff;
+}
+
+/* line 624, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-author {
+  font-family: "Signika Negative";
+  word-wrap: normal;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+  margin: -3px 0 15px;
+  line-height: 20px;
+  width: 100%;
+  display: block;
+  height: 20px;
+  vertical-align: middle;
+  position: relative;
+}
+
+/* line 639, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-author, .post-footer {
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* line 644, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-container {
+  display: block;
+}
+
+/* line 648, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-container > p,
+.post-container > h1 {
+  display: block;
+  box-sizing: border-box;
+  padding-right: 20px;
+  padding-left: 20px;
+  word-wrap: break-word;
+}
+
+/* line 657, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-container > h1 {
+  margin-bottom: 10px;
+}
+
+/* line 661, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-container > p {
+  line-height: 21px;
+}
+
+/* line 677, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.tags {
+  padding: 0 20px;
+  margin-top: 15px;
+}
+
+/* line 682, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.tags > li {
+  display: inline-block;
+  color: #909090;
+  margin-right: 8px;
+}
+
+/* line 688, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-image {
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* line 693, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-footer {
+  height: 45px;
+  font-weight: bold;
+  color: #a1a1a1;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  line-height: 45px;
+}
+
+/* line 702, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.quote {
+  font-family: "Libre Baskerville", "Vollkorn";
+}
+
+/* line 706, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.quote:before {
+  content: "\201C";
+  margin-right: 3px;
+}
+
+/* line 711, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.quote:after {
+  content: "\201D";
+  margin-left: 3px;
+}
+
+/* line 716, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.quote-from:before {
+  content: "\2014";
+  margin-right: 6px;
+}
+
+/* line 722, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.link {
+  display: block;
+  background: #f2f2f2;
+  color: #000;
+  padding: 20px;
+}
+
+/* line 729, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.link h4 {
+  font-size: 22px;
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+/* line 735, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.link h4:after {
+  content: " >";
+}
+
+/* line 741, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.num_likes {
+  float: left;
+}
+
+/* line 745, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-response-list {
+  margin-top: 5px;
+  float: right;
+  width: 80px;
+}
+
+/* line 751, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-response-list > li {
+  float: left;
+  margin-left: 18px;
+}
+
+/* line 757, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-response-list .icon-comment,
+.post-response-list .icon-setting {
+  cursor: pointer;
+}
+
+/* line 762, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.block-modal {
+  background: rgba(54, 70, 93, 0.95);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* line 772, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-modal {
+  z-index: 15;
+  top: 90px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(calc(-50% - 80px));
+}
+
+/* line 780, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form input,
+.post-form textarea {
+  padding: 0 20px 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* line 787, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+input.title {
+  font-size: 36px;
+}
+
+/* line 791, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.new-tags {
+  padding: 10px 20px;
+  width: 100%;
+  overflow: auto;
+}
+
+/* line 797, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.form-input {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+/* line 801, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form .close, .post-form .submit {
+  margin: 15px 20px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* line 810, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form .error {
+  color: #fff;
+}
+
+/* line 814, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form .close {
+  background: #9c9c9c;
+}
+
+/* line 818, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form .submit {
+  float: right;
+}
+
+/* line 822, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form .quote {
+  font-family: "Libre Baskerville", "Vollkorn";
+  font-size: 30px;
+}
+
+/* line 827, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form .input-link {
+  padding: 55px 35px;
+  border-top: 2px dashed #ccc;
+  border-bottom: 2px dashed #ccc;
+  background: #f2f2f2;
+}
+
+/* line 834, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.post-form .link-desc {
+  padding-top: 22px;
+}
+
+/* line 838, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.image-preview {
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+/* line 843, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.disabled-btn {
+  cursor: wait;
+}
+
+/* line 849, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  margin-top: 92px;
+}
+
+/* line 855, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info > a {
+  font-family: "Raleway";
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 100;
+  font-size: 14px;
+  margin: 5px 0 10px 0;
+  display: block;
+  cursor: pointer;
+}
+
+/* line 865, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info-list {
+  width: 220px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* line 870, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info-list > li {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* line 875, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info-list > li:last-child {
+  padding: 10px;
+}
+
+/* line 879, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info-link {
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* line 885, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info-list > li:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* line 889, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info-link.focus {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* line 893, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-info-link > span {
+  display: block;
+  float: right;
+}
+
+/* line 898, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.recent-tags {
+  margin-top: 8px;
+}
+
+/* line 902, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.recent-tags > li {
+  display: inline-block;
+}
+
+/* line 906, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.recent-tags a {
+  display: inline-block;
+  margin: 4px;
+  padding: 3px 10px;
+  border-radius: 3px;
+  background: #FF9D27;
+  color: #fff;
+}
+
+/* line 917, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-container {
+  height: 100%;
+}
+
+/* line 921, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog {
+  background: #f0f0f0;
+}
+
+/* line 925, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-header {
+  height: 350px;
+  width: 100%;
+  position: relative;
+}
+
+/* line 931, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-navbar {
+  float: right;
+  color: white;
+  margin: 0 15px;
+}
+
+/* line 937, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-navbar > * {
+  float: left;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 10px 5px;
+  border-radius: 3px;
+}
+
+/* line 945, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-navbar i {
+  margin-right: 5px;
+}
+
+/* line 949, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-main {
+  margin: -75px auto 0;
+  position: relative;
+  z-index: 5;
+  color: #444;
+  width: 625px;
+}
+
+/* line 957, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-avatar {
+  border-radius: 50%;
+  width: 150px;
+  border: 5px solid #f0f0f0;
+  margin: 0 auto;
+}
+
+/* line 964, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-main figcaption {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* line 970, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-desc {
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* line 975, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-posts {
+  margin-top: 40px;
+  padding-bottom: 100px;
+}
+
+/* line 980, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-posts .post {
+  margin-bottom: 30px;
+  background: #fff;
+  word-wrap: break-word;
+  overflow: hidden;
+  border: 1px solid #dfdfdf;
+}
+
+/* line 988, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-posts .post h1 {
+  padding: 20px;
+}
+
+/* line 994, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-modal-form {
+  z-index: 15;
+  top: 90px;
+  position: absolute;
+  background: #f0f0f0;
+  width: 400px;
+  padding: 25px 25px 0 25px;
+  border-radius: 3px;
+  left: 50%;
+  font-size: 14px;
+  transform: translateX(-50%);
+}
+
+/* line 1007, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.background-preview {
+  width: 150px;
+  float: left;
+  margin-right: 15px;
+}
+
+/* line 1013, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.show-info {
+  margin-bottom: 5px;
+  float: left;
+  width: calc(100% - 20px);
+}
+
+/* line 1019, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-modal-form .icon-edit {
+  float: right;
+}
+
+/* line 1023, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-modal-form input[type="text"],
+.blog-modal-form textarea {
+  width: 100%;
+  box-shadow: inset 0 0 1px #000000;
+  padding: 5px 8px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+/* line 1033, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-modal-form label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* line 1039, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.blog-modal-form .close {
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  padding: 5px 10px;
+  float: right;
+  position: relative;
+  top: -28px;
+}
+
+/* line 1051, /Users/Leah/Desktop/App Academy/Projects/CapstoneProject/W9D2/mumblr/app/assets/stylesheets/application.scss */
+.user-edit {
+  background: #fff;
+  padding: 20px;
+  border-radius: 3px;
+  margin-top: 100px;
+}

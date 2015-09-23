@@ -14,7 +14,7 @@
                   placeholder="Your text here"><%= post.escape('body') %></textarea>
       <% } else if (post.escape('post_type') === "image"){ %>
         <input type="file" class="upload" name="post[image]">
-        <img class="image-preview hide">
+        <img class="image-preview">
         <textarea name="post[body]" placeholder="Add a caption, if you like"><%= post.escape('body') %></textarea>
       <% } else if (post.escape('post_type') === "quote"){ %>
         <textarea class="quote" name="post[body]" placeholder="Quote"><%= post.escape('body') %></textarea>

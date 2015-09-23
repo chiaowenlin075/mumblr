@@ -1,0 +1,2 @@
+(function() { this.JST || (this.JST = {}); this.JST["posts/index_item"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<a href="#blog/',  post.escape('blog_id') ,'" class="thumbnail"><img src="',  user.escape('avatar_url') ,'"></a>\n<b class="post-author">',  user.escape('username') ,'</b>\n<div class="post-show-container"></div>\n');}return __p.join('');};
+}).call(this);

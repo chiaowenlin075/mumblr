@@ -15,7 +15,7 @@
  */
 
 html, body, main, div, section, ul, li, img, b, span, strong, a,
-p, h1, h2, h3, h4, article, i, button, figure, figcaption {
+p, h1, h2, h3, h4, h5, article, i, button, figure, figcaption {
   border: 0;
   padding: 0;
   margin: 0;
@@ -135,7 +135,7 @@ input.hide, textarea.hide, label.hide,
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 500;
 }
 
 // sprites
@@ -146,35 +146,68 @@ input.hide, textarea.hide, label.hide,
 }
 
 .icon-music { background-position: -10px -0px; width: 50px; height: 50px; }
-.icon-text { background-position: -10px -60px; width: 44px; height: 44px; }
-.icon-image { background-position: -10px -114px; width: 40px; height: 40px; }
-.icon-link { background-position: -10px -164px; width: 40px; height: 40px; }
-.icon-quote { background-position: -10px -214px; width: 40px; height: 40px; }
-.icon-explore { background-position: -10px -264px; width: 35px; height: 35px; }
-.icon-home { background-position: -10px -309px; width: 32px; height: 32px; }
-.icon-setting-big:hover { background-position: -10px -351px; width: 32px; height: 32px; }
-.icon-setting-big { background-position: -10px -393px; width: 32px; height: 32px; }
-.icon-user { background-position: -10px -435px; width: 32px; height: 32px; }
-.icon-comment { background-position: -10px -477px; width: 20px; height: 20px; }
-.icon-delete { background-position: -10px -507px; width: 20px; height: 20px; }
-.icon-delete:hover { background-position: -10px -537px; width: 20px; height: 20px; }
-.icon-edit { background-position: -10px -567px; width: 20px; height: 20px; }
-.icon-edit:hover { background-position: -10px -597px; width: 20px; height: 20px; }
-.icon-heart-broken { background-position: -10px -627px; width: 20px; height: 20px; }
-.icon-heart-red { background-position: -10px -657px; width: 20px; height: 20px; }
-.icon-heart { background-position: -10px -687px; width: 20px; height: 20px; }
-.icon-search { background-position: -10px -717px; width: 20px; height: 20px; }
-.icon-search:focus { background-position: -10px -747px; width: 20px; height: 20px; }
-.icon-setting { background-position: -10px -777px; width: 20px; height: 20px; }
-.icon-explore-small { background-position: -10px -807px; width: 18px; height: 18px; }
-.icon-tool { background-position: -10px -835px; width: 17px; height: 17px; }
-.icon-circle-down { background-position: -10px -862px; width: 16px; height: 16px; }
-.icon-following-small { background-position: -10px -888px; width: 16px; height: 16px; }
-.icon-heart-small { background-position: -10px -914px; width: 16px; height: 16px; }
-.icon-point-right { background-position: -10px -940px; width: 16px; height: 16px; }
-.icon-setting-small { background-position: -10px -966px; width: 16px; height: 16px; }
-.icon-minus { background-position: -10px -992px; width: 15px; height: 15px; }
-.icon-plus { background-position: -36px -862px; width: 14px; height: 14px; }
+.icon-spinner { background-position: -10px -60px; width: 45px; height: 45px; }
+.icon-text { background-position: -10px -115px; width: 44px; height: 44px; }
+.icon-image { background-position: -10px -169px; width: 40px; height: 40px; }
+.icon-link { background-position: -10px -219px; width: 40px; height: 40px; }
+.icon-quote { background-position: -10px -269px; width: 40px; height: 40px; }
+.icon-explore { background-position: -10px -319px; width: 35px; height: 35px; }
+.icon-home { background-position: -10px -364px; width: 32px; height: 32px; }
+.icon-setting-big:hover { background-position: -10px -406px; width: 32px; height: 32px; }
+.icon-setting-big { background-position: -10px -448px; width: 32px; height: 32px; }
+.icon-user { background-position: -10px -490px; width: 32px; height: 32px; }
+.icon-comment { background-position: -10px -532px; width: 20px; height: 20px; }
+.icon-delete { background-position: -10px -562px; width: 20px; height: 20px; }
+.icon-delete:hover { background-position: -10px -592px; width: 20px; height: 20px; }
+.icon-edit { background-position: -10px -622px; width: 20px; height: 20px; }
+.icon-edit:hover { background-position: -10px -652px; width: 20px; height: 20px; }
+.icon-heart-broken { background-position: -10px -682px; width: 20px; height: 20px; }
+.icon-heart-red { background-position: -10px -712px; width: 20px; height: 20px; }
+.icon-heart { background-position: -10px -742px; width: 20px; height: 20px; }
+.icon-search { background-position: -10px -772px; width: 20px; height: 20px; }
+.icon-search:focus { background-position: -10px -802px; width: 20px; height: 20px; }
+.icon-setting { background-position: -10px -832px; width: 20px; height: 20px; }
+.icon-explore-small { background-position: -10px -862px; width: 18px; height: 18px; }
+.icon-tool { background-position: -10px -890px; width: 17px; height: 17px; }
+.icon-circle-down { background-position: -10px -917px; width: 16px; height: 16px; }
+.icon-following-small { background-position: -10px -943px; width: 16px; height: 16px; }
+.icon-heart-small { background-position: -10px -969px; width: 16px; height: 16px; }
+.icon-point-right { background-position: -10px -995px; width: 16px; height: 16px; }
+.icon-setting-small { background-position: -10px -1021px; width: 16px; height: 16px; }
+.icon-minus { background-position: -10px -1047px; width: 15px; height: 15px; }
+.icon-plus { background-position: -36px -917px; width: 14px; height: 14px; }
+
+.icon-spinner {
+  animation: spinning 2s infinite;
+  animation: spinning 1s infinite steps(8);
+}
+
+.block .icon-spinner {
+  position: absolute;
+  top: 50%;
+  left: calc(50% - 30px);
+  transform: translate(-50%);
+}
+
+@keyframes spinning {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(359deg);
+  }
+}
+
+@-webkit-keyframes spinning {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
 
 // User auth form
 .user-auth {
@@ -372,12 +405,13 @@ a.demo-user {
   content: "";
   display: none;
   width: 2px;
-  border-bottom: 7px solid red;
+  border-bottom: 7px solid #fff;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
   position: absolute;
-  top: 30px;
-  right: -2px;
+  top: 53px;
+  right: 118px;
+  box-sizing: border-box;
 }
 
 .redir-dashboard:hover:before,
@@ -764,7 +798,7 @@ input.title {
   border-bottom: 1px solid #e5e5e5;
 }
 
-.post-form .close, .post-form .submit {
+.post-form .close, .submit {
   margin: 15px 20px;
   padding: 6px 12px;
   border-radius: 3px;
@@ -863,6 +897,7 @@ input.title {
 
 .recent-tags {
   margin-top: 8px;
+  color: #fff;
 }
 
 .recent-tags > li {
@@ -870,12 +905,11 @@ input.title {
 }
 
 .recent-tags a {
+  background: #3EABA9;
   display: inline-block;
   margin: 4px;
   padding: 3px 10px;
   border-radius: 3px;
-  background: #FF9D27;
-  color: #fff;
 }
 
 // blog show
@@ -986,8 +1020,7 @@ input.title {
   float: right;
 }
 
-.blog-modal-form input[type="text"],
-.blog-modal-form textarea {
+.editable {
   width: 100% ;
   box-shadow: inset 0 0 1px #000000;
   padding: 5px 8px;
@@ -1011,4 +1044,49 @@ input.title {
   float: right;
   position: relative;
   top: -28px;
+}
+
+//  user edit form
+.user-edit {
+  background: #fff;
+  padding: 30px;
+  border-radius: 3px;
+  margin-top: 100px;
+}
+
+.user-edit > ul {
+  margin-bottom: 20px;
+}
+
+.user-edit > h1 {
+  font-size: 24px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.user-info-list {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px 10px;
+}
+
+.user-info-list > h5 {
+  font-size: 14px;
+  font-weight: bold;
+  width: 180px;
+  float: left;
+}
+
+.user-info-list > section {
+  font-size: 14px;
+  float: left;
+  width: calc(100% - 180px);
+}
+
+.avatar-preview {
+  border-radius: 3px;
+}
+
+.user-edit .submit {
+  float: right;
+  margin: 0;
 }

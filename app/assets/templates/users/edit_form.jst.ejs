@@ -1,19 +1,36 @@
-<form class="user-auth-form">
-
-  <section class="input">
-    <input type="text"
-           name="user[email]"
-           placeholder="Email"
-           value="<%= user.email %>">
-    <input type="password"
-           name="user[password]"
-           placeholder="Password">
-    <input type="text"
-           name="user[username]"
-           placeholder="Username"
-           value="<%= user.username %>">
-  </section>
-  <div class="error"></div>
-  <button class="submit">Sign Up</button>
-  <a href="#" class="demo-user">Try Demo User</a>
-</form>
+<h1>Account</h1>
+<ul>
+  <li class="user-info-list group">
+    <h5>Username</h5>
+    <section class="group">
+      <p class="show-info"><%= user.escape('username') %></p><i class="icon-edit"/>
+      <input type="text"
+             class="editable hide"
+             name="user[username]"
+             value="<%= user.escape('username') %>">
+    </section>
+  </li>
+  <li class="user-info-list group">
+    <h5>Password</h5>
+    <section class="group">
+      <p class="show-info">········</p><i class="icon-edit"/>
+      <input type="text"
+             class="editable hide"
+             name="user[password]">
+    </section>
+  </li>
+  <li class="user-info-list group">
+    <h5>Profile avatar</h5>
+    <section class="group">
+      <img src="<%= user.escape('avatar_url') %>" class="avatar-preview">
+      <input type="file" class="upload" name="user[avatar]">
+    </section>
+  </li>
+  <li class="user-info-list group">
+    <h5>Join us since</h5>
+    <section>
+      <p><%= user.escape('created_at') %></p>
+    </section>
+  </li>
+</ul>
+<button class="submit">Save</button>
