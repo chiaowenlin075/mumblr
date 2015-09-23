@@ -405,7 +405,8 @@ a.demo-user {
   color: #fff;
 }
 
-.redir-dashboard:before {
+.redir-dashboard:before,
+.redir-explore:before {
   content: attr(title);
   color: #2F4054;
   display: none;
@@ -416,10 +417,18 @@ a.demo-user {
   background: #fff;
   position: absolute;
   top: 60px;
+}
+
+.redir-dashboard:before {
   right: 60px;
 }
 
-.redir-dashboard:after {
+.redir-explore:before {
+  right: 150px;
+}
+
+.redir-dashboard:after,
+.redir-explore:after {
   content: "";
   display: none;
   width: 2px;
@@ -428,12 +437,21 @@ a.demo-user {
   border-right: 7px solid transparent;
   position: absolute;
   top: 53px;
-  right: 118px;
   box-sizing: border-box;
 }
 
+.redir-dashboard:after {
+  right: 118px;
+}
+
+.redir-explore:after {
+  right: 180px;
+}
+
 .redir-dashboard:hover:before,
-.redir-dashboard:hover:after {
+.redir-dashboard:hover:after,
+.redir-explore:hover:before,
+.redir-explore:hover:after {
   display: block;
 }
 

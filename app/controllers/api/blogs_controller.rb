@@ -30,6 +30,7 @@ module Api
                    .joins("LEFT OUTER JOIN followings ON followings.blog_id = blogs.id")
                    .group("blogs.id")
                    .order("COUNT (followings.*) DESC")
+                   .select("blogs.*, COUNT (followings.*) AS num_followers")
                    .limit(10)
       if logged_in?
         @followings_hash = current_user.blog_follow_hash
