@@ -21,6 +21,14 @@ module Api
       end
     end
 
+    def update
+      if current_user.update(update_params)
+        render :show
+      else
+        render json: @user.errors.full_messages, status: 422
+      end
+    end
+
     def destroy
       logout_user!
       render json: {}
@@ -29,6 +37,10 @@ module Api
     private
     def session_params
       params.require(:user).permit(:email, :password).values
+    end
+
+    def update_params
+      params.require(:user).permit(:username, :password, :avatar)
     end
   end
 end

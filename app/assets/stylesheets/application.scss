@@ -56,7 +56,6 @@ label, textarea {
   border: 0;
   outline: 0;
   font-size: 14px;
-  // font-family: TBD;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -267,6 +266,8 @@ input.hide, textarea.hide, label.hide,
 }
 
 .user-auth-form .submit {
+  margin: 0;
+  font-size: 16px;
   height: 45px;
   width: 100%;
 }
@@ -293,6 +294,7 @@ input.hide, textarea.hide, label.hide,
 .demo-user {
   padding: 2px 6px 3px;
   margin-top: 5px;
+  font-weight: bold;
   height: 45px;
   width: 100%;
   background: #74cc9d;

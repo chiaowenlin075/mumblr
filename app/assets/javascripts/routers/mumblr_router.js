@@ -96,7 +96,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     var callback = this.userEdit.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    var editView = new Mumblr.Views.UserEditForm({ model: Mumblr.CurrentUser });
+    var editView = new Mumblr.Views.UserEditForm();
     this._swapView(editView, ".main-content");
   },
 

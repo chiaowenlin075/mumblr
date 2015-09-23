@@ -12,20 +12,7 @@ module Api
       if @user.save
         login_user!(@user)
         @blog = Blog.create!(owner_id: @user.id)
-        @post = @blog.posts.create!(
-          author_id: @user.id,
-          post_type: "image",
-          image: File.open("app/assets/images/dancing_cat.gif"),
-          body: "Welcome to Mumblr, please use it with <3"
-        )
-        render :show
-      else
-        render json: @user.errors.full_messages, status: 422
-      end
-    end
-
-    def update
-      if current_user.update(user_params)
+        Post.welcome_post(@blog.id)
         render :show
       else
         render json: @user.errors.full_messages, status: 422

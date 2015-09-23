@@ -105,3 +105,5 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
   }
 
 });
+
+_.extend(Mumblr.Models.User.prototype, Mumblr.Mixins.SaveFormData);

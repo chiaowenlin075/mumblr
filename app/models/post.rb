@@ -40,6 +40,18 @@ class Post < ActiveRecord::Base
     dependent: :destroy
   has_many :taggings, inverse_of: :post, dependent: :destroy
 
+  def self.welcome_post(blog_id)
+    Post.create!(
+      author_id: User.find_by(username: "Sennacy").id,
+      blog_id: blog_id,
+      post_type: "image",
+      image: File.open("app/assets/images/dancing_cat.gif"),
+      body: "Welcome to Mumblr, please use it with <3, " +
+            "use 'Dashboard to browse your own posts also the posts from blogs " +
+            "you subscribed, use 'explore' to check out hottest blogs!"
+    )
+  end
+
   def link_url_check
     return unless link_url
     self.link_url = /^http[s]*:\/\/.+/.match(link_url) ? link_url : "http://" + link_url

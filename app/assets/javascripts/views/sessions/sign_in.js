@@ -25,7 +25,7 @@ Mumblr.Views.SignIn = Backbone.View.extend({
     Mumblr.CurrentUser.signIn({
       email: formData.email,
       password: formData.password,
-      error: this.showErrorMsg.bind(this)
+      error: this.showError.bind(this)
     });
   },
 
@@ -46,12 +46,10 @@ Mumblr.Views.SignIn = Backbone.View.extend({
     }
   },
 
-  showErrorMsg: function(){
-    var $ul = $("<ul class='error-msg-list'>");
-    var $li = $("<li>").html("Invalid email and password combination!");
-    $li.addClass("error-msg");
-    $ul.append($li);
-    this.$(".error").html($ul);
+  showError: function(){
+    this.showErrorMsg(["Invalid email and password combination!"]);
   }
 
 });
+
+_.extend(Mumblr.Views.SignIn.prototype, Mumblr.Mixins.ShowError);

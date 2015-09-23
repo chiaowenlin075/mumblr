@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root "root#root"
 
   namespace :api , defaults: { format: :json } do
-    resource :session, only: [:show, :create, :destroy]
+    resource :session, only: [:show, :create, :destroy, :update]
     resources :users, only: [:show, :index, :create, :update, :destroy]
     resources :blogs, only: [:create, :index, :update, :destroy, :show] do
       collection do

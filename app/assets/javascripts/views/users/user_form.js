@@ -29,15 +29,8 @@ Mumblr.Views.UserForm = Backbone.View.extend({
         this.showErrorMsg(resp.responseJSON);
       }.bind(this)
     });
-  },
-
-  showErrorMsg: function(errMsgs){
-    var $ul = $("<ul class='error-msg-list'>");
-    for (var i = 0; i < errMsgs.length; i++){
-      var $li = $("<li class='error-msg'>").html(errMsgs[i])
-      $ul.append($li);
-    }
-    this.$(".error").html($ul);
   }
 
 });
+
+_.extend(Mumblr.Views.UserForm.prototype, Mumblr.Mixins.ShowError);

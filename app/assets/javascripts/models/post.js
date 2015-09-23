@@ -1,5 +1,4 @@
-Mumblr.Models.Post = Backbone.Model.extend(
-  _.extend({}, Mumblr.Mixins.FollowOrLikeable, {
+Mumblr.Models.Post = Backbone.Model.extend({
     urlRoot: "/api/posts",
 
     options: {
@@ -36,27 +35,9 @@ Mumblr.Models.Post = Backbone.Model.extend(
 
     toggleLike: function(){
       this.toggleEvent();
-    },
-
-    saveImagePost: function(formData, options){
-      var method = this.isNew() ? "post" : "put";
-      var model = this;
-
-      $.ajax({
-        url: _.result(model, "url"),
-        method: method,
-        data: formData,
-        processData: false,
-        contentType: false,
-        success: function(resp){
-          model.set(model.parse(resp));
-          model.trigger('sync', model, resp, options);
-          options.success && options.success(model, resp, options);
-        },
-        error: function(resp){
-          options.error && options.error(model, resp, options);
-        }
-      });
     }
-  })
-);
+
+});
+
+_.extend(Mumblr.Models.Post.prototype, Mumblr.Mixins.FollowOrLikeable);
+_.extend(Mumblr.Models.Post.prototype, Mumblr.Mixins.SaveFormData);

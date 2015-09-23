@@ -108,7 +108,7 @@ class User < ActiveRecord::Base
 
   def feeds(limit = 25, time_stone = Time.now)
     Post.includes(:author, :likings, :taggings)
-        .where("posts.author_id = ? OR posts.blog_id IN (?)", self.id, followed_blogs.pluck(:id))
+        .where("posts.blog_id IN (?)", followed_blogs.pluck(:id) << self.blog.id)
         .where("posts.created_at < ?", time_stone)
         .order("posts.created_at")
         .limit(limit)

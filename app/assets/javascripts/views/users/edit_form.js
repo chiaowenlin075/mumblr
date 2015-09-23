@@ -1,67 +1,83 @@
-Mumblr.Views.UserEditForm = Backbone.View.extend(
-  _.extend({}, Mumblr.Mixins.ImageUploadView, {
-    template: JST['users/edit_form'],
-    className: "user-edit group",
-    tagName: "form",
+Mumblr.Views.UserEditForm = Backbone.View.extend({
+  template: JST['users/edit_form'],
+  className: "user-edit group",
+  tagName: "form",
 
-    initialize: function(){
-      this.listenTo(this.model, "sync change", this.render);
-    },
+  initialize: function(){
+    this.model = Mumblr.CurrentUser;
+    this.listenTo(this.model, "sync change", this.render);
+  },
 
-    events: {
-      "click button.submit": "submit",
-      "click .icon-edit": "edit",
-      "blur .editable": "updateInfo",
-      "change .upload": "avatarPreview"
-    },
+  events: {
+    "submit": "submit",
+    "click .icon-edit": "edit",
+    "blur .editable": "showUpdateInfo",
+    "change .upload": "avatarPreview"
+  },
 
-    render: function(){
-      var content = this.template({ user: this.model });
-      this.$el.html(content);
-      return this;
-    },
+  render: function(){
+    var content = this.template({ user: this.model });
+    this.$el.html(content);
+    return this;
+  },
 
-    edit: function(event){
-      event.preventDefault();
-      $(event.currentTarget).siblings().andSelf().toggleClass("hide");
-      $(event.currentTarget).parent().find(".editable").focus();
-    },
+  edit: function(event){
+    event.preventDefault();
+    $(event.currentTarget).siblings().andSelf().toggleClass("hide");
+    $(event.currentTarget).parent().find(".editable").focus();
+  },
 
-    avatarPreview: function(event){
-      this.imagePreview(event, ".avatar-preview");
-    },
+  avatarPreview: function(event){
+    this.imagePreview(event, ".avatar-preview");
+  },
 
-    updateInfo: function(event){
-      event.preventDefault();
-      var $inputArea = $(event.currentTarget);
-      $inputArea.parent().find(".show-info").text($inputArea.val());
-      $inputArea.siblings().andSelf().toggleClass("hide");
-      this.model.save(input.user, {
-        success: function(model){
-          $inputArea.siblings().andSelf().toggleClass("hide");
-        }.bind(this),
-        error: function(model, resp){
-          debugger
-          this.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
-          this.$("input").val("");
-          var errMsg = resp.responseJSON;
-          this.showErrorMsg(errMsgs)
-        }
-      })
-    },
+  showUpdateInfo: function(event){
+    event.preventDefault();
+    var $inputArea = $(event.currentTarget);
+    $inputArea.siblings().andSelf().toggleClass("hide");
+    if ($inputArea.is(":password")) { return };
+    $inputArea.parent().find(".show-info").text($inputArea.val());
+  },
 
-    submit: function(event){
-      event.preventDefault();
-      // maybe just remove the view, you already save before this
-    },
-
-    showErrorMsg: function(errMsgs){
-      var $ul = $("<ul class='error-msg-list'>");
-      for (var i = 0; i < errMsgs.length; i++){
-        var $li = $("<li class='error-msg'>").html(errMsgs[i])
-        $ul.append($li);
-      }
-      this.$(".error").html($ul);
+  updateAvatar: function(input, file){
+    var formData = new FormData();
+    formData.append("user[username]", input.username);
+    if (!input.password){
+      formData.append("user[password]", input.password);
     }
-  })
-)
+    formData.append("user[avatar]", file);
+    this.model.saveFormData(formData, {
+      success: function(model){
+        Backbone.history.navigate("dashboard", { trigger: true });
+      }
+    });
+  },
+
+  submit: function(event){
+    event.preventDefault();
+    this.$("button.submit").addClass("disabled-btn").prop("disabled", true);
+    var input = this.$el.serializeJSON().user;
+    var file = this.$(".upload")[0].files[0];
+    var that = this;
+    if (!input.password){ delete input.password }
+    if (file) {
+      that.updateAvatar(input, file)
+    } else {
+      that.model.save(input, {
+        success: function(model){
+          Backbone.history.navigate("dashboard", { trigger: true });
+        },
+        error: function(model, resp){
+          that.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
+          that.$("input").val("");
+          var errMsg = resp.responseJSON;
+          that.showErrorMsg(errMsgs)
+        }
+      });
+    };
+  }
+
+});
+
+_.extend(Mumblr.Views.UserEditForm.prototype, Mumblr.Mixins.ImageUploadView);
+_.extend(Mumblr.Views.UserEditForm.prototype, Mumblr.Mixins.ShowError);
