@@ -26,16 +26,18 @@ module Api
     end
 
     def index
-      Blog.includes(:owner, :followings)
+      @blogs = Blog.preload(:owner)
           .joins(:followings)
           .group("blogs.id")
-          .order("followings")
+          .order("COUNT (followings.*) DESC")
 
       if logged_in?
         @followings_hash = current_user.blog_follow_hash
       else
         @followings_hash = {}
       end
+
+      render :index
     end
 
     def update

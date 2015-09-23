@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   after_initialize {
-    self.activation_token = generate_activation_token
+    self.activation_token ||= generate_activation_token
   }
 
   def self.find_by_credential(email, password)
@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
   end
 
   def blog_follow_hash
-    zipped_follows = followings.pluck(:blog_id).zip(followings)
+    zipped_follows = followings.to_a.map(&:blog_id).zip(followings)
     follow_hash = {}
 
     zipped_follows.each do |id, like|
@@ -108,13 +108,13 @@ class User < ActiveRecord::Base
 
   def feeds(limit = 25, time_stone = Time.now)
     Post.includes(:author, :likings, :taggings)
-        .where("posts.blog_id IN (?)", followed_blogs.pluck(:id) << self.blog.id)
+        .where("posts.blog_id IN (?)", followed_blogs.to_a.map(&:id) << self.blog.id)
         .where("posts.created_at < ?", time_stone)
         .order("posts.created_at")
         .limit(limit)
   end
 
   def recent_tags
-    self.taggings.order("taggings.created_at DESC").limit(10).pluck(:label)
+    self.taggings.sort_by(&:created_at).reverse!.take(10).map(&:label)
   end
 end

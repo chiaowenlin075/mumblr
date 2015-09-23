@@ -15,7 +15,7 @@ class Session < ActiveRecord::Base
   belongs_to :user, inverse_of: :sessions
 
   after_initialize {
-    self.session_token = generate_session_token
+    self.session_token ||= generate_session_token
   }
 
   def generate_session_token
