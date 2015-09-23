@@ -27,46 +27,32 @@ Mumblr.Views.UserEditForm = Backbone.View.extend(
       $(event.currentTarget).parent().find(".editable").focus();
     },
 
+    avatarPreview: function(event){
+      this.imagePreview(event, ".avatar-preview");
+    },
+
     updateInfo: function(event){
       event.preventDefault();
       var $inputArea = $(event.currentTarget);
       $inputArea.parent().find(".show-info").text($inputArea.val());
       $inputArea.siblings().andSelf().toggleClass("hide");
+      this.model.save(input.user, {
+        success: function(model){
+          $inputArea.siblings().andSelf().toggleClass("hide");
+        }.bind(this),
+        error: function(model, resp){
+          debugger
+          this.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
+          this.$("input").val("");
+          var errMsg = resp.responseJSON;
+          this.showErrorMsg(errMsgs)
+        }
+      })
     },
 
     submit: function(event){
       event.preventDefault();
-      var input = this.$el.serializeJSON().user;
-      this.model.save(input, {
-        success: function(){
-          Mumblr.CurrentUser.fetch();
-          Backbone.history.navigate("posts", { trigger: true });
-        },
-        error: function(model, resp){
-          this.showErrorMsg(resp.responseJSON);
-        }.bind(this)
-      });
-    },
-
-    avatarPreview: function(event){
-      event.preventDefault();
-      var file = this.$(".upload")[0].files[0];
-      var reader  = new FileReader();
-
-      reader.onloadend = function(){
-        this._updatePreview(reader.result);
-        this.updateBackground(file);
-      }.bind(this);
-
-      if (file) {
-        reader.readAsDataURL(file);
-      } else {
-        this._updatePreview("");
-      };
-    },
-
-    _updatePreview: function(section, src){
-      this.$(".background-preview").attr("src", src);
+      // maybe just remove the view, you already save before this
     },
 
     showErrorMsg: function(errMsgs){

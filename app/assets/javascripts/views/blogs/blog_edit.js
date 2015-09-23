@@ -23,9 +23,8 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend(
 
     edit: function(event){
       event.preventDefault();
-      $(event.currentTarget).addClass("hide");
-      $(event.currentTarget).prev().addClass("hide");
-      var $inputArea = $(event.currentTarget).next().removeClass("hide");
+      $(event.currentTarget).siblings().andSelf().not("label").toggleClass("hide");
+      var $inputArea = $(event.currentTarget).next();
       $inputArea.focus();
     },
 
