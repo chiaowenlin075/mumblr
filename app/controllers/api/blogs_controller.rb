@@ -27,10 +27,10 @@ module Api
 
     def index
       @blogs = Blog.preload(:owner)
-          .joins(:followings)
-          .group("blogs.id")
-          .order("COUNT (followings.*) DESC")
-
+                   .joins("LEFT OUTER JOIN followings ON followings.blog_id = blogs.id")
+                   .group("blogs.id")
+                   .order("COUNT (followings.*) DESC")
+                   .limit(10)
       if logged_in?
         @followings_hash = current_user.blog_follow_hash
       else

@@ -11,6 +11,11 @@ Mumblr.Views.FollowWidget = Backbone.View.extend({
 
   toggleFollow: function (event) {
     event.preventDefault();
+    if (!Mumblr.CurrentUser.isSignedIn()){
+      alert("Please Sign In!");
+      Backbone.history.navigate("", { trigger: true });
+    };
+
     this.model.toggleFollow();
   },
 

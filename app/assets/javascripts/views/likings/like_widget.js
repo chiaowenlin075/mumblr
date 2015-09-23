@@ -11,6 +11,10 @@ Mumblr.Views.LikeWidget = Backbone.View.extend({
 
   toggleLike: function (event) {
     event.preventDefault();
+    if (!Mumblr.CurrentUser.isSignedIn()){
+      alert("Please Sign In!");
+      Backbone.history.navigate("", { trigger: true });
+    };
     this.model.toggleLike();
   },
 

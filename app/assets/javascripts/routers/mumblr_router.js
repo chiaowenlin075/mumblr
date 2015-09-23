@@ -9,15 +9,13 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     "users/new": "new",
     "setting": "userEdit",
     "posts": "posts", // temp: should be route to "posts"
+    "blog/:id": "blog",
     "dashboard": "dashboard",
-    "followers": "follower",
-    "blog/:id": "blog"
+    "explore": "explore",
+    "followers": "follower"
   },
 
   header: function(){
-    var callback = this.header.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-
     if (!this._currentView[".header-container"]){
       var headerView = new Mumblr.Views.Header();
       this._clearSubView(".header-container", headerView);
@@ -25,11 +23,13 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     }
   },
 
-  sidebar: function(blog){
+  sidebar: function(){
     var callback = this.sidebar.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
     if (!this._currentView[".main-sidebar"]){
+      var blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blogId });
+      blog.fetch();
       var blogInfo = new Mumblr.Views.BlogInfo({ blog: blog });
       this._swapView(blogInfo, ".main-sidebar");
     };
@@ -58,7 +58,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
     var contentView = new Mumblr.Views.Feeds({ blog: blog });
     this._swapView(contentView, ".main-content");
-    this.sidebar(blog);
+    this.sidebar();
   },
 
   posts: function(){
@@ -70,7 +70,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     blog.fetch();
     var contentView = new Mumblr.Views.CurrentUserPosts({ blog: blog });
     this._swapView(contentView, ".main-content");
-    this.sidebar(blog);
+    this.sidebar();
   },
 
   blog: function(id){
@@ -80,12 +80,11 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     this._swapView(blogView);
   },
 
-  followers: function(){
-    var callback = this.followers.bind(this);
-    if (!this._requireSignedIn(callback)) { return; }
-    // posts and followers share the same ".main-sidebar",
-    // check whether theres content inside .main-sidebar, if no, add into it
-    // handle this in swapView maybe?
+  explore: function(){
+    var blogs = new Mumblr.Collections.Blogs();
+    blogs.fetch();
+    var blogsView = new Mumblr.Views.BlogsIndex({ collection: blogs });
+    this._swapView(blogsView, ".blog-container");
   },
 
   userEdit: function(){
@@ -94,6 +93,15 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
     var editView = new Mumblr.Views.UserEditForm();
     this._swapView(editView, ".main-content");
+    this.sidebar();
+  },
+
+  followers: function(){
+    var callback = this.followers.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    // TBD
+    this.sidebar();
   },
 
   _requireSignedIn: function(callback){
@@ -126,11 +134,16 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
   _swapView: function(newView, selector){
     this._currentView = this._currentView || {};
-    if (typeof selector !== 'undefined'){
+    if (typeof selector !== 'undefined' && selector !== ".blog-container"){
       this.header();
       this._clearSubView(".blog-container", null);
       this._clearSubView(selector, newView)
       this.$rootEl.find(selector).html(newView.render().$el);
+    } else if (selector === ".blog-container"){
+      for (key in this._currentView){ this._clearSubView(key, null); };
+      this.header();
+      this._currentView[".blog-container"] = newView;
+      this.$rootEl.find(".blog-container").html(newView.render().$el);
     } else {
       for (key in this._currentView){ this._clearSubView(key, null); };
       this._currentView[".blog-container"] = newView;

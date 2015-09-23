@@ -163,18 +163,20 @@ input.hide, textarea.hide, label.hide,
 .icon-heart-broken { background-position: -10px -682px; width: 20px; height: 20px; }
 .icon-heart-red { background-position: -10px -712px; width: 20px; height: 20px; }
 .icon-heart { background-position: -10px -742px; width: 20px; height: 20px; }
-.icon-search { background-position: -10px -772px; width: 20px; height: 20px; }
-.icon-search:focus { background-position: -10px -802px; width: 20px; height: 20px; }
-.icon-setting { background-position: -10px -832px; width: 20px; height: 20px; }
-.icon-explore-small { background-position: -10px -862px; width: 18px; height: 18px; }
-.icon-tool { background-position: -10px -890px; width: 17px; height: 17px; }
-.icon-circle-down { background-position: -10px -917px; width: 16px; height: 16px; }
-.icon-following-small { background-position: -10px -943px; width: 16px; height: 16px; }
-.icon-heart-small { background-position: -10px -969px; width: 16px; height: 16px; }
-.icon-point-right { background-position: -10px -995px; width: 16px; height: 16px; }
-.icon-setting-small { background-position: -10px -1021px; width: 16px; height: 16px; }
-.icon-minus { background-position: -10px -1047px; width: 15px; height: 15px; }
-.icon-plus { background-position: -36px -917px; width: 14px; height: 14px; }
+.icon-pacman { background-position: -10px -772px; width: 20px; height: 20px; }
+.icon-search { background-position: -10px -802px; width: 20px; height: 20px; }
+.icon-search:focus { background-position: -10px -832px; width: 20px; height: 20px; }
+.icon-setting { background-position: -10px -862px; width: 20px; height: 20px; }
+.icon-explore-small { background-position: -10px -892px; width: 18px; height: 18px; }
+.icon-tool { background-position: -10px -920px; width: 17px; height: 17px; }
+.icon-circle-down { background-position: -10px -947px; width: 16px; height: 16px; }
+.icon-following-small { background-position: -10px -973px; width: 16px; height: 16px; }
+.icon-heart-small { background-position: -10px -999px; width: 16px; height: 16px; }
+.icon-point-right { background-position: -10px -1025px; width: 16px; height: 16px; }
+.icon-setting-small { background-position: -10px -1051px; width: 16px; height: 16px; }
+.icon-minus { background-position: -10px -1077px; width: 15px; height: 15px; }
+.icon-plus { background-position: -36px -947px; width: 14px; height: 14px; }
+
 
 .icon-spinner {
   animation: spinning 2s infinite;
@@ -325,6 +327,20 @@ a.demo-user {
   color: white;
 }
 
+.explore-mumblr {
+  padding: 10px;
+  background: transparent;
+  margin: 5px auto;
+  width: 100%;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+}
+
+.icon-pacman {
+  margin-right: 5px;
+}
+
 // header
 .header {
   position: fixed;
@@ -376,13 +392,13 @@ a.demo-user {
 
 .header-navbar {
   float: right;
-  width: 120px;
+  width: 183px;
   margin-right: 35px;
 }
 
 .header-navbar > li {
   margin-left: 28px;
-  float: left;
+  float: right;
 }
 
 .header-navbar > li:hover {
@@ -1091,4 +1107,68 @@ input.title {
 .user-edit .submit {
   float: right;
   margin: 0;
+}
+
+
+// blog explore
+.blogs {
+  margin: 100px auto;
+  width: 944px;
+}
+
+.blogs-index-item {
+  float: left;
+  width: 300px;
+  height: 280px;
+  border-radius: 3px;
+  background: #fff;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.blogs-index-item:not(:nth-child(3n)) {
+  margin-right: 22px;
+}
+
+.blog-item-header {
+  display: block;
+  height: 40%;
+  font-size: 14px;
+  padding: 6px;
+}
+
+.blogs-index-item .follow-status {
+  float: right;
+  color: #fff;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.blogs-index-item .icon-minus,
+.blogs-index-item .icon-plus {
+  margin-right: 3px;
+}
+
+.blog-item-info > a {
+  text-align: center;
+  margin-top: -70px;
+  padding: 20px;
+  display: block;
+}
+
+.blog-item-thumbnail {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+
+.blog-item-info h2 {
+  font-weight: bold;
+}
+
+.blog-item-info p {
+  font-size: 14px;
 }

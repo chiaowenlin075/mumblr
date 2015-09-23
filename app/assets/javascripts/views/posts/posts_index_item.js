@@ -4,7 +4,7 @@ Mumblr.Views.PostsIndexItem = Backbone.CompositeView.extend({
   tagName: "li",
 
   initialize: function(){
-    this.listenTo(this.model, "remove change destroy", this.render);
+    this.listenTo(this.model, "change destroy", this.render);
   },
 
   render: function(){
