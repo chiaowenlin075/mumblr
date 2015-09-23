@@ -26,10 +26,16 @@ module Api
     end
 
     def index
-      # Blog.includes(:owner, :followings)
-      #     .joins(:followings)
-      #     .group("blogs.id")
-      #     .order("followings")
+      Blog.includes(:owner, :followings)
+          .joins(:followings)
+          .group("blogs.id")
+          .order("followings")
+
+      if logged_in?
+        @followings_hash = current_user.blog_follow_hash
+      else
+        @followings_hash = {}
+      end
     end
 
     def update

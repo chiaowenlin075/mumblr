@@ -5,8 +5,8 @@ json.owner do
   json.partial!("api/users/user", user: blog.owner, need_followed_blogs: false)
 end
 
-json.num_follows blog.followings.size if need_num_follows
-json.num_posts blog.posts.size if need_num_posts
+json.num_follows blog.followers.to_a.count if need_num_follows
+json.num_posts blog.posts.to_a.count if need_num_posts
 json.following followings_hash[blog.id] if need_followStatus
 
 if need_posts

@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
   end
 
   def post_likes_hash
-    zipped_likes = likings.pluck(:post_id).zip(likings)
+    zipped_likes = likings.to_a.map(&:post_id).zip(likings)
     likes_hash = {}
 
     zipped_likes.each do |id, like|

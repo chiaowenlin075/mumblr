@@ -11,7 +11,7 @@ json.feeds current_user.feeds do |feed|
   )
 end
 
-json.liked_posts @liked_posts do |post|
+json.liked_posts @liked_posts.includes(:author, :likings, :taggings) do |post|
   json.partial!("api/posts/post", post: post, need_likeStatus: false)
 end
 

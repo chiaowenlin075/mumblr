@@ -45,11 +45,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
   signIn: function(callback){
     if (!this._requireSignedOut(callback)) { return; }
-    $("body").append("<div class='block'><i class='icon-spinner'/></div>");
 
-    setTimeout(function(){
-      $("body").find(".block").remove();
-    }, 1800)
     var signInView = new Mumblr.Views.SignIn({ callback: callback });
     this._swapView(signInView);
   },
