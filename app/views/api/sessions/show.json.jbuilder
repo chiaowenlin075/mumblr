@@ -13,7 +13,12 @@ end
 
 if @liked_posts
   json.liked_posts @liked_posts.includes(:author, :likings, :taggings) do |post|
-    json.partial!("api/posts/post", post: post, need_likeStatus: false)
+    json.partial!(
+      "api/posts/post",
+      post: post,
+      need_likeStatus: true,
+      likings_hash: current_user.post_likes_hash
+    )
   end
 end
 

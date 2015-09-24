@@ -16,7 +16,7 @@ mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
 - [x] View blogs and posts
 - [x] Subscribe(Follow) to blogs
 - [x] View a feed of subscribed blogs
-- [ ] Tag blog posts
+- [x] Tag blog posts
 - [ ] Search for blogs by title
 - [ ] Search for posts by tag
 
@@ -88,16 +88,17 @@ collections, but they will fetch from the new `search` routes.
 [Details][phase-five]
 
 ### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
+- [x] "Like" button and counter for posts
 - [ ] Custom blog urls
 - [ ] Custom layout for posts(change font style)
 - [ ] Pagination/infinite scroll
+- [ ] Followers Info page
 - [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
+- [x] Post types (image posts, quote posts, etc)
 - [ ] Replies
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Blog custom background
+- [x] Multiple sessions/session management
+- [x] User avatars
+- [x] Blog custom background
 - [ ] Typeahead search bar
 
 [phase-one]: ./docs/phases/phase1.md

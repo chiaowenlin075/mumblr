@@ -1,5 +1,5 @@
 Mumblr.Views.CurrentUserPosts = Backbone.CompositeView.extend({
-  template: JST['posts/current_user_posts'],
+  template: JST['posts/main_content_posts'],
   className: "posts-main",
 
   initialize: function(options){

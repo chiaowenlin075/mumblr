@@ -1,5 +1,5 @@
 Mumblr.Views.Feeds = Backbone.CompositeView.extend({
-  template: JST['posts/feeds'],
+  template: JST['posts/main_content_posts'],
   className: "posts-main",
 
   initialize: function(options){

@@ -24,7 +24,8 @@ class Post < ActiveRecord::Base
   validates :author, :blog, presence: true
   validates :post_type, inclusion: %w(text image quote link)
   validate :validate_link_url
-  before_validation :link_url_check, :link_title, on: [:create, :update]
+  before_validation :link_url_check, on: [:create, :update]
+  before_save :link_title, on: [:create, :update]
 
   has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -52,9 +53,25 @@ class Post < ActiveRecord::Base
     )
   end
 
+  def create_tags(tag_labels, tagger_id)
+    tag_labels = tag_labels.split
+    tag_labels.select{ |el| /(\w+)/.match(el) }
+              .map{ |el| /(\w+)/.match(el)[1] }
+              .uniq(&:downcase).each do |label|
+      self.taggings.create!(
+        tagger_id: tagger_id,
+        label: label
+      )
+    end
+  end
+
   def link_url_check
     return unless link_url
-    self.link_url = /^http[s]*:\/\/.+/.match(link_url) ? link_url : "http://" + link_url
+    if /^http[s]*:\/\/.+/.match(link_url)
+      self.link_url = link_url
+    else
+      self.link_url = "http://" + link_url
+    end
   end
 
   # get the preview info for the link

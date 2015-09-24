@@ -3,16 +3,10 @@ module Api
 
     def create
       @post = current_user.posts.new(post_params.except(:tags))
-      @tag_labels = post_params[:tags].split
 
       if @post.save
-        @tag_labels.map{ |el| /(\w+)/.match(el)[1] }
-                   .uniq(&:downcase).each do |label|
-          @post.taggings.create!(
-            tagger_id: current_user.id,
-            label: label
-          )
-        end
+        @post.create_tags(post_params[:tags], current_user.id)
+
         render :new_post
       else
         render json: @post.errors.full_messages, status: 422
@@ -33,7 +27,8 @@ module Api
       @post = Post.find(params[:id])
       return unless is_author?(@post)
 
-      if @post.update(post_params)
+      if @post.update(post_params.except(:tags))
+        @post.create_tags(post_params[:tags], current_user.id)
         render :update_show
       else
         render json: @post.errors.full_messages, status: 422

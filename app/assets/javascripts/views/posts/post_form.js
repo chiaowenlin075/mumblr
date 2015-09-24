@@ -1,14 +1,18 @@
-Mumblr.Views.PostForm = Backbone.View.extend({
+Mumblr.Views.PostForm = Backbone.CompositeView.extend({
   template: JST['posts/post_form'],
   className: "new-post",
 
   initialize: function(options){
-    this.blog = options.blog;
-    this.collection = options.collection;
-    this.model.set({
-      blog_id: this.blog.escape('id'),
-      post_type: options.postType
-    });
+    if (this.model.isNew()){
+      this.blog = options.blog;
+      this.collection = options.collection;
+      this.model.set({
+        blog_id: this.blog.escape('id'),
+        post_type: options.postType
+      });
+    } else {
+      this.addTags();
+    };
   },
 
   events: {
@@ -24,9 +28,20 @@ Mumblr.Views.PostForm = Backbone.View.extend({
       post: this.model
     });
     this.$el.html(content);
+    this.attachSubviews();
     // this.$(".submit").prop("disabled", true).addClass("disabledBtn");
 
     return this;
+  },
+
+  addTags: function(){
+    this.model.taggings().forEach(function(tag){
+      var tagView = new Mumblr.Views.Tag({
+        model: tag,
+        collection: this.model.taggings()
+      });
+      this.addSubview(".tags", tagView);
+    }.bind(this));
   },
 
   enabledSubmit: function(event){
@@ -49,13 +64,15 @@ Mumblr.Views.PostForm = Backbone.View.extend({
     this.$("button.submit").addClass("disabled-btn").prop("disabled", true);
     if (this.model.escape('post_type') === "image"){
       var file = this.$(".upload")[0].files[0];
-      var formData = new FormData();
-      formData.append("post[post_type]", "image");
-      formData.append("post[blog_id]", this.model.escape('blog_id'));
-      formData.append("post[image]", file);
-      formData.append("post[body]", this.$("textarea").val());
-      formData.append("post[tags]", this.$(".new-tags").val());
-      this.model.saveFormData(formData, this.saveCallback());
+      if (file) {
+        var formData = new FormData();
+        formData.append("post[post_type]", "image");
+        formData.append("post[blog_id]", this.model.escape('blog_id'));
+        formData.append("post[image]", file);
+        formData.append("post[body]", this.$("textarea").val());
+        formData.append("post[tags]", this.$(".new-tags").val());
+        this.model.saveFormData(formData, this.saveCallback());
+      }
       return;
     };
 
@@ -64,11 +81,15 @@ Mumblr.Views.PostForm = Backbone.View.extend({
   },
 
   saveCallback: function(){
+    var isNewModel = this.model.isNew() ? true : false;
     return {
       success: function(model){
-        this.collection.add(model);
-        this.blog.set("num_posts", this.blog.get("num_posts") + 1);
+        if (isNewModel) {
+          this.collection.add(model);
+          this.blog.set("num_posts", this.blog.get("num_posts") + 1);
+        }
         this.remove();
+        debugger
       }.bind(this),
       error: function(model, resp){
         this.$("button.submit").removeClass("disabled-btn").prop("disabled", false);

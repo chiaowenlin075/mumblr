@@ -3,8 +3,9 @@ Mumblr.Views.BlogsFollowed = Backbone.CompositeView.extend({
   className: "followed-blogs",
 
   initialize: function(){
-    this.listenTo(Mumblr.CurrentUser.followedBlogs(), "remove", this.removeBlog)
-    this.listenTo(Mumblr.CurrentUser.followedBlogs(), "remove", this.render);
+    this.collection = Mumblr.CurrentUser.followedBlogs()
+    this.listenTo(this.collection, "remove", this.removeBlog)
+    this.listenTo(this.collection, "remove", this.render);
     this.addBlogs(this.collection);
   },
 

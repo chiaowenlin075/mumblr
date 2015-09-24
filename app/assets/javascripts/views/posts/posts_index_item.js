@@ -5,6 +5,7 @@ Mumblr.Views.PostsIndexItem = Backbone.CompositeView.extend({
 
   initialize: function(){
     this.listenTo(this.model, "change destroy", this.render);
+    this.addPost();
   },
 
   render: function(){
@@ -13,11 +14,15 @@ Mumblr.Views.PostsIndexItem = Backbone.CompositeView.extend({
       user: this.model.author()
     });
     this.$el.html(content);
+    this.attachSubviews();
+    return this;
+  },
+
+  addPost:function(){
     var postShowView = new Mumblr.Views.PostShow({
       model: this.model
     });
     this.addSubview(".post-show-container", postShowView);
-    return this;
   }
 
 });

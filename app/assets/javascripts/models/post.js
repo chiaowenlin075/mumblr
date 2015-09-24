@@ -16,14 +16,19 @@ Mumblr.Models.Post = Backbone.Model.extend({
       return this._author;
     },
 
+    taggings: function(){
+      this._taggings = this._taggings || new Mumblr.Collections.Taggings();
+      return this._taggings;
+    },
+
     parse: function(payload){
       if (payload.author) {
         this.author().set(payload.author);
         delete payload.author
       };
-      if (payload.tags) {
-        this.tags = payload.tags;
-        delete payload.tags;
+      if (payload.taggings) {
+        this.taggings().set(payload.taggings);
+        delete payload.taggings;
       }
       this.parseTarget(payload);
       return payload;

@@ -14,7 +14,7 @@
                   placeholder="Your text here"><%= post.escape('body') %></textarea>
       <% } else if (post.escape('post_type') === "image"){ %>
         <input type="file" class="upload" name="post[image]">
-        <img class="image-preview">
+        <img class="image-preview" src="<%= post.escape('image_url') %>">
         <textarea name="post[body]" placeholder="Add a caption, if you like"><%= post.escape('body') %></textarea>
       <% } else if (post.escape('post_type') === "quote"){ %>
         <textarea class="quote" name="post[body]" placeholder="Quote"><%= post.escape('body') %></textarea>
@@ -32,7 +32,11 @@
         <textarea class="link-desc" name="post[body]" placeholder="Add a description, if you like"><%= post.escape('body') %></textarea>
       <% } %>
       <div class="error"></div>
-      <input type="text" class="new-tags" name="post[tags]" placeholder="#tags">
+      <ul class="tags"></ul>
+      <input type="text"
+             class="new-tags"
+             name="post[tags]"
+             placeholder="#tags">
     </section>
     <button class="close">Close</button>
     <button class="submit"><%= post.isNew() ? "Post" : "Save" %></button>

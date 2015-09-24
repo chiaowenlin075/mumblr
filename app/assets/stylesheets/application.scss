@@ -114,7 +114,7 @@ h1 {
 }
 
 input.hide, textarea.hide, label.hide,
-[class*="icon-"].hide, p.hide {
+[class*="icon-"].hide, p.hide, ul.hide {
   display: none;
 }
 
@@ -155,27 +155,28 @@ input.hide, textarea.hide, label.hide,
 .icon-setting-big:hover { background-position: -10px -406px; width: 32px; height: 32px; }
 .icon-setting-big { background-position: -10px -448px; width: 32px; height: 32px; }
 .icon-user { background-position: -10px -490px; width: 32px; height: 32px; }
-.icon-comment { background-position: -10px -532px; width: 20px; height: 20px; }
-.icon-delete { background-position: -10px -562px; width: 20px; height: 20px; }
-.icon-delete:hover { background-position: -10px -592px; width: 20px; height: 20px; }
-.icon-edit { background-position: -10px -622px; width: 20px; height: 20px; }
-.icon-edit:hover { background-position: -10px -652px; width: 20px; height: 20px; }
-.icon-heart-broken { background-position: -10px -682px; width: 20px; height: 20px; }
-.icon-heart-red { background-position: -10px -712px; width: 20px; height: 20px; }
-.icon-heart { background-position: -10px -742px; width: 20px; height: 20px; }
-.icon-pacman { background-position: -10px -772px; width: 20px; height: 20px; }
-.icon-search { background-position: -10px -802px; width: 20px; height: 20px; }
-.icon-search:focus { background-position: -10px -832px; width: 20px; height: 20px; }
-.icon-setting { background-position: -10px -862px; width: 20px; height: 20px; }
-.icon-explore-small { background-position: -10px -892px; width: 18px; height: 18px; }
-.icon-tool { background-position: -10px -920px; width: 17px; height: 17px; }
-.icon-circle-down { background-position: -10px -947px; width: 16px; height: 16px; }
-.icon-following-small { background-position: -10px -973px; width: 16px; height: 16px; }
-.icon-heart-small { background-position: -10px -999px; width: 16px; height: 16px; }
-.icon-point-right { background-position: -10px -1025px; width: 16px; height: 16px; }
-.icon-setting-small { background-position: -10px -1051px; width: 16px; height: 16px; }
-.icon-minus { background-position: -10px -1077px; width: 15px; height: 15px; }
-.icon-plus { background-position: -36px -947px; width: 14px; height: 14px; }
+.icon-delete:hover { background-position: -10px -532px; width: 20px; height: 20px; }
+.icon-setting:hover { background-position: -10px -562px; width: 20px; height: 20px; }
+.icon-comment { background-position: -10px -592px; width: 20px; height: 20px; }
+.icon-delete { background-position: -10px -622px; width: 20px; height: 20px; }
+.icon-edit { background-position: -10px -652px; width: 20px; height: 20px; }
+.icon-edit:hover { background-position: -10px -682px; width: 20px; height: 20px; }
+.icon-heart-broken { background-position: -10px -712px; width: 20px; height: 20px; }
+.icon-heart-red { background-position: -10px -742px; width: 20px; height: 20px; }
+.icon-heart { background-position: -10px -772px; width: 20px; height: 20px; }
+.icon-pacman { background-position: -10px -802px; width: 20px; height: 20px; }
+.icon-search { background-position: -10px -832px; width: 20px; height: 20px; }
+.icon-search:hover { background-position: -10px -862px; width: 20px; height: 20px; }
+.icon-setting { background-position: -10px -892px; width: 20px; height: 20px; }
+.icon-explore-small { background-position: -10px -922px; width: 18px; height: 18px; }
+.icon-tool { background-position: -10px -950px; width: 17px; height: 17px; }
+.icon-circle-down { background-position: -10px -977px; width: 16px; height: 16px; }
+.icon-following-small { background-position: -10px -1003px; width: 16px; height: 16px; }
+.icon-heart-small { background-position: -10px -1029px; width: 16px; height: 16px; }
+.icon-point-right { background-position: -10px -1055px; width: 16px; height: 16px; }
+.icon-setting-small { background-position: -10px -1081px; width: 16px; height: 16px; }
+.icon-minus { background-position: -10px -1107px; width: 15px; height: 15px; }
+.icon-plus { background-position: -36px -977px; width: 14px; height: 14px; }
 
 
 .icon-spinner {
@@ -796,7 +797,7 @@ a.demo-user {
 .post-modal {
   z-index: 15;
   top: 90px;
-  position: absolute;
+  position: fixed;
   left: 50%;
   transform: translateX(calc(-50% - 80px));
 }
@@ -1160,6 +1161,12 @@ input.title {
   height: calc(60% + 60px);
 }
 
+.blog-owner {
+  color: #fff;
+  text-shadow: 0px 0px 4px #000;
+  font-weight: bold;
+}
+
 .blog-item-info > a {
   text-align: center;
   margin-top: -70px;
@@ -1226,4 +1233,108 @@ input.title {
   position: absolute;
   top: 30px;
   left: 110px;
+}
+
+.delete-modal {
+  width: 400px;
+  height: 400px;
+  opacity: 1;
+  position: absolute;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #aaa;
+  padding: 30% 30px;
+  text-align: center;
+  background: #EA3556;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 5;
+  bottom: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 1s ease;
+}
+
+.post .invisible {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+}
+
+.delete-modal > p {
+  font-size: 18px;
+}
+
+.delete-modal > button {
+  margin: 30px 50px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.delete-modal .close {
+  float: left;
+}
+
+.delete-modal .delete {
+  float: right;
+}
+
+.post-setting {
+  position: relative;
+}
+
+.post-edit-options {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  background: white;
+  margin-top: -5px;
+  box-shadow: 1px 1px 2px #000;
+  border-radius: 3px;
+}
+
+.post-setting:hover .post-edit-options {
+  display: block;
+}
+
+.post-editable {
+  padding: 2px 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 30px;
+}
+
+.post-editable:hover {
+  color: #5A5A5A;
+}
+
+.post-editable .icon-edit,
+.post-editable .icon-delete {
+  margin-right: 3px;
+}
+
+// tags view item
+
+.tag {
+  color: #fff;
+  background: #3EABA9;
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+.tag > p {
+  display: block;
+  float: left;
+}
+
+.tag .delete {
+  display: block;
+  float: right;
+  margin-left: 6px;
+  cursor: pointer;
+  font-weight: bold;
 }

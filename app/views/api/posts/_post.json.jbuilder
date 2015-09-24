@@ -7,5 +7,5 @@ json.author do
 end
 
 json.num_likes post.likings.to_a.count
-json.tags post.taggings.to_a.map(&:label)
+json.taggings post.taggings
 json.liking likings_hash[post.id] if need_likeStatus

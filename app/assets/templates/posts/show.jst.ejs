@@ -15,23 +15,30 @@
     <p><%= post.escape('body') %></p>
   <% } %>
   <ul class="tags">
-    <% _.result(post, "tags").forEach(function(tag){ %>
-      <li><a href="#search?=<%= tag.slice(1) %>"><%= tag %></a></li>
+    <% post.taggings().forEach(function(tag){ %>
+    <% var tagLabel = tag.escape('label') %>
+      <li><a href="#search?=<%= tagLabel.slice(1) %>"><%= tagLabel %></a></li>
     <% }) %>
   </ul>
 </section>
 <section class="post-footer group">
   <span class="num_likes"><%= post.escape("num_likes") %> likes</span>
   <ul class="post-response-list group">
-    <% if (!currentUser.isNew()){ %>
-      <li><i class="icon-comment"></i></li>
-      <li>
-        <% if (currentUser.escape('id') !== post.author().escape('id')) { %>
-          <div class="like-status"></div>
-        <% } else { %>
-          <i class="icon-setting"/>
-        <% } %>
+    <li><i class="icon-comment"></i></li>
+    <% if (currentUser.isNew() || currentUser.escape('id') !== post.author().escape('id')) { %>
+      <li><div class="like-status"></div></li>
+    <% } else { %>
+      <li class="post-setting"><i class="icon-setting"/>
+      <ul class="post-edit-options">
+        <li class="post-editable edit-post"><i class="icon-edit"/> Edit</li>
+        <li class="post-editable delete-post"><i class="icon-delete"/> Delete</li>
+      </ul>
       </li>
     <% } %>
   </ul>
 </section>
+<div class="delete-modal invisible">
+  <p>Are you sure to delete the post? :( </p>
+  <button class="close">Close</button>
+  <button class="delete">Delete</button>
+</div>
