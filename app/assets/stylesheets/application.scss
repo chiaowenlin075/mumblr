@@ -679,6 +679,7 @@ a.demo-user {
 .post-author, .post-footer {
   padding: 0 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .post-container {
@@ -716,6 +717,7 @@ a.demo-user {
 .post-image {
   margin-bottom: 20px;
   width: 100%;
+  border-radius: 3px 3px 0 0;
 }
 
 .post-footer {
@@ -1025,7 +1027,6 @@ input.title {
   margin-bottom: 30px;
   background: #fff;
   word-wrap: break-word;
-  overflow: hidden;
   border: 1px solid #dfdfdf;
 }
 
@@ -1267,7 +1268,7 @@ input.title {
   color: #fff;
   border-radius: 50%;
   z-index: 5;
-  bottom: -20%;
+  bottom: -200%;
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 1s ease, padding 1s ease;
@@ -1287,9 +1288,10 @@ input.title {
   margin: 30px 50px;
   font-weight: bold;
   background: rgba(0, 0, 0, 0.2);
-  padding: 5px 10px;
+  padding: 3px 12px;
   border-radius: 3px;
   cursor: pointer;
+  line-height: 30px;
 }
 
 .delete-modal .close {
@@ -1298,10 +1300,6 @@ input.title {
 
 .delete-modal .delete {
   float: right;
-}
-
-.post-setting {
-  position: relative;
 }
 
 .post-edit-options {
@@ -1320,7 +1318,7 @@ input.title {
 }
 
 .post-editable {
-  padding: 2px 8px;
+  padding: 5px 12px 3px;
   cursor: pointer;
   white-space: nowrap;
   line-height: 30px;

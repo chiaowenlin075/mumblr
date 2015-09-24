@@ -39,6 +39,7 @@ Mumblr.Views.PostShow = Backbone.CompositeView.extend({
 
   confirmDeleteModal: function(event){
     event.preventDefault();
+    console.log("confirm!");
     this.$(".delete-modal").removeClass("invisible");
 
   },

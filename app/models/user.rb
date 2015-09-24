@@ -69,6 +69,27 @@ class User < ActiveRecord::Base
     user && user.is_password?(password) ? user : nil
   end
 
+  def self.find_or_create_by_auth_hash(auth_hash)
+    user = User.find_by(
+      uid: auth_hash[:uid],
+      provider: auth_hash[:provider]
+    )
+
+    unless user
+      user = User.create!(
+        uid: auth_hash[:uid],
+        provider: auth_hash[:provider],
+        username: auth_hash[:info][:name],
+        email: SecureRandom::urlsafe_base64(6) + "@mumblr.com",
+        password: SecureRandom::urlsafe_base64
+      )
+      blog = Blog.create!(owner_id: user.id)
+      Post.welcome_post(blog.id)
+    end
+
+    user
+  end
+
   def password=(password)
     self.password_digest = BCrypt::Password.create(password)
   end
@@ -117,4 +138,5 @@ class User < ActiveRecord::Base
   def recent_tags
     self.taggings.sort_by(&:created_at).reverse!.take(10).map(&:label)
   end
+
 end

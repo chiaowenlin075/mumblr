@@ -43,7 +43,7 @@ class Post < ActiveRecord::Base
 
   def self.welcome_post(blog_id)
     Post.create!(
-      author_id: User.find_by(username: "Sennacy").id,
+      author_id: User.first.id,
       blog_id: blog_id,
       post_type: "image",
       image: File.open("app/assets/images/dancing_cat.gif"),

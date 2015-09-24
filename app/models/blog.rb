@@ -16,6 +16,9 @@
 #
 
 class Blog < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_by_title_and_description, against: [:title, :description]
+
   validates :owner, presence: true
 
   has_attached_file :background, default_url: "background/blog_default_back.jpg"

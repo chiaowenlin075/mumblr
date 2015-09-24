@@ -6,6 +6,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "signIn",
+    "_=_": "dashboard",
     "users/new": "new",
     "setting": "userEdit",
     "posts": "posts", // temp: should be route to "posts"

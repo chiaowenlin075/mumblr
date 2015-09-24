@@ -9,7 +9,8 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click .log-out": "logOut"
+    "click .log-out": "logOut",
+    "change .query": "search"
   },
 
   render: function(){
@@ -26,6 +27,11 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
       }
     });
     return;
+  },
+
+  search: function(event){
+    event.preventDefault();
+    Backbone.history.navigate("search", { trigger: true });
   }
 
 });

@@ -34,6 +34,12 @@ module Api
       render json: {}
     end
 
+    def omniauth
+      @user = User.find_or_create_by_auth_hash(omniauth_hash)
+      login_user!(@user)
+      redirect_to root_url
+    end
+
     private
     def session_params
       params.require(:user).permit(:email, :password).values
@@ -41,6 +47,10 @@ module Api
 
     def update_params
       params.require(:user).permit(:username, :password, :avatar)
+    end
+
+    def omniauth_hash
+      request.env["omniauth.auth"]
     end
   end
 end

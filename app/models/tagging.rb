@@ -11,6 +11,9 @@
 #
 
 class Tagging < ActiveRecord::Base
+  include PgSearch
+  pg_search_scope :search_by_label, against: [:label]
+
   validates :label, :post, :tagger, presence: true
   validates :label, uniqueness: { scope: :post, case_sensitive: true }
   validates :label, length: { maximum: 25 }

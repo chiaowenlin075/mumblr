@@ -13,6 +13,9 @@ gem 'bcrypt'
 gem 'figaro'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '~> 1.6'
+gem 'pg_search'
+gem 'kaminari'
+gem 'omniauth-facebook'
 gem 'friendly_id'
 
 group :development, :test do
