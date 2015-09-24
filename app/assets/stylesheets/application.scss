@@ -155,28 +155,31 @@ input.hide, textarea.hide, label.hide,
 .icon-setting-big:hover { background-position: -10px -406px; width: 32px; height: 32px; }
 .icon-setting-big { background-position: -10px -448px; width: 32px; height: 32px; }
 .icon-user { background-position: -10px -490px; width: 32px; height: 32px; }
-.icon-delete:hover { background-position: -10px -532px; width: 20px; height: 20px; }
-.icon-setting:hover { background-position: -10px -562px; width: 20px; height: 20px; }
-.icon-comment { background-position: -10px -592px; width: 20px; height: 20px; }
-.icon-delete { background-position: -10px -622px; width: 20px; height: 20px; }
-.icon-edit { background-position: -10px -652px; width: 20px; height: 20px; }
-.icon-edit:hover { background-position: -10px -682px; width: 20px; height: 20px; }
-.icon-heart-broken { background-position: -10px -712px; width: 20px; height: 20px; }
-.icon-heart-red { background-position: -10px -742px; width: 20px; height: 20px; }
-.icon-heart { background-position: -10px -772px; width: 20px; height: 20px; }
-.icon-pacman { background-position: -10px -802px; width: 20px; height: 20px; }
-.icon-search { background-position: -10px -832px; width: 20px; height: 20px; }
-.icon-search:hover { background-position: -10px -862px; width: 20px; height: 20px; }
-.icon-setting { background-position: -10px -892px; width: 20px; height: 20px; }
-.icon-explore-small { background-position: -10px -922px; width: 18px; height: 18px; }
-.icon-tool { background-position: -10px -950px; width: 17px; height: 17px; }
-.icon-circle-down { background-position: -10px -977px; width: 16px; height: 16px; }
-.icon-following-small { background-position: -10px -1003px; width: 16px; height: 16px; }
-.icon-heart-small { background-position: -10px -1029px; width: 16px; height: 16px; }
-.icon-point-right { background-position: -10px -1055px; width: 16px; height: 16px; }
-.icon-setting-small { background-position: -10px -1081px; width: 16px; height: 16px; }
-.icon-minus { background-position: -10px -1107px; width: 15px; height: 15px; }
-.icon-plus { background-position: -36px -977px; width: 14px; height: 14px; }
+.icon-circle-up { background-position: -10px -532px; width: 25px; height: 25px; }
+.icon-point-up { background-position: -10px -567px; width: 25px; height: 25px; }
+.icon-delete:hover { background-position: -10px -602px; width: 20px; height: 20px; }
+.icon-setting:hover { background-position: -10px -632px; width: 20px; height: 20px; }
+.icon-comment { background-position: -10px -662px; width: 20px; height: 20px; }
+.icon-delete { background-position: -10px -692px; width: 20px; height: 20px; }
+.icon-edit { background-position: -10px -722px; width: 20px; height: 20px; }
+.icon-edit:hover  { background-position: -10px -752px; width: 20px; height: 20px; }
+.icon-heart-broken { background-position: -10px -782px; width: 20px; height: 20px; }
+.icon-heart-red { background-position: -10px -812px; width: 20px; height: 20px; }
+.icon-heart { background-position: -10px -842px; width: 20px; height: 20px; }
+.icon-pacman { background-position: -10px -872px; width: 20px; height: 20px; }
+.icon-search { background-position: -10px -902px; width: 20px; height: 20px; }
+.icon-search:hover { background-position: -10px -932px; width: 20px; height: 20px; }
+.icon-setting { background-position: -10px -962px; width: 20px; height: 20px; }
+.icon-explore-small { background-position: -10px -992px; width: 18px; height: 18px; }
+.icon-tool { background-position: -10px -1020px; width: 17px; height: 17px; }
+.icon-circle-down { background-position: -10px -1047px; width: 16px; height: 16px; }
+.icon-following-small { background-position: -10px -1073px; width: 16px; height: 16px; }
+.icon-heart-small { background-position: -10px -1099px; width: 16px; height: 16px; }
+.icon-point-right { background-position: -10px -1125px; width: 16px; height: 16px; }
+.icon-setting-small { background-position: -10px -1151px; width: 16px; height: 16px; }
+.icon-minus { background-position: -10px -1177px; width: 15px; height: 15px; }
+.icon-plus { background-position: -36px -1047px; width: 14px; height: 14px; }
+
 
 
 .icon-spinner {
@@ -797,9 +800,25 @@ a.demo-user {
 .post-modal {
   z-index: 15;
   top: 90px;
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translateX(calc(-50% - 80px));
+}
+
+.direction {
+  padding: 40px 30px;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  background: #EA3556;
+  color: #fff;
+  display: block;
+  position: fixed;
+  z-index: 15;
+  top: calc(50% - 75px);
+  right: 120px;
+  border-radius: 50%;
+  box-sizing: border-box;
 }
 
 .post-form input,
