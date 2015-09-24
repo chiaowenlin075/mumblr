@@ -698,18 +698,6 @@ a.demo-user {
   line-height: 21px;
 }
 
-.post-container > img {
-
-}
-
-.post-container span {
-
-}
-
-.post-container > a {
-
-}
-
 .tags {
   padding: 0 20px;
   margin-top: 15px;
@@ -1168,10 +1156,15 @@ input.title {
   margin-right: 3px;
 }
 
+.blog-item-info {
+  height: calc(60% + 60px);
+}
+
 .blog-item-info > a {
   text-align: center;
   margin-top: -70px;
-  padding: 20px;
+  height: calc(60% + 70px);
+  padding: 20px 20px 0 20px;
   display: block;
 }
 
@@ -1189,4 +1182,48 @@ input.title {
 
 .blog-item-info p {
   font-size: 14px;
+}
+
+.blog-item-info footer {
+  padding: 0 10px;
+  margin-top: -25px;
+  color: #a1a1a1;
+  font-size: 14px;
+}
+
+// followings
+
+.followed-blogs {
+  margin-top: 100px;
+}
+
+.followed-blogs .blogs-index-item {
+  width: 80%;
+  height: 150px;
+  margin: 0 60px 22px;
+  position: relative;
+}
+
+.followed-blogs .blog-item-header {
+  float: left;
+  width: 30%;
+  height: 100%;
+}
+
+.followed-blogs .blog-item-info {
+  margin-top: 100px;
+}
+
+.followed-blogs .follow-status {
+  position: absolute;
+  width: 82px;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+}
+
+.followed-blogs .blog-item-thumbnail {
+  position: absolute;
+  top: 30px;
+  left: 110px;
 }

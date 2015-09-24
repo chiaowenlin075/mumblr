@@ -1,2 +1,0 @@
-(function() { this.JST || (this.JST = {}); this.JST["likings/like_widget"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<button class="like-btn">\n  ');  if (like.isNew()) { ; __p.push('\n    <i class="icon-heart-broken"/>\n  ');  } else { ; __p.push('\n    <i class="icon-heart-red"/>\n  ');  } ; __p.push('\n</button>\n');}return __p.join('');};
-}).call(this);

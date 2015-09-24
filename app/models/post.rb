@@ -24,7 +24,7 @@ class Post < ActiveRecord::Base
   validates :author, :blog, presence: true
   validates :post_type, inclusion: %w(text image quote link)
   validate :validate_link_url
-  before_validation :link_url_check
+  before_validation :link_url_check, :link_title, on: [:create, :update]
 
   has_attached_file :image
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
@@ -69,6 +69,16 @@ class Post < ActiveRecord::Base
   end
 
   private
+  def link_title
+    return unless link_url
+    begin
+      find_title = URI.parse(link_url).read.match(/<title>(.*)<\/title>/)
+      self.title = find_title ? find_title[1] : "Untitled"
+    rescue
+      self.title = "Untitled"
+    end
+  end
+
   def link_url_valid?
     begin
       open(link_url)

@@ -4,8 +4,10 @@ Mumblr.Mixins.FollowOrLikeable = {
     if (!this._target) {
       if (this.options.targetEvent === "following") {
         this._target = new Mumblr.Models.Following();
+        this.targetCollection = Mumblr.CurrentUser.followedBlogs();
       } else if (this.options.targetEvent === "liking") {
         this._target = new Mumblr.Models.Liking();
+        this.targetCollection = Mumblr.CurrentUser.likedPosts();
       }
     }
     return this._target;
@@ -15,6 +17,7 @@ Mumblr.Mixins.FollowOrLikeable = {
     this.target().set(this.options.foreignKey, this.escape('id'));
     this.target().save({}, {
       success: function (data) {
+        this.targetCollection.add(this)
         this.updateNumCount(1);
       }.bind(this)
     });
@@ -24,6 +27,7 @@ Mumblr.Mixins.FollowOrLikeable = {
     this.target().destroy({
       success: function (model) {
         model.unset("id");
+        this.targetCollection.remove(this)
         this.updateNumCount(-1);
       }.bind(this)
     });

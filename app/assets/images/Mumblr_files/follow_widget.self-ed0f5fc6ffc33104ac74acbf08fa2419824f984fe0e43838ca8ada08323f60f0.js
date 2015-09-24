@@ -1,2 +1,0 @@
-(function() { this.JST || (this.JST = {}); this.JST["followings/follow_widget"] = function(obj){var __p=[],print=function(){__p.push.apply(__p,arguments);};with(obj||{}){__p.push('<button class="follow-btn">\n  ');  if (follow.isNew()) { ; __p.push('\n    <i class="icon-plus"/> Follow\n  ');  } else { ; __p.push('\n    <i class="icon-minus"/>Unfollow\n  ');  } ; __p.push('\n</button>\n');}return __p.join('');};
-}).call(this);

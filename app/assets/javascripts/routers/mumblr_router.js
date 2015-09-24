@@ -12,6 +12,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     "blog/:id": "blog",
     "dashboard": "dashboard",
     "explore": "explore",
+    "followings": "followings",
     "followers": "follower"
   },
 
@@ -23,13 +24,15 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     }
   },
 
-  sidebar: function(){
+  sidebar: function(blog){
     var callback = this.sidebar.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
     if (!this._currentView[".main-sidebar"]){
-      var blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blogId });
-      blog.fetch();
+      if (typeof blog === 'undefined'){
+        blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blogId });
+        blog.fetch();
+      }
       var blogInfo = new Mumblr.Views.BlogInfo({ blog: blog });
       this._swapView(blogInfo, ".main-sidebar");
     };
@@ -58,7 +61,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
     var contentView = new Mumblr.Views.Feeds({ blog: blog });
     this._swapView(contentView, ".main-content");
-    this.sidebar();
+    this.sidebar(blog);
   },
 
   posts: function(){
@@ -70,7 +73,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     blog.fetch();
     var contentView = new Mumblr.Views.CurrentUserPosts({ blog: blog });
     this._swapView(contentView, ".main-content");
-    this.sidebar();
+    this.sidebar(blog);
   },
 
   blog: function(id){
@@ -93,6 +96,17 @@ Mumblr.Routers.Router = Backbone.Router.extend({
 
     var editView = new Mumblr.Views.UserEditForm();
     this._swapView(editView, ".main-content");
+    this.sidebar();
+  },
+
+  followings: function(){
+    var callback = this.followings.bind(this);
+    if (!this._requireSignedIn(callback)) { return; }
+
+    var blogsView = new Mumblr.Views.BlogsFollowed({
+      collection: Mumblr.CurrentUser.followedBlogs()
+    });
+    this._swapView(blogsView, ".main-content");
     this.sidebar();
   },
 

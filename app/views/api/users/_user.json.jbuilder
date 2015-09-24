@@ -8,7 +8,8 @@ if need_followed_blogs
       blog: blog,
       need_posts: false,
       need_followers: false,
-      need_followStatus: false,
+      need_followStatus: true,
+      followings_hash: user.blog_follow_hash,
       need_num_follows: false,
       need_num_posts: false
     )

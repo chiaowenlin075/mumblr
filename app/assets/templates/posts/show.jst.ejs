@@ -10,7 +10,7 @@
     <p class="quote-from"><%= post.escape('title') %></p>
   <% } else if (post.escape('post_type') === "link") { %>
     <a class="link" href="<%= post.escape('link_url') %>" target="_blank">
-      <h4><%= post.escape('link_title') %></h4>
+      <h4><%= post.escape('title') %></h4>
     </a>
     <p><%= post.escape('body') %></p>
   <% } %>
