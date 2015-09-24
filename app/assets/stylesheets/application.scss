@@ -1270,7 +1270,7 @@ input.title {
   bottom: -20%;
   left: 50%;
   transform: translateX(-50%);
-  transition: opacity 1s ease;
+  transition: opacity 1s ease, padding 1s ease;
 }
 
 .post .invisible {
@@ -1309,7 +1309,8 @@ input.title {
   position: absolute;
   z-index: 5;
   background: white;
-  margin-top: -5px;
+  margin-top: -8px;
+  margin-left: -15px;
   box-shadow: 1px 1px 2px #000;
   border-radius: 3px;
 }

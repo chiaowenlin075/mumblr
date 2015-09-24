@@ -1,4 +1,4 @@
-<section class="post-modal posts-index-item">
+<section id="post" class="post-modal posts-index-item">
   <a href="#blog/<%= post.escape('blog_id') %>" target="_blank" class="thumbnail"><img src="<%= user.escape('avatar_url') %>"></a>
   <b class="post-author"><%= user.escape('username') %></b>
 
@@ -43,8 +43,10 @@
   </form>
 </section>
 
-<section class="direction">
-<i class="icon-point-up"/>
-<p>Scroll up to edit :P</p>
-</section>
+<% if (!post.isNew()) { %>
+  <a href="#post" class="direction">
+    <i class="icon-point-up"/>
+    <p>Click me to edit :P</p>
+  </a>
+<% } %>
 <section class="block-modal"></section>

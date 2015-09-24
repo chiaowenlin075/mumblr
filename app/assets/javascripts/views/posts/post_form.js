@@ -72,8 +72,8 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
         formData.append("post[body]", this.$("textarea").val());
         formData.append("post[tags]", this.$(".new-tags").val());
         this.model.saveFormData(formData, this.saveCallback());
+        return;
       }
-      return;
     };
 
     var input = this.$(".post-form").serializeJSON();
@@ -89,7 +89,6 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
           this.blog.set("num_posts", this.blog.get("num_posts") + 1);
         }
         this.remove();
-        debugger
       }.bind(this),
       error: function(model, resp){
         this.$("button.submit").removeClass("disabled-btn").prop("disabled", false);

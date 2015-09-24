@@ -19,9 +19,8 @@ Mumblr.Views.Tag = Backbone.View.extend({
   delete: function (event) {
     event.preventDefault();
     if (Mumblr.CurrentUser.escape('id') === this.model.escape('tagger_id')){
-      debugger
       this.collection.remove(this.model);
-      this.model.destroy;
+      this.model.destroy();
       this.remove();
     };
   }
