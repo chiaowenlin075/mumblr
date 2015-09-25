@@ -38,8 +38,10 @@ class Blog < ActiveRecord::Base
 
   before_save {
     self.title = title == "" ? "Untitled" : title
-    self.url ||= self.owner.username.split().join("").underscore
-    self.slug = self.url
+    if self.url != self.owner.username.split().join("").underscore
+      self.url = self.owner.username.split().join("").underscore
+      self.slug = self.url
+    end
   }
 
 end
