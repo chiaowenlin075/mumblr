@@ -35,10 +35,6 @@ class Blog < ActiveRecord::Base
   has_many :followers, through: :followings, source: :follower
   has_many :followers_blogs, through: :followers, source: :blog
 
-  after_initialize {
-    self.slug ||= self.url
-  }
-
   before_save {
     self.title = title == "" ? "Untitled" : title
     self.url ||= self.owner.username.split().join("").underscore
