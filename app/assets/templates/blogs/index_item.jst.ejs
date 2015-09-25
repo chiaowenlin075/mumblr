@@ -5,7 +5,7 @@
   <% } %>
 </header>
 <section class="blog-item-info">
-  <a href="#blog/<%= blog.escape('id') %>">
+  <a href="#blog/<%= blog.escape('url') %>">
     <img class="blog-item-thumbnail" src="<%= owner.escape('avatar_url') %>">
     <h2><%= blog.escape('title') ? blog.escape('title') : "Untitled" %></h2>
     <p class="blog-desc"><%= blog.escape('description') %></p>
