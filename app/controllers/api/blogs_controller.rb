@@ -32,7 +32,7 @@ module Api
                    .order("COUNT (followings.*) DESC")
                    .select("blogs.*, COUNT (followings.*) AS num_followers")
                    .page(params[:page])
-                   .per(5)
+                   .per(10)
       if logged_in?
         @followings_hash = current_user.blog_follow_hash
       else

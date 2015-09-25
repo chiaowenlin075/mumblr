@@ -2,10 +2,6 @@ Mumblr.Views.Search = Backbone.CompositeView.extend({
   template: JST['searches/search'],
 	className: "search-results",
 
-	options: {
-		searchResults: {}
-	},
-
 	initialize: function (options) {
 		this.bindScroll();
     this.query = options.query;
