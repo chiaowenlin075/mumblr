@@ -9,12 +9,11 @@ Mumblr.Models.SearchResults = Backbone.Model.extend({
   },
 
   search: function(){
-    // this._query = query;
     this.fetch({
       data: {
         query: this._query,
-        blog_page: this._blogPage,
-        post_page: this._postPage
+        blog_page: this.blogPage,
+        post_page: this.postPage
       }
     });
   },
@@ -29,14 +28,29 @@ Mumblr.Models.SearchResults = Backbone.Model.extend({
     return this._posts;
   },
 
-  changePage: function(typePage, delta){
-    this[typePage] += delta;
+  changeBlogPage: function(delta){
+    this.blogPage += delta;
     this.search();
   },
 
-  // when parse, check the size of collection, if less than 25, than its the last page
+  postInfiniteScroll: function(){
+    if (this.requestingNextPage) return;
+
+    this.requestingNextPage = true;
+    this.fetch({
+			remove: false,
+			data: {
+				query: this._query,
+				page: this.postPage++
+			},
+			success: function () {
+				this.requestingNextPage = false;
+				this.postPage++;
+			}.bind(this)
+		});
+  },
+
   parse: function(payload){
-    debugger
     if (payload.blogs){
       this.blogs().set(payload.blogs, { parse: true });
       delete payload.blogs;
@@ -45,6 +59,22 @@ Mumblr.Models.SearchResults = Backbone.Model.extend({
     if (payload.posts){
       this.posts().set(payload.posts, { parse: true });
       delete payload.posts;
+    };
+
+    if (payload.blog_total_count) {
+      this.blog_total_count = payload.blog_total_count;
+    };
+
+    if (payload.post_total_count) {
+      this.post_total_count = payload.post_total_count;
+    };
+
+    if (payload.blog_total_pages) {
+      this.blog_total_pages = payload.blog_total_pages;
+    };
+
+    if (payload.post_total_pages) {
+      this.post_total_pages = payload.post_total_pages;
     };
 
     return payload;

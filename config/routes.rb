@@ -13,7 +13,8 @@ Rails.application.routes.draw do
     resources :followings, only: [:create, :index, :destroy]
     resources :likings, only: [:create, :index, :destroy]
     resources :taggings, only: [:create, :index, :destroy, :show]
-    resource :search, only: :show
+    get '/search_blogs', to: 'searches#search_blogs'
+    get '/search_posts', to: 'searches#search_posts'
   end
 
   get "/auth/:provider/callback", to: "api/sessions#omniauth"

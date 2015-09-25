@@ -5,7 +5,7 @@
   <li><a href="#followers" class="blog-info-link">Followers<span><%= blog.get("num_follows") %></span></a></li>
   <li>Recent tags<ul class="recent-tags">
     <% _.result(user, "recentTags").forEach(function(tag){ %>
-      <li><a href="#search?=<%= tag.slice(1) %>"><%= tag %></a></li>
+      <li><a href="#search/<%= tag.slice(1) %>"><%= tag %></a></li>
     <% }) %>
   </ul></li>
 </ul>

@@ -14,7 +14,8 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     "dashboard": "dashboard",
     "explore": "explore",
     "followings": "followings",
-    "likes": "likes"
+    "likes": "likes",
+    "search/:query": "search"
   },
 
   header: function(){
@@ -126,6 +127,11 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     var likedPostsView = new Mumblr.Views.LikedPosts();
     this._swapView(likedPostsView, ".main-content");
     this.sidebar();
+  },
+
+  search: function(query){
+    var searchResultsView = new Mumblr.Views.Search({ query: query })
+    this._swapView(searchResultsView, ".blog-container");
   },
 
   _requireSignedIn: function(callback){

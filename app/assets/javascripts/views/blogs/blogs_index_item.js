@@ -18,6 +18,7 @@ Mumblr.Views.BlogsIndexItem = Backbone.CompositeView.extend({
       model: this.model
     })
     this.addSubview(".follow-status", followWidget);
+
     return this;
   }
 

@@ -1,0 +1,28 @@
+<h2>Results of Searching <span class="result-query"><%= query %></span></h2>
+
+<div class="blog-results group">
+  <h3>Blogs that match <span class="result-query"><%= query %></span>...</h3>
+  <p class="search-results-info"><%= blogsResult._totalCount %> results in blogs</p>
+  <section class="blogs-result-index group">
+  <% if (blogsResult._totalCount === 0){ %>
+    <p class="not-result">No result found :(</p>
+  <% } else { %>
+    <% if (blogsResult._page !== 1) { %>
+      <i class="blog-prev-page icon-backward"/>
+    <% } %>
+    <div class="found-blogs"></div>
+    <% if (blogsResult._page !== blogsResult._totalPages) { %>
+      <i class="blog-next-page icon-forward"/>
+    <% } %>
+  <% } %>
+  <p class="page">Page <%= blogsResult._page %></p>
+  </section>
+</div>
+<div class="post-results group">
+  <h3>Posts that match <span class="result-query"><%= query %></span>...</h3>
+  <p class="search-results-info"><%= postsResult._totalCount %> results in posts</p>
+  <section class="found-posts"></section>
+  <% if (postsResult._page <= postsResult._totalPages) { %>
+    <i class="icon-spinner"/>
+  <% } %>
+</div>

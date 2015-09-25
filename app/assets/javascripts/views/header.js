@@ -31,7 +31,8 @@ Mumblr.Views.Header = Backbone.CompositeView.extend({
 
   search: function(event){
     event.preventDefault();
-    Backbone.history.navigate("search", { trigger: true });
+    var query = $(event.currentTarget).val();
+    Backbone.history.navigate("search/" + query, { trigger: true });
   }
 
 });
