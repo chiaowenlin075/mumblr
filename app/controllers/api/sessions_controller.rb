@@ -3,7 +3,8 @@ module Api
 
     def show
       if current_user
-        @liked_posts = current_user.liked_posts.includes(:author, :taggings)
+        @liked_posts = current_user_liked_posts
+        @feeds = current_user_feeds
         render :show
       else
         render json: {}
@@ -15,6 +16,8 @@ module Api
 
       if @user
         login_user!(@user)
+        @liked_posts = current_user_liked_posts
+        @feeds = current_user_feeds
         render :show
       else
         head :unprocessable_entity
@@ -51,6 +54,18 @@ module Api
 
     def omniauth_hash
       request.env["omniauth.auth"]
+    end
+
+    def current_user_liked_posts
+      current_user.liked_posts
+                  .order("likings.created_at DESC")
+                  .includes(:author, :taggings)
+                  .page(params[:page])
+                  .per(10)
+    end
+
+    def current_user_feeds
+      current_user.feeds(params[:page])
     end
   end
 end

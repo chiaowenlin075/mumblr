@@ -135,12 +135,12 @@ class User < ActiveRecord::Base
     likes_hash
   end
 
-  def feeds(limit = 25, time_stone = Time.now)
+  def feeds(page = 1)
     Post.includes(:author, :likings, :taggings)
         .where("posts.blog_id IN (?)", followed_blogs.to_a.map(&:id) << self.blog.id)
-        .where("posts.created_at < ?", time_stone)
-        .order("posts.created_at")
-        .limit(limit)
+        .order("posts.created_at DESC")
+        .page(page)
+        .per(10)
   end
 
   def recent_tags

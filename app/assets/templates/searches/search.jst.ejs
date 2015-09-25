@@ -22,7 +22,7 @@
   <h3>Posts that match <span class="result-query"><%= query %></span>...</h3>
   <p class="search-results-info"><%= postsResult._totalCount %> results in posts</p>
   <section class="found-posts"></section>
-  <% if (postsResult._page <= postsResult._totalPages) { %>
+  <% if (postsResult._page < postsResult._totalPages) { %>
     <i class="icon-spinner"/>
   <% } %>
 </div>

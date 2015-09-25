@@ -1383,11 +1383,6 @@ input.title {
 }
 
 // search results
-.blog-prev-page, .blog-next-page {
-  display: block;
-  float: left;
-}
-
 .found-blogs,
 .found-posts {
   clear: both;
@@ -1395,20 +1390,22 @@ input.title {
 }
 
 .blog-prev-page, .blog-next-page {
+  display: block;
+  float: left;
   color: #fff;
   font-weight: bold;
   font-size: 40px;
-  top: 305px;
+  top: 325px;
   position: absolute;
   cursor: pointer;
 }
 
 .blog-prev-page {
-  left: 60px;
+  left: calc(50% - 540px);
 }
 
 .blog-next-page {
-  right: 60px;
+  right: calc(50% - 540px);
 }
 
 span.result-query:before {

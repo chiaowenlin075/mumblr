@@ -86,9 +86,9 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   },
 
   explore: function(){
-    var blogs = new Mumblr.Collections.Blogs();
-    blogs.fetch();
-    var blogsView = new Mumblr.Views.BlogsIndex({ collection: blogs });
+    var blogsIndex = new Mumblr.Collections.Blogs();
+    blogsIndex.fetch();
+    var blogsView = new Mumblr.Views.BlogsIndex({ blogsIndex: blogsIndex });
     this._swapView(blogsView, ".blog-container");
   },
 

@@ -101,6 +101,26 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
       delete payload.liked_posts;
     };
 
+    if (payload.hasOwnProperty("feed_total_count")) {
+      this.feeds()._totalCount = payload.feed_total_count;
+      delete payload.feed_total_count;
+    };
+
+    if (payload.hasOwnProperty("feed_total_pages")) {
+      this.feeds()._totalPages = payload.feed_total_pages;
+      delete payload.feed_total_pages;
+    };
+
+    if (payload.hasOwnProperty("liked_posts_total_count")) {
+      this.likedPosts()._totalCount = payload.liked_posts_total_count;
+      delete payload.liked_posts_total_count;
+    };
+
+    if (payload.hasOwnProperty("liked_posts_total_pages")) {
+      this.likedPosts()._totalPages = payload.liked_posts_total_pages;
+      delete payload.liked_posts_total_pages;
+    };
+
     return payload;
   }
 

@@ -4,6 +4,10 @@ Mumblr.Mixins.InfiniteScroll = {
     searchResults: {}
   },
 
+  searchResults: function(){
+    return this.options.searchResults;
+  },
+
   bindScroll: function () {
     $(window).on("scroll", this.handleScroll.bind(this));
   },
@@ -20,27 +24,32 @@ Mumblr.Mixins.InfiniteScroll = {
 
   InfiniteScroll: function () {
     if (this.requestingNextPage) return;
+    if (this.searchResults()._totalPages === this.searchResults()._page) {
+      $(window).off("scroll");
+      return;
+    };
 
     this.requestingNextPage = true;
-    this.options.searchResults.fetch({
+    this.searchResults().fetch({
       remove: false,
       data: this.fetchData(),
       success: function () {
         this.requestingNextPage = false;
-        this.options.searchResults._page++;
+        debugger
+        this.searchResults()._page++;
       }.bind(this)
     });
   },
 
   fetchData: function(){
-    if (this.options.searchResults._query){
+    if (this.searchResults()._query){
       return {
-        query: this.options.searchResults._query,
-        page: this.options.searchResults._page + 1
+        query: this.searchResults()._query,
+        page: this.searchResults()._page + 1
       };
     } else {
       return {
-        page: this.options.searchResults._page + 1
+        page: this.searchResults()._page + 1
       };
     };
   }

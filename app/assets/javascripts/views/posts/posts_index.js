@@ -2,6 +2,8 @@ Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
   template: JST['posts/index'],
 
   initialize: function(options){
+    this.bindScroll();
+    this.options.searchResults = this.collection;
     this.isBlog = options.isBlog;
     this.listenTo(this.collection, "add", this.addPost);
     this.listenTo(this.collection, "remove", this.removePost);
@@ -10,7 +12,7 @@ Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template();
+    var content = this.template({ collection: this.collection });
     this.$el.html(content);
     this.attachSubviews();
     return this;
@@ -22,7 +24,7 @@ Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
     } else {
       var postView = new Mumblr.Views.PostsIndexItem({ model: model });
     };
-    this.addSubview(".posts-index", postView, true);
+    this.addSubview(".posts-index", postView);
   },
 
  removePost: function(model){
@@ -30,3 +32,5 @@ Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
   }
 
 });
+
+_.extend(Mumblr.Views.PostsIndex.prototype, Mumblr.Mixins.InfiniteScroll);

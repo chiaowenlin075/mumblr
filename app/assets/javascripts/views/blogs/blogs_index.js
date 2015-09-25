@@ -2,10 +2,13 @@ Mumblr.Views.BlogsIndex = Backbone.CompositeView.extend({
   template: JST['blogs/index'],
   className: "blogs",
 
-  initialize: function(){
+  initialize: function(options){
     this.bindScroll();
-    this.listenTo(this.collection, "sync", this.addBlogs);
-    this.options.searchResults = this.collection;
+    this.blogsIndex = options.blogsIndex;
+    this.options.searchResults = this.blogsIndex;
+    this.collection = this.blogsIndex.blogs();
+    this.listenTo(this.blogsIndex, "sync", this.render);
+    this.listenTo(this.collection, "add", this.addBlog);
   },
 
   render: function(){
@@ -15,11 +18,9 @@ Mumblr.Views.BlogsIndex = Backbone.CompositeView.extend({
     return this;
   },
 
-  addBlogs: function(collection){
-    collection.forEach(function(model){
-      var blogIndexItemView = new Mumblr.Views.BlogsIndexItem({ model: model });
-      this.addSubview(".blogs-index", blogIndexItemView);
-    }.bind(this));
+  addBlog: function(model){
+    var blogIndexItemView = new Mumblr.Views.BlogsIndexItem({ model: model });
+    this.addSubview(".blogs-index", blogIndexItemView);
   }
 
 });

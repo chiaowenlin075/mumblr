@@ -40,6 +40,7 @@ Mumblr.Collections.SearchBlogs = Backbone.Collection.extend({
 
         if (payload.blogs) {
           this.blogs().set(payload.blogs, { parse: true });
+          delete payload.blogs
         };
 
         return payload
