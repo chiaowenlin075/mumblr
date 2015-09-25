@@ -6,6 +6,10 @@ Mumblr.Models.Blog = Backbone.Model.extend({
     foreignKey: "blog_id"
   },
 
+  initialize: function(){
+    this._page = 1;
+  },
+
   owner: function(){
     this._owner = this._owner || new Mumblr.Models.User();
     return this._owner;
@@ -27,6 +31,17 @@ Mumblr.Models.Blog = Backbone.Model.extend({
       this.posts().set(payload.posts, { parse: true });
       delete payload.posts
     };
+
+    if (payload.hasOwnProperty("post_total_count")) {
+      this._totalCount = payload.post_total_count;
+      delete payload.post_total_count;
+    };
+
+    if (payload.hasOwnProperty("post_total_pages")) {
+      this._totalPages = payload.post_total_pages;
+      delete payload.post_total_pages;
+    };
+
     if (payload.owner){
       this.owner().set(payload.owner);
       delete payload.owner
@@ -46,7 +61,7 @@ Mumblr.Models.Blog = Backbone.Model.extend({
   toggleFollow: function(){
     this.toggleEvent();
   }
-  
+
 });
 
 _.extend(Mumblr.Models.Blog.prototype, Mumblr.Mixins.FollowOrLikeable);

@@ -61,7 +61,7 @@ module Api
                   .order("likings.created_at DESC")
                   .includes(:author, :taggings)
                   .page(params[:page])
-                  .per(10)
+                  .per(25)
     end
 
     def current_user_feeds

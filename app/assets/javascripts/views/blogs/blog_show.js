@@ -17,6 +17,7 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     var postsIndexView = new Mumblr.Views.PostsIndex({
+      // fetchObject: this.model,
       collection: this.model.posts(),
       isBlog: true
     });

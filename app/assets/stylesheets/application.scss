@@ -1482,3 +1482,13 @@ span.result-query:after {
   left: 320px;
   bottom: -30px;
 }
+
+.blogs > .icon-spinner,
+.posts .icon-spinner {
+  position: relative;
+  left: 50%;
+}
+
+.blogs > .icon-spinner,{
+  margin: 50px 0;
+}

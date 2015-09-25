@@ -12,7 +12,7 @@ Mumblr.Views.BlogsIndex = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    var content = this.template();
+    var content = this.template({ blogs: this.blogsIndex });
     this.$el.html(content);
     this.attachSubviews();
     return this;

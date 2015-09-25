@@ -11,3 +11,6 @@ json.partial!(
   need_num_posts: true,
   likings_hash: @likings_hash
 )
+
+# json.post_total_count @posts.total_count
+# json.post_total_pages @posts.total_pages

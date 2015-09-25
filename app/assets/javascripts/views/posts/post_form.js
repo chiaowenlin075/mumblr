@@ -93,7 +93,6 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
       error: function(model, resp){
         this.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
         this.$("input").val("");
-        debugger
         var errMsg = resp.responseJSON[0];
         var $err = $("<strong class='error-msg'>").html(errMsg);
         this.$(".error").html($err);

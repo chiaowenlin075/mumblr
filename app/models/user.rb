@@ -138,9 +138,9 @@ class User < ActiveRecord::Base
   def feeds(page = 1)
     Post.includes(:author, :likings, :taggings)
         .where("posts.blog_id IN (?)", followed_blogs.to_a.map(&:id) << self.blog.id)
-        .order("posts.created_at DESC")
+        .order("posts.updated_at DESC")
         .page(page)
-        .per(10)
+        .per(25)
   end
 
   def recent_tags

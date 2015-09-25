@@ -13,6 +13,7 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
   url: "/api/session",
 
   initialize: function(options){
+    this._page = 1;
     this.listenTo(this, "change", this.fireSessionEvent);
   },
 

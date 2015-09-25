@@ -11,8 +11,8 @@ json.feeds @feeds do |feed|
   )
 end
 
-json.feed_total_count @feeds.total_count
-json.feed_total_pages @feeds.total_pages
+# json.feed_total_count @feeds.total_count
+# json.feed_total_pages @feeds.total_pages
 
 if @liked_posts
   json.liked_posts @liked_posts.includes(:author, :likings, :taggings) do |post|
@@ -25,7 +25,7 @@ if @liked_posts
   end
 end
 
-json.liked_posts_total_count @liked_posts.total_count
-json.liked_posts_total_pages @liked_posts.total_pages
+# json.liked_posts_total_count @liked_posts.total_count
+# json.liked_posts_total_pages @liked_posts.total_pages
 
 json.recent_tags current_user.recent_tags

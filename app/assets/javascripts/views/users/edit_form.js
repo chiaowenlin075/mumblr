@@ -48,7 +48,7 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
     formData.append("user[avatar]", file);
     this.model.saveFormData(formData, {
       success: function(model){
-        Backbone.history.navigate("dashboard", { trigger: true });
+        Backbone.history.navigate("posts", { trigger: true });
       }
     });
   },
@@ -65,7 +65,7 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
     } else {
       that.model.save(input, {
         success: function(model){
-          Backbone.history.navigate("dashboard", { trigger: true });
+          Backbone.history.navigate("posts", { trigger: true });
         },
         error: function(model, resp){
           that.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
