@@ -6,6 +6,6 @@ module DateFormatable
   end
 
   def updated_at
-    super.strftime("%Y %B %d %a")
+    super.strftime("%Y %B %d %a %H:%M")
   end
 end

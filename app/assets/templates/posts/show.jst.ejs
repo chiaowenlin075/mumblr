@@ -23,6 +23,9 @@
 </section>
 <section class="post-footer group">
   <span class="num_likes"><%= post.escape("num_likes") %> likes</span>
+  <% if (post.escape('created_at') !== post.escape('updated_at')) { %>
+    <span>Updated at <%= post.escape('updated_at') %></span>
+  <% } %>
   <ul class="post-response-list group">
     <% if (currentUser.isNew() || currentUser.escape('id') !== post.author().escape('id')) { %>
       <li><div class="like-status"></div></li>
