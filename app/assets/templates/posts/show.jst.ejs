@@ -17,7 +17,7 @@
   <ul class="tags">
     <% post.taggings().forEach(function(tag){ %>
     <% var tagLabel = tag.escape('label') %>
-      <li><a href="#search?=<%= tagLabel.slice(1) %>"><%= tagLabel %></a></li>
+      <li><a href="#search/<%= tagLabel.slice(1) %>"><%= tagLabel %></a></li>
     <% }) %>
   </ul>
 </section>

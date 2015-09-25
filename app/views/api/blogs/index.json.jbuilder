@@ -9,5 +9,5 @@ json.array! @blogs do |blog|
     need_num_follows: false,
     need_num_posts: false
   )
-  json.num_followers blog.num_followers
+  json.num_follows blog.num_followers
 end

@@ -10,7 +10,7 @@
     <h2><%= blog.escape('title') ? blog.escape('title') : "Untitled" %></h2>
     <p class="blog-desc"><%= blog.escape('description') %></p>
   </a>
-  <% if (blog.escape('num_followers')) { %>
-    <footer><%= blog.escape('num_followers') %> followers</footer>
+  <% if (blog.escape('num_follows')) { %>
+    <footer><%= blog.escape('num_follows') %> followers</footer>
   <% } %>
 </section>

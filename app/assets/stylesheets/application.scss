@@ -378,13 +378,13 @@ a.demo-user {
 }
 
 .logo {
-  font-size: 28px;
-  font-family: "Overlock";
-  font-weight: bold;
-  color: #fff;
-  display: block;
   float: left;
   margin-right: 20px;
+}
+
+.logo > img {
+  position: absolute;
+  width: 50px;
 }
 
 .search-bar {
@@ -394,7 +394,7 @@ a.demo-user {
   background: rgba(0, 0, 0, 0.16);
   float: left;
   width: 40%;
-
+  margin-left: 60px;
   box-sizing: border-box;
 }
 
@@ -1116,6 +1116,7 @@ input.title {
   padding: 30px;
   border-radius: 3px;
   margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .user-edit > ul {
