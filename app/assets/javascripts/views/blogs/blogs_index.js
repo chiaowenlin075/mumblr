@@ -3,7 +3,9 @@ Mumblr.Views.BlogsIndex = Backbone.CompositeView.extend({
   className: "blogs",
 
   initialize: function(){
+    this.bindScroll();
     this.listenTo(this.collection, "sync", this.addBlogs);
+    this.options.searchResults = this.collection;
   },
 
   render: function(){
@@ -21,3 +23,5 @@ Mumblr.Views.BlogsIndex = Backbone.CompositeView.extend({
   }
 
 });
+
+_.extend(Mumblr.Views.BlogsIndex.prototype, Mumblr.Mixins.InfiniteScroll);

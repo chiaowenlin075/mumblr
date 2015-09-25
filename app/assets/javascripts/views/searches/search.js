@@ -2,6 +2,10 @@ Mumblr.Views.Search = Backbone.CompositeView.extend({
   template: JST['searches/search'],
 	className: "search-results",
 
+	options: {
+		searchResults: {}
+	},
+
 	initialize: function (options) {
 		this.bindScroll();
     this.query = options.query;
@@ -11,6 +15,7 @@ Mumblr.Views.Search = Backbone.CompositeView.extend({
 		this.searchPosts = new Mumblr.Collections.SearchPosts({
 			query: this.query
 		});
+		this.options.searchResults = this.searchPosts;
 
 		this.listenTo(this.searchBlogs, "sync", this.render);
 		this.listenTo(this.searchPosts, "sync", this.render);
@@ -48,20 +53,6 @@ Mumblr.Views.Search = Backbone.CompositeView.extend({
 		this.addSubview(".found-posts", postView);
 	},
 
-	bindScroll: function () {
-		$(window).on("scroll", this.handleScroll.bind(this));
-	},
-
-	handleScroll: function (event) {
-		event.preventDefault();
-		var $doc = $(document);
-		var scrolledDist = $doc.height() - window.innerHeight - $doc.scrollTop();
-
-		if (scrolledDist < 300) {
-			this.postInfiniteScroll();
-		}
-	},
-
 	blogNextPage: function (event) {
 		event.preventDefault();
 		this.searchBlogs.changePage(+1);
@@ -70,23 +61,8 @@ Mumblr.Views.Search = Backbone.CompositeView.extend({
 	blogPrevPage: function(event){
 		event.preventDefault();
 		this.searchBlogs.changePage(-1);
-	},
-
-	postInfiniteScroll: function () {
-		if (this.requestingNextPage) return;
-
-		this.requestingNextPage = true;
-		this.searchPosts.fetch({
-			remove: false,
-			data: {
-				query: this.searchPosts._query,
-				page: this.searchPosts._page + 1
-			},
-			success: function () {
-				this.requestingNextPage = false;
-				this.searchPosts._page++;
-			}.bind(this)
-		});
 	}
 
 });
+
+_.extend(Mumblr.Views.Search.prototype, Mumblr.Mixins.InfiniteScroll);

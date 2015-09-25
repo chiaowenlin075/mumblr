@@ -17,7 +17,7 @@ module Api
       @post_results = Post.includes(:author, :likings, :taggings)
                           .where("posts.id IN (?)", post_results_ids)
                           .page(params[:page])
-                          .per(5)
+                          .per(10)
       @likings_hash = {}
       if logged_in?
         @likings_hash = current_user.post_likes_hash
