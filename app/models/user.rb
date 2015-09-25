@@ -64,6 +64,14 @@ class User < ActiveRecord::Base
     self.activation_token ||= generate_activation_token
   }
 
+  after_save {
+    if self.blog.url != username.split().join("").underscore
+      self.blog.url != username.split().join("").underscore
+      self.blog.slug = self.blog.url
+      self.blog.save!
+    end
+  }
+
   def self.find_by_credential(email, password)
     user = User.find_by(email: email)
     user && user.is_password?(password) ? user : nil
