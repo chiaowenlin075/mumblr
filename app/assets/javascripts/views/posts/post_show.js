@@ -16,7 +16,6 @@ Mumblr.Views.PostShow = Backbone.CompositeView.extend({
   },
 
   render: function(){
-    // debugger
     var content = this.template({
       post: this.model,
       currentUser: Mumblr.CurrentUser

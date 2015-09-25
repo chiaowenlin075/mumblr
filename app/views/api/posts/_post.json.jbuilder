@@ -1,4 +1,4 @@
-json.extract!(post, :id, :blog_id, :post_type, :title, :body, :link_url, :created_at)
+json.extract!(post, :id, :blog_id, :post_type, :title, :body, :link_url, :created_at, :updated_at)
 
 json.image_url asset_path(post.image.url) if post.image
 
