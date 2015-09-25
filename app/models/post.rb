@@ -49,7 +49,8 @@ class Post < ActiveRecord::Base
       image: File.open("app/assets/images/dancing_cat.gif"),
       body: "Welcome to Mumblr, please use it with <3, " +
             "use 'Dashboard to browse your own posts also the posts from blogs " +
-            "you subscribed, use 'explore' to check out hottest blogs!"
+            "you subscribed, use 'explore' to check out hottest blogs!" +
+            "Your blog's custom URL is your username, try it out :D"
     )
   end
 

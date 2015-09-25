@@ -52,6 +52,7 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
     var formData = new FormData();
     formData.append("blog[title]", input.title);
     formData.append("blog[description]", input.description);
+    formData.append("blog[url]", input.url);
     formData.append("blog[background]", file);
     this.model.saveFormData(formData);
   },

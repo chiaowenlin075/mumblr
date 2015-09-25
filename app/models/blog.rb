@@ -22,6 +22,7 @@ class Blog < ActiveRecord::Base
   friendly_id :url, use: [:slugged, :finders]
 
   validates :owner, presence: true
+  validates :url, uniqueness: true
 
   has_attached_file :background, default_url: "background/blog_default_back.jpg"
   validates_attachment_content_type :background, content_type: /\Aimage\/.*\Z/
@@ -34,6 +35,10 @@ class Blog < ActiveRecord::Base
   has_many :followings, inverse_of: :blog, dependent: :destroy
   has_many :followers, through: :followings, source: :follower
   has_many :followers_blogs, through: :followers, source: :blog
+
+  after_initialize {
+    self.slug = self.url
+  }
 
   before_save {
     self.title = title == "" ? "Untitled" : title
