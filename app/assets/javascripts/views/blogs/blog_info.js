@@ -5,6 +5,7 @@ Mumblr.Views.BlogInfo = Backbone.CompositeView.extend({
   initialize: function(options){
     this.model = options.blog;
     this.listenTo(this.model, "sync change:num_posts", this.render);
+    this.listenTo(Mumblr.CurrentUser, "sync change", this.render);
   },
 
   render: function(){

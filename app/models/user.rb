@@ -87,8 +87,8 @@ class User < ActiveRecord::Base
       user = User.create!(
         uid: auth_hash[:uid],
         provider: auth_hash[:provider],
-        username: auth_hash[:info][:name],
-        email: SecureRandom::urlsafe_base64(6) + "@mumblr.com",
+        username: check_username(auth_hash[:info][:name]),
+        email: generate_random_email,
         password: SecureRandom::urlsafe_base64
       )
       blog = Blog.create!(owner_id: user.id)
@@ -137,6 +137,24 @@ class User < ActiveRecord::Base
 
   def recent_tags
     self.taggings.sort_by(&:created_at).reverse!.take(10).map(&:label)
+  end
+
+  def generate_random_email
+    loop do
+      email = SecureRandom::urlsafe_base64 + "@mumblr.com"
+      return email unless self.class.exists?(email: email)
+    end
+  end
+
+  def check_username(username)
+    if self.class.exists?(username: username)
+      loop do
+        username = username + rand(10).to_s
+        return username unless self.class.exists?(username: username)
+      end
+    end
+
+    username
   end
 
 end

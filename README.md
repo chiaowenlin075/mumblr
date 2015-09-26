@@ -28,18 +28,20 @@ mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
 ## Features
 
 ### Blog and Posts
-Every user has their own blog. On either dashboard or your own blog, users can have infinite feeds by scrolling. Each blog have their own custom url with their username. User can also change the background of their blog. Posts ordered by 1) most liked 2) newest.
-Posts can be in text/image/link/quote. Posts can be edited and deleted only by
-author. Every post can be liked/replied/tagged.
+Every user has their own blog. Each blog have their own custom url with their username and custom background. Posts ordered by 1) most liked 2) newest.
+Posts can be in text/image/link/quote. Posts can be edited and deleted only by author. Every post can be liked/replied/tagged.
 
 ### Follow
-Users can subscribe other blogs by "Follow" them. At your dashboard, you can see both yours and your subscribed blog's posts. Can follow hot blogs at "explore" page that provide you the hottest blogs.
+Users can subscribe other blogs by "Follow" them. At your dashboard, you can see both yours and your subscribed blogs' posts. Can follow hot blogs at "explore" page that provide you the hottest blogs.
 
 ### Tags
 Posts can have tags. Each tag will link to the search result of that tag. Tags can also be create/delete when edit the post.
 
 ### Search
-Give you all the blogs that match the title or description and posts that have matched tags. The blogs sorted by the number of followers, while the posts sorted by create time.
+Give you all the blogs that match the title or description and posts that have matched tags. The blogs sorted by the number of followers, while the posts sorted by the number of likes as well as the update(create) time.
+
+### Infinite Scroll & Pagination
+Apply both infinite scroll and pagination on different views
 
 ## Implementation Timeline
 
@@ -90,7 +92,7 @@ collections, but they will fetch from the new `search` routes.
 - [x] "Like" button and counter for posts
 - [x] Custom blog urls
 - [ ] Custom layout for posts(change font style)
-- [ ] Pagination/infinite scroll
+- [x] Pagination/infinite scroll
 - [ ] Followers Info page
 - [ ] Activity history (e.g. likes, reblogs, taggings)
 - [x] Post types (image posts, quote posts, etc)

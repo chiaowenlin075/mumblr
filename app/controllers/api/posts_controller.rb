@@ -48,7 +48,7 @@ module Api
                    .joins("LEFT OUTER JOIN likings ON likings.post_id = posts.id")
                    .group("posts.id")
                    .where("posts.blog_id IN (?)", blog_range)
-                   .order("posts.updated_at DESC, COUNT (likings.*) DESC")
+                   .order("COUNT (likings.*) DESC, posts.updated_at DESC")
                    .page(params[:page])
 
       render :index

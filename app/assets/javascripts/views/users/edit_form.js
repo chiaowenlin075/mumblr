@@ -5,6 +5,7 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
 
   initialize: function(){
     this.model = Mumblr.CurrentUser;
+    this.username = this.model.escape('username');
     this.listenTo(this.model, "sync change", this.render);
   },
 
@@ -36,6 +37,7 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
     var $inputArea = $(event.currentTarget);
     $inputArea.siblings().andSelf().toggleClass("hide");
     if ($inputArea.is(":password")) { return };
+    if ($inputArea.val() === "") { return };
     $inputArea.parent().find(".show-info").text($inputArea.val());
   },
 
@@ -48,7 +50,7 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
     formData.append("user[avatar]", file);
     this.model.saveFormData(formData, {
       success: function(model){
-        Backbone.history.navigate("posts", { trigger: true });
+        Backbone.history.navigate("", { trigger: true });
       }
     });
   },
@@ -65,13 +67,14 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
     } else {
       that.model.save(input, {
         success: function(model){
-          Backbone.history.navigate("posts", { trigger: true });
+          Backbone.history.navigate("", { trigger: true });
         },
         error: function(model, resp){
           that.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
-          that.$("input").val("");
-          var errMsg = resp.responseJSON;
+          var errMsgs = resp.responseJSON;
           that.showErrorMsg(errMsgs)
+          that.$(".username").val(that.username);
+          that.$(".username").parent().find(".show-info").text(that.username);
         }
       });
     };

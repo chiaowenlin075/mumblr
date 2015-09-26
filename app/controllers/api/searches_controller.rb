@@ -21,8 +21,10 @@ module Api
     def search_posts
       post_results_ids = Tagging.search_by_label(params[:query]).map(&:post_id)
       @post_results = Post.includes(:author, :likings, :taggings)
+                          .joins("LEFT OUTER JOIN likings ON likings.post_id = posts.id")
                           .where("posts.id IN (?)", post_results_ids)
-                          .order("posts.created_at DESC")
+                          .group("posts.id")
+                          .order("COUNT (likings.*) DESC, posts.updated_at DESC")
                           .page(params[:page])
                           .per(10)
       @likings_hash = {}

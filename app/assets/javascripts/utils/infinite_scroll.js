@@ -34,7 +34,6 @@ Mumblr.Mixins.InfiniteScroll = {
       remove: false,
       data: this.fetchData(),
       success: function () {
-        debugger
         this.requestingNextPage = false;
         this.searchResults()._page++;
       }.bind(this)

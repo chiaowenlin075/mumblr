@@ -5,7 +5,7 @@
     <section class="group">
       <p class="show-info"><%= user.escape('username') %></p><i class="icon-edit"/>
       <input type="text"
-             class="editable hide"
+             class="editable username hide"
              name="user[username]"
              value="<%= user.escape('username') %>">
     </section>
@@ -33,4 +33,5 @@
     </section>
   </li>
 </ul>
+<div class="error"></div>
 <button class="submit">Save</button>
