@@ -65,7 +65,7 @@ class User < ActiveRecord::Base
   }
 
   after_save {
-    if self.blog.url != username.split().join("").underscore
+    if self.blog && self.blog.url != username.split().join("").underscore
       self.blog.url != username.split().join("").underscore
       self.blog.slug = self.blog.url
       self.blog.save!
