@@ -44,14 +44,22 @@ module Api
 
     def feeds
       blog_range = current_user.followed_blogs.to_a.map(&:id) << current_user.blog.id
-      @feeds = Post.preload(:author, :likings, :taggings)
+      @posts = Post.preload(:author, :likings, :taggings)
                    .joins("LEFT OUTER JOIN likings ON likings.post_id = posts.id")
                    .group("posts.id")
                    .where("posts.blog_id IN (?)", blog_range)
-                   .order("COUNT (likings.*) DESC, posts.updated_at DESC")
+                   .order("posts.updated_at DESC, COUNT (likings.*) DESC")
                    .page(params[:page])
 
-      render :feeds
+      render :index
+    end
+
+    def liked_posts
+      @posts = current_user.liked_posts
+                                 .order("likings.created_at DESC")
+                                 .includes(:author, :taggings)
+                                 .page(params[:page])
+      render :index
     end
 
     private

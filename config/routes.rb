@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get '/search_blogs', to: 'searches#search_blogs'
     get '/search_posts', to: 'searches#search_posts'
     get '/feeds', to: 'posts#feeds'
+    get '/liked_posts', to: 'posts#liked_posts'
   end
 
   get "/auth/:provider/callback", to: "api/sessions#omniauth"

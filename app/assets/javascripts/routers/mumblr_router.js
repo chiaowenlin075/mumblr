@@ -133,8 +133,14 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   likes: function(){
     var callback = this.likes.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
+    var likedPosts = new Mumblr.Collections.LikedPosts();
+    likedPosts.fetch();
 
-    var likedPostsView = new Mumblr.Views.LikedPosts();
+    var likedPostsView = new Mumblr.Views.Feeds({
+      fetchObject: likedPosts,
+      collection: likedPosts.posts(),
+      needNewPostBar: false
+    });
     this._swapView(likedPostsView, ".main-content");
     this.sidebar();
   },

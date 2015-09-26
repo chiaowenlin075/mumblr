@@ -3,10 +3,10 @@ Mumblr.Views.Feeds = Backbone.CompositeView.extend({
   className: "posts-main",
 
   initialize: function(options){
-    this.blog = options.blog;
     this.fetchObject = options.fetchObject;
     this.addPostIndex();
     if (options.needNewPostBar) {
+      this.blog = options.blog;
       this.addPostOptionBar();
     };
   },
