@@ -13,6 +13,7 @@ module Api
         login_user!(@user)
         @blog = Blog.create!(owner_id: @user.id)
         Post.welcome_post(@blog.id)
+        UserMailer.activate_email(@user).deliver
         render :show
       else
         render json: @user.errors.full_messages, status: 422
@@ -22,6 +23,20 @@ module Api
     def destroy
       current_user.destroy!
       render json: {}
+    end
+
+    def activate
+      user = User.find_by(activation_token: params[:activation_token])
+
+      if user
+        user.activated = true
+        user.save!
+        login_user!(user)
+        flash[:notice] = "Activate account successfully!"
+        redirect_to root_url
+      else
+        render text: "Invalid request", status: :forbidden
+      end
     end
 
     private
