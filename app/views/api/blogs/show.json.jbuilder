@@ -12,5 +12,5 @@ json.partial!(
   likings_hash: @likings_hash
 )
 
-# json.post_total_count @posts.total_count
-# json.post_total_pages @posts.total_pages
+json.total_count @posts.total_count
+json.total_pages @posts.total_pages

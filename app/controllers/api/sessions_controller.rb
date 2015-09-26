@@ -4,7 +4,6 @@ module Api
     def show
       if current_user
         @liked_posts = current_user_liked_posts
-        @feeds = current_user_feeds
         render :show
       else
         render json: {}
@@ -17,7 +16,6 @@ module Api
       if @user
         login_user!(@user)
         @liked_posts = current_user_liked_posts
-        @feeds = current_user_feeds
         render :show
       else
         head :unprocessable_entity
@@ -64,8 +62,5 @@ module Api
                   .per(25)
     end
 
-    def current_user_feeds
-      current_user.feeds(params[:page])
-    end
   end
 end

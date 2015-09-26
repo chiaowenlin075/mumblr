@@ -3,7 +3,9 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
   className: "blog",
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync", this.render)
+    this.addPostIndex();
+    this.addFollowWidget();
   },
 
   events: {
@@ -16,16 +18,8 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
       currentUser: Mumblr.CurrentUser
     });
     this.$el.html(content);
-    var postsIndexView = new Mumblr.Views.PostsIndex({
-      // fetchObject: this.model,
-      collection: this.model.posts(),
-      isBlog: true
-    });
-    this.addSubview(".blog-posts", postsIndexView)
-    var followWidget = new Mumblr.Views.FollowWidget({
-      model: this.model
-    })
-    this.addSubview(".follow-status", followWidget)
+    this.attachSubviews();
+
     return this;
   },
 
@@ -33,6 +27,22 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
     event.preventDefault();
     var editForm = new Mumblr.Views.BlogEdit({ model: this.model });
     $("body").append(editForm.render().$el);
+  },
+
+  addPostIndex: function(){
+    var postsIndexView = new Mumblr.Views.PostsIndex({
+      postsCollection: this.model,
+      collection: this.model.posts(),
+      isBlog: true
+    });
+    this.addSubview(".blog-posts", postsIndexView);
+  },
+
+  addFollowWidget: function(){
+    var followWidget = new Mumblr.Views.FollowWidget({
+      model: this.model
+    });
+    this.addSubview(".follow-status", followWidget);
   }
 
 });

@@ -6,10 +6,6 @@ Mumblr.Models.Blog = Backbone.Model.extend({
     foreignKey: "blog_id"
   },
 
-  initialize: function(){
-    this._page = 1;
-  },
-
   owner: function(){
     this._owner = this._owner || new Mumblr.Models.User();
     return this._owner;
@@ -17,7 +13,6 @@ Mumblr.Models.Blog = Backbone.Model.extend({
 
   posts: function(){
     this._posts = this._posts || new Mumblr.Collections.Posts();
-
     return this._posts;
   },
 
@@ -27,19 +22,11 @@ Mumblr.Models.Blog = Backbone.Model.extend({
   },
 
   parse: function(payload){
+    this.parsePageInfo(payload);
+    this.parseTarget(payload);
     if (payload.posts){
       this.posts().set(payload.posts, { parse: true });
       delete payload.posts
-    };
-
-    if (payload.hasOwnProperty("post_total_count")) {
-      this._totalCount = payload.post_total_count;
-      delete payload.post_total_count;
-    };
-
-    if (payload.hasOwnProperty("post_total_pages")) {
-      this._totalPages = payload.post_total_pages;
-      delete payload.post_total_pages;
     };
 
     if (payload.owner){
@@ -50,7 +37,7 @@ Mumblr.Models.Blog = Backbone.Model.extend({
       this.followers().set(payload.followers);
       delete payload.followers
     };
-    this.parseTarget(payload);
+
     return payload;
   },
 
@@ -66,3 +53,4 @@ Mumblr.Models.Blog = Backbone.Model.extend({
 
 _.extend(Mumblr.Models.Blog.prototype, Mumblr.Mixins.FollowOrLikeable);
 _.extend(Mumblr.Models.Blog.prototype, Mumblr.Mixins.SaveFormData);
+_.extend(Mumblr.Models.Blog.prototype, Mumblr.Mixins.Paginate);

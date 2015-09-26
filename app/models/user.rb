@@ -135,14 +135,6 @@ class User < ActiveRecord::Base
     likes_hash
   end
 
-  def feeds(page = 1)
-    Post.includes(:author, :likings, :taggings)
-        .where("posts.blog_id IN (?)", followed_blogs.to_a.map(&:id) << self.blog.id)
-        .order("posts.updated_at DESC")
-        .page(page)
-        .per(25)
-  end
-
   def recent_tags
     self.taggings.sort_by(&:created_at).reverse!.take(10).map(&:label)
   end

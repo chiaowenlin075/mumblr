@@ -4,25 +4,36 @@ Mumblr.Views.Feeds = Backbone.CompositeView.extend({
 
   initialize: function(options){
     this.blog = options.blog;
-    this.user = Mumblr.CurrentUser;
-    this.listenTo(this.user, "sync", this.render);
+    this.fetchObject = options.fetchObject;
+    this.addPostIndex();
+    if (options.needNewPostBar) {
+      this.addPostOptionBar();
+    };
   },
 
   render: function(){
     var content = this.template();
     this.$el.html(content);
+    this.attachSubviews();
+
+    return this;
+  },
+
+  addPostOptionBar: function(){
     var postOptionsBar = new Mumblr.Views.PostOptionsBar({
       blog: this.blog,
-      collection: this.user.feeds()
+      collection: this.collection
     });
     this.addSubview(".post-option-bar", postOptionsBar);
+  },
+
+  addPostIndex: function(){
     var postsIndexView = new Mumblr.Views.PostsIndex({
-      collection: this.user.feeds(),
+      postsCollection: this.fetchObject,
+      collection: this.collection,
       isBlog: false
      });
     this.addSubview(".posts", postsIndexView);
-
-    return this;
   }
 
 });

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :taggings, only: [:create, :index, :destroy, :show]
     get '/search_blogs', to: 'searches#search_blogs'
     get '/search_posts', to: 'searches#search_posts'
+    get '/feeds', to: 'posts#feeds'
   end
 
   get "/auth/:provider/callback", to: "api/sessions#omniauth"

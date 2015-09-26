@@ -42,6 +42,18 @@ module Api
       render json: {}
     end
 
+    def feeds
+      blog_range = current_user.followed_blogs.to_a.map(&:id) << current_user.blog.id
+      @feeds = Post.preload(:author, :likings, :taggings)
+                   .joins("LEFT OUTER JOIN likings ON likings.post_id = posts.id")
+                   .group("posts.id")
+                   .where("posts.blog_id IN (?)", blog_range)
+                   .order("COUNT (likings.*) DESC, posts.updated_at DESC")
+                   .page(params[:page])
+
+      render :feeds
+    end
+
     private
 
     def post_params

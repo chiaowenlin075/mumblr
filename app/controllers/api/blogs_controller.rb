@@ -18,7 +18,6 @@ module Api
                    .where(blog_id: @blog.id)
                    .order("posts.updated_at DESC")
                    .page(params[:page])
-                   .per(25)
 
       @followings_hash, @likings_hash = {}, {}
       if logged_in?
