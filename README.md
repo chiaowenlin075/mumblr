@@ -7,8 +7,6 @@
 ## Minimum Viable Product
 mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
 
-<!-- This is a Markdown checklist. Use it to keep track of your progress! -->
-
 - [x] Create accounts
 - [x] Create sessions (log in)
 - [x] Create blogs
@@ -17,8 +15,8 @@ mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
 - [x] Subscribe(Follow) to blogs
 - [x] View a feed of subscribed blogs
 - [x] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [x] Search for blogs by title
+- [x] Search for posts by tag
 
 ## Design Docs
 * [View Wireframes][views]
@@ -30,17 +28,18 @@ mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
 ## Features
 
 ### Blog and Posts
-Every user has their own blog. On either dashboard or your own blog, users can have
-infinite feeds by scrolling. Posts ordered by 1) most liked 2) newest.
+Every user has their own blog. On either dashboard or your own blog, users can have infinite feeds by scrolling. Each blog have their own custom url with their username. User can also change the background of their blog. Posts ordered by 1) most liked 2) newest.
 Posts can be in text/image/link/quote. Posts can be edited and deleted only by
 author. Every post can be liked/replied/tagged.
 
 ### Follow
-Users can subscribe other blogs by "Follow" them. At your dashboard, you can see
-both yours and your subscribed blog's posts. Can follow hot blogs at "explore" page.
+Users can subscribe other blogs by "Follow" them. At your dashboard, you can see both yours and your subscribed blog's posts. Can follow hot blogs at "explore" page that provide you the hottest blogs.
 
 ### Tags
-Posts can have tags. Users can search posts by tags.
+Posts can have tags. Each tag will link to the search result of that tag. Tags can also be create/delete when edit the post.
+
+### Search
+Give you all the blogs that match the title or description and posts that have matched tags. The blogs sorted by the number of followers, while the posts sorted by create time.
 
 ## Implementation Timeline
 
@@ -89,7 +88,7 @@ collections, but they will fetch from the new `search` routes.
 
 ### Bonus Features (TBD)
 - [x] "Like" button and counter for posts
-- [ ] Custom blog urls
+- [x] Custom blog urls
 - [ ] Custom layout for posts(change font style)
 - [ ] Pagination/infinite scroll
 - [ ] Followers Info page
@@ -99,7 +98,7 @@ collections, but they will fetch from the new `search` routes.
 - [x] Multiple sessions/session management
 - [x] User avatars
 - [x] Blog custom background
-- [ ] Typeahead search bar
+- [x] Typeahead search bar
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
