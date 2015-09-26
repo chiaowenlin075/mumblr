@@ -1,4 +1,4 @@
-json.posts posts do |post|
+json.posts posts.to_a.reverse! do |post|
   json.partial!(
     "api/posts/post",
     post: post,

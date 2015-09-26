@@ -4,11 +4,11 @@ Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
   initialize: function(options){
     this.isBlog = options.isBlog;
     this.postsCollection = options.postsCollection;
+    this.collection.each(this.addPost.bind(this));
     this.listenTo(this.postsCollection, "sync", this.render)
     this.listenTo(this.collection, "add", this.addPost);
     this.listenTo(this.collection, "remove", this.removePost);
     this.listenTo(this.collection, "add", this.render);
-    this.collection.each(this.addPost.bind(this));
   },
 
   events: {
@@ -27,13 +27,13 @@ Mumblr.Views.PostsIndex = Backbone.CompositeView.extend({
   },
 
   addPost: function(model){
-    debugger
     if (this.isBlog) {
       var postView = new Mumblr.Views.PostShow({ model: model });
     } else {
       var postView = new Mumblr.Views.PostsIndexItem({ model: model });
     };
-    this.addSubview(".posts-index", postView);
+
+    this.addSubview(".posts-index", postView, true);
   },
 
   removePost: function(model){

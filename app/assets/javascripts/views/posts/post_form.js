@@ -86,7 +86,6 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
       success: function(model){
         if (isNewModel) {
           this.collection.add(model);
-          debugger
           this.blog.set("num_posts", this.blog.get("num_posts") + 1);
         }
         this.remove();
