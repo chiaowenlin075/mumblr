@@ -4,6 +4,6 @@
 <% } %>
 <span class="page">Page <%= postsCollection._page %></span>
 
-<% if (postsCollection._page !== postsCollection._totalPages) { %>
+<% if (postsCollection._page < postsCollection._totalPages) { %>
   <button class="next-page">Next</button>
 <% } %>
