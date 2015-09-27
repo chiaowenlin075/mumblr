@@ -16,10 +16,9 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
   },
 
   events: {
-    "click button.close": "exit", //why it still work even without this event handler?
+    "click button.close": "exit",
     "change .upload": "updateImagePreview",
     "submit .post-form": "submit"
-    // "keydown .post-form": "enabledSubmit"
   },
 
   render: function(){
@@ -29,7 +28,6 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
     });
     this.$el.html(content);
     this.attachSubviews();
-    // this.$(".submit").prop("disabled", true).addClass("disabledBtn");
 
     return this;
   },
@@ -42,11 +40,6 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
       });
       this.addSubview(".tags", tagView);
     }.bind(this));
-  },
-
-  enabledSubmit: function(event){
-    event.preventDefault();
-    // this.$(".submit").prop("disabled", false);
   },
 
   updateImagePreview: function(event){

@@ -684,6 +684,7 @@ span.page {
   height: 90px;
   border-radius: 50%;
   color: #fff;
+  font-size: 14px;
   position: absolute;
   top: -80px;
   left: -14px;
@@ -874,21 +875,13 @@ span.page {
   transform: translateX(calc(-50% - 80px));
 }
 
-.direction {
-  padding: 40px 30px;
-  width: 150px;
-  height: 150px;
-  text-align: center;
-  background: #EA3556;
-  color: #fff;
-  display: block;
-  position: fixed;
-  z-index: 15;
-  top: calc(50% - 75px);
-  right: 120px;
-  border-radius: 50%;
-  box-sizing: border-box;
+.post .new-post {
+  position: absolute;
+  z-index: 5;
+  top: -45%;
+  left: 290px;
 }
+
 
 .post-form input,
 .post-form textarea {
@@ -1186,7 +1179,7 @@ input.title {
 }
 
 //  user edit form
-.user-edit {
+.user-edit, .blog-followers {
   background: #fff;
   padding: 30px;
   border-radius: 3px;
@@ -1565,4 +1558,39 @@ span.result-query:after {
 
 .blogs > .icon-spinner,{
   margin: 50px 0;
+}
+
+
+// followers
+.blog-followers {
+  padding: 20px;
+}
+
+.blog-followers > h2 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.followers-index {
+  margin: 20px auto 0;
+}
+
+.follower {
+  display: block;
+  float: left;
+  width: 100px;
+  margin: 0 15px 15px 0;
+  text-align: center;
+}
+
+.follower .thumbnail {
+  position: relative;
+  left: 0;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+.follower > b {
+  font-size: 14px;
 }

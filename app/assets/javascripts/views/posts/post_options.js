@@ -28,7 +28,7 @@ Mumblr.Views.PostOptionsBar = Backbone.CompositeView.extend({
       postType: postType
     });
 
-    $("body").append(postForm.render().$el);
+    this.$el.append(postForm.render().$el);
   }
 
 });

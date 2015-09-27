@@ -9,11 +9,12 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     "_=_": "dashboard",
     "users/new": "new",
     "setting": "userEdit",
-    "posts": "posts", 
+    "posts": "posts",
     "blog/:id": "blog",
     "dashboard": "dashboard",
     "explore": "explore",
     "followings": "followings",
+    "followers": "followers",
     "likes": "likes",
     "search/:query": "search"
   },
@@ -75,7 +76,6 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   posts: function(){
     var callback = this.posts.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-
     var blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blogId });
     blog.fetch();
     var contentView = new Mumblr.Views.Feeds({
@@ -126,8 +126,14 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     var callback = this.followers.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
 
-    // TBD
-    this.sidebar();
+    var blog = new Mumblr.Models.Blog({ id: Mumblr.CurrentUser.blogId });
+    blog.fetch();
+    var followersView = new Mumblr.Views.BlogsFollower({
+      model: blog,
+      collection: blog.followers()
+    });
+    this._swapView(followersView, ".main-content");
+    this.sidebar(blog);
   },
 
   likes: function(){
