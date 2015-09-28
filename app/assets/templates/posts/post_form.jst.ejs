@@ -19,7 +19,7 @@
           <input type="file" class="upload" name="post[image]">
         </div>
         <img class="image-preview" src="<%= post.escape('image_url') %>">
-        <textarea name="post[body]" placeholder="Add a caption, if you like"><%= post.escape('body') %></textarea>
+        <textarea class="hide" name="post[body]" placeholder="Add a caption, if you like"><%= post.escape('body') %></textarea>
       <% } else if (post.escape('post_type') === "quote"){ %>
         <textarea class="quote" name="post[body]" placeholder="Quote"><%= post.escape('body') %></textarea>
         <input type="text"

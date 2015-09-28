@@ -43,8 +43,9 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
   },
 
   updateImagePreview: function(event){
-    this.$(".upload").addClass("hide");
+    this.$(".fileinput").addClass("hide");
     this.imagePreview(event, ".image-preview");
+    this.$("textarea.hide").removeClass("hide");
   },
 
   exit: function(event){
