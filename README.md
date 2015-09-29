@@ -4,6 +4,8 @@
 
 [heroku]: https://mumblrr.herokuapp.com/
 
+![mumblr]
+
 ## Hello there!
 Mumblr is a blog web app inspired by tumblr and built primary on Rails and Backbone.
 Created for the demostration of my skills as a full-stack web developer.
@@ -81,3 +83,4 @@ Full functions...
 
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
+[mumblr]: ./mumblr.gif
