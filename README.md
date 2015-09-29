@@ -4,19 +4,76 @@
 
 [heroku]: https://mumblrr.herokuapp.com/
 
-## Minimum Viable Product
-mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
+## Hello there!
+Mumblr is a blog web app inspired by tumblr and built primary on Rails and Backbone.
+Created for the demostration of my skills as a full-stack web developer.
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [x] View blogs and posts
-- [x] Subscribe(Follow) to blogs
-- [x] View a feed of subscribed blogs
-- [x] Tag blog posts
-- [x] Search for blogs by title
-- [x] Search for posts by tag
+I implement the app with couple different layouts to provide diverse interface.
+I also designed some hover stylings for the purpose of a more clear usage.
+With async requests, the app runs with better efficiency as well as user interactions.
+
+## What I use?
+
+### Languages:
+- Javascript
+- Ruby
+- HTML / CSS
+
+### Frameworks:
+- Backbone
+- Rails
+
+### Libraries and Technologies:
+- jQuery / AJAX
+- jQuery-UI
+- paperclip / AWS
+- friendly_id
+- pg_search
+- kaminari
+- figaro
+- jbuilder
+- omniauth
+
+## What can you do?
+
+Part of the functions accessible when you are not sign in...
+- Search keyword for blogs(title/description) or posts(tag), the search result of blogs ordered by numbers of followers, while the search result of posts ordered by 1) most liked 2) newest.
+- Explore hottest blogs ordered by most followed and follow them!
+
+Full functions...
+- Securely create an account or sign in/sign up with facebook
+- Receive a welcome email after sign up to activate your account
+- Own a blog and have custom blog background and your username as blog custom URL
+- Post four types of post(text/image/link/quote)
+- Can follow or be followed, you can see the posts from your subscribed blogs at your dashboard
+- Post can be liked and tagged
+- Edit your account info, blog detail(background) and post(add/delete tags)
+- Infinite scroll and pagination to browse more content
+
+## Highlight problems that I solved
+
+- Always care about performance
+  - Prefetch datas to prevent any N + 1 database queries
+  - Reduce the queries as much as possible
+- DRY up my code as much as possible
+  - Reuse views with different stylings in different interface
+  - Apply different conditions to jbuilder partials to cater to different cases
+  - Utilize mixins to reduce repeated codes
+- Search result contains two different types of objects
+  - Search route make two search requests to both blogs and tags
+  - Both prefetch relevant datas and use SQL queries to get association objects
+- Validate link post URL and get the info of that link
+  - Use URI to read the link resource and grab the title of given URL
+  - Validate the link URL to prevent private or invalid URL
+- Nested composite views
+  - Each views in charge of minimal functionality
+  - Use composite views to reduce garbage collections
+
+## Future bonus features
+- Audio and chat posts
+- Notifications and activity history
+- Comments on posts
+- Custom layout for posts(change font style)
 
 ## Design Docs
 * [View Wireframes][views]
@@ -24,86 +81,3 @@ mumblr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 [views]: ./docs/views.md
 [schema]: ./docs/schema.md
-
-## Features
-
-### Blog and Posts
-Every user has their own blog. Each blog have their own custom url with their username and custom background. Posts ordered by 1) most liked 2) newest.
-Posts can be in text/image/link/quote. Posts can be edited and deleted only by author. Every post can be liked/replied/tagged.
-
-### Follow
-Users can subscribe other blogs by "Follow" them. At your dashboard, you can see both yours and your subscribed blogs' posts. Can follow hot blogs at "explore" page that provide you the hottest blogs.
-
-### Tags
-Posts can have tags. Each tag will link to the search result of that tag. Tags can also be create/delete when edit the post.
-
-### Search
-Give you all the blogs that match the title or description and posts that have matched tags. The blogs sorted by the number of followers, while the posts sorted by the number of likes as well as the update(create) time.
-
-### Infinite Scroll & Pagination
-Apply both infinite scroll and pagination on different views
-
-## Implementation Timeline
-
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
-
-[Details][phase-one]
-
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
-
-[Details][phase-two]
-
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
-
-[Details][phase-three]
-
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
-
-[Details][phase-four]
-
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
-
-[Details][phase-five]
-
-### Bonus Features (TBD)
-- [x] "Like" button and counter for posts
-- [x] Custom blog urls
-- [ ] Custom layout for posts(change font style)
-- [x] Pagination/infinite scroll
-- [ ] Followers Info page
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [x] Post types (image posts, quote posts, etc)
-- [ ] Replies
-- [x] Multiple sessions/session management
-- [x] User avatars
-- [x] Blog custom background
-- [x] Typeahead search bar
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
