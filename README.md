@@ -7,8 +7,8 @@
 ![mumblr]
 
 ## Hello there!
-Mumblr is a blog web app inspired by tumblr and built primary on Rails and Backbone.
-Created for the demostration of my skills as a full-stack web developer.
+Mumblr is a blogging web app inspired by tumblr and built primary on Rails and Backbone.
+Created for the demonstration of my skills as a full-stack web developer.
 
 I implement the app with couple different layouts to provide diverse interface.
 I also designed some hover stylings for the purpose of a more clear usage.
