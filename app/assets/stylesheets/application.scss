@@ -369,7 +369,7 @@ a.demo-user {
   position: fixed;
   z-index: 5;
   background: #36465d;
-  padding: 15px;
+  padding: 15px 15px 8px;
   display: block;
   box-shadow: 0 0 0 1px rgba(255,255,255,.13);
   top: 0px;
@@ -415,7 +415,7 @@ a.demo-user {
 
 .header-navbar {
   float: right;
-  width: 183px;
+  width: 193px;
   margin-right: 35px;
 }
 
@@ -478,8 +478,12 @@ a.demo-user {
   display: block;
 }
 
-.to-user-list {
+.header-navbar .to-user-list {
   position: relative;
+  margin-left: 10px;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 18px solid transparent;
 }
 
 .user-nav-list {
