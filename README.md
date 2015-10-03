@@ -1,8 +1,8 @@
 # mumblr
 
-[Heroku link][heroku]
+[Check out here][live]
 
-[heroku]: https://mumblrr.herokuapp.com/
+[live]: https://www.mumblrr.com/
 
 ![mumblr]
 
