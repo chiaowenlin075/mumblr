@@ -59,6 +59,11 @@
   width: 100%;
 }
 
+.user-auth-form input[type="password"],
+.user-auth-form input[type="text"] {
+  font-size: 15px;
+}
+
 .error-msg-list {
   margin-bottom: 12px;
 }

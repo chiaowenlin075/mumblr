@@ -31,11 +31,29 @@ Mumblr.Views.SignIn = Backbone.View.extend({
 
   fillInDemoUser: function(event){
     event.preventDefault();
-    this.$("input[type='text']").val("sennacy@cat.com");
-    this.$("input[type='password']").val("sennacy");
+    var demoEmail = "sennacy@cat.com",
+        demoPW = "sennacy",
+        that = this,
+        i = 0;
+    var emailInterval = setInterval(function(){
+      that.$("input[type='text']").val(demoEmail.slice(0, i++));
+      if (i > demoEmail.length){
+        clearInterval(emailInterval);
+      }
+    },80);
+
     setTimeout(function(){
-      this.$(".user-auth-form").trigger("submit");
-    }.bind(this), 1200);
+      var j = 0;
+      var pwInterval = setInterval(function(){
+        that.$("input[type='password']").val(demoPW.slice(0, j++));
+        if (j > demoPW.length){
+          clearInterval(pwInterval);
+          setTimeout(function(){
+            that.$(".user-auth-form").trigger("submit");
+          }, 600);
+        };
+      },80);
+    }, 1300);
   },
 
   signInCallback: function(event){
