@@ -1,0 +1,512 @@
+// New Posts Options
+.post-options {
+  font-family: "Raleway";
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 17px 0;
+  width: 352px;
+  background: #fff;
+  border-radius: 3px;
+  position: relative;
+  right: -85px;
+}
+
+.icon-text:hover, .icon-image:hover,
+.icon-quote:hover, .icon-link:hover {
+  position: relative;
+  top: -3px;
+}
+
+.icon-text:active, .icon-image:active,
+.icon-quote:active, .icon-link:active {
+  top: 3px;
+}
+
+.post-options > li {
+  cursor: pointer;
+  width: 88px;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 24px;
+}
+
+.post-options > li:not(:last-child) {
+  border-right: 1px solid #e5e5e5;
+}
+
+.post-type {
+  color: #7a7a7a;
+  display: block;
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-top: 8px;
+}
+
+// Post Index
+
+.posts-main {
+  margin-top: 92px;
+}
+
+.posts-index {
+  margin-bottom: 50px;
+}
+
+.next-page, .prev-page {
+  color: #fff;
+  font-size: 14px;
+  background: #EA3556;
+  padding: 5px 12px;
+  border-radius: 3px;
+  text-align: center;
+}
+
+.next-page:hover,
+.prev-page:hover {
+  background: rgba(229, 23, 66, 0.75);
+}
+
+span.page {
+  line-height: 24px;
+  position: absolute;
+}
+
+.posts-main .page {
+  color: #fff;
+  left: 43%;
+  transform: translateX(-60%);
+}
+
+.blog-posts .page {
+  color: #000;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.next-page {
+  float: right;
+}
+
+.prev-page {
+  float: left;
+}
+
+.posts-main .prev-page {
+  margin-left: 85px;
+}
+
+.posts-index-item {
+  margin-bottom: 20px;
+  width: 540px;
+  font-size: 14px;
+  background: #fff;
+  padding: 15px 0 0;
+  word-wrap: break-word;
+  border-radius: 3px;
+  position: relative;
+  right: -85px;
+  box-sizing: border-box;
+}
+
+.thumbnail {
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  left: -85px;
+  top: 0;
+}
+
+.thumbnail > img {
+  width: 100%;
+  border-radius: 3px;
+}
+
+.thumbnail:before {
+  content: "Check out my blog!";
+  opacity: 0;
+  background: #EA3556;
+  word-wrap: break-word;
+  width:  90px;
+  height: 90px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 14px;
+  position: absolute;
+  top: -80px;
+  left: -14px;
+  padding: 15px 22px;
+  box-sizing: border-box;
+  transition: opacity 500ms ease, top 500ms ease;
+}
+
+.thumbnail:after {
+  content: "";
+  opacity: 0;
+  height: 5px;
+  width: 10px;
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  border-top: 8px solid #EA3556;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  box-sizing: border-box;
+  transition: opacity 500ms ease, top 500ms ease;
+}
+
+.thumbnail:hover:after {
+  opacity: 1;
+  top: -12px;
+}
+
+.thumbnail:hover:before {
+  opacity: 1;
+  top: -100px;
+}
+
+.post {
+  border-radius: 3px;
+  margin-top: -3px;
+  background: #fff;
+}
+
+.post-author {
+  font-family: "Signika Negative";
+  word-wrap: normal;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 600;
+  margin: -3px 0 15px;
+  line-height: 20px;
+  width: 100%;
+  display: block;
+  height: 20px;
+  vertical-align: middle;
+  position: relative;
+}
+
+.post-author, .post-footer {
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.post-container {
+  display: block
+}
+
+.post-container > p,
+.post-container > h1 {
+  display: block;
+  box-sizing: border-box;
+  padding-right: 20px;
+  padding-left: 20px;
+  word-wrap: break-word;
+}
+
+.post-container > h1 {
+  margin-bottom: 10px;
+}
+
+.post-container > p {
+  line-height: 21px;
+}
+
+.tags {
+  padding: 0 20px;
+  margin-top: 15px;
+}
+
+.tags > li {
+  display: inline-block;
+  color: #909090;
+  margin-right: 8px;
+}
+
+.post-image {
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+}
+
+.post-footer {
+  height: 45px;
+  font-weight: bold;
+  color: #a1a1a1;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  line-height: 45px;
+}
+
+.quote {
+  font-family: "Libre Baskerville", "Vollkorn";
+}
+
+.quote:before {
+  content: "\201C";
+  margin-right: 3px;
+}
+
+.quote:after {
+  content: "\201D";
+  margin-left: 3px;
+}
+
+.quote-from:before {
+  content: "\2014";
+  margin-right: 6px;
+}
+
+// post-link
+.link {
+  display: block;
+  background: #f2f2f2;
+  color: #000;
+  padding: 20px;
+}
+
+.link h4 {
+  font-size: 22px;
+  font-family: "Lato";
+  font-weight: 700;
+}
+
+.link h4:after {
+  content: " >"
+}
+
+// post-footer
+
+.num_likes {
+  float: left;
+  margin-right: 10px;
+}
+
+.updated_at {
+  font-size: 12px;
+}
+
+.post-response-list {
+  margin-top: 5px;
+  float: right;
+  width: 40px;
+}
+
+.post-response-list > li {
+  // cursor: pointer;
+  float: left;
+  margin-left: 18px;
+}
+
+.post-response-list .icon-comment,
+.post-response-list .icon-setting {
+  cursor: pointer;
+}
+
+.block-modal {
+  background: rgba(54,70,93,.95);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.post-modal {
+  z-index: 15;
+  top: 90px;
+  position: absolute;
+  left: 49.5%;
+  transform: translateX(calc(-50% - 80px));
+}
+
+.post .new-post {
+  position: absolute;
+  z-index: 5;
+  top: -45%;
+  left: 290px;
+}
+
+
+.post-form input,
+.post-form textarea {
+  padding: 0 20px 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input.title {
+  font-size: 36px;
+}
+
+.fileinput {
+  position: relative;
+  font-size: 14px;
+  color: #888888;
+  background: #EFEFEF;
+  border-top: 3px dashed #CACACA;
+  border-bottom: 3px dashed #CACACA;
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.fileinput .icon-image-big {
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.post-form input.upload {
+  cursor: pointer;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.new-tags {
+  padding: 10px 20px;
+  width: 100%;
+  overflow: auto;
+}
+
+.form-input {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.post-form .close, .submit {
+  margin: 15px 20px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.post-form .error {
+  color: #fff;
+}
+
+.post-form .close {
+  background: #9c9c9c;
+}
+
+.post-form .submit {
+  padding: 6px 12px;
+  float: right;
+}
+
+.post-form .quote {
+  font-family: "Libre Baskerville", "Vollkorn";
+  font-size: 30px;
+}
+
+.post-form .input-link {
+  padding: 55px 35px;
+  border-top: 2px dashed #ccc;
+  border-bottom: 2px dashed #ccc;
+  background: #f2f2f2;
+}
+
+.post-form .link-desc {
+  padding-top: 22px;
+}
+
+.image-preview {
+  margin-bottom: 22px;
+  width: 100%;
+}
+
+.disabled-btn {
+  cursor: wait;
+}
+
+// post edit
+
+.delete-modal {
+  width: 400px;
+  height: 400px;
+  opacity: 1;
+  position: absolute;
+  box-sizing: border-box;
+  box-shadow: 0 0 5px #aaa;
+  padding: 30% 30px;
+  text-align: center;
+  background: #EA3556;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 5;
+  bottom: -200%;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 1s ease, padding 1s ease;
+}
+
+.post .invisible {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+}
+
+.delete-modal > p {
+  font-size: 18px;
+}
+
+.delete-modal > button {
+  margin: 30px 50px;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 3px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  line-height: 30px;
+}
+
+.delete-modal .close {
+  float: left;
+}
+
+.delete-modal .delete {
+  float: right;
+}
+
+.post-edit-options {
+  display: none;
+  position: absolute;
+  z-index: 5;
+  background: white;
+  margin-top: -8px;
+  margin-left: -15px;
+  box-shadow: 1px 1px 2px #000;
+  border-radius: 3px;
+}
+
+.post-setting:hover .post-edit-options {
+  display: block;
+}
+
+.editting {
+  position: relative;
+}
+
+.post-editable {
+  padding: 5px 12px 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  line-height: 30px;
+}
+
+.post-editable:hover {
+  color: #5A5A5A;
+}
+
+.post-editable .icon-edit,
+.post-editable .icon-delete {
+  margin-right: 3px;
+}

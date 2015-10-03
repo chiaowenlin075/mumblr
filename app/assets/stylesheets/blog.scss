@@ -1,3 +1,286 @@
-// Place all the styles related to the Blog controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// blog info list
+
+.blog-info {
+  color: rgba(255,255,255,.5);
+  font-size: 14px;
+  margin-top: 92px;
+}
+
+.blog-info > a {
+  font-family: "Raleway";
+  color: rgba(255,255,255,.5);
+  font-weight: 100;
+  font-size: 14px;
+  margin: 5px 0 10px 0;
+  display: block;
+  cursor: pointer;
+}
+
+.blog-info-list {
+  width: 220px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.blog-info-list > li {
+  width: 100%;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.blog-info-list > li:last-child {
+  padding: 10px;
+}
+
+.blog-info-link {
+  display: block;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.blog-info-list > li:hover {
+  background: rgba(255,255,255, .08);
+}
+
+.blog-info-link.focus {
+  background: rgba(255,255,255, .12);
+}
+
+.blog-info-link > span {
+  display: block;
+  float: right;
+}
+
+.recent-tags {
+  margin-top: 8px;
+  color: #fff;
+}
+
+.recent-tags > li {
+  display: inline-block;
+}
+
+.recent-tags a {
+  background: #3EABA9;
+  display: inline-block;
+  margin: 4px;
+  padding: 3px 10px;
+  border-radius: 3px;
+}
+
+// blog show
+
+.blog-container {
+  height: 100%;
+}
+
+.blog {
+  background: #f0f0f0;
+}
+
+.blog-header {
+  height: 350px;
+  width: 100%;
+  position: relative;
+}
+
+.blog-navbar {
+  float: right;
+  color: white;
+  margin: 0 15px;
+}
+
+.blog-navbar > * {
+  float: left;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.5);
+  margin: 10px 5px;
+  border-radius: 3px;
+}
+
+.blog-navbar i {
+  margin-right: 5px;
+}
+
+.blog-main  {
+  margin: -75px auto 0;
+  position: relative;
+  z-index: 5;
+  color: #444;
+  width: 625px;
+}
+
+.blog-avatar {
+  border-radius: 50%;
+  width: 150px;
+  border: 5px solid #f0f0f0;
+  margin: 0 auto;
+}
+
+.blog-main figcaption {
+  text-align: center;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.blog-desc {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.blog-posts {
+  margin-top: 40px;
+  padding-bottom: 100px;
+}
+
+.blog-posts .post {
+  margin-bottom: 30px;
+  background: #fff;
+  word-wrap: break-word;
+  border: 1px solid #dfdfdf;
+}
+
+.blog-posts .post-modal {
+  left: 76%;
+  width: 625px;
+}
+
+.blog-posts .post h1 {
+  padding: 20px;
+}
+
+// edit blog
+
+.blog-modal-form {
+  z-index: 15;
+  top: 90px;
+  position: absolute;
+  background: #f0f0f0;
+  width: 400px;
+  padding: 25px 25px 0 25px;
+  border-radius: 3px;
+  left: 50%;
+  font-size: 14px;
+  transform: translateX(-50%);
+}
+
+.background-preview {
+  width: 150px;
+  float: left;
+  margin-right: 15px;
+}
+
+.show-info {
+  margin-bottom: 5px;
+  float: left;
+  width: calc(100% - 20px);
+}
+
+.blog-modal-form .icon-edit {
+  float: right;
+}
+
+.editable {
+  width: 100% ;
+  box-shadow: inset 0 0 1px #000000;
+  padding: 5px 8px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  margin-bottom: 10px;
+}
+
+.blog-modal-form label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.blog-modal-form .close {
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  padding: 5px 10px;
+  float: right;
+  position: relative;
+  top: -28px;
+}
+
+// blog explore
+.blogs, .search-results {
+  margin: 100px auto;
+  width: 944px;
+}
+
+.blogs-index-item {
+  float: left;
+  width: 300px;
+  height: 280px;
+  border-radius: 3px;
+  background: #fff;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.blogs-index-item:not(:nth-child(3n)) {
+  margin-right: 22px;
+}
+
+.blog-item-header {
+  display: block;
+  height: 40%;
+  font-size: 14px;
+  padding: 6px;
+}
+
+.blogs-index-item .follow-status {
+  float: right;
+  color: #fff;
+  padding: 5px 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+}
+
+.blogs-index-item .icon-minus,
+.blogs-index-item .icon-plus {
+  margin-right: 3px;
+}
+
+.blog-item-info {
+  height: calc(60% + 60px);
+}
+
+.blog-owner {
+  color: #fff;
+  text-shadow: 0px 0px 4px #000;
+  font-weight: bold;
+}
+
+.blog-item-info > a {
+  text-align: center;
+  margin-top: -70px;
+  height: calc(60% + 70px);
+  padding: 20px 20px 0 20px;
+  display: block;
+}
+
+.blog-item-thumbnail {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+
+.blog-item-info h2 {
+  font-weight: bold;
+}
+
+.blog-item-info p {
+  font-size: 14px;
+}
+
+.blog-item-info footer {
+  padding: 0 10px;
+  margin-top: -25px;
+  color: #a1a1a1;
+  font-size: 14px;
+}

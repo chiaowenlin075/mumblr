@@ -56,9 +56,9 @@ module Api
 
     def liked_posts
       @posts = current_user.liked_posts
-                                 .order("likings.created_at DESC")
-                                 .includes(:author, :taggings)
-                                 .page(params[:page])
+                           .order("likings.created_at DESC")
+                           .includes(:author, :taggings, :likings)
+                           .page(params[:page])
       render :index
     end
 

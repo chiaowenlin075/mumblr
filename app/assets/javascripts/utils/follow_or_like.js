@@ -7,7 +7,7 @@ Mumblr.Mixins.FollowOrLikeable = {
         this.targetCollection = Mumblr.CurrentUser.followedBlogs();
       } else if (this.options.targetEvent === "liking") {
         this._target = new Mumblr.Models.Liking();
-        this.targetCollection = Mumblr.CurrentUser.likedPosts();
+        this.targetCollection = Mumblr.LikedPosts.posts();
       }
     }
     return this._target;

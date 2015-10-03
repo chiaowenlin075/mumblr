@@ -1,3 +1,69 @@
-// Place all the styles related to the Following controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// followings
+.followed-blogs {
+  margin-top: 100px;
+}
+
+.followed-blogs .blogs-index-item {
+  width: 80%;
+  height: 150px;
+  margin: 0 60px 22px;
+  position: relative;
+}
+
+.followed-blogs .blog-item-header {
+  float: left;
+  width: 30%;
+  height: 100%;
+}
+
+.followed-blogs .blog-item-info {
+  margin-top: 100px;
+}
+
+.followed-blogs .follow-status {
+  position: absolute;
+  width: 90px;
+  top: 10px;
+  right: 10px;
+  text-align: center;
+}
+
+.followed-blogs .blog-item-thumbnail {
+  position: absolute;
+  top: 30px;
+  left: 110px;
+}
+
+// followers
+.blog-followers {
+  padding: 20px;
+}
+
+.blog-followers > h2 {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.followers-index {
+  margin: 20px auto 0;
+}
+
+.follower {
+  display: block;
+  float: left;
+  width: 100px;
+  margin: 0 15px 15px 0;
+  text-align: center;
+}
+
+.follower .thumbnail {
+  position: relative;
+  left: 0;
+  border-radius: 3px;
+  margin: 0 auto;
+}
+
+.follower > b {
+  font-size: 14px;
+}

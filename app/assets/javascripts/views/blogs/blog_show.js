@@ -3,7 +3,7 @@ Mumblr.Views.BlogShow = Backbone.CompositeView.extend({
   className: "blog",
 
   initialize: function(){
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync change", this.render)
     this.addPostIndex();
     this.addFollowWidget();
   },

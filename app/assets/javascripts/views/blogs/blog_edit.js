@@ -48,13 +48,20 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
   },
 
   updateBackground: function(file){
+    this.$(".blog-modal-form .close").addClass("disabled-btn")
+                                     .prop("disabled", true);
     var input = this.$(".blog-modal-form").serializeJSON().blog;
     var formData = new FormData();
     formData.append("blog[title]", input.title);
     formData.append("blog[description]", input.description);
     formData.append("blog[url]", input.url);
     formData.append("blog[background]", file);
-    this.model.saveFormData(formData);
+    this.model.saveFormData(formData, {
+      sucess: function(model){
+        this.$(".blog-modal-form .close").removeClass("disabled-btn")
+                                         .prop("disabled", false);
+      }.bind(this)
+    });
   },
 
   exit: function(event){

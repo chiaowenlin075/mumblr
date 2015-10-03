@@ -1,3 +1,196 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// User auth form
+.user-auth {
+  height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0.2)
+      ),image-url("background/back2.jpg");
+  background-size: cover;
+  overflow: hidden;
+  padding: 0 15px;
+}
+
+.user-auth-content {
+  margin: 5% auto;
+  width: 300px;
+  color: #fff;
+}
+
+.sign-in-logo {
+  font-size: 50px;
+  font-family: Verdana;
+  font-weight: bold;
+  text-align: center;
+}
+
+.user-auth-content > p {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.input {
+  color: #000;
+  width: 100%;
+  margin: 15px 0 12px 0;
+}
+
+.input input {
+  width: 100%;
+  height: 45px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.input input:not(:last-child) {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.submit {
+  padding: 2px 6px 3px;
+  background: #40a3df;
+}
+
+.user-auth-form .submit {
+  margin: 0;
+  font-size: 16px;
+  height: 45px;
+  width: 100%;
+}
+
+.error-msg-list {
+  margin-bottom: 12px;
+}
+
+.error-msg {
+  display: block;
+  width: 100%;
+  min-height: 45px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px 0;
+  text-align: center;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.error-msg:not(:last-child) {
+  margin-bottom: 1px;
+}
+
+.fb-btn {
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  background: #2C408E;
+  color: #fff;
+  height: 45px;
+  border-radius: 3px;
+}
+
+.fb-btn .icon-fb-logo-white {
+  margin-left: 5px;
+  position: relative;
+  top: 8px;
+}
+
+.demo-user {
+  padding: 2px 6px 3px;
+  margin-top: 5px;
+  font-weight: bold;
+  height: 45px;
+  width: 100%;
+  background: #74cc9d;
+  border-radius: 3px;
+}
+
+a.demo-user {
+  display: block;
+  padding-top: 12px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.redir-sign-up > button, .redir-log-in > button {
+  display: block;
+  float: right;
+  margin: 10px 5px;
+  font-size: 14px;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+.redir-sign-up > button{
+  background: white;
+}
+
+.redir-log-in > button {
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.explore-mumblr {
+  padding: 10px;
+  background: transparent;
+  margin: 5px auto;
+  width: 100%;
+  text-align: center;
+  display: block;
+  box-sizing: border-box;
+}
+
+.icon-pacman {
+  margin-right: 5px;
+}
+
+//  user edit form
+.user-edit, .blog-followers {
+  background: #fff;
+  padding: 30px;
+  border-radius: 3px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.user-edit > ul {
+  margin-bottom: 20px;
+}
+
+.user-edit > h1 {
+  font-size: 24px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.user-info-list {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 20px 10px;
+}
+
+.user-info-list > h5 {
+  font-size: 14px;
+  font-weight: bold;
+  width: 180px;
+  float: left;
+}
+
+.user-info-list > section {
+  font-size: 14px;
+  float: left;
+  width: calc(100% - 180px);
+}
+
+.avatar-preview {
+  border-radius: 3px;
+}
+
+.user-edit .submit {
+  float: right;
+  margin: 0;
+}
+
+.user-edit .error {
+  color: #fff;
+  font-size: 14px;
+}

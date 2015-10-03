@@ -66,16 +66,6 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
     return this._followedBlogs;
   },
 
-  likedPosts: function(){
-    this._likedPosts = this._likedPosts || new Mumblr.Collections.Posts();
-    return this._likedPosts;
-  },
-
-  feeds: function(){
-    this._feeds = this._feeds || new Mumblr.Collections.Posts();
-    return this._feeds;
-  },
-
   parse: function(payload){
     if (payload.recent_tags){
       this.recentTags = payload.recent_tags;
@@ -90,36 +80,6 @@ Mumblr.Models.CurrentUser = Mumblr.Models.User.extend({
     if (payload.followed_blogs){
       this.followedBlogs().set(payload.followed_blogs, { parse: true });
       delete payload.followed_blogs;
-    };
-
-    if (payload.feeds){
-      this.feeds().set(payload.feeds, { parse: true });
-      delete payload.feeds;
-    };
-
-    if (payload.liked_posts){
-      this.likedPosts().set(payload.liked_posts, { parse: true });
-      delete payload.liked_posts;
-    };
-
-    if (payload.hasOwnProperty("feed_total_count")) {
-      this.feeds()._totalCount = payload.feed_total_count;
-      delete payload.feed_total_count;
-    };
-
-    if (payload.hasOwnProperty("feed_total_pages")) {
-      this.feeds()._totalPages = payload.feed_total_pages;
-      delete payload.feed_total_pages;
-    };
-
-    if (payload.hasOwnProperty("liked_posts_total_count")) {
-      this.likedPosts()._totalCount = payload.liked_posts_total_count;
-      delete payload.liked_posts_total_count;
-    };
-
-    if (payload.hasOwnProperty("liked_posts_total_pages")) {
-      this.likedPosts()._totalPages = payload.liked_posts_total_pages;
-      delete payload.liked_posts_total_pages;
     };
 
     return payload;

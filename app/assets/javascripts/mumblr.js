@@ -16,6 +16,8 @@ window.Mumblr = {
       }
     });
 
+    this.LikedPosts = new Mumblr.Collections.LikedPosts();
+    this.LikedPosts.fetch();
     this.router = new Mumblr.Routers.Router({ $rootEl: $("#container") });
     Backbone.history.start();
   }

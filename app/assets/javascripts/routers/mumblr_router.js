@@ -139,12 +139,10 @@ Mumblr.Routers.Router = Backbone.Router.extend({
   likes: function(){
     var callback = this.likes.bind(this);
     if (!this._requireSignedIn(callback)) { return; }
-    var likedPosts = new Mumblr.Collections.LikedPosts();
-    likedPosts.fetch();
 
     var likedPostsView = new Mumblr.Views.Feeds({
-      fetchObject: likedPosts,
-      collection: likedPosts.posts(),
+      fetchObject: Mumblr.LikedPosts,
+      collection: Mumblr.LikedPosts.posts(),
       needNewPostBar: false
     });
     this._swapView(likedPostsView, ".main-content");
@@ -192,14 +190,9 @@ Mumblr.Routers.Router = Backbone.Router.extend({
       this._clearSubView(selector, newView)
       this.$rootEl.find(selector).html(newView.render().$el);
     } else if (selector === ".blog-container"){
-      for (key in this._currentView){ this._clearSubView(key, null); };
-      this.header();
-      this._currentView[".blog-container"] = newView;
-      this.$rootEl.find(".blog-container").html(newView.render().$el);
+      this._swapWholePage(newView, true);
     } else {
-      for (key in this._currentView){ this._clearSubView(key, null); };
-      this._currentView[".blog-container"] = newView;
-      this.$rootEl.find(".blog-container").html(newView.render().$el);
+      this._swapWholePage(newView, false);
     };
   },
 
@@ -209,6 +202,13 @@ Mumblr.Routers.Router = Backbone.Router.extend({
       this.$rootEl.find(selector).html("");
     };
     this._currentView[selector] = newView;
+  },
+
+  _swapWholePage: function(newView, needHeader){
+    for (key in this._currentView){ this._clearSubView(key, null); };
+    if (needHeader){ this.header(); };
+    this._currentView[".blog-container"] = newView;
+    this.$rootEl.find(".blog-container").html(newView.render().$el);
   }
 
 });

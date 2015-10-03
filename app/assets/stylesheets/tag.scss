@@ -1,0 +1,23 @@
+// tags view item
+
+.tag {
+  color: #fff;
+  background: #3EABA9;
+  display: inline-block;
+  margin: 0 4px 4px 0;
+  padding: 6px 8px;
+  border-radius: 3px;
+}
+
+.tag > p {
+  display: block;
+  float: left;
+}
+
+.tag .delete {
+  display: block;
+  float: right;
+  margin-left: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
