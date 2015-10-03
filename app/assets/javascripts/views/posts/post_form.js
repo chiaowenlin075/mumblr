@@ -50,6 +50,7 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
 
   exit: function(event){
     event.preventDefault();
+    this.$el.parent().removeClass("editting");
     this.remove();
   },
 
@@ -83,6 +84,7 @@ Mumblr.Views.PostForm = Backbone.CompositeView.extend({
           this.blog.set("num_posts", this.blog.get("num_posts") + 1);
         }
         this.remove();
+        this.$el.parent().removeClass("editting");
       }.bind(this),
       error: function(model, resp){
         this.$("button.submit").removeClass("disabled-btn").prop("disabled", false);

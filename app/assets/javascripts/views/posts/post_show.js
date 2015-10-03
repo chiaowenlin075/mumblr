@@ -33,7 +33,7 @@ Mumblr.Views.PostShow = Backbone.CompositeView.extend({
   edit: function(event){
     event.preventDefault();
     var postEditForm = new Mumblr.Views.PostForm({ model: this.model });
-    this.$el.append(postEditForm.render().$el);
+    this.$el.append(postEditForm.render().$el).addClass("editting");
   },
 
   confirmDeleteModal: function(event){

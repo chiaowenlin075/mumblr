@@ -871,7 +871,7 @@ span.page {
   z-index: 15;
   top: 90px;
   position: absolute;
-  left: 50%;
+  left: 52%;
   transform: translateX(calc(-50% - 80px));
 }
 
@@ -1115,6 +1115,11 @@ input.title {
   background: #fff;
   word-wrap: break-word;
   border: 1px solid #dfdfdf;
+}
+
+.blog-posts .post-modal {
+  left: 76%;
+  width: 625px;
 }
 
 .blog-posts .post h1 {
@@ -1407,6 +1412,10 @@ input.title {
 
 .post-setting:hover .post-edit-options {
   display: block;
+}
+
+.editting {
+  position: relative;
 }
 
 .post-editable {
