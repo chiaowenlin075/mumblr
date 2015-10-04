@@ -25,11 +25,16 @@ group :development, :test do
   gem 'better_errors'
   gem 'annotate'
   gem 'binding_of_caller'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails', '~> 3.0'
   gem 'spring'
   gem 'web-console', '~> 2.0'
   gem 'letter_opener'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'shoulda-matchers'
+  gem 'faker'
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
 end
 
 group :production do

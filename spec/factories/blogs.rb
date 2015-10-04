@@ -17,7 +17,9 @@
 
 FactoryGirl.define do
   factory :blog do
-    
+    title { Faker::Name.title }
+    description { Faker::Lorem.paragraph }
+    owner_id 1
   end
 
 end

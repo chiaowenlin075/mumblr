@@ -12,7 +12,8 @@
 
 FactoryGirl.define do
   factory :tagging do
-    
+    tagger_id 1
+    post_id 1
   end
 
 end

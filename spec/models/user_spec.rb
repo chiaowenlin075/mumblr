@@ -19,5 +19,26 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject do
+    FactoryGirl.build(:user)
+  end
+
+  describe "model validations" do
+    it { should validate_presence_of(:username) }
+    it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:username) }
+    it { should validate_uniqueness_of(:email) }
+  end
+
+  describe "associations" do
+    it { should have_many(:sessions).dependent(:destroy)}
+    it { should have_many(:posts).dependent(:destroy)}
+    it { should have_many(:followings).dependent(:destroy)}
+    it { should have_many(:followed_blogs)}
+    it { should have_many(:likings).dependent(:destroy)}
+    it { should have_many(:liked_posts)}
+    it { should have_many(:taggings).dependent(:destroy)}
+    it { should have_one(:blog).dependent(:destroy)}
+  end
+
 end

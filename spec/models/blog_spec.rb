@@ -18,5 +18,22 @@
 require 'rails_helper'
 
 RSpec.describe Blog, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let!(:owner) { FactoryGirl.build(:user) }
+  let!(:blog) { FactoryGirl.build(:blog, url: owner.username.split().join("").underscore) }
+
+  describe "model validations" do
+    it { should validate_presence_of(:owner) }
+    it 'is has unique custom url that matches its owners username' do
+      expect(blog.url).to eq(owner.username.split().join("").underscore)
+    end
+  end
+
+  describe "associations" do
+    it { should belong_to(:owner) }
+    it { should have_many(:posts).dependent(:destroy) }
+    it { should have_many(:followings).dependent(:destroy) }
+    it { should have_many(:followers) }
+    it { should have_many(:followers_blogs) }
+  end
 end
