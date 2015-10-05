@@ -35,6 +35,8 @@ With async requests, the app runs with better efficiency as well as user interac
 - figaro
 - jbuilder
 - omniauth
+- rspec
+- shoulda-matchers
 
 ## What can you do?
 
@@ -70,6 +72,7 @@ Full functions...
 - Nested composite views
   - Each views in charge of minimal functionality
   - Use composite views to reduce garbage collections
+- Apply TDD for rapid development while maintaining code quality
 
 ## Future bonus features
 - Audio and chat posts
