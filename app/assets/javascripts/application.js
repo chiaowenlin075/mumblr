@@ -13,6 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require shepherd
+//= require tether
 //= require backbone
 //= require jquery.serializejson
 //= require underscore
