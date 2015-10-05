@@ -67,7 +67,7 @@ class Post < ActiveRecord::Base
   end
 
   def link_url_check
-    return unless post_type == "link"
+    return unless post_type == "link" && link_url
     if /^http[s]*:\/\/.+/.match(link_url)
       self.link_url = link_url
     else

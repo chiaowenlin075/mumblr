@@ -21,13 +21,18 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
 
-    let (:post) { FactoryGirl.build(:post, post_type: "link") }
 
     describe "model validations" do
       it { should validate_presence_of(:author) }
       it { should validate_presence_of(:blog) }
       it { should validate_inclusion_of(:post_type).in_array(%w(text image quote link))}
+      it 'has a valid link url' do
+        post = FactoryGirl.build(:post, post_type: "link", link_url: "asgerfdsadf")
+        post.valid?
+        expect(post.errors.full_messages).to include("Invalid! Given link is not supported")
+      end
       it 'has link title when the post type is link' do
+        post = FactoryGirl.create(:post, post_type: "link", link_url: "www.google.com")
         expect(post.title).to_not be_empty
       end
     end

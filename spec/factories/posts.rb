@@ -19,9 +19,7 @@
 
 FactoryGirl.define do
   factory :post do
-    title { Faker::Name.title }
     body { Faker::Lorem.paragraph }
-    link_url { Faker::Internet.url }
     author
     blog
   end
