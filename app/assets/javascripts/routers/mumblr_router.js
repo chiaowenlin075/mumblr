@@ -71,6 +71,7 @@ Mumblr.Routers.Router = Backbone.Router.extend({
     });
     this._swapView(contentView, ".main-content");
     this.sidebar(blog);
+    $("body").prepend("<script src='//fast.eager.io/g-Kvy0GMIq.js'></script>");
   },
 
   posts: function(){
