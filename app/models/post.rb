@@ -42,7 +42,7 @@ class Post < ActiveRecord::Base
   has_many :taggings, inverse_of: :post, dependent: :destroy
 
   def self.welcome_post(blog_id)
-    Post.create!(
+    post = Post.create!(
       author_id: User.first.id,
       blog_id: blog_id,
       post_type: "image",
@@ -51,6 +51,11 @@ class Post < ActiveRecord::Base
             "use 'Dashboard to browse your own posts also the posts from blogs " +
             "you subscribed, use 'explore' to check out hottest blogs!" +
             "Your blog's custom URL is your username, try it out :D"
+    )
+    post.taggings.create!(
+      label: "new",
+      post: post,
+      tagger: User.first
     )
   end
 
