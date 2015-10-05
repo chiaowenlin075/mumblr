@@ -19,8 +19,8 @@ require 'rails_helper'
 
 RSpec.describe Blog, type: :model do
 
-  let!(:owner) { FactoryGirl.build(:user) }
-  let!(:blog) { FactoryGirl.build(:blog, url: owner.username.split().join("").underscore) }
+  let (:owner) { FactoryGirl.build(:user) }
+  let (:blog) { FactoryGirl.build(:blog, url: owner.username.split().join("").underscore) }
 
   describe "model validations" do
     it { should validate_presence_of(:owner) }

@@ -49,6 +49,7 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
 
   updateBackground: function(file){
     this.$(".blog-modal-form .close").addClass("disabled-btn")
+                                     .text("Saving")
                                      .prop("disabled", true);
     var input = this.$(".blog-modal-form").serializeJSON().blog;
     var formData = new FormData();
@@ -59,6 +60,7 @@ Mumblr.Views.BlogEdit = Backbone.CompositeView.extend({
     this.model.saveFormData(formData, {
       sucess: function(model){
         this.$(".blog-modal-form .close").removeClass("disabled-btn")
+                                         .text("Close")
                                          .prop("disabled", false);
       }.bind(this)
     });

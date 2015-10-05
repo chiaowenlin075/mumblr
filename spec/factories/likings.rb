@@ -9,8 +9,10 @@
 #  updated_at :datetime         not null
 #
 
-require 'rails_helper'
+FactoryGirl.define do
+  factory :liking do
+    liker
+    association :post, factory: :post, post_type: "text"
+  end
 
-RSpec.describe Like, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -1,0 +1,6 @@
+todo: validate label match /\w+/ or prefix_hash will fail....
+
+
+1. following check follow own blog act weird
+
+can validate has associations rather than foreign key, why can't validate when create assocation object?

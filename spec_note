@@ -1,0 +1,4 @@
+faker/FactoryGirl has some problem in blogs and posts so test runs weird?
+like in my liking_spec.rb(model spec), i need to manually create post and blog to test
+liking, if i use FactoryGirl.build(:blog) and FactoryGirl.build(:post), spec fail...
+WHY?!

@@ -21,9 +21,7 @@ require 'rails_helper'
 
 RSpec.describe Post, type: :model do
 
-    let!(:author) { FactoryGirl.build(:user) }
-    let!(:blog) { FactoryGirl.build(:blog) }
-    let!(:post) { FactoryGirl.build(:post, post_type: "link") }
+    let (:post) { FactoryGirl.build(:post, post_type: "link") }
 
     describe "model validations" do
       it { should validate_presence_of(:author) }

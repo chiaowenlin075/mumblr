@@ -17,10 +17,26 @@
 #
 
 FactoryGirl.define do
-  factory :user do
+  factory :user, aliases: [:author, :owner, :follower, :liker, :tagger]do
     email { Faker::Internet.email }
     password { Faker::Lorem.characters(10) }
     username { Faker::Name.name }
+
+    factory :user_with_blog do
+      after(:create) do |user, evaluator|
+        create_list(:blog, user: user)
+      end
+    end
+
+    factory :user_with_posts do
+       transient do
+         posts_count 5
+       end
+
+       after(:create) do |user, evaluator|
+         create_list(:post, evaluator.posts_count, user: user, blog: user.blog, post_type: "text")
+       end
+    end
   end
 
 end

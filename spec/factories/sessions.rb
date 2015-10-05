@@ -11,7 +11,7 @@
 
 FactoryGirl.define do
   factory :session do
-    user_id 1
+    association :user, factory: :user, strategy: :build 
     session_token { Faker::Lorem.characters(16) }
   end
 

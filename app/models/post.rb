@@ -67,7 +67,7 @@ class Post < ActiveRecord::Base
   end
 
   def link_url_check
-    return unless link_url
+    return unless post_type == "link"
     if /^http[s]*:\/\/.+/.match(link_url)
       self.link_url = link_url
     else
@@ -77,7 +77,7 @@ class Post < ActiveRecord::Base
 
   # get the preview info for the link
   def link_title
-    return unless link_url
+    return unless post_type == "link"
     begin
       find_title = URI.parse(link_url).read.match(/<title>(.*)<\/title>/)
       return find_title ? find_title[1] : "Untitled"
@@ -88,7 +88,7 @@ class Post < ActiveRecord::Base
 
   private
   def link_title
-    return unless link_url
+    return unless post_type == "link"
     begin
       find_title = URI.parse(link_url).read.match(/<title>(.*)<\/title>/)
       self.title = find_title ? find_title[1] : "Untitled"
@@ -107,7 +107,7 @@ class Post < ActiveRecord::Base
   end
 
   def validate_link_url
-    return unless link_url
+    return unless post_type == "link"
     if !link_url_valid?
       errors[:invalid!] << "Given link is not supported"
     end

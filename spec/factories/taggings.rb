@@ -12,8 +12,9 @@
 
 FactoryGirl.define do
   factory :tagging do
-    tagger_id 1
-    post_id 1
+    label Faker::Lorem.word
+    tagger
+    association :post, factory: :post, post_type: "text"
   end
 
 end

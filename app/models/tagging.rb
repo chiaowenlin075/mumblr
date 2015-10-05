@@ -17,7 +17,7 @@ class Tagging < ActiveRecord::Base
   validates :label, :post, :tagger, presence: true
   validates :label, uniqueness: { scope: :post, case_sensitive: true }
   validates :label, length: { maximum: 25 }
-  before_validation :prefix_hash
+  before_save :prefix_hash
 
   belongs_to :post, inverse_of: :taggings
   belongs_to :tagger,
