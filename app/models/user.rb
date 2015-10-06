@@ -89,7 +89,8 @@ class User < ActiveRecord::Base
         provider: auth_hash[:provider],
         username: check_username(auth_hash[:info][:name]),
         email: generate_random_email,
-        password: SecureRandom::urlsafe_base64
+        password: SecureRandom::urlsafe_base64,
+        activated: true
       )
       blog = Blog.create!(owner_id: user.id)
       Post.welcome_post(blog.id)
