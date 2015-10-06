@@ -2,7 +2,7 @@
 
 [Check out here][live]
 
-[live]: https://www.mumblrr.com/
+[live]: http://www.mumblrr.com/
 
 ![mumblr]
 
