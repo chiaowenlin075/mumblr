@@ -87,8 +87,8 @@ class User < ActiveRecord::Base
       user = User.create!(
         uid: auth_hash[:uid],
         provider: auth_hash[:provider],
-        username: check_username(auth_hash[:info][:name]),
-        email: generate_random_email,
+        username: User.check_username(auth_hash[:info][:name]),
+        email: User.generate_random_email,
         password: SecureRandom::urlsafe_base64,
         activated: true
       )
@@ -140,18 +140,18 @@ class User < ActiveRecord::Base
     self.taggings.sort_by(&:created_at).reverse!.take(10).map(&:label)
   end
 
-  def generate_random_email
+  def self.generate_random_email
     loop do
       email = SecureRandom::urlsafe_base64 + "@mumblr.com"
-      return email unless self.class.exists?(email: email)
+      return email unless self.exists?(email: email)
     end
   end
 
-  def check_username(username)
-    if self.class.exists?(username: username)
+  def self.check_username(username)
+    if self.exists?(username: username)
       loop do
         username = username + rand(10).to_s
-        return username unless self.class.exists?(username: username)
+        return username unless self.exists?(username: username)
       end
     end
 
