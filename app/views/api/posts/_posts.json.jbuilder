@@ -1,9 +1,10 @@
 json.posts posts.to_a.reverse! do |post|
+  likings_hash = current_user.nil? ? {} : post_likes_hash
   json.partial!(
     "api/posts/post",
     post: post,
     need_likeStatus: true,
-    likings_hash: current_user.post_likes_hash
+    likings_hash: likings_hash
   )
 end
 

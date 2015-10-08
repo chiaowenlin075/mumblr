@@ -17,6 +17,6 @@ if need_followers
   json.followers blog.followers.includes(:blog) do |follower|
     json.partial!("api/users/user", user: follower, need_followed_blogs: false)
     json.blog_url follower.blog.url
-    json.following current_user.blog_follow_hash[follower.blog.id]
+    json.following followings_hash[follower.blog.id]
   end
 end
