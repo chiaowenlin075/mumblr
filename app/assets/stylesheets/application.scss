@@ -279,6 +279,10 @@ input.hide, textarea.hide, label.hide,
   float: right;
 }
 
+.header-navbar > li:last-child {
+  float: left;
+}
+
 .header-navbar > li:hover {
   color: #fff;
 }
@@ -319,11 +323,11 @@ input.hide, textarea.hide, label.hide,
 }
 
 .redir-dashboard:after {
-  right: 118px;
+  right: 128px;
 }
 
 .redir-explore:after {
-  right: 180px;
+  right: 190px;
 }
 
 .redir-dashboard:hover:before,
