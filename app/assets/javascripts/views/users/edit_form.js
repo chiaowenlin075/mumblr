@@ -57,7 +57,9 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
 
   submit: function(event){
     event.preventDefault();
-    this.$("button.submit").addClass("disabled-btn").prop("disabled", true);
+    this.$("button.submit").addClass("disabled-btn")
+                           .text("Saving")
+                           .prop("disabled", true);
     var input = this.$el.serializeJSON().user;
     var file = this.$(".upload")[0].files[0];
     var that = this;
@@ -70,7 +72,9 @@ Mumblr.Views.UserEditForm = Backbone.View.extend({
           Backbone.history.navigate("", { trigger: true });
         },
         error: function(model, resp){
-          that.$("button.submit").removeClass("disabled-btn").prop("disabled", false);
+          that.$("button.submit").removeClass("disabled-btn")
+                                 .text("Save")
+                                 .prop("disabled", false);
           var errMsgs = resp.responseJSON;
           that.showErrorMsg(errMsgs)
           that.$(".username").val(that.username);
