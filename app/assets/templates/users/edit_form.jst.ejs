@@ -12,12 +12,16 @@
   </li>
   <li class="user-info-list group">
     <h5>Password</h5>
+    <% if (user.escape("id") === "1") { %>
+      <p>You cannot change demo user's password :(</p>
+    <% } else { %>
     <section class="group">
       <p class="show-info">········</p><i class="icon-edit"/>
       <input type="password"
              class="editable hide"
              name="user[password]">
     </section>
+    <% } %>
   </li>
   <li class="user-info-list group">
     <h5>Profile avatar</h5>
