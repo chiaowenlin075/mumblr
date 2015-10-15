@@ -52,11 +52,6 @@ class Post < ActiveRecord::Base
             "you subscribed, use 'explore' to check out hottest blogs!" +
             "Your blog's custom URL is your username, try it out :D"
     )
-    post.taggings.create!(
-      label: "new",
-      post: post,
-      tagger: User.first
-    )
   end
 
   def create_tags(tag_labels, tagger_id)

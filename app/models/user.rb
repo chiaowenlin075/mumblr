@@ -137,7 +137,7 @@ class User < ActiveRecord::Base
   end
 
   def recent_tags
-    self.taggings.sort_by(&:created_at).reverse!.take(10).map(&:label)
+    self.taggings.limit(30).sort_by(&:created_at).reverse!.map(&:label).uniq!.take(10)
   end
 
   def self.generate_random_email
