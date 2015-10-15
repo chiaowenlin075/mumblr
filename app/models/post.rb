@@ -87,15 +87,6 @@ class Post < ActiveRecord::Base
   end
 
   private
-  def link_title
-    return unless post_type == "link"
-    begin
-      find_title = URI.parse(link_url).read.match(/<title>(.*)<\/title>/)
-      self.title = find_title ? find_title[1] : "Untitled"
-    rescue
-      self.title = "Untitled"
-    end
-  end
 
   def link_url_valid?
     begin
