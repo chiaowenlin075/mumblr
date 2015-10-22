@@ -87,7 +87,6 @@ class Post < ActiveRecord::Base
   end
 
   private
-
   def link_url_valid?
     begin
       open(link_url)
