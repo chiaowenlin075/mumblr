@@ -75,18 +75,18 @@ class Post < ActiveRecord::Base
     end
   end
 
+  private
   # get the preview info for the link
   def link_title
     return unless post_type == "link"
     begin
       find_title = URI.parse(link_url).read.match(/<title>(.*)<\/title>/)
-      return find_title ? find_title[1] : "Untitled"
+      self.title = find_title ? find_title[1] : "Untitled"
     rescue
-      return "Untitled"
+      self.title = "Untitled"
     end
   end
 
-  private
   def link_url_valid?
     begin
       open(link_url)
